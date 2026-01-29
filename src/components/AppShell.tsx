@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import NavLink from "./NavLink";
 import { BRAND } from "../data/brand";
+import ResponsiveAppBar from "./Navbar";
 
 type AppShellProps = {
   children: React.ReactNode;
@@ -35,6 +36,7 @@ export default function AppShell({ children }: AppShellProps) {
             </NavLink>
           </nav>
         </div>
+        <ResponsiveAppBar/>
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-10">{children}</main>

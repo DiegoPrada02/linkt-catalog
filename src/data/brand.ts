@@ -9,7 +9,7 @@ export type Brand = {
 export const BRAND: Brand = {
   name: "Link'T Systems",
   tagline: "Browse our catalog by category",
-  email: "sales@Linktsystems.com",
-  phone: "+1 (555) 555-5555",
-  address: "1047 Nandina Dr, Weston Florida",
+  email: "JUANPRADA@GRUPOELLIOT.COM",
+  phone: "+1 (754)423-5958 / +1 (225)360-5760",
+  address: "10930 NW 138TH ST UNIT 2 - HIALEAH GARDENS FL, 33018",
 };
