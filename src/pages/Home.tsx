@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
-import Card from "../components/Card";
+import CatalogCard from "../components/CatalogCard";
 import { BRAND } from "../data/brand";
 import { CATEGORIES } from "../data/catalog";
 
@@ -46,7 +46,7 @@ export default function Home() {
 
         <Grid>
           {CATEGORIES.slice(0, 4).map((c) => (
-            <Card
+            <CatalogCard
               key={c.id}
               title={c.title}
               description={c.description}

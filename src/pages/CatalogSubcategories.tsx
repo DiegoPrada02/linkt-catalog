@@ -1,9 +1,8 @@
-import React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
-import Card from "../components/Card";
+import CatalogCard from "../components/CatalogCard";
 import { CATEGORIES } from "../data/catalog";
 
 export default function CatalogSubcategories() {
@@ -39,7 +38,7 @@ export default function CatalogSubcategories() {
 
       <Grid>
         {category.subcategories.map((s) => (
-          <Card
+          <CatalogCard
             key={s.id}
             title={s.title}
             description={s.description}

@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
-import Card from "../components/Card";
+import CatalogCard from "../components/CatalogCard";
 import { CATEGORIES } from "../data/catalog";
 
 export default function CatalogCategories() {
@@ -39,7 +39,7 @@ export default function CatalogCategories() {
 
       <Grid>
         {filtered.map((c) => (
-          <Card
+          <CatalogCard
             key={c.id}
             title={c.title}
             description={c.description}
