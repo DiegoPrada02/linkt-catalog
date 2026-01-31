@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Card from "@mui/material/card"
-import { CardActionArea, CardContent, CardMedia } from "@mui/material";
+import Card from "@mui/material/Card";
+import { CardActionArea, CardContent, CardMedia, Box, Typography } from "@mui/material";
 
 type CatalogCardProps = {
   title: string;
@@ -10,41 +10,113 @@ type CatalogCardProps = {
   image: string;
 };
 
-export default function CatalogCard({ title, description, href, badge, image }: CatalogCardProps) {
+export default function CatalogCard({
+  title,
+  description,
+  href,
+  badge,
+  image,
+}: CatalogCardProps) {
   const Inner = (
-    <Card className="group relative h-full rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-      <CardContent className="p-0">
-        <CardActionArea>
-            <CardMedia className="flex justify-center">
-              {image ? ( <img src={image} alt={title} className="h-40 w-full object-cover rounded-2xl
-              shadow-2xl"/>) : null}
-            </CardMedia>
+    <Card
+      elevation={0}
+      sx={{
+        height: "100%",
+        borderRadius: "18px",
+        bgcolor: "var(--prussian-blue)",
+        border: "1px solid var(--dusk-blue)",
+        color: "var(--alabaster-grey)",
+        transition: "all 0.25s ease",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          boxShadow: "0 12px 30px rgba(13, 27, 42, 0.35)",
+          borderColor: "var(--lavender-grey)",
+        },
+      }}
+    >
+      <CardActionArea sx={{ height: "100%" }}>
+        {/* Image */}
+        <CardMedia>
+          {image && (
+            <Box
+              component="img"
+              src={image}
+              alt={title}
+              sx={{
+                height: 180,
+                width: "100%",
+                objectFit: "cover",
+                borderTopLeftRadius: "18px",
+                borderTopRightRadius: "18px",
+              }}
+            />
+          )}
+        </CardMedia>
 
-        <div className="mt-4">
-          <div className="text-base font-semibold">{title}</div>
-          <div className="mt-1 line-clamp-2 text-sm text-slate-600">{description}</div>
-        </div>
+        <CardContent sx={{ px: 2.5, py: 2 }}>
+          {/* Title */}
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 600,
+              color: "var(--alabaster-grey)",
+            }}
+          >
+            {title}
+          </Typography>
 
-        <div className="mt-4 text-sm font-medium text-slate-900">
-          <span className="inline-flex items-center gap-2">
-            View <span className="transition group-hover:translate-x-0.5">→</span>
-            {badge ? (
-            <span className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs text-slate-600">
-              {badge}
-            </span>
-          ) : null}
-          </span>
-        </div>
-        </CardActionArea>
-      </CardContent>
+          {/* Description */}
+          <Typography
+            variant="body2"
+            sx={{
+              mt: 0.5,
+              color: "var(--lavender-grey)",
+            }}
+          >
+            {description}
+          </Typography>
+
+          {/* Footer */}
+          <Box
+            sx={{
+              mt: 2,
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              fontSize: 14,
+              fontWeight: 500,
+              color: "var(--alabaster-grey)",
+            }}
+          >
+            <span>View →</span>
+
+            {badge && (
+              <Box
+                sx={{
+                  ml: "auto",
+                  px: 1.5,
+                  py: 0.5,
+                  fontSize: 12,
+                  borderRadius: "999px",
+                  bgcolor: "var(--ink-black)",
+                  border: "1px solid var(--dusk-blue)",
+                  color: "var(--lavender-grey)",
+                }}
+              >
+                {badge}
+              </Box>
+            )}
+          </Box>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 
   return href ? (
-    <Link to={href} className="block h-full">
+    <Link to={href} style={{ textDecoration: "none", height: "100%" }}>
       {Inner}
     </Link>
   ) : (
-    <div className="h-full">{Inner}</div>
+    <Box height="100%">{Inner}</Box>
   );
 }

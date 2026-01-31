@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
@@ -10,26 +9,68 @@ import { CATEGORIES } from "../data/catalog";
 export default function Home() {
   return (
     <AppShell>
-      <div className="rounded-[2rem] border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-8 shadow-sm">
-        <h1 className="text-4xl font-semibold tracking-tight">{BRAND.name}</h1>
-        <p className="mt-3 max-w-2xl text-slate-600">{BRAND.tagline}</p>
+      {/* HERO / INTRO */}
+      <div
+        className="rounded-2xl border p-8 shadow-sm"
+        style={{
+          background: "linear-gradient(180deg, var(--prussian-blue), var(--ink-black))",
+          borderColor: "var(--dusk-blue)",
+          color: "var(--alabaster-grey)",
+        }}
+      >
+        <h1 className="text-4xl font-semibold tracking-tight">
+          {BRAND.name}
+        </h1>
+
+        <p
+          className="mt-3 max-w-2xl"
+          style={{ color: "var(--lavender-grey)" }}
+        >
+          {BRAND.tagline}
+        </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
+          {/* Primary CTA */}
           <Link
             to="/catalog"
-            className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800"
+            className="rounded-xl px-5 py-3 text-sm font-semibold transition"
+            style={{
+              backgroundColor: "var(--dusk-blue)",
+              color: "var(--alabaster-grey)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--lavender-grey)";
+              e.currentTarget.style.color = "var(--ink-black)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--dusk-blue)";
+              e.currentTarget.style.color = "var(--alabaster-grey)";
+            }}
           >
             Browse Catalog
           </Link>
+
+          {/* Secondary CTA */}
           <Link
             to="/contact"
-            className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+            className="rounded-xl border px-5 py-3 text-sm font-semibold transition"
+            style={{
+              borderColor: "var(--dusk-blue)",
+              color: "var(--alabaster-grey)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--prussian-blue)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
           >
             Contact
           </Link>
         </div>
       </div>
 
+      {/* POPULAR CATEGORIES */}
       <div className="mt-10">
         <PageTitle
           title="Popular categories"
@@ -37,7 +78,17 @@ export default function Home() {
           right={
             <Link
               to="/catalog"
-              className="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              className="rounded-xl border px-4 py-2 text-sm font-semibold transition"
+              style={{
+                borderColor: "var(--dusk-blue)",
+                color: "var(--alabaster-grey)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--prussian-blue)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
               View all
             </Link>
@@ -50,7 +101,7 @@ export default function Home() {
               key={c.id}
               title={c.title}
               description={c.description}
-              image = {c.image}
+              image={c.image}
               href={`/catalog/${c.id}`}
               badge={`${c.subcategories.length} items`}
             />

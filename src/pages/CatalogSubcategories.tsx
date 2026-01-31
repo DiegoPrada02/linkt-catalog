@@ -14,12 +14,21 @@ export default function CatalogSubcategories() {
   return (
     <AppShell>
       <div className="mb-8">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
-          <Link className="hover:text-slate-900" to="/catalog">
+        {/* Breadcrumbs */}
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <Link
+            to="/catalog"
+            className="transition hover:underline underline-offset-4"
+            style={{ color: "var(--dusk-blue)" }}
+          >
             Catalog
           </Link>
-          <span className="text-slate-300">/</span>
-          <span className="text-slate-900">{category.title}</span>
+
+          <span style={{ color: "var(--dusk-blue)" }}>/</span>
+
+          <span style={{ color: "var(--dusk-blue)", fontWeight: 600 }}>
+            {category.title}
+          </span>
         </div>
 
         <PageTitle
@@ -28,7 +37,17 @@ export default function CatalogSubcategories() {
           right={
             <Link
               to="/catalog"
-              className="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              className="rounded-xl border px-4 py-2 text-sm font-semibold transition"
+              style={{
+                borderColor: "var(--dusk-blue)",
+                color: "var(--alabaster-grey)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--prussian-blue)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
               Back to categories
             </Link>
@@ -36,6 +55,7 @@ export default function CatalogSubcategories() {
         />
       </div>
 
+      {/* Subcategory grid */}
       <Grid>
         {category.subcategories.map((s) => (
           <CatalogCard
@@ -43,20 +63,11 @@ export default function CatalogSubcategories() {
             title={s.title}
             description={s.description}
             image={s.image}
-            href="#"
-            badge="Subcategory"
+            href={`/catalog/${category.id}/${s.id}`}
+            badge="Details"
           />
         ))}
       </Grid>
-
-      <div className="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 text-sm text-slate-700">
-        <div className="font-semibold text-slate-900">Next step</div>
-        <p className="mt-1">
-          When you’re ready, we can add a third level (products/items page) at{" "}
-          <span className="font-mono">/catalog/:categoryId/:subcategoryId</span>, pull data
-          from a CMS, and add SEO.
-        </p>
-      </div>
     </AppShell>
   );
 }

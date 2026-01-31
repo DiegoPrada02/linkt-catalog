@@ -22,7 +22,7 @@ export default function CatalogCategories() {
         title="Catalog"
         subtitle="Choose a category to see its subcategories."
         right={
-          <div className="w-full sm:w-[260px]">
+          <div className="w-full sm:w-65">
             <label className="sr-only" htmlFor="search">
               Search
             </label>

@@ -1,120 +1,140 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 
-const pages = ['home', 'catalog', 'contact'];
+const pages = ["HOME", "CATALOG", "CONTACT"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      elevation={0}
+      sx={{
+        bgcolor: "var(--ink-black)",
+        borderBottom: "1px solid var(--dusk-blue)",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* Logo */}
+          <Box
+            sx={{
+              bgcolor: "var(--alabaster-grey)",
+              borderRadius: "16px",
+              p: 0.5,
+              m: 2,
+            }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}Logo.png`}
+              alt="Linkt Systems LLC Logo"
+              style={{ height: 64, width: "auto"}}
+              className="p-2"
+            />
+          </Box>
+
+          {/* Desktop brand text */}
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              ml: 1,
+              display: { xs: "none", md: "flex" },
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".25rem",
+              color: "var(--alabaster-grey)",
+              textDecoration: "none",
             }}
           >
-            Link'T Systems
+            LINK&apos;T SYSTEMS
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+          {/* Mobile menu */}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
+
             <Menu
-              id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
+              sx={{
+                display: { xs: "block", md: "none" },
+                "& .MuiPaper-root": {
+                  bgcolor: "var(--prussian-blue)",
+                  color: "var(--alabaster-grey)",
+                },
+              }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Link
+                    to={page === "HOME" ? "/" : `/${page.toLowerCase()}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    {page}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <img src="Linkt-logo.png" alt="Linkt Systems LLC Logo" className="h-10 w-8 mr-2" /> {/* add here the linkt Systems logo*/ }
+
+          {/* Mobile brand */}
           <Typography
-            variant="h5"
+            variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              display: { xs: "flex", md: "none" },
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".25rem",
+              color: "var(--alabaster-grey)",
             }}
           >
-            Link'T Systems
+            LINK&apos;T
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+          {/* Desktop menu */}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-            <Link to={page == "home" ? "/" : `/${page}`}>
-                <Button
+              <Link
                 key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                to={page === "HOME" ? "/" : `/${page.toLowerCase()}`}
+                style={{ textDecoration: "none" }}
               >
-                {page}
-              </Button>
-            </Link>
-            
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "var(--alabaster-grey)",
+                    "&:hover": {
+                      bgcolor: "var(--dusk-blue)",
+                    },
+                  }}
+                >
+                  {page}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
@@ -122,4 +142,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;
