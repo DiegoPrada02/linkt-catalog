@@ -14,9 +14,11 @@ export default function AppShell({ children }: AppShellProps) {
         <ResponsiveAppBar/>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-10">{children}</main>
+      <main className="mx-auto z-50 max-w-6xl px-4 py-10">
+        {children}
+      </main>
 
-      <footer className="border-t border-slate-200">
+      <footer className="border-t border-slate-200 z-50 ">
         <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>

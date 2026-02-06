@@ -5,6 +5,7 @@ import Grid from "../components/Grid";
 import CatalogCard from "../components/CatalogCard";
 import { BRAND } from "../data/brand";
 import { CATEGORIES } from "../data/catalog";
+import { SparklesText } from "../components/ui/sparkles-text";
 
 export default function Home() {
   return (
@@ -18,9 +19,9 @@ export default function Home() {
           color: "var(--alabaster-grey)",
         }}
       >
-        <h1 className="text-4xl font-semibold tracking-tight">
+        <SparklesText className="text-4xl font-semibold tracking-tight">
           {BRAND.name}
-        </h1>
+        </SparklesText>
 
         <p
           className="mt-3 max-w-2xl"
@@ -107,6 +108,14 @@ export default function Home() {
             />
           ))}
         </Grid>
+      </div>
+      
+      {/* Who Are We? Section */}
+      <div id="about-us">
+          <PageTitle
+            title = {"why choose us?"}
+            subtitle="As a"
+          />
       </div>
     </AppShell>
   );
