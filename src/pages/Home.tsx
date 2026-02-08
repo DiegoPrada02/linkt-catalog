@@ -6,11 +6,15 @@ import CatalogCard from "../components/CatalogCard";
 import { BRAND } from "../data/brand";
 import { CATEGORIES } from "../data/catalog";
 import { SparklesText } from "../components/ui/sparkles-text";
+import { Hero } from "../components/Hero";
 
 export default function Home() {
   return (
     <AppShell>
       {/* HERO / INTRO */}
+
+      <Hero/>
+
       <div
         className="rounded-2xl border p-8 shadow-sm"
         style={{
