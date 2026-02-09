@@ -16,33 +16,23 @@ export default function PageTitle({ title, subtitle, right }: PageTitleProps) {
         rounded-2xl
         border
         p-5
+        bg-(--primary-main)
+        border-(--primary-light)
       "
-      style={{
-        backgroundColor: "var(--prussian-blue)",
-        borderColor: "var(--dusk-blue)",
-      }}
     >
       <div>
-        <h1
-          className="text-3xl font-semibold tracking-tight"
-          style={{ color: "var(--alabaster-grey)" }}
-        >
+        <h1 className="text-3xl font-semibold tracking-tight text-(--background-default)">
           {title}
         </h1>
 
         {subtitle ? (
-          <p
-            className="mt-2 max-w-2xl"
-            style={{ color: "var(--lavender-grey)" }}
-          >
+          <p className="mt-2 max-w-2xl text-(--background-default)">
             {subtitle}
           </p>
         ) : null}
       </div>
 
-      {right ? (
-        <div className="shrink-0">{right}</div>
-      ) : null}
+      {right ? <div className="shrink-0">{right}</div> : null}
     </div>
   );
 }

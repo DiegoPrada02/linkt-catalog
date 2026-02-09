@@ -1,33 +1,19 @@
 "use client"
 
-import { cn } from "../lib/utils"
-import { InteractiveGridPattern } from "../components/ui/interactive-grid-pattern"
-import { BRAND } from "../data/brand"
-import { SparklesText } from "./ui/sparkles-text"
-import { WordRotate } from "./ui/word-rotate"
-import { PixelImage } from "./ui/pixel-image"
 export function Hero() {
   return (
 
-    <div id="Hero" className="mb-10 flex">
-        <div className="bg-background relative flex h-100 w-full items-center justify-center overflow-hidden rounded-lg border">
-            <InteractiveGridPattern
-                className={cn("mask-[radial-gradient(400px_circle_at_center,white,transparent)]")}
-                width={20}
-                height={20}
-                squares={[80, 80]}
-                squaresClassName="hover:fill-blue-500"
-            />
-            <div className="text-center">  
-                <SparklesText className="">{BRAND.name}</SparklesText>
-                <WordRotate
-                    className="text-2xl"
-                    words={BRAND.slogans}
-                />
-            </div>
-            <div className="h-65 ml-10">
-                <PixelImage src="/unit-load-strapper.jpg" grid="4x6"/>   
-            </div>
+    <div id="Hero" className="max-w-full mx-auto flex lg:flex-row items-center gap-12 justify-center border-black border-20 rounded-2xl">
+        <div className="flex-col">
+            <h1>
+                TITLE HERE
+            </h1>
+            <h3>
+                Subtitle here
+            </h3>
+        </div>
+        <div className="flex-1 max-w-50">
+            <img src="/test2.png" alt="Hero Image" className="w-full h-auto mt-6 rounded-2xl shadow-lg object-cover"/>
         </div>
     </div>
   )

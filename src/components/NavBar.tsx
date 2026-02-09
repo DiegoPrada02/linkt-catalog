@@ -29,8 +29,8 @@ function ResponsiveAppBar() {
       position="static"
       elevation={0}
       sx={{
-        bgcolor: "var(--ink-black)",
-        borderBottom: "1px solid var(--dusk-blue)",
+        bgcolor: "var(--primary-main)",
+        borderBottom: "1px solid var(--primary-light)",
       }}
     >
       <Container maxWidth="xl">
@@ -38,7 +38,7 @@ function ResponsiveAppBar() {
           {/* Logo */}
           <Box
             sx={{
-              bgcolor: "var(--alabaster-grey)",
+              bgcolor: "var(--background-paper)",
               borderRadius: "16px",
               p: 0.5,
               m: 2,
@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
             <img
               src={`${import.meta.env.BASE_URL}Logo.png`}
               alt="Linkt Systems LLC Logo"
-              style={{ height: 64, width: "auto"}}
+              style={{ height: 64, width: "auto" }}
               className="p-2"
             />
           </Box>
@@ -61,8 +61,7 @@ function ResponsiveAppBar() {
               display: { xs: "none", md: "flex" },
               fontWeight: 700,
               letterSpacing: ".25rem",
-              color: "var(--alabaster-grey)",
-              textDecoration: "none",
+              color: "var(--background-paper)",
             }}
           >
             LINK&apos;T SYSTEMS
@@ -70,7 +69,7 @@ function ResponsiveAppBar() {
 
           {/* Mobile menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton onClick={handleOpenNavMenu} color="inherit">
+            <IconButton onClick={handleOpenNavMenu} sx={{ color: "var(--background-paper)" }}>
               <MenuIcon />
             </IconButton>
 
@@ -81,8 +80,8 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "block", md: "none" },
                 "& .MuiPaper-root": {
-                  bgcolor: "var(--prussian-blue)",
-                  color: "var(--alabaster-grey)",
+                  bgcolor: "var(--primary-main)",
+                  color: "var(--background-paper)",
                 },
               }}
             >
@@ -108,7 +107,7 @@ function ResponsiveAppBar() {
               display: { xs: "flex", md: "none" },
               fontWeight: 700,
               letterSpacing: ".25rem",
-              color: "var(--alabaster-grey)",
+              color: "var(--background-paper)",
             }}
           >
             LINK&apos;T
@@ -126,9 +125,9 @@ function ResponsiveAppBar() {
                   onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
-                    color: "var(--alabaster-grey)",
+                    color: "var(--background-paper)",
                     "&:hover": {
-                      bgcolor: "var(--dusk-blue)",
+                      bgcolor: "var(--primary-light)",
                     },
                   }}
                 >

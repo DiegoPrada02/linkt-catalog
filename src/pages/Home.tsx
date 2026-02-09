@@ -3,79 +3,16 @@ import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
 import CatalogCard from "../components/CatalogCard";
-import { BRAND } from "../data/brand";
 import { CATEGORIES } from "../data/catalog";
-import { SparklesText } from "../components/ui/sparkles-text";
 import { Hero } from "../components/Hero";
+import About from "../components/About";
 
 export default function Home() {
   return (
     <AppShell>
-      {/* HERO / INTRO */}
-
-      <Hero/>
-
-      <div
-        className="rounded-2xl border p-8 shadow-sm"
-        style={{
-          background: "linear-gradient(180deg, var(--prussian-blue), var(--ink-black))",
-          borderColor: "var(--dusk-blue)",
-          color: "var(--alabaster-grey)",
-        }}
-      >
-        <SparklesText className="text-4xl font-semibold tracking-tight">
-          {BRAND.name}
-        </SparklesText>
-
-        <p
-          className="mt-3 max-w-2xl"
-          style={{ color: "var(--lavender-grey)" }}
-        >
-          {BRAND.tagline}
-        </p>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          {/* Primary CTA */}
-          <Link
-            to="/catalog"
-            className="rounded-xl px-5 py-3 text-sm font-semibold transition"
-            style={{
-              backgroundColor: "var(--dusk-blue)",
-              color: "var(--alabaster-grey)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--lavender-grey)";
-              e.currentTarget.style.color = "var(--ink-black)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--dusk-blue)";
-              e.currentTarget.style.color = "var(--alabaster-grey)";
-            }}
-          >
-            Browse Catalog
-          </Link>
-
-          {/* Secondary CTA */}
-          <Link
-            to="/contact"
-            className="rounded-xl border px-5 py-3 text-sm font-semibold transition"
-            style={{
-              borderColor: "var(--dusk-blue)",
-              color: "var(--alabaster-grey)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--prussian-blue)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-            }}
-          >
-            Contact
-          </Link>
-        </div>
-      </div>
-
-      {/* POPULAR CATEGORIES */}
+      <Hero />
+      <div className="max-w-6xl item-center mx-auto flex flex-col gap-16">
+        {/* POPULAR CATEGORIES */}
       <div className="mt-10">
         <PageTitle
           title="Popular categories"
@@ -83,17 +20,15 @@ export default function Home() {
           right={
             <Link
               to="/catalog"
-              className="rounded-xl border px-4 py-2 text-sm font-semibold transition"
-              style={{
-                borderColor: "var(--dusk-blue)",
-                color: "var(--alabaster-grey)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--prussian-blue)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-              }}
+              className="
+                rounded-xl
+                border border-(--primary)
+                px-4 py-2
+                text-sm font-semibold
+                text-(--background-default)
+                transition
+                hover:bg-(--secondary-light)
+              "
             >
               View all
             </Link>
@@ -113,14 +48,13 @@ export default function Home() {
           ))}
         </Grid>
       </div>
-      
+
       {/* Who Are We? Section */}
       <div id="about-us">
-          <PageTitle
-            title = {"why choose us?"}
-            subtitle="As a"
-          />
+        <About />
       </div>
+      </div>
+
     </AppShell>
   );
 }
