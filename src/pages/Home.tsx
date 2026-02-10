@@ -9,9 +9,10 @@ import About from "../components/About";
 
 export default function Home() {
   return (
-    <AppShell>
+      <AppShell>
       <Hero />
-      <div className="max-w-6xl item-center mx-auto flex flex-col gap-16">
+      <div className="body-style">
+        <div className="max-w-7xl item-center mx-auto flex flex-col gap-16">
         {/* POPULAR CATEGORIES */}
       <div className="mt-10">
         <PageTitle
@@ -55,6 +56,7 @@ export default function Home() {
       </div>
       </div>
 
+      </div>
     </AppShell>
   );
 }

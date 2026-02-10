@@ -48,7 +48,8 @@ export default function Contact() {
 
   return (
     <AppShell>
-      <PageTitle
+      <div className="body-style">
+        <PageTitle
         title="Contact"
         subtitle="Tell us what you’re looking for and we’ll get back to you."
       />
@@ -241,6 +242,8 @@ export default function Contact() {
           </div>
         </aside>
       </div>
+
+      </div>      
     </AppShell>
   );
 }

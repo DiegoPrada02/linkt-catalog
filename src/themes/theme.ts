@@ -24,4 +24,9 @@ export const theme = createTheme({
       main: '#00ffff',
     },
   },
+
+  typography: {
+  fontFamily: `"Funnel Sans", system-ui, sans-serif`,
+}
+
 });

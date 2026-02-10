@@ -18,7 +18,8 @@ export default function CatalogCategories() {
 
   return (
     <AppShell>
-      <PageTitle
+      <div className="body-style">
+        <PageTitle
         title="Catalog"
         subtitle="Choose a category to see its subcategories."
         right={
@@ -55,6 +56,7 @@ export default function CatalogCategories() {
           No categories found. Try a different search.
         </div>
       ) : null}
+      </div>
     </AppShell>
   );
 }

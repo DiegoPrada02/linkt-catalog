@@ -1,1 +1,89 @@
-@import "tailwindcss"; :root { /* MUI primary */ --primary-main: #023e8a; --primary-light: rgba(2, 62, 138, 0.64); /* MUI secondary */ --secondary-main: #ff00ff; --secondary-light: rgba(255, 0, 255, 0.64); /* MUI backgrounds */ --background-default: #f4f0e8; --background-paper: #e0e1dd; /* MUI semantic colors */ --error-main: #ff0000; --warning-main: #eedd66; --info-main: #00ffff; }
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+:root 
+{ /* MUI primary */ --primary-main: #023e8a; --primary-light: rgba(2, 62, 138, 0.64); 
+    /* MUI secondary */ 
+    --secondary-main: #ff00ff; 
+    --secondary-light: rgba(255, 0, 255, 0.64); 
+    /* MUI backgrounds */ 
+    --background-default: #f4f0e8; 
+    --background-paper: #e0e1dd; 
+    /* MUI semantic colors */ 
+    --error-main: #ff0000; 
+    --warning-main: #eedd66; 
+    --info-main: #00ffff;
+    font-family: sans-serif;
+}
+
+
+
+.body-style
+{
+    margin: auto;
+    z-index: 50;
+    max-width: 85rem;
+    padding-left: 4;
+    padding-right: 4;
+    padding-top: 10;
+    padding-right: 10;
+}
+.slider-image{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    transition: translate 300ms ease-in-out;
+}
+
+.slider-btn{
+  all: unset;
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  cursor: pointer;
+  transition: background-color 100ms ease-in-out;
+}
+
+.slider-btn:hover,.slider-btn:focus-visible{
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+.slider-btn > *:hover{
+    animation: squish 200ms ease-in-out;
+}
+
+.slider-btn > *{
+    stroke: var(--background-default);
+    fill: var(--secondary-light);
+    width: 2rem;
+    height: 2rem;
+}
+
+@keyframes squish{
+    50%{
+        scale: 1.4 0.6;
+    }
+}
+
+.slider-dot{
+    all: unset;
+    display:block;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    transition: scale 100ms ease-in-out;
+}
+
+.slider-dot:hover,.slider-dot:focus-visible{
+    scale: 1.2;
+}
+
+.slider-dot > *{
+    stroke: var(--background-default);
+    fill: var(--secondary-light);
+    width: 100%;
+    height: 100%;
+}

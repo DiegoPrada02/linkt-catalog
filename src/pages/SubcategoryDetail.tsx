@@ -20,7 +20,8 @@ export default function SubcategoryDetail() {
 
   return (
     <AppShell>
-      {/* Breadcrumbs */}
+      <div className="body-style">
+             {/* Breadcrumbs */}
       <div className="mb-6 text-sm">
         <Link
           to="/catalog"
@@ -154,6 +155,7 @@ export default function SubcategoryDetail() {
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </AppShell>
   );

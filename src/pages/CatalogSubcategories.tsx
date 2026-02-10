@@ -13,7 +13,8 @@ export default function CatalogSubcategories() {
 
   return (
     <AppShell>
-      <div className="mb-8">
+      <div className="body-style">
+              <div className="mb-8">
         {/* Breadcrumbs */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <Link
@@ -68,6 +69,7 @@ export default function CatalogSubcategories() {
           />
         ))}
       </Grid>
+      </div>
     </AppShell>
   );
 }

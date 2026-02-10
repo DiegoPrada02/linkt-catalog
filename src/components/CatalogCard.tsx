@@ -21,8 +21,8 @@ export default function CatalogCard({
       className="
         group relative h-full
         rounded-3xl
-        border border-[var(--background-paper)]
-        bg-[var(--background-paper)]
+        border border-(--background-paper)
+        bg-(--background-paper)
         shadow-sm
         transition
         hover:-translate-y-0.5
@@ -47,16 +47,16 @@ export default function CatalogCard({
           </CardMedia>
 
           <div className="mt-4 px-4">
-            <div className="text-base font-semibold text-[var(--primary-main)]">
+            <div className="text-base font-semibold text-(--primary-main)">
               {title}
             </div>
 
-            <div className="mt-1 line-clamp-2 text-sm text-[color:rgba(2,62,138,0.64)]">
+            <div className="mt-1 line-clamp-2 text-sm text-[rgba(2,62,138,0.64)]">
               {description}
             </div>
           </div>
 
-          <div className="mt-4 px-4 pb-4 text-sm font-medium text-[var(--primary-main)]">
+          <div className="mt-4 px-4 pb-4 text-sm font-medium text-(--primary-main)">
             <span className="inline-flex items-center gap-2">
               View
               <span className="transition group-hover:translate-x-0.5">→</span>
@@ -65,11 +65,11 @@ export default function CatalogCard({
                 <span
                   className="
                     rounded-full
-                    border border-[var(--primary-main)]
-                    bg-[var(--background-default)]
+                    border border-(--secondary-main)
+                    bg-(--background-default)
                     px-2.5 py-1
                     text-xs
-                    text-[var(--primary-main)]
+                    text-(--secondary-main)
                   "
                 >
                   {badge}

@@ -23,7 +23,7 @@ export default function AppShell({ children }: AppShellProps) {
 
       <main
         className="
-          mx-auto z-50 max-w-full
+          mx-auto z-50
           px-4 py-10
           bg-(--background-default)
         "
