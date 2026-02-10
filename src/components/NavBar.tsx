@@ -64,7 +64,6 @@ function ResponsiveAppBar() {
                 >
                   LINK&apos;T SYSTEMS
                 </Typography>
-                <span className="text-xs text-white/70 tracking-widest">LLC</span>
               </div>
             </Link>
           </Box>

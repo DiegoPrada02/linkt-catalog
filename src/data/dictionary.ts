@@ -34,7 +34,7 @@ export const BannerData: BannerData[] = [
     title: "Sustainable Packaging for a Better Future",
     eyebrow: "Eco-Friendly Choices",
     text: "Choose from our selection of sustainable packaging solutions that reduce environmental impact without compromising quality.",
-    img: '/images/banner3.png',
+    img: '/images/testmedia.mp4',
     cta: {
       text: "Go Green with Us",
       href: "/catalog"
