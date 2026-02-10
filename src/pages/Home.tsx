@@ -9,6 +9,7 @@ import About from "../components/About";
 
 export default function Home() {
   return (
+    <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl">
       <AppShell>
       <Hero />
       <div className="body-style">
@@ -58,5 +59,7 @@ export default function Home() {
 
       </div>
     </AppShell>
+    </div>
+      
   );
 }

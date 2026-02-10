@@ -12,7 +12,9 @@ export default function CatalogSubcategories() {
   if (!category) return <Navigate to="/catalog" replace />;
 
   return (
-    <AppShell>
+
+    <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl">
+      <AppShell>
       <div className="body-style">
               <div className="mb-8">
         {/* Breadcrumbs */}
@@ -71,5 +73,7 @@ export default function CatalogSubcategories() {
       </Grid>
       </div>
     </AppShell>
+
+    </div>
   );
 }

@@ -17,7 +17,8 @@ export default function CatalogCategories() {
   }, [query]);
 
   return (
-    <AppShell>
+    <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl">
+          <AppShell>
       <div className="body-style">
         <PageTitle
         title="Catalog"
@@ -58,5 +59,6 @@ export default function CatalogCategories() {
       ) : null}
       </div>
     </AppShell>
+    </div>
   );
 }

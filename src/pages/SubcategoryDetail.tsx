@@ -19,7 +19,8 @@ export default function SubcategoryDetail() {
   const d = subcategory.details;
 
   return (
-    <AppShell>
+    <div className="">
+      <AppShell>
       <div className="body-style">
              {/* Breadcrumbs */}
       <div className="mb-6 text-sm">
@@ -158,6 +159,8 @@ export default function SubcategoryDetail() {
       </div>
       </div>
     </AppShell>
+    </div>
+    
   );
 }
 
