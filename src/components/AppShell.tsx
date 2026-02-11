@@ -1,3 +1,4 @@
+import Footer from "./footer";
 import ResponsiveAppBar from "./NavBar";
 
 interface AppShellProps {
@@ -31,6 +32,7 @@ export default function AppShell({ children }: AppShellProps) {
 
       <footer className="z-40 border-t border-(--background-paper) bg-(--background-default)">
         {/* footer content */}
+        <Footer/>
       </footer>
     </div>
   );

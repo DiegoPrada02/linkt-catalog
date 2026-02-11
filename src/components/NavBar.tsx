@@ -10,16 +10,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Link, useLocation } from "react-router-dom";
+import {pages} from "../data/dictionary"
 
-type Page = { label: string; path: string };
-
-const pages: Page[] = [
-  { label: "Home", path: "/" },
-  { label: "Catalog", path: "/catalog" },
-  { label: "Gallery", path: "/gallery" },
-  { label: "Distribution", path: "/distribution" },
-  { label: "Contact", path: "/contact" },
-];
 
 function ResponsiveAppBar() {
   const location = useLocation();
@@ -47,7 +39,7 @@ function ResponsiveAppBar() {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters className="relative min-h-[72px]">
+        <Toolbar disableGutters className="relative min-h-18">
           {/* Left: Logo + Company */}
           <Box className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3 no-underline">
@@ -77,7 +69,7 @@ function ResponsiveAppBar() {
                     "relative rounded-none bg-transparent px-0 py-2 text-sm font-semibold tracking-widest",
                     "text-white/90 hover:text-white",
                     // underline hover + active
-                    "after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200",
+                    "after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200",
                     "hover:after:scale-x-100",
                     isActive(p.path) ? "text-white after:scale-x-100" : "",
                   ].join(" ")}
@@ -133,7 +125,7 @@ function ResponsiveAppBar() {
                 <MenuItem
                   key={p.path}
                   onClick={handleCloseNavMenu}
-                  className="!px-2 !py-1"
+                  className="px-2! py-1!"
                 >
                   <Link
                     to={p.path}
@@ -142,7 +134,7 @@ function ResponsiveAppBar() {
                       "text-white/90 hover:text-white hover:bg-white/10",
                       // underline hover + active
                       "relative",
-                      "after:absolute after:left-3 after:right-3 after:bottom-1 after:h-[2px] after:bg-white after:origin-left after:scale-x-0 after:transition-transform after:duration-200",
+                      "after:absolute after:left-3 after:right-3 after:bottom-1 after:h-0.5 after:bg-white after:origin-left after:scale-x-0 after:transition-transform after:duration-200",
                       "hover:after:scale-x-100",
                       isActive(p.path) ? "text-white after:scale-x-100 bg-white/10" : "",
                     ].join(" ")}

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { BannerData } from "../data/dictionary";
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react";
 import { SparklesText } from "./ui/sparkles-text";
+import Vidimg from "./vidimg";
 
 
 type BannerItem = (typeof BannerData)[number];
@@ -35,15 +36,15 @@ export function Hero() {
   if (!current) return null;
 
   return (
-    <div
-      style={{
-        width: "100%",
-        aspectRatio: "16 / 6",
-        position: "relative",
-        overflow: "hidden",
-        willChange: "translate",
-      }}
-    >
+      <div
+        className="hero-slider"
+        style={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          willChange: "translate",
+        }}
+>
       {/* Track */}
       <div
         style={{
@@ -70,7 +71,7 @@ export function Hero() {
                 flex: "0 0 100%",
               }}
             >
-              {/* ✅ Content (left) */}
+              {/* Content (left) */}
               <div className="banner-content">
                 <p className="banner-eyebrow">{item.eyebrow}</p>
                 <h2 className="banner-title"><SparklesText>{item.title}</SparklesText></h2>
@@ -81,11 +82,12 @@ export function Hero() {
                 </a>
               </div>
 
-              {/* ✅ Image area (right) */}
+              {/* Image area (right) */}
               <div className="banner-image z-10">
-                <img
-                  src={item.img}
-                  alt={`${item.title} banner image`}
+                <Vidimg
+                  source = {item.img}
+                  isVideo = {item.isVideo}
+                  title = {item.title}
                 />
               </div>
 

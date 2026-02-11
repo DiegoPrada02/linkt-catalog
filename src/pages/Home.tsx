@@ -6,19 +6,20 @@ import CatalogCard from "../components/CatalogCard";
 import { CATEGORIES } from "../data/catalog";
 import { Hero } from "../components/Hero";
 import About from "../components/About";
+import { pageTitles } from "../data/dictionary";
 
 export default function Home() {
   return (
-    <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl">
+    <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl w-full">
       <AppShell>
       <Hero />
       <div className="body-style">
-        <div className="max-w-7xl item-center mx-auto flex flex-col gap-16">
+        <div className=" item-center mx-auto flex flex-col gap-16">
         {/* POPULAR CATEGORIES */}
       <div className="mt-10">
         <PageTitle
-          title="Popular categories"
-          subtitle="Start with a category, then drill down into subcategories."
+          title={pageTitles[0].title}
+          subtitle={pageTitles[0].subtitle}
           right={
             <Link
               to="/catalog"
@@ -32,7 +33,7 @@ export default function Home() {
                 hover:bg-(--secondary-light)
               "
             >
-              View all
+              {pageTitles[0].rightText}
             </Link>
           }
         />

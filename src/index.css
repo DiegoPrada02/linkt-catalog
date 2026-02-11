@@ -42,8 +42,8 @@ body {
 :root {
   /* Pastel blues */
   --gradient-blue-light: #eef5ff; /* almost white blue */
-  --gradient-blue-soft:  #dbeafe; /* soft pastel blue */
-  --gradient-blue-mid:   #c7ddf7; /* gentle blue */
+  --gradient-blue-soft: #dbeafe; /* soft pastel blue */
+  --gradient-blue-mid: #c7ddf7; /* gentle blue */
 
   --pastel-gradient: linear-gradient(
     135deg,
@@ -83,10 +83,36 @@ body {
 .body-style {
   margin: 0 auto;
   z-index: 50;
-  max-width: 85rem;
+  max-width: 90rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 2.5rem;
+}
+
+/* =========================
+   SLIDER / HERO WRAPPER
+   ========================= */
+
+/* Wrapper for the whole slider (use on the outer div: className="hero-slider") */
+.hero-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Desktop/tablet: keep a consistent hero ratio */
+@media (min-width: 641px) {
+  .hero-slider {
+    aspect-ratio: 16 / 6; /* match your original wrapper */
+  }
+}
+
+/* Mobile: let it size naturally so nothing squishes */
+@media (max-width: 640px) {
+  .hero-slider {
+    aspect-ratio: auto;
+  }
 }
 
 /*SLIDER */
@@ -110,6 +136,7 @@ body {
   cursor: pointer;
   transition: background-color 120ms ease-in-out;
   user-select: none;
+  z-index: 5;
 }
 
 .slider-btn:hover,
@@ -161,6 +188,13 @@ body {
   height: 100%;
 }
 
+/* Optional: make buttons a bit smaller on mobile */
+@media (max-width: 640px) {
+  .slider-btn {
+    width: 44px;
+  }
+}
+
 /* =========================
    BANNER (16:5 + 6 fun pastel variants)
    ========================= */
@@ -168,13 +202,20 @@ body {
 /* Base banner */
 .banner {
   width: 100%;
-  aspect-ratio: 16 / 5; /* ✅ requirement */
+  aspect-ratio: 16 / 5; /* ✅ requirement on desktop */
   position: relative;
   overflow: hidden;
   box-shadow: 0px 18px 45px rgba(13, 27, 42, 0.18);
   border: #0000001a solid 1px;
   border-radius: 10px;
   background: linear-gradient(180deg, var(--background-default), #ffffff);
+}
+
+/* Ensure slides fill wrapper on desktop */
+@media (min-width: 641px) {
+  .banner {
+    height: 100%;
+  }
 }
 
 /* Content */
@@ -187,7 +228,7 @@ body {
   display: grid;
   align-content: center;
   gap: 5px;
-  margin-left: 5rem;
+  margin-left: clamp(0.75rem, 3vw, 5rem);
 }
 
 .banner-eyebrow {
@@ -248,7 +289,7 @@ body {
   width: 50%;
   height: 100%;
   z-index: 0;
-  margin-right: 5rem;
+  margin-right: clamp(0.75rem, 3vw, 5rem);
   padding: 5px;
   overflow: hidden;
   pointer-events: none;
@@ -261,12 +302,20 @@ body {
 }
 
 /* Order: background < shapes < image < content */
-.banner-art { z-index: 1; }
-.banner-image { z-index: 2; }
-.banner-content { z-index: 3; }
+.banner-art {
+  z-index: 1;
+}
+.banner-image {
+  z-index: 2;
+}
+.banner-content {
+  z-index: 3;
+}
 
 /* Make shapes more subtle so they don't overpower */
-.banner-art .shape { opacity: 0.35; }
+.banner-art .shape {
+  opacity: 0.35;
+}
 
 /* ---------- FUN PASTEL VARIANT PALETTES (not tied to site colors) ---------- */
 .banner[data-variant="0"] {
@@ -500,7 +549,11 @@ body {
   bottom: -40%;
   width: 52%;
   height: 140%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.34));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.34)
+  );
   transform: rotate(-10deg);
   border-radius: 22px;
 }
@@ -523,24 +576,76 @@ body {
   border-radius: 999px;
 }
 
-/* Small screens */
+/* =========================
+   MOBILE RESPONSIVE (NO DEFORM)
+   ========================= */
+
 @media (max-width: 640px) {
+  /* Stop forcing banner ratio on mobile */
+  .banner {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Stack content above image */
   .banner-content {
     width: 100%;
+    height: auto;
+    margin-left: 0;
+    padding: 16px;
+    padding-top: 18px;
+    padding-bottom: 10px;
   }
+
   .banner-text {
     max-width: none;
   }
+
+  /* Make image flow in normal doc layout */
+  .banner-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    padding: 0 12px 12px;
+  }
+
+  /* Keep media shape stable */
+  .banner-media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .banner-image > video{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 40px;
+  }
+
+  /* Keep decorations behind */
+  .banner-art {
+    z-index: 0;
+  }
 }
 
+/* =========================
+   THEME INLINE
+   ========================= */
 @theme inline {
   --animate-line-shadow: line-shadow 15s linear infinite;
   @keyframes line-shadow {
-  0% {
-    background-position: 0 0;
+    0% {
+      background-position: 0 0;
     }
-  100% {
-    background-position: 100% -100%;
+    100% {
+      background-position: 100% -100%;
     }
   }
 }
