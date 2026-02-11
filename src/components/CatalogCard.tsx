@@ -19,39 +19,39 @@ export default function CatalogCard({
   const Inner = (
     <Card
       className="
+        p-0
         group relative h-full
         rounded-3xl
         border border-(--background-paper)
-        bg-(--background-paper)
         shadow-sm
         transition
         hover:-translate-y-0.5
         hover:shadow-md
       "
     >
-      <CardContent className="p-0">
-        <CardActionArea>
+      <CardContent className="m-0 p-0 bg-(--background-paper)">
+        <CardActionArea className="m-0 p-0 h-full">
           <CardMedia className="flex justify-center">
             {image ? (
               <img
                 src={image}
                 alt={title}
                 className="
-                  h-40 w-full
-                  rounded-2xl
+                  h-60 w-full
                   object-cover
-                  shadow-2xl
+                  shadow-xl
                 "
               />
             ) : null}
           </CardMedia>
 
-          <div className="mt-4 px-4">
-            <div className="text-base font-semibold text-(--primary-main)">
+
+          <div className="mt-4 px-4 font-sans">
+            <div className="text-xl font-semibold text-(--primary-main) bold">
               {title}
             </div>
 
-            <div className="mt-1 line-clamp-2 text-sm text-[rgba(2,62,138,0.64)]">
+            <div className="mt-1 line-clamp-2 text-md text-(--ink)">
               {description}
             </div>
           </div>

@@ -1,18 +1,18 @@
-import { pageTitles } from "../data/dictionary";
 import PageTitle from "./PageTitle";
+import { pageTitles } from "../data/dictionary";
+import { useLanguage } from "../i18n/LanguageProvider";
 
-function About(){
-    return(
-        <PageTitle
-            title={pageTitles[1].title}
-            subtitle={pageTitles[1].subtitle}
-            extraContent = {
-                <div>
-                    {pageTitles[1].text}
-                </div>
-            }
-        />
-    )
+export default function About() {
+  const { t } = useLanguage();
+  const about = pageTitles[1];
+
+  return (
+    <PageTitle
+      title={t(about.title)}
+      subtitle={t(about.subtitle)}
+      extraContent={
+        about.text ? <div className="text-sm leading-relaxed">{t(about.text)}</div> : null
+      }
+    />
+  );
 }
-
-export default About;

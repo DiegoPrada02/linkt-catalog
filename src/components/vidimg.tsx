@@ -1,29 +1,32 @@
-type VidImgProps = {
+// src/components/vidimg.tsx
+type VidimgProps = {
   source: string;
-  title: string;
   isVideo: boolean;
+  title?: string;
 };
 
-function VidImg({title,source,isVideo }: VidImgProps) {
+export default function Vidimg({ source, isVideo, title }: VidimgProps) {
+  const safeTitle = typeof title === "string" ? title : "";
+
+  if (isVideo) {
+    return (
+      <video
+        src={source}
+        className="w-full h-full object-cover rounded-3xl py-8"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label={safeTitle}
+      />
+    );
+  }
+
   return (
-    <div className="banner-media">
-      {isVideo ? (
-        <video 
-          src={source}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="mt-10 border-2 rounded-2xl"
-        />
-      ) : (
-        <img
-          src={source}
-          alt={title}
-        />
-      )}
-    </div>
+    <img
+      src={source}
+      alt={safeTitle}
+      className="w-full h-full object-cover"
+    />
   );
 }
-
-export default VidImg;

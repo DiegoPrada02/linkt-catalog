@@ -2,7 +2,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
 
 /* =========================
    GLOBAL / BASE
@@ -86,7 +85,6 @@ body {
   max-width: 90rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 2.5rem;
 }
 
 /* =========================
@@ -298,7 +296,7 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit:fill;
 }
 
 /* Order: background < shapes < image < content */
@@ -635,17 +633,3 @@ body {
   }
 }
 
-/* =========================
-   THEME INLINE
-   ========================= */
-@theme inline {
-  --animate-line-shadow: line-shadow 15s linear infinite;
-  @keyframes line-shadow {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 100% -100%;
-    }
-  }
-}

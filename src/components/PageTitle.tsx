@@ -18,7 +18,7 @@ export default function PageTitle({
     <div
       className="
         relative overflow-hidden
-        mb-10
+        my-5
         rounded-3xl
         bg-white/80
         backdrop-blur-md

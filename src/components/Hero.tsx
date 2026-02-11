@@ -1,24 +1,19 @@
-"use client";
-
 import { useMemo, useState } from "react";
 import { BannerData } from "../data/dictionary";
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react";
 import { SparklesText } from "./ui/sparkles-text";
 import Vidimg from "./vidimg";
+import { useLanguage } from "../i18n/LanguageProvider";
 
-
-type BannerItem = (typeof BannerData)[number];
 
 export function Hero() {
   const [sliderIndex, setSliderIndex] = useState(0);
+  const { t } = useLanguage();
 
   const total = BannerData.length;
-  const current: BannerItem | undefined = BannerData[sliderIndex];
 
-  // Stable variants per slide (0..5). Uses item.variant if you add it, otherwise cycles.
   const variants = useMemo(() => {
     return BannerData.map((item, index) => {
-      // If you later add item.variant, prefer it:
       const v = (item as any).variant as number | undefined;
       if (typeof v === "number") return Math.max(0, Math.min(5, v));
       return index % 6;
@@ -33,18 +28,15 @@ export function Hero() {
     setSliderIndex((index) => (index === total - 1 ? 0 : index + 1));
   }
 
-  if (!current) return null;
-
   return (
-      <div
-        className="hero-slider"
-        style={{
-          width: "100%",
-          position: "relative",
-          overflow: "hidden",
-          willChange: "translate",
-        }}
->
+    <div
+      className="hero-slider"
+      style={{
+        width: "100%",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       {/* Track */}
       <div
         style={{
@@ -58,6 +50,12 @@ export function Hero() {
         {BannerData.map((item, index) => {
           const v = variants[index];
 
+          // ✅ compute strings once
+          const eyebrow = t(item.eyebrow as any);
+          const title = t(item.title as any);
+          const text = t(item.text as any);
+          const ctaText = t(item.cta.text as any);
+
           return (
             <section
               key={index}
@@ -65,38 +63,34 @@ export function Hero() {
               data-variant={v}
               role="region"
               aria-label={`Promotional banner ${index + 1}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                flex: "0 0 100%",
-              }}
+              style={{ width: "100%", height: "100%", flex: "0 0 100%" }}
             >
-              {/* Content (left) */}
+              {/* Content */}
               <div className="banner-content">
-                <p className="banner-eyebrow">{item.eyebrow}</p>
-                <h2 className="banner-title"><SparklesText>{item.title}</SparklesText></h2>
-                <p className="banner-text">{item.text}</p>
+                <p className="banner-eyebrow">{eyebrow}</p>
+
+                <h2 className="banner-title">
+                  <SparklesText>{title}</SparklesText>
+                </h2>
+
+                <p className="banner-text">{text}</p>
 
                 <a className="banner-cta" href={item.cta.href}>
-                  {item.cta.text}
+                  {ctaText}
                 </a>
               </div>
 
-              {/* Image area (right) */}
-              <div className="banner-image z-10">
-                <Vidimg
-                  source = {item.img}
-                  isVideo = {item.isVideo}
-                  title = {item.title}
-                />
+              {/* Media */}
+              <div className="banner-image">
+                <Vidimg source={item.img} isVideo={item.isVideo} title={title} />
               </div>
 
-              {/* Decorative shapes */}
-              <div className="banner-art z-0" aria-hidden="true">
-                <span className="shape a"></span>
-                <span className="shape b"></span>
-                <span className="shape c"></span>
-                <span className="shape d"></span>
+              {/* Shapes */}
+              <div className="banner-art" aria-hidden="true">
+                <span className="shape a" />
+                <span className="shape b" />
+                <span className="shape c" />
+                <span className="shape d" />
               </div>
             </section>
           );
@@ -105,11 +99,11 @@ export function Hero() {
 
       {/* Controls */}
       <button onClick={showPreviousImage} className="slider-btn" style={{ left: 0 }}>
-        <ArrowBigLeft/>
+        <ArrowBigLeft />
       </button>
 
       <button onClick={showNextImage} className="slider-btn" style={{ right: 0 }}>
-        <ArrowBigRight/>
+        <ArrowBigRight />
       </button>
 
       {/* Dots */}

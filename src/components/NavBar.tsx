@@ -1,164 +1,267 @@
+// src/components/NavBar.tsx
 import * as React from "react";
+import { Link, useLocation } from "react-router-dom";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { Link, useLocation } from "react-router-dom";
-import {pages} from "../data/dictionary"
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import MenuIcon from "@mui/icons-material/Menu";
+import Tooltip from "@mui/material/Tooltip";
 
+import { pages } from "../data/dictionary";
+import { useLanguage } from "../i18n/LanguageProvider";
 
-function ResponsiveAppBar() {
+export default function ResponsiveAppBar() {
   const location = useLocation();
+  const { lang, toggleLang, t } = useLanguage();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const menuOpen = Boolean(anchorElNav);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleCloseNavMenu = () => setAnchorElNav(null);
 
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";
-    return location.pathname === path || location.pathname.startsWith(path + "/");
+    return location.pathname.startsWith(path);
   };
 
+  const textColor = "var(--background-paper)";
+  const bgColor = "var(--ink)";
+
   return (
-    <AppBar
-      position="sticky"
-      elevation={0}
-      sx={{
-        bgcolor: "var(--ink)",
-        borderBottom: "1px solid var(--primary-light)",
-      }}
-    >
+    <AppBar position="static" elevation={0} sx={{ backgroundColor: bgColor, color: textColor }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters className="relative min-h-18">
-          {/* Left: Logo + Company */}
-          <Box className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-3 no-underline">
-              <img
-                src="/Logo-white.png"
-                alt="Linkt Systems LLC Logo"
-                className="h-12 w-auto md:h-14"
-              />
-              <div className="hidden sm:flex flex-col leading-tight">
-                <Typography
-                  variant="subtitle1"
-                  sx={{ color: "var(--background-paper)", fontWeight: 800 }}
-                  className="tracking-[0.18em] uppercase"
-                >
-                  LINK&apos;T SYSTEMS
-                </Typography>
-              </div>
-            </Link>
-          </Box>
+        <Toolbar
+          disableGutters
+          sx={{
+            minHeight: 72,
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+          }}
+        >
+          {/* LEFT: logo area + mobile hamburger */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              minWidth: 0,
+            }}
+          >
+            {/* MOBILE: hamburger */}
+            <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center", mr: 0.5 }}>
+              <IconButton
+                size="large"
+                aria-label="open navigation menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                sx={{ color: textColor }}
+              >
+                <MenuIcon />
+              </IconButton>
 
-          {/* Center: Desktop tabs */}
-          <Box className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-6">
-            {pages.map((p) => (
-              <Link key={p.path} to={p.path} className="no-underline">
-                <Button
-                  className={[
-                    "relative rounded-none bg-transparent px-0 py-2 text-sm font-semibold tracking-widest",
-                    "text-white/90 hover:text-white",
-                    // underline hover + active
-                    "after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200",
-                    "hover:after:scale-x-100",
-                    isActive(p.path) ? "text-white after:scale-x-100" : "",
-                  ].join(" ")}
-                  sx={{
-                    color: "inherit",
-                    textTransform: "none",
-                    minWidth: 0,
-                  }}
-                >
-                  {p.label.toUpperCase()}
-                </Button>
-              </Link>
-            ))}
-          </Box>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
+                keepMounted
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                PaperProps={{
+                  sx: {
+                    mt: 1,
+                    minWidth: 220,
+                    borderRadius: 3,
+                    backgroundColor: "var(--background-default)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  },
+                }}
+                sx={{ display: { xs: "block", md: "none" } }}
+              >
+                {pages.map((p) => (
+                  <MenuItem key={p.path} onClick={handleCloseNavMenu}>
+                    <Button
+                      component={Link}
+                      to={p.path}
+                      sx={{
+                        width: "100%",
+                        justifyContent: "flex-start",
+                        textTransform: "none",
+                        fontWeight: 800,
+                        color: "var(--ink)",
+                      }}
+                    >
+                      {t(p.label)}
+                    </Button>
+                  </MenuItem>
+                ))}
 
-          {/* Right: Mobile menu button */}
-          <Box className="ml-auto flex items-center md:hidden">
-            <IconButton
-              onClick={handleOpenNavMenu}
-              className="rounded-full text-white hover:bg-white/10"
-              aria-label="open navigation menu"
-              aria-controls={menuOpen ? "nav-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={menuOpen ? "true" : undefined}
-            >
-              <MenuIcon className="stroke-white"/>
-            </IconButton>
+                {/* Mobile language toggle */}
+                <MenuItem disableRipple sx={{ cursor: "default" }}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 800, color: "var(--ink)" }}>
+                      {lang === "en" ? "English" : "Español"}
+                    </Typography>
 
-            <Menu
-              id="nav-menu"
-              anchorEl={anchorElNav}
-              open={menuOpen}
-              onClose={handleCloseNavMenu}
-              // IMPORTANT: without this, MUI keeps the Menu mounted and can behave oddly in some setups
-              keepMounted
-              // helps positioning on mobile
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
+                    <Tooltip title={lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"}>
+                      <IconButton
+                        onClick={toggleLang}
+                        sx={{
+                          width: 44,
+                          height: 44,
+                          borderRadius: 999,
+                          border: "1px solid rgba(13,27,42,0.12)",
+                          backgroundColor: "rgba(255,255,255,0.8)",
+                        }}
+                        aria-label="Toggle language"
+                      >
+                        <span style={{ fontSize: 20, lineHeight: 1 }}>
+                          {lang === "en" ? "🇺🇸" : "🇪🇸"}
+                        </span>
+                      </IconButton>
+                    </Tooltip>
+                  </Box>
+                </MenuItem>
+              </Menu>
+            </Box>
+
+            {/* Logo */}
+            <Box
+              component={Link}
+              to="/"
               sx={{
-                display: { xs: "block", md: "none" },
-                "& .MuiPaper-root": {
-                  bgcolor: "var(--ink)",
-                  color: "white",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  borderRadius: "14px",
-                  mt: 1,
-                  minWidth: 240,
-                  overflow: "hidden",
-                },
+                display: "flex",
+                alignItems: "center",
+                textDecoration: "none",
+                color: "inherit",
+                minWidth: 0,
               }}
             >
-              {pages.map((p) => (
-                <MenuItem
-                  key={p.path}
-                  onClick={handleCloseNavMenu}
-                  className="px-2! py-1!"
-                >
-                  <Link
-                    to={p.path}
-                    className={[
-                      "w-full rounded-lg px-3 py-2 text-sm font-semibold tracking-widest no-underline",
-                      "text-white/90 hover:text-white hover:bg-white/10",
-                      // underline hover + active
-                      "relative",
-                      "after:absolute after:left-3 after:right-3 after:bottom-1 after:h-0.5 after:bg-white after:origin-left after:scale-x-0 after:transition-transform after:duration-200",
-                      "hover:after:scale-x-100",
-                      isActive(p.path) ? "text-white after:scale-x-100 bg-white/10" : "",
-                    ].join(" ")}
-                  >
-                    {p.label.toUpperCase()}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
+              <img
+                src="/Logo.png"
+                alt="Link'T Systems logo"
+                style={{ height: 48, width: "auto", display: "block" }}
+              />
+              <Typography
+                variant="h6"
+                sx={{
+                  ml: 1,
+                  fontWeight: 700,
+                  letterSpacing: ".1em",
+                  color: textColor,
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                LINK&apos;T SYSTEMS
+              </Typography>
+            </Box>
+          </Box>
 
-            {/* small brand text on xs */}
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{ color: "var(--background-paper)", fontWeight: 800 }}
-              className="ml-3 flex sm:hidden tracking-[0.22em]"
-            >
-              LINK&apos;T
-            </Typography>
+          {/* CENTER: desktop tabs (true centered because left/right are flex:1) */}
+          <Box
+            sx={{
+              flex: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center",
+              gap: 0.5,
+              minWidth: 0,
+            }}
+          >
+            {pages.map((p) => {
+              const active = isActive(p.path);
+
+              return (
+                <Button
+                  key={p.path}
+                  component={Link}
+                  to={p.path}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    color: textColor,
+                    textTransform: "none",
+                    fontWeight: 800,
+                    letterSpacing: ".06em",
+                    px: 1.8,
+                    py: 1.2,
+                    borderRadius: 2,
+                    position: "relative",
+
+                    // underline
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      left: 14,
+                      right: 14,
+                      bottom: 6,
+                      height: 2,
+                      borderRadius: 2,
+                      backgroundColor: textColor,
+                      transform: active ? "scaleX(1)" : "scaleX(0)",
+                      transformOrigin: "left",
+                      transition: "transform 180ms ease",
+                      opacity: 0.92,
+                    },
+                    "&:hover::after": {
+                      transform: "scaleX(1)",
+                    },
+                  }}
+                >
+                  {t(p.label)}
+                </Button>
+              );
+            })}
+          </Box>
+
+          {/* RIGHT: desktop language toggle (stays right) */}
+          <Box
+            sx={{
+              flex: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+              alignItems: "center",
+              ml: 1,
+              minWidth: 0,
+            }}
+          >
+            <Tooltip title={lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"}>
+              <IconButton
+                onClick={toggleLang}
+                sx={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 999,
+                  border: "1px solid rgba(224,225,221,0.35)",
+                  color: textColor,
+                }}
+                aria-label="Toggle language"
+              >
+                <span style={{ fontSize: 20, lineHeight: 1 }}>{lang === "en" ? "🇺🇸" : "🇪🇸"}</span>
+              </IconButton>
+            </Tooltip>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
-
-export default ResponsiveAppBar;
