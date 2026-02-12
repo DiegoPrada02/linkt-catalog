@@ -38,7 +38,7 @@ export default function ResponsiveAppBar() {
   const bgColor = "var(--ink)";
 
   return (
-    <AppBar position="static" elevation={0} sx={{ backgroundColor: bgColor, color: textColor }}>
+    <AppBar position="static" elevation={24} sx={{ backgroundColor: bgColor, color: textColor }}>
       <Container maxWidth="xl">
         <Toolbar
           disableGutters

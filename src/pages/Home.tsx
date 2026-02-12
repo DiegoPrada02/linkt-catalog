@@ -29,7 +29,7 @@ export default function Home() {
                   to="/catalog"
                   className="
                     rounded-xl
-                    border border-(--primary-light)
+                    border border-(--backgorund-paper)
                     px-4 py-2
                     text-sm font-semibold
                     text-(--background-default)

@@ -1,76 +1,90 @@
-import { BRAND } from "../data/brand";
+import { Link } from "react-router-dom";
+import { pages, brand } from "../data/dictionary";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
   return (
     <footer
       className="
-        relative z-40
-        mt-20
-        border-t border-(--background-paper)
-        bg-white/70
+        relative z-40 mt-20
+        border-t border-[rgba(12,12,12,0.14)]
+        bg-(--ink)
         backdrop-blur-md
       "
     >
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-semibold text-(--primary-main)">
-              {BRAND.name}
+            <h3 className="text-lg font-extrabold tracking-tight text-(--background-paper)">
+              {t(brand.name)}
             </h3>
-            <p className="mt-3 max-w-sm text-sm text-[rgba(2,62,138,0.64)]">
-              {BRAND.tagline}
+            <p className="mt-3 max-w-sm text-sm text-(--background-paper)">
+              {t(brand.tagline)}
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation (uses existing Pages type) */}
           <div>
-            <h4 className="text-sm font-semibold tracking-wide text-(--primary-main)">
-              Navigation
+            <h4 className="text-sm font-extrabold tracking-wide text-(--background-paper)">
+              {t(brand.footer.navTitle)}
             </h4>
+
             <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                <a href="/" className="hover:text-(--primary-main)">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/catalog" className="hover:text-(--primary-main)">
-                  Catalog
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-(--primary-main)">
-                  Contact
-                </a>
-              </li>
+              {pages.map((p) => (
+                <li key={p.path}>
+                  <Link
+                    to={p.path}
+                    className="
+                      text-(--background-paper)
+                      hover:text-(--secondary-light)
+                      hover:underline
+                      underline-offset-4
+                      transition
+                    "
+                  >
+                    {t(p.label)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold tracking-wide text-(--primary-main)">
-              Contact
+            <h4 className="text-sm font-extrabold tracking-wide text-(--background-paper)">
+              {t(brand.footer.contactTitle)}
             </h4>
-            <div className="mt-4 space-y-2 text-sm text-[rgba(2,62,138,0.64)]">
+
+            <div className="mt-4 space-y-2 text-sm text-(--background-paper)">
               <div>
-                <a
-                  href={`mailto:${BRAND.email}`}
-                  className="hover:text-(--primary-main)"
-                >
-                  {BRAND.email}
+                <a className="hover:text-(--secondary-light) hover:underline underline-offset-4" href={`mailto:${brand.email}`}>
+                  {brand.email}
                 </a>
               </div>
-              <div>{BRAND.phone}</div>
-              <div>{BRAND.address}</div>
+              <div>{brand.phone}</div>
+              <div>{t(brand.address)}</div>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-          <div className="text-[rgba(2,62,138,0.64)]">
-            © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
+        <div className="mt-10 flex flex-col gap-2 border-t border-(--background-paper)pt-6 text-sm text-(--background-paper) sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            © {year} {t(brand.name)}. {t(brand.footer.rights)}
           </div>
+
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <a className="hover:text-(--secondary-light) hover:underline underline-offset-4" href={`mailto:${brand.email}`}>
+              {brand.email}
+            </a>
+            <span className="opacity-50">•</span>
+            <span>{brand.phone}</span>
+          </div>
+        </div>
       </div>
     </footer>
   );

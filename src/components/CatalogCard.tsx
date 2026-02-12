@@ -16,77 +16,111 @@ export default function CatalogCard({
   badge,
   image,
 }: CatalogCardProps) {
-  const Inner = (
+  const content = (
     <Card
+      elevation={0}
       className="
-        p-0
-        group relative h-full
-        rounded-3xl
-        border border-(--background-paper)
-        shadow-sm
+        group h-full overflow-hidden
+        rounded-2xl sm:rounded-3xl
+        border border-[rgba(13,27,42,0.12)]
+        bg-white/70 backdrop-blur-md
+        shadow-[0_10px_30px_rgba(13,27,42,0.10)]
         transition
-        hover:-translate-y-0.5
-        hover:shadow-md
+        hover:-translate-y-0.5 hover:shadow-[0_16px_45px_rgba(13,27,42,0.16)]
       "
     >
-      <CardContent className="m-0 p-0 bg-(--background-paper)">
-        <CardActionArea className="m-0 p-0 h-full">
-          <CardMedia className="flex justify-center">
-            {image ? (
-              <img
-                src={image}
-                alt={title}
+      <CardActionArea className="h-full">
+        {/* IMAGE */}
+        <CardMedia className="relative">
+          {image ? (
+            <img
+              src={image}
+              alt={title}
+              className="
+                block w-full
+                h-40 sm:h-52 lg:h-56
+                object-cover
+              "
+              loading="lazy"
+            />
+          ) : null}
+
+          {/* Subtle top gradient so text/badge can sit above if you want later */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/10 to-transparent" />
+
+          {/* BADGE (secondary) */}
+          {badge ? (
+            <div className="absolute left-3 top-3">
+              <span
                 className="
-                  h-60 w-full
-                  object-cover
-                  shadow-xl
+                  inline-flex items-center
+                  rounded-full
+                  border border-(--secondary-main)
+                  bg-white/80 backdrop-blur
+                  px-2.5 py-1
+                  text-xs font-extrabold
+                  text-(--secondary-main)
+                  shadow-sm
                 "
-              />
-            ) : null}
-          </CardMedia>
+              >
+                {badge}
+              </span>
+            </div>
+          ) : null}
+        </CardMedia>
 
-
-          <div className="mt-4 px-4 font-sans">
-            <div className="text-xl font-semibold text-(--primary-main) bold">
+        {/* BODY */}
+        <CardContent className="p-4 sm:p-5">
+          <div className="flex items-start justify-between gap-3">
+            <h3
+              className="
+                text-base sm:text-lg
+                font-extrabold tracking-tight
+                text-(--ink)
+                line-clamp-2
+              "
+              title={title}
+            >
               {title}
-            </div>
-
-            <div className="mt-1 line-clamp-2 text-md text-(--ink)">
-              {description}
-            </div>
+            </h3>
           </div>
 
-          <div className="mt-4 px-4 pb-4 text-sm font-medium text-(--primary-main)">
-            <span className="inline-flex items-center gap-2">
-              View
-              <span className="transition group-hover:translate-x-0.5">→</span>
+          <p
+            className="
+              mt-2
+              text-sm sm:text-[0.95rem]
+              leading-relaxed
+              text-[rgba(13,27,42,0.72)]
+              line-clamp-2
+            "
+            title={description}
+          >
+            {description}
+          </p>
 
-              {badge ? (
-                <span
-                  className="
-                    rounded-full
-                    border border-(--secondary-main)
-                    bg-(--background-default)
-                    px-2.5 py-1
-                    text-xs
-                    text-(--secondary-main)
-                  "
-                >
-                  {badge}
-                </span>
-              ) : null}
+          <div
+            className="
+              mt-4
+              inline-flex items-center gap-2
+              text-sm font-extrabold
+              text-(--ink)
+            "
+          >
+            View
+            <span className="transition-transform duration-150 group-hover:translate-x-0.5">
+              →
             </span>
           </div>
-        </CardActionArea>
-      </CardContent>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 
   return href ? (
     <Link to={href} className="block h-full">
-      {Inner}
+      {content}
     </Link>
   ) : (
-    <div className="h-full">{Inner}</div>
+    <div className="h-full">{content}</div>
   );
 }

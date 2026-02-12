@@ -30,7 +30,7 @@ export default function AppShell({ children }: AppShellProps) {
         {children}
       </main>
 
-      <footer className="z-40 border-t border-(--background-paper) bg-(--background-default)">
+      <footer>
         {/* footer content */}
         <Footer/>
       </footer>

@@ -2,27 +2,38 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 /* =========================
    GLOBAL / BASE
    ========================= */
 :root {
-  /* Your site palette (kept intact) */
+  /* Utility / Accent (blue) */
   --primary-main: #023e8a;
   --primary-light: rgba(2, 62, 138, 0.64);
 
+  /* Secondary (kept) */
   --secondary-main: #ff00ff;
   --secondary-light: rgba(255, 0, 255, 0.64);
 
+  /* Backgrounds */
   --background-default: #f4f0e8;
   --background-paper: #e0e1dd;
 
+  /* Semantic */
   --error-main: #ff0000;
   --warning-main: #eedd66;
   --info-main: #00ffff;
 
-  /* Utility */
+  /* ✅ PRIMARY (new): Ink */
   --ink: #0d1b2a;
+
+  /* Helpful ink shades */
+  --ink-90: rgba(13, 27, 42, 0.9);
+  --ink-80: rgba(13, 27, 42, 0.8);
+  --ink-72: rgba(13, 27, 42, 0.72);
+  --ink-60: rgba(13, 27, 42, 0.6);
+  --ink-18: rgba(13, 27, 42, 0.18);
+  --ink-14: rgba(13, 27, 42, 0.14);
+  --ink-12: rgba(13, 27, 42, 0.12);
 
   font-family: "Funnel Sans", system-ui, sans-serif;
 }
@@ -31,7 +42,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Funnel Sans", system-ui, sans-serif;
-  background: transparent; /* ✅ allow AppShell to control background */
+  background: transparent; /* AppShell controls background */
 }
 
 /* =========================
@@ -39,10 +50,9 @@ body {
    ========================= */
 
 :root {
-  /* Pastel blues */
-  --gradient-blue-light: #eef5ff; /* almost white blue */
-  --gradient-blue-soft: #dbeafe; /* soft pastel blue */
-  --gradient-blue-mid: #c7ddf7; /* gentle blue */
+  --gradient-blue-light: #eef5ff;
+  --gradient-blue-soft: #dbeafe;
+  --gradient-blue-mid: #c7ddf7;
 
   --pastel-gradient: linear-gradient(
     135deg,
@@ -55,15 +65,9 @@ body {
 }
 
 @keyframes pastelFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .animated-pastel-bg {
@@ -72,11 +76,8 @@ body {
   animation: pastelFlow 50s ease-in-out infinite;
 }
 
-/* Accessibility: reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .animated-pastel-bg {
-    animation: none;
-  }
+  .animated-pastel-bg { animation: none; }
 }
 
 .body-style {
@@ -90,30 +91,22 @@ body {
 /* =========================
    SLIDER / HERO WRAPPER
    ========================= */
-
-/* Wrapper for the whole slider (use on the outer div: className="hero-slider") */
 .hero-slider {
   width: 100%;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  border: 1px solid var(--ink-12);
+  box-shadow: 0 14px 40px var(--ink-14);
 }
 
-/* Desktop/tablet: keep a consistent hero ratio */
 @media (min-width: 641px) {
-  .hero-slider {
-    aspect-ratio: 16 / 6; /* match your original wrapper */
-  }
+  .hero-slider { aspect-ratio: 16 / 6; }
 }
-
-/* Mobile: let it size naturally so nothing squishes */
 @media (max-width: 640px) {
-  .hero-slider {
-    aspect-ratio: auto;
-  }
+  .hero-slider { aspect-ratio: auto; }
 }
 
-/*SLIDER */
 .slider-image {
   object-fit: cover;
   width: 100%;
@@ -139,13 +132,14 @@ body {
 
 .slider-btn:hover,
 .slider-btn:focus-visible {
-  background-color: rgba(0, 0, 0, 0.18);
+  background-color: rgba(255, 255, 255, 0.18);
   outline: none;
 }
 
 .slider-btn > * {
+  /* ✅ Primary is ink now */
   stroke: var(--ink);
-  fill: rgba(255, 255, 255, 0.18);
+  fill: rgba(255, 255, 255, 0.35);
   width: 2rem;
   height: 2rem;
 }
@@ -156,9 +150,7 @@ body {
 }
 
 @keyframes squish {
-  50% {
-    scale: 1.35 0.65;
-  }
+  50% { scale: 1.35 0.65; }
 }
 
 .slider-dot {
@@ -180,46 +172,40 @@ body {
 }
 
 .slider-dot > * {
-  stroke: #000000;
-  fill: rgba(255, 255, 255, 0.25);
+  stroke: var(--ink);
+  fill: rgba(255, 255, 255, 0.35);
   width: 100%;
   height: 100%;
 }
 
-/* Optional: make buttons a bit smaller on mobile */
 @media (max-width: 640px) {
-  .slider-btn {
-    width: 44px;
-  }
+  .slider-btn { width: 44px; }
 }
 
 /* =========================
    BANNER (16:5 + 6 fun pastel variants)
    ========================= */
-
-/* Base banner */
 .banner {
   width: 100%;
-  aspect-ratio: 16 / 5; /* ✅ requirement on desktop */
+  aspect-ratio: 16 / 5;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 18px 45px rgba(13, 27, 42, 0.18);
-  border: #0000001a solid 1px;
   border-radius: 10px;
+
+  /* ✅ use ink shadows/borders */
+  box-shadow: 0px 18px 45px var(--ink-18);
+  border: 1px solid var(--ink-12);
+
   background: linear-gradient(180deg, var(--background-default), #ffffff);
 }
 
-/* Ensure slides fill wrapper on desktop */
 @media (min-width: 641px) {
-  .banner {
-    height: 100%;
-  }
+  .banner { height: 100%; }
 }
 
-/* Content */
 .banner-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   height: 100%;
   width: min(56%, 620px);
   padding: clamp(14px, 2.2vw, 26px);
@@ -234,14 +220,18 @@ body {
   font-size: 12px;
   letter-spacing: 0.16em;
   font-weight: 800;
-  color: rgba(13, 27, 42, 0.6);
+
+  /* ✅ primary is ink */
+  color: var(--ink-60);
 }
 
 .banner-title {
   margin: 0;
   font-size: clamp(22px, 3vw, 44px);
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.05;
+
+  /* ✅ primary is ink */
   color: var(--ink);
 }
 
@@ -249,36 +239,39 @@ body {
   margin: 0;
   max-width: 55ch;
   font-size: clamp(12px, 1.25vw, 16px);
-  color: rgba(13, 27, 42, 0.72);
+
+  /* ✅ primary is ink shade */
+  color: var(--ink-72);
 }
 
 .banner-cta {
   justify-self: start;
   margin-top: 4px;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 13px;
   letter-spacing: 0.06em;
   padding: 10px 16px;
   border-radius: 999px;
+
+  /* ✅ primary is ink */
   background: var(--ink);
-  color: #fff;
-  transition: transform 120ms ease, opacity 120ms ease;
+  color: var(--background-paper);
+
+  transition: transform 120ms ease, opacity 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 10px 22px var(--ink-14);
 }
 .banner-cta:hover {
   transform: translateY(-1px);
   opacity: 0.92;
 }
 
-/* Art layer */
 .banner-art {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
-.shape {
-  position: absolute;
-}
+.shape { position: absolute; }
 
 .banner-image {
   position: absolute;
@@ -286,300 +279,67 @@ body {
   right: 0;
   width: 50%;
   height: 100%;
-  z-index: 0;
+  z-index: 2;
   margin-right: clamp(0.75rem, 3vw, 5rem);
   padding: 5px;
   overflow: hidden;
   pointer-events: none;
+  border-radius: 10px;
 }
+
 .banner-image > img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit:fill;
+  object-fit: fill;
 }
 
-/* Order: background < shapes < image < content */
-.banner-art {
-  z-index: 1;
-}
-.banner-image {
-  z-index: 2;
-}
-.banner-content {
-  z-index: 3;
-}
+/* Keep shapes subtle */
+.banner-art .shape { opacity: 0.35; }
 
-/* Make shapes more subtle so they don't overpower */
-.banner-art .shape {
-  opacity: 0.35;
-}
+/* ---------- FUN PASTEL VARIANTS (unchanged) ---------- */
+.banner[data-variant="0"] { --a1: #a7f3d0; --a2: #93c5fd; --a3: #fde68a; }
+.banner[data-variant="1"] { --a1: #fbcfe8; --a2: #c7d2fe; --a3: #99f6e4; }
+.banner[data-variant="2"] { --a1: #fed7aa; --a2: #fecaca; --a3: #bae6fd; }
+.banner[data-variant="3"] { --a1: #d9f99d; --a2: #bbf7d0; --a3: #fbcfe8; }
+.banner[data-variant="4"] { --a1: #ddd6fe; --a2: #bfdbfe; --a3: #fde68a; }
+.banner[data-variant="5"] { --a1: #fecdd3; --a2: #bae6fd; --a3: #e9d5ff; }
 
-/* ---------- FUN PASTEL VARIANT PALETTES (not tied to site colors) ---------- */
-.banner[data-variant="0"] {
-  --a1: #a7f3d0; /* mint */
-  --a2: #93c5fd; /* baby blue */
-  --a3: #fde68a; /* butter */
-}
-.banner[data-variant="1"] {
-  --a1: #fbcfe8; /* cotton candy */
-  --a2: #c7d2fe; /* periwinkle */
-  --a3: #99f6e4; /* aqua mint */
-}
-.banner[data-variant="2"] {
-  --a1: #fed7aa; /* peach */
-  --a2: #fecaca; /* blush */
-  --a3: #bae6fd; /* sky */
-}
-.banner[data-variant="3"] {
-  --a1: #d9f99d; /* lime pastel */
-  --a2: #bbf7d0; /* soft green */
-  --a3: #fbcfe8; /* pink */
-}
-.banner[data-variant="4"] {
-  --a1: #ddd6fe; /* lavender */
-  --a2: #bfdbfe; /* soft blue */
-  --a3: #fde68a; /* warm yellow */
-}
-.banner[data-variant="5"] {
-  --a1: #fecdd3; /* rose */
-  --a2: #bae6fd; /* sky */
-  --a3: #e9d5ff; /* lilac */
-}
+/* Variant shapes (unchanged) */
+.banner[data-variant="0"] .a { right: -10%; top: -35%; width: 55%; height: 140%; background: linear-gradient(135deg, var(--a1), var(--a2)); transform: rotate(-12deg); border-radius: 18px; }
+.banner[data-variant="0"] .b { right: 10%; top: 10%; width: 10px; height: 65%; background: rgba(255,255,255,0.65); transform: skewX(-18deg); border-radius: 999px; }
+.banner[data-variant="0"] .c { right: -12%; bottom: -60%; width: 45%; height: 120%; background: rgba(255,255,255,0.26); transform: rotate(-12deg); border-radius: 18px; }
+.banner[data-variant="0"] .d { display: none; }
 
-/* ---------- VARIANT 0: clean diagonal blocks ---------- */
-.banner[data-variant="0"] .a {
-  right: -10%;
-  top: -35%;
-  width: 55%;
-  height: 140%;
-  background: linear-gradient(135deg, var(--a1), var(--a2));
-  transform: rotate(-12deg);
-  border-radius: 18px;
-}
-.banner[data-variant="0"] .b {
-  right: 10%;
-  top: 10%;
-  width: 10px;
-  height: 65%;
-  background: rgba(255, 255, 255, 0.65);
-  transform: skewX(-18deg);
-  border-radius: 999px;
-}
-.banner[data-variant="0"] .c {
-  right: -12%;
-  bottom: -60%;
-  width: 45%;
-  height: 120%;
-  background: rgba(255, 255, 255, 0.26);
-  transform: rotate(-12deg);
-  border-radius: 18px;
-}
-.banner[data-variant="0"] .d {
-  display: none;
-}
+.banner[data-variant="1"] .a { right: 0; top: 0; width: 54%; height: 100%; background: repeating-linear-gradient(0deg, rgba(255,255,255,0) 0 14px, rgba(255,255,255,0.18) 14px 28px), linear-gradient(135deg, var(--a1), var(--a2)); clip-path: polygon(20% 0,100% 0,100% 100%,0 100%); }
+.banner[data-variant="1"] .b { right: 38%; top: 0; width: 26px; height: 100%; background: rgba(255,255,255,0.6); transform: skewX(-16deg); }
+.banner[data-variant="1"] .c { right: 0; top: 0; width: 54%; height: 100%; background: linear-gradient(90deg, transparent 0 72%, rgba(255,255,255,0.18) 72% 100%); clip-path: polygon(25% 0,100% 0,100% 100%,0 100%); opacity: 0.7; }
+.banner[data-variant="1"] .d { display: none; }
 
-/* ---------- VARIANT 1: pixel steps right ---------- */
-.banner[data-variant="1"] .a {
-  right: 0;
-  top: 0;
-  width: 54%;
-  height: 100%;
-  background: repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0) 0 14px,
-      rgba(255, 255, 255, 0.18) 14px 28px
-    ),
-    linear-gradient(135deg, var(--a1), var(--a2));
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-}
-.banner[data-variant="1"] .b {
-  right: 38%;
-  top: 0;
-  width: 26px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: skewX(-16deg);
-}
-.banner[data-variant="1"] .c {
-  right: 0;
-  top: 0;
-  width: 54%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0 72%,
-    rgba(255, 255, 255, 0.18) 72% 100%
-  );
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
-  opacity: 0.7;
-}
-.banner[data-variant="1"] .d {
-  display: none;
-}
+.banner[data-variant="2"] .a { right: -6%; top: 18%; width: 58%; height: 64%; background: linear-gradient(135deg, var(--a1), var(--a2)); transform: skewX(-16deg); border-radius: 16px; }
+.banner[data-variant="2"] .b { right: 8%; top: 18%; width: 58%; height: 64%; border: 2px solid rgba(255,255,255,0.42); transform: skewX(-16deg); border-radius: 16px; }
+.banner[data-variant="2"] .c { right: 18%; top: 30%; width: 18%; height: 8%; background: rgba(255,255,255,0.55); transform: skewX(-16deg); border-radius: 999px; }
+.banner[data-variant="2"] .d { right: 6%; bottom: 12%; width: 120px; height: 12px; background: linear-gradient(90deg, rgba(255,255,255,0.55), transparent); border-radius: 999px; transform: skewX(-16deg); opacity: 0.9; }
 
-/* ---------- VARIANT 2: ribbon band ---------- */
-.banner[data-variant="2"] .a {
-  right: -6%;
-  top: 18%;
-  width: 58%;
-  height: 64%;
-  background: linear-gradient(135deg, var(--a1), var(--a2));
-  transform: skewX(-16deg);
-  border-radius: 16px;
-}
-.banner[data-variant="2"] .b {
-  right: 8%;
-  top: 18%;
-  width: 58%;
-  height: 64%;
-  border: 2px solid rgba(255, 255, 255, 0.42);
-  transform: skewX(-16deg);
-  border-radius: 16px;
-}
-.banner[data-variant="2"] .c {
-  right: 18%;
-  top: 30%;
-  width: 18%;
-  height: 8%;
-  background: rgba(255, 255, 255, 0.55);
-  transform: skewX(-16deg);
-  border-radius: 999px;
-}
-.banner[data-variant="2"] .d {
-  right: 6%;
-  bottom: 12%;
-  width: 120px;
-  height: 12px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.55), transparent);
-  border-radius: 999px;
-  transform: skewX(-16deg);
-  opacity: 0.9;
-}
+.banner[data-variant="3"] .a { left: -10%; top: -20%; width: 34%; height: 150%; background: linear-gradient(135deg, var(--a1), var(--a3)); border-radius: 26px; transform: rotate(8deg); opacity: 0.95; }
+.banner[data-variant="3"] .b { right: -10%; top: -30%; width: 55%; height: 140%; background: linear-gradient(135deg, var(--a2), rgba(255,255,255,0.55)); transform: rotate(-14deg); border-radius: 18px; opacity: 0.95; }
+.banner[data-variant="3"] .c { right: 12%; top: 0; width: 12px; height: 100%; background: rgba(255,255,255,0.6); transform: skewX(-16deg); border-radius: 999px; }
+.banner[data-variant="3"] .d { left: 14%; bottom: 16%; width: 140px; height: 140px; background: rgba(255,255,255,0.22); border-radius: 999px; }
 
-/* ---------- VARIANT 3: left capsule + right diagonal ---------- */
-.banner[data-variant="3"] .a {
-  left: -10%;
-  top: -20%;
-  width: 34%;
-  height: 150%;
-  background: linear-gradient(135deg, var(--a1), var(--a3));
-  border-radius: 26px;
-  transform: rotate(8deg);
-  opacity: 0.95;
-}
-.banner[data-variant="3"] .b {
-  right: -10%;
-  top: -30%;
-  width: 55%;
-  height: 140%;
-  background: linear-gradient(135deg, var(--a2), rgba(255, 255, 255, 0.55));
-  transform: rotate(-14deg);
-  border-radius: 18px;
-  opacity: 0.95;
-}
-.banner[data-variant="3"] .c {
-  right: 12%;
-  top: 0;
-  width: 12px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: skewX(-16deg);
-  border-radius: 999px;
-}
-.banner[data-variant="3"] .d {
-  left: 14%;
-  bottom: 16%;
-  width: 140px;
-  height: 140px;
-  background: rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-}
+.banner[data-variant="4"] .a { right: 0; top: 0; width: 56%; height: 100%; background: linear-gradient(135deg, var(--a1), var(--a2)); clip-path: polygon(25% 0,100% 0,100% 100%,15% 100%,0 50%); }
+.banner[data-variant="4"] .b { right: 18%; top: 20%; width: 26%; height: 60%; background: rgba(255,255,255,0.35); clip-path: polygon(30% 0,100% 0,78% 50%,100% 100%,30% 100%,0 50%); }
+.banner[data-variant="4"] .c { right: 44%; top: 0; width: 12px; height: 100%; background: rgba(255,255,255,0.58); transform: skewX(-16deg); border-radius: 999px; }
+.banner[data-variant="4"] .d { right: 8%; bottom: 14%; width: 160px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 999px; opacity: 0.85; }
 
-/* ---------- VARIANT 4: chevrons ---------- */
-.banner[data-variant="4"] .a {
-  right: 0;
-  top: 0;
-  width: 56%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--a1), var(--a2));
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 15% 100%, 0 50%);
-}
-.banner[data-variant="4"] .b {
-  right: 18%;
-  top: 20%;
-  width: 26%;
-  height: 60%;
-  background: rgba(255, 255, 255, 0.35);
-  clip-path: polygon(30% 0, 100% 0, 78% 50%, 100% 100%, 30% 100%, 0 50%);
-}
-.banner[data-variant="4"] .c {
-  right: 44%;
-  top: 0;
-  width: 12px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.58);
-  transform: skewX(-16deg);
-  border-radius: 999px;
-}
-.banner[data-variant="4"] .d {
-  right: 8%;
-  bottom: 14%;
-  width: 160px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
-  opacity: 0.85;
-}
-
-/* ---------- VARIANT 5: layered slabs ---------- */
-.banner[data-variant="5"] .a {
-  right: -10%;
-  bottom: -60%;
-  width: 62%;
-  height: 160%;
-  background: linear-gradient(135deg, var(--a1), var(--a2));
-  transform: rotate(-10deg);
-  border-radius: 22px;
-}
-.banner[data-variant="5"] .b {
-  right: 8%;
-  bottom: -40%;
-  width: 52%;
-  height: 140%;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.22),
-    rgba(255, 255, 255, 0.34)
-  );
-  transform: rotate(-10deg);
-  border-radius: 22px;
-}
-.banner[data-variant="5"] .c {
-  right: 18%;
-  top: 20%;
-  width: 96px;
-  height: 96px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, var(--a3), rgba(255, 255, 255, 0.2));
-  transform: rotate(12deg);
-}
-.banner[data-variant="5"] .d {
-  right: 30%;
-  top: 14%;
-  width: 12px;
-  height: 60%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: skewX(-18deg);
-  border-radius: 999px;
-}
+.banner[data-variant="5"] .a { right: -10%; bottom: -60%; width: 62%; height: 160%; background: linear-gradient(135deg, var(--a1), var(--a2)); transform: rotate(-10deg); border-radius: 22px; }
+.banner[data-variant="5"] .b { right: 8%; bottom: -40%; width: 52%; height: 140%; background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.34)); transform: rotate(-10deg); border-radius: 22px; }
+.banner[data-variant="5"] .c { right: 18%; top: 20%; width: 96px; height: 96px; border-radius: 18px; background: linear-gradient(135deg, var(--a3), rgba(255,255,255,0.2)); transform: rotate(12deg); }
+.banner[data-variant="5"] .d { right: 30%; top: 14%; width: 12px; height: 60%; background: rgba(255,255,255,0.6); transform: skewX(-18deg); border-radius: 999px; }
 
 /* =========================
    MOBILE RESPONSIVE (NO DEFORM)
    ========================= */
-
 @media (max-width: 640px) {
-  /* Stop forcing banner ratio on mobile */
   .banner {
     aspect-ratio: auto;
     height: auto;
@@ -587,7 +347,6 @@ body {
     padding-bottom: 0.75rem;
   }
 
-  /* Stack content above image */
   .banner-content {
     width: 100%;
     height: auto;
@@ -597,11 +356,8 @@ body {
     padding-bottom: 10px;
   }
 
-  .banner-text {
-    max-width: none;
-  }
+  .banner-text { max-width: none; }
 
-  /* Make image flow in normal doc layout */
   .banner-image {
     position: relative;
     width: 100%;
@@ -610,7 +366,6 @@ body {
     padding: 0 12px 12px;
   }
 
-  /* Keep media shape stable */
   .banner-media {
     width: 100%;
     height: auto;
@@ -627,9 +382,175 @@ body {
     border-radius: 40px;
   }
 
-  /* Keep decorations behind */
-  .banner-art {
-    z-index: 0;
-  }
+  .banner-art { z-index: 0; }
 }
 
+/* =========================
+   CONTACT PAGE (INK THEME)
+   ========================= */
+.contact-page{
+  width: 100%;
+  min-height: calc(100vh - 140px);
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1rem;
+}
+
+.contact-card{
+  width: min(980px, 100%);
+  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--ink-14);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px var(--ink-14);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+
+.contact-info{
+  padding: 2.2rem;
+  background: linear-gradient(180deg, rgba(224,225,221,0.65), rgba(255,255,255,0.65));
+}
+
+.contact-title{
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.contact-text{
+  margin: 1rem 0 1.4rem 0;
+  color: var(--ink-72);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+.contact-list{ display: grid; gap: .75rem; }
+
+.contact-row{
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  color: var(--ink-80);
+  font-weight: 600;
+}
+
+.contact-icon{
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--ink-72);
+}
+
+/* RIGHT */
+.contact-form{
+  position: relative;
+  background: linear-gradient(135deg, rgba(13,27,42,0.98), rgba(13,27,42,0.88));
+}
+
+.contact-form-inner{
+  position: relative;
+  z-index: 2;
+  padding: 2.2rem;
+}
+
+.contact-title--light{ color: var(--background-paper); }
+
+.contact-field{
+  margin-top: 1rem;
+  display: grid;
+  gap: .45rem;
+}
+
+.contact-label{
+  font-size: .86rem;
+  font-weight: 800;
+  color: rgba(224,225,221,0.88);
+  letter-spacing: .02em;
+}
+
+.contact-input{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(224,225,221,0.22);
+  background: rgba(255,255,255,0.08);
+  color: var(--background-paper);
+  padding: .8rem .95rem;
+  outline: none;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.contact-input::placeholder{ color: rgba(224,225,221,0.55); }
+
+.contact-input:focus{
+  border-color: rgba(224,225,221,0.55);
+  background: rgba(255,255,255,0.12);
+}
+
+.contact-textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-btn{
+  margin-top: 1.25rem;
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: .9rem 1rem;
+  background: var(--background-paper);
+  color: var(--ink);
+  font-weight: 900;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: transform 140ms ease, opacity 140ms ease;
+}
+
+.contact-btn:hover{
+  transform: translateY(-1px);
+  opacity: .94;
+}
+
+.contact-circle{
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(224,225,221,0.22), rgba(224,225,221,0.04) 60%, transparent 70%);
+  opacity: .9;
+}
+
+.contact-circle.one{
+  width: 220px;
+  height: 220px;
+  top: 32px;
+  right: -80px;
+}
+
+.contact-circle.two{
+  width: 160px;
+  height: 160px;
+  bottom: 26px;
+  right: 10px;
+  opacity: .75;
+}
+
+@media (max-width: 900px){
+  .contact-card{ grid-template-columns: 1fr; }
+  .contact-form{ min-height: 420px; }
+}
+
+@media (max-width: 480px){
+  .contact-info,
+  .contact-form-inner{ padding: 1.4rem; }
+  .contact-title{ font-size: 1.35rem; }
+}
+
+.contact-meta{
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-bottom: .2rem;
+}

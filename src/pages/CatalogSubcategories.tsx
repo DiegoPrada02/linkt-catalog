@@ -55,22 +55,26 @@ export default function CatalogSubcategories() {
               Back to categories
             </Link>
           }
+          extraContent = {
+              <Grid>
+          {category.subcategories.map((s) => (
+            <CatalogCard
+              key={s.id}
+              title={s.title}
+              description={s.description}
+              image={s.image}
+              href={`/catalog/${category.id}/${s.id}`}
+              badge="Details"
+            />
+          ))}
+        </Grid>
+          }
+
         />
       </div>
 
       {/* Subcategory grid */}
-      <Grid>
-        {category.subcategories.map((s) => (
-          <CatalogCard
-            key={s.id}
-            title={s.title}
-            description={s.description}
-            image={s.image}
-            href={`/catalog/${category.id}/${s.id}`}
-            badge="Details"
-          />
-        ))}
-      </Grid>
+  
       </div>
     </AppShell>
 
