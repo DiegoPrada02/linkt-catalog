@@ -8,10 +8,12 @@ import About from "../components/About";
 
 import { CATEGORIES, pageTitles } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
+import BrandsScrollBand from "../components/brandsScrollBand";
 
 export default function Home() {
   const { t } = useLanguage();
   const popular = pageTitles[0];
+  const partners = pageTitles[3];
 
   return (
     <AppShell>
@@ -57,6 +59,18 @@ export default function Home() {
               }
             />
           </div>
+
+          <div>
+            <PageTitle
+              title={t(partners.title)}
+              subtitle={t(partners.subtitle)}
+              extraContent = {
+                 <BrandsScrollBand/>
+              }
+            />
+          </div>
+
+
 
           <div id="about-us">
             <About />

@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 /* =========================
    GLOBAL / BASE
    ========================= */
@@ -553,4 +555,82 @@ body {
   text-transform: uppercase;
   color: var(--ink-60);
   margin-bottom: .2rem;
+}
+
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
+
+
+
+/* =========================
+   MARQUEE (WORKING INFINITE SCROLL)
+   ========================= */
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  /* controls spacing between items */
+  --gap: 2.25rem;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  gap: var(--gap);
+  will-change: transform;
+
+  animation-name: marquee-scroll;
+  animation-duration: var(--marquee-duration, 20s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+/* pause */
+.marquee--pause:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* Move exactly one group width (half the track) + half gap to keep it seamless */
+    transform: translate3d(calc(-50% - (var(--gap) / 2)), 0, 0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+    transform: none;
+  }
 }

@@ -189,6 +189,16 @@ export const pageTitles: PageTitleItem[] = [
     },
     rightText: { en: "Browse Products", es: "Explorar Productos" },
   },
+    {
+    title:{
+      en: "Our Partners",
+      es: "Nuestros Clientes",
+    },
+    subtitle:{
+      en: "We treat our partners like family.",
+      es: "Tratamos a nuestros clientes como familia."
+    }
+  },
 ];
 
 export const contactCopy: ContactCopy = {
