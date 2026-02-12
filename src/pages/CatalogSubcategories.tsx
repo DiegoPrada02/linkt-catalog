@@ -3,81 +3,79 @@ import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
 import CatalogCard from "../components/CatalogCard";
-import { CATEGORIES } from "../data/catalog";
+import { CATEGORIES, pages } from "../data/dictionary";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function CatalogSubcategories() {
   const { categoryId } = useParams();
-  const category = CATEGORIES.find((c) => c.id === categoryId);
+  const { t } = useLanguage();
 
+  const category = CATEGORIES.find((c) => c.id === categoryId);
   if (!category) return <Navigate to="/catalog" replace />;
 
-  return (
+  const catalogLabel =
+    pages.find((p) => p.path === "/catalog")?.label ?? { en: "Catalog", es: "Catálogo" };
 
+  const backLabel = { en: "Back to categories", es: "Volver a categorías" };
+  const detailsBadge = { en: "Details", es: "Detalles" };
+
+  return (
     <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl">
       <AppShell>
-      <div className="body-style">
-              <div className="mb-8">
-        {/* Breadcrumbs */}
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link
-            to="/catalog"
-            className="transition hover:underline underline-offset-4"
-            style={{ color: "var(--dusk-blue)" }}
-          >
-            Catalog
-          </Link>
+        <div className="body-style">
+          <div className="mb-8">
+            {/* Breadcrumbs */}
+            <div className="flex flex-wrap items-center gap-2 text-sm text-[rgba(13,27,42,0.72)]">
+              <Link
+                to="/catalog"
+                className="font-extrabold text-(--primary-main) hover:underline underline-offset-4"
+              >
+                {t(catalogLabel)}
+              </Link>
 
-          <span style={{ color: "var(--dusk-blue)" }}>/</span>
+              <span className="opacity-50">/</span>
 
-          <span style={{ color: "var(--dusk-blue)", fontWeight: 600 }}>
-            {category.title}
-          </span>
-        </div>
+              <span className="font-extrabold text-(--ink)">{t(category.title)}</span>
+            </div>
 
-        <PageTitle
-          title={category.title}
-          subtitle={category.description}
-          right={
-            <Link
-              to="/catalog"
-              className="rounded-xl border px-4 py-2 text-sm font-semibold transition"
-              style={{
-                borderColor: "var(--dusk-blue)",
-                color: "var(--alabaster-grey)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--prussian-blue)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-              }}
-            >
-              Back to categories
-            </Link>
-          }
-          extraContent = {
-              <Grid>
-          {category.subcategories.map((s) => (
-            <CatalogCard
-              key={s.id}
-              title={s.title}
-              description={s.description}
-              image={s.image}
-              href={`/catalog/${category.id}/${s.id}`}
-              badge="Details"
+            <PageTitle
+              title={t(category.title)}
+              subtitle={t(category.description)}
+              right={
+                <Link
+                  to="/catalog"
+                  className="
+                    rounded-xl
+                    border border-(--primary-light)
+                    bg-white/70 backdrop-blur
+                    px-4 py-2
+                    text-sm font-extrabold
+                    text-(--ink)
+                    transition
+                    hover:bg-white/90
+                  "
+                >
+                  {t(backLabel)}
+                </Link>
+              }
+              extraContent={
+                <Grid>
+                  {category.subcategories.map((s) => (
+                    <CatalogCard
+                      key={s.id}
+                      title={t(s.title)}
+                      description={t(s.description)}
+                      image={s.image}
+                      href={`/catalog/${category.id}/${s.id}`}
+                      badge={t(detailsBadge)}
+                    />
+                  ))}
+                </Grid>
+              }
             />
-          ))}
-        </Grid>
-          }
-
-        />
-      </div>
-
-      {/* Subcategory grid */}
-  
-      </div>
-    </AppShell>
-
+          </div>
+        </div>
+      </AppShell>
     </div>
   );
 }

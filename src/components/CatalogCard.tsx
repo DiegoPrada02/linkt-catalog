@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import { Card, CardActionArea, CardContent } from "@mui/material";
 
 type CatalogCardProps = {
   title: string;
@@ -21,95 +21,99 @@ export default function CatalogCard({
       elevation={0}
       className="
         group h-full overflow-hidden
-        rounded-2xl sm:rounded-3xl
+        rounded-3xl
         border border-[rgba(13,27,42,0.12)]
         bg-white/70 backdrop-blur-md
-        shadow-[0_10px_30px_rgba(13,27,42,0.10)]
-        transition
-        hover:-translate-y-0.5 hover:shadow-[0_16px_45px_rgba(13,27,42,0.16)]
+        shadow-[0_12px_35px_rgba(13,27,42,0.10)]
+        transition-all duration-300
+        hover:-translate-y-1 hover:shadow-[0_18px_55px_rgba(13,27,42,0.18)]
       "
     >
-      <CardActionArea className="h-full">
-        {/* IMAGE */}
-        <CardMedia className="relative">
-          {image ? (
+      <CardActionArea className="h-full flex flex-col">
+        
+        {/* IMAGE SECTION */}
+        {image && (
+          <div className="relative w-full overflow-hidden">
             <img
               src={image}
               alt={title}
               className="
                 block w-full
-                h-40 sm:h-52 lg:h-56
+                h-44 sm:h-52 lg:h-60
                 object-cover
+                transition-transform duration-500
+                group-hover:scale-105
               "
               loading="lazy"
             />
-          ) : null}
 
-          {/* Subtle top gradient so text/badge can sit above if you want later */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/10 to-transparent" />
+            {/* Badge */}
+            {badge && (
+              <div className="absolute left-4 top-4">
+                <span
+                  className="
+                    rounded-full
+                    bg-(--secondary-main)
+                    text-white
+                    px-3 py-1
+                    text-xs font-bold
+                    shadow-md
+                  "
+                >
+                  {badge}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
 
-          {/* BADGE (secondary) */}
-          {badge ? (
-            <div className="absolute left-3 top-3">
-              <span
-                className="
-                  inline-flex items-center
-                  rounded-full
-                  border border-(--secondary-main)
-                  bg-white/80 backdrop-blur
-                  px-2.5 py-1
-                  text-xs font-extrabold
-                  text-(--secondary-main)
-                  shadow-sm
-                "
-              >
-                {badge}
-              </span>
-            </div>
-          ) : null}
-        </CardMedia>
-
-        {/* BODY */}
-        <CardContent className="p-4 sm:p-5">
-          <div className="flex items-start justify-between gap-3">
+        {/* TEXT SECTION */}
+        <CardContent
+          className="
+            flex flex-col justify-between
+            grow
+            p-5
+            bg-(--ink)
+          "
+        >
+          <div>
             <h3
               className="
-                text-base sm:text-lg
-                font-extrabold tracking-tight
-                text-(--ink)
+                text-lg sm:text-xl
+                font-extrabold
+                tracking-tight
+                text-(--background-paper)
                 line-clamp-2
               "
-              title={title}
             >
               {title}
             </h3>
+
+            <p
+              className="
+                mt-2
+                text-sm
+                leading-relaxed
+                text-[rgba(224,225,221,0.85)]
+                line-clamp-3
+              "
+            >
+              {description}
+            </p>
           </div>
 
-          <p
-            className="
-              mt-2
-              text-sm sm:text-[0.95rem]
-              leading-relaxed
-              text-[rgba(13,27,42,0.72)]
-              line-clamp-2
-            "
-            title={description}
-          >
-            {description}
-          </p>
-
+          {/* CTA */}
           <div
             className="
-              mt-4
+              mt-6
               inline-flex items-center gap-2
-              text-sm font-extrabold
-              text-(--ink)
+              text-sm font-bold
+              text-(--background-paper)
+              transition-transform duration-200
+              group-hover:translate-x-1
             "
           >
-            View
-            <span className="transition-transform duration-150 group-hover:translate-x-0.5">
-              →
-            </span>
+            View →
           </div>
         </CardContent>
       </CardActionArea>

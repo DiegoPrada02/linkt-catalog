@@ -1,7 +1,7 @@
 import { useLanguage } from "./LanguageProvider";
 import type { Translatable } from "./LanguageProvider";
 
-export function T({ children, fallback = "" }: { children: Translatable; fallback?: string }) {
+export function T(p0: string, p1: string, { children, fallback = "" }: { children: Translatable; fallback?: string; }) {
   const { t } = useLanguage();
 
   // Tripwire: if someone passes an object and it isn't translated, show it clearly

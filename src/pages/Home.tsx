@@ -3,11 +3,10 @@ import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
 import CatalogCard from "../components/CatalogCard";
-import { CATEGORIES } from "../data/catalog";
 import { Hero } from "../components/Hero";
 import About from "../components/About";
 
-import { pageTitles } from "../data/dictionary";
+import { CATEGORIES, pageTitles } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Home() {
@@ -29,7 +28,7 @@ export default function Home() {
                   to="/catalog"
                   className="
                     rounded-xl
-                    border border-(--backgorund-paper)
+                    border border-(--background-paper)
                     px-4 py-2
                     text-sm font-semibold
                     text-(--background-default)
@@ -45,17 +44,20 @@ export default function Home() {
                   {CATEGORIES.slice(0, 4).map((c) => (
                     <CatalogCard
                       key={c.id}
-                      title={c.title}
-                      description={c.description}
+                      title={t(c.title)}
+                      description={t(c.description)}
                       image={c.image}
                       href={`/catalog/${c.id}`}
-                      badge={`${c.subcategories.length} items`}
+                      badge={`${c.subcategories.length} ${t(
+                        { en: "items", es: "artículos" }
+                      )}`}
                     />
                   ))}
                 </Grid>
               }
             />
           </div>
+
           <div id="about-us">
             <About />
           </div>

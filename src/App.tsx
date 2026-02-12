@@ -5,6 +5,8 @@ import CatalogCategories from "./pages/CatalogCategories";
 import CatalogSubcategories from "./pages/CatalogSubcategories";
 import Contact from "./pages/Contact";
 import SubcategoryDetail from "./pages/SubcategoryDetail";
+import Distribution from "./pages/Distribution";
+import Gallery from "./pages/Gallery";
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<CatalogCategories />} />
+        <Route path="/distribution" element={<Distribution />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/catalog/:categoryId" element={<CatalogSubcategories />} />
         <Route path="/catalog/:categoryId/:subcategoryId" element={<SubcategoryDetail />} />
         <Route path="/contact" element={<Contact />} />
