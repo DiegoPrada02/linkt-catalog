@@ -103,7 +103,7 @@ export const BannerData: BannerDataItem[] = [
       en: "Make every handoff feel high-end. Our bags are crafted to protect, impress, and turn first-time buyers into loyal customers.",
       es: "Haz que cada entrega se sienta de lujo. Nuestras bolsas están hechas para proteger, impresionar y convertir compradores en clientes fieles.",
     },
-    img: "/images/banner1.webp",
+    img: "/images/banner-media/banner1.webp",
     cta: {
       text: { en: "Shop Best Sellers", es: "Ver Más Vendidos" },
       href: "/catalog",
@@ -123,7 +123,7 @@ export const BannerData: BannerDataItem[] = [
       en: "Your frozen goods arrive exactly as intended—fresh, protected, and presentation-ready. Built for performance in real distribution.",
       es: "Tus congelados llegan tal como deben—frescos, protegidos y listos para presentar. Diseñadas para rendir en distribución real.",
     },
-    img: "/images/banner2.webp",
+    img: "/images/banner-media/banner2.webp",
     cta: {
       text: { en: "Upgrade Your Packaging", es: "Mejora tu Empaque" },
       href: "/catalog",
@@ -143,7 +143,7 @@ export const BannerData: BannerDataItem[] = [
       en: "Premium, responsible packaging that looks exceptional and performs under pressure—so you can meet modern expectations effortlessly.",
       es: "Empaques premium y responsables que se ven impecables y rinden bajo presión—para cumplir expectativas modernas sin esfuerzo.",
     },
-    img: "/images/testmedia.mp4",
+    img: "/images/banner-media/testmedia.mp4",
     cta: {
       text: { en: "Discover Eco Premium", es: "Descubre Eco Premium" },
       href: "/catalog",
@@ -213,6 +213,16 @@ export const pageTitles: PageTitleItem[] = [
       en:'More questions? Reach out!',
       es:'¿Mas Preguntas? Contactanos!',
     }
+  },
+  {
+    title:{
+      en: "Production Timeline",
+      es: "Cronología de Producción",
+    },
+    subtitle:{
+      en: "See how we build your packaging from start to finish.",
+      es: "Descubre cómo construimos tu empaque desde el inicio hasta el final."
+    },
   },
 ];
 
@@ -987,52 +997,135 @@ type FAQ =  {
 export const FAQs : FAQ[]  = [
   {id: 1,
     question: {
-      en:"Question 1",
-      es: "Pregunta 1"
+      en:"Do we need to provide our own design?",
+      es: "¿Necesitamos proporcionar nuestro propio diseño?"
     },
     answer:{
-      en:'Answer 1',
-      es: 'Respuesta 1'
+      en:"Not at all. LINK'T SYSTEMS has a highly experienced design team ready to transform your ideas into professional, production-ready designs. We can also refine, adjust, or enhance your existing artwork to ensure it meets both aesthetic and technical standards.",
+      es: "No necesitas proporcionar tu propio diseño. Nuestro equipo de diseño tiene amplia experiencia y está listo para transformar tus ideas en diseños profesionales y listos para producción. También podemos refinar, ajustar o mejorar tu arte existente para asegurar que cumpla con los estándares estéticos y técnicos."
     }
   },
     {id: 2,
     question: {
-      en:"Question 2",
-      es: "Pregunta 2"
+      en:"What is the minimum order quantity?",
+      es: "¿Cuál es la cantidad mínima de pedido?"
     },
     answer:{
-      en:'Answer 2',
-      es: 'Respuesta 2'
+      en:'Our standard minimum order quantity is 1,000 units. For specialized projects or custom requirements, please contact us to discuss available options.',
+      es: 'La cantidad mínima de pedido estándar es de 1,000 unidades. Para proyectos especializados o requisitos personalizados, por favor contáctanos para discutir las opciones disponibles.'
     }
   },
     {id: 3,
     question: {
-      en:"Question 3",
-      es: "Pregunta 3"
+      en:"Do you offer free shipping?",
+      es: "¿Ofrecen envío gratuito?"
     },
     answer:{
-      en:'Answer 3',
-      es: 'Respuesta 3'
+      en:'Yes, we offer complimentary shipping on most orders. Shipping terms may vary depending on order size and destination. For detailed information, please reach out to our team.',
+      es: 'Sí, ofrecemos envío gratuito en la mayoría de los pedidos. Los términos de envío pueden variar según el tamaño del pedido y la ubicación. Para información detallada, por favor contacta con nuestro equipo.'
     }
   },
     {id: 4,
     question: {
-      en:"Question 4",
-      es: "Pregunta 4"
+      en:"I have a question about my quote or order. Who should I contact?",
+      es: "¿Tengo una pregunta sobre mi cotización u orden? ¿A quién debo contactar?"
     },
     answer:{
-      en:'Answer 4',
-      es: 'Respuesta 4'
+      en:"You can contact us at placeholder@email.com or call us at +1 (555) 555-5555. Our team will be happy to assist you promptly.",
+      es: 'Puedes contactarnos a placeholder@email.com o llamarnos al +1 (555) 555-5555. Nuestro equipo estará encantado de ayudarte oportunamente.'
     }
   },
     {id: 5,
     question: {
-      en:"Question 5",
-      es: "Pregunta 5"
+      en:"Do you provide proofs before production?",
+      es: "¿Ofrecen pruebas antes de la producción?"
     },
     answer:{
-      en:'Answer 5',
-      es: 'Respuesta 5'
+      en:'Yes. We provide digital proofs for your approval prior to production. Pre-production samples are also available upon request to ensure complete confidence before full manufacturing begins.',
+      es: 'Sí. Ofrecemos pruebas digitales para su aprobación antes de la producción. Las muestras preproducción también están disponibles bajo solicitud para garantizar total confianza antes de comenzar la fabricación completa.'
     }
   },
 ]
+
+
+export type TimelineItemData = {
+  id: number;
+  title: I18nText;
+  description: I18nText;
+  timeframe: I18nText;
+  img_link: string;
+  opposite: I18nText; // "Phase 1" / "Fase 1"
+};
+
+export const TIMELINE_DATA: TimelineItemData[] = [
+  {
+    id: 1,
+    opposite: { en: "Phase 1", es: "Fase 1" },
+    title: { en: "Design & Concept", es: "Diseño y Concepto" },
+    description: {
+      en: "We create your design—or refine your existing artwork—to ensure it’s print-ready, brand-consistent, and optimized for production.",
+      es: "Creamos tu diseño—o perfeccionamos tu arte existente—para que esté listo para impresión, sea consistente con tu marca y optimizado para producción.",
+    },
+    timeframe: { en: "1–3 days", es: "1–3 días" },
+    img_link:
+      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=1200&auto=format&fit=crop&q=60",
+  },
+  {
+    id: 2,
+    opposite: { en: "Phase 2", es: "Fase 2" },
+    title: { en: "Materials Approval & Pre-Production", es: "Aprobación de Materiales y Pre-Producción" },
+    description: {
+      en: "We select and approve materials, confirm specifications, produce samples when needed, and lock the final design for manufacturing.",
+      es: "Seleccionamos y aprobamos materiales, confirmamos especificaciones, realizamos muestras si es necesario y cerramos el diseño final para fabricar.",
+    },
+    timeframe: { en: "3–7 days", es: "3–7 días" },
+    img_link:
+      "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=1200&auto=format&fit=crop&q=60",
+  },
+  {
+    id: 3,
+    opposite: { en: "Phase 3", es: "Fase 3" },
+    title: { en: "Printing & Die-Cutting", es: "Impresión y Troquelado" },
+    description: {
+      en: "Your materials go into production: printing, die-cutting, and precision preparation—built for clean presentation and consistent output.",
+      es: "Tus materiales entran en producción: impresión, troquelado y preparación precisa—para una presentación impecable y resultados consistentes.",
+    },
+    timeframe: { en: "1–2 weeks", es: "1–2 semanas" },
+    img_link: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  },
+  {
+    id: 4,
+    opposite: { en: "Phase 4", es: "Fase 4" },
+    title: { en: "Finishing & Assembly", es: "Acabados y Ensamble" },
+    description: {
+      en: "We complete finishing steps—edge trimming, gluing, folding, and assembly—so the product is retail-ready and durable in real handling.",
+      es: "Completamos los acabados—despicado, pegado, doblado y ensamble—para que el producto quede listo para retail y resistente en manejo real.",
+    },
+    timeframe: { en: "3–7 days", es: "3–7 días" },
+    img_link:
+      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&auto=format&fit=crop&q=60",
+  },
+  {
+    id: 5,
+    opposite: { en: "Phase 5", es: "Fase 5" },
+    title: { en: "Quality Control, Packaging & Palletizing", es: "Control de Calidad, Empaque y Paletizado" },
+    description: {
+      en: "Every batch is inspected before being packaged and palletized—ensuring consistent quality, cleaner logistics, and fewer issues on arrival.",
+      es: "Inspeccionamos cada lote antes de empacar y paletizar—asegurando calidad consistente, logística más limpia y menos incidencias al recibir.",
+    },
+    timeframe: { en: "2–5 days", es: "2–5 días" },
+    img_link:
+      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&auto=format&fit=crop&q=60",
+  },
+  {
+    id: 6,
+    opposite: { en: "Phase 6", es: "Fase 6" },
+    title: { en: "Distribution & Warehousing", es: "Distribución y Almacenamiento" },
+    description: {
+      en: "We coordinate warehousing and distribution—nationwide or international—so your product reaches customers reliably and on schedule.",
+      es: "Coordinamos almacenamiento y distribución—nacional o internacional—para que tu producto llegue de forma confiable y a tiempo.",
+    },
+    timeframe: { en: "Ongoing", es: "Continuo" },
+    img_link: "https://www.w3schools.com/html/mov_bbb.mp4",
+  },
+];

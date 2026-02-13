@@ -5,7 +5,7 @@ import PageTitle from "../components/PageTitle";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { galleryCopy, galleryFilters, galleryItems } from "../data/dictionary";
 import type { GalleryTagKey } from "../data/dictionary";
-import Vidimg from "../components/vidimg";
+import Vidimg from "../components/ui/vidimg";
 
 type FilterKey = "all" | GalleryTagKey;
 

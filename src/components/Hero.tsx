@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { BannerData } from "../data/dictionary";
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react";
 import { SparklesText } from "./ui/sparkles-text";
-import Vidimg from "./vidimg";
+import Vidimg from "./ui/vidimg";
 import { useLanguage } from "../i18n/LanguageProvider";
 
 

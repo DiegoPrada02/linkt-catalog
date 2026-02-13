@@ -10,12 +10,14 @@ import { CATEGORIES, pageTitles } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
 import BrandsScrollBand from "../components/brandsScrollBand";
 import FaqArea from "../components/faqArea";
+import ProductionTimeline from "../components/ProductionTimeline";
 
 export default function Home() {
   const { t } = useLanguage();
   const popular = pageTitles[0];
   const partners = pageTitles[3];
   const faq = pageTitles[4];
+  const timeline = pageTitles[5];
 
   return (
     <AppShell>
@@ -23,7 +25,7 @@ export default function Home() {
 
       <div className="body-style">
         <div className="mx-auto flex flex-col gap-16">
-          <div className="mt-10">
+          <div className="mt-5">
             <PageTitle
               title={t(popular.title)}
               subtitle={t(popular.subtitle)}
@@ -79,7 +81,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="fqa">
+                <div className="mt-16">
+          <PageTitle
+            title={t(timeline.title)}
+            subtitle={t(timeline.subtitle)}
+            extraContent={<ProductionTimeline />}
+          />
+        </div>
+
+        <div className="mt-16">
               <PageTitle
                 title={t(faq.title)}
                 subtitle={t(faq.subtitle)}

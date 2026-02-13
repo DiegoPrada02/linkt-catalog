@@ -34,11 +34,16 @@ export default function ResponsiveAppBar() {
     return location.pathname.startsWith(path);
   };
 
-  const textColor = "var(--background-paper)";
+ const textColor = "var(--background-default)";
   const bgColor = "var(--ink)";
 
   return (
-    <AppBar position="static" elevation={24} sx={{ backgroundColor: bgColor, color: textColor }}>
+    <AppBar position="static" elevation={0}   sx={{
+    background: "linear-gradient(to right, var(--ink), rgba(1,38,86,0.85))",
+    color: "var(--background-default)",
+    borderBottom: "1px solid var(--primary-light)",
+    backdropFilter: "blur(8px)",
+  }}>
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
