@@ -199,6 +199,21 @@ export const pageTitles: PageTitleItem[] = [
       es: "Tratamos a nuestros clientes como familia."
     }
   },
+
+   {
+    title:{
+      en: "Frequently Asked Questions (FAQ)",
+      es: "Preguntas Frecuentes(FAQ)",
+    },
+    subtitle:{
+      en: "Clear answers to help you move forward with confidence.",
+      es: "Respuestas claras para avanzar con total confianza."
+    },
+    rightText:{
+      en:'More questions? Reach out!',
+      es:'¿Mas Preguntas? Contactanos!',
+    }
+  },
 ];
 
 export const contactCopy: ContactCopy = {
@@ -960,3 +975,64 @@ export const CATEGORIES: Category[] = [
     ],
   },
 ];
+
+// FAQ Area
+
+type FAQ =  {
+  id: number,
+  question: I18nText,
+  answer: I18nText,
+}
+
+export const FAQs : FAQ[]  = [
+  {id: 1,
+    question: {
+      en:"Question 1",
+      es: "Pregunta 1"
+    },
+    answer:{
+      en:'Answer 1',
+      es: 'Respuesta 1'
+    }
+  },
+    {id: 2,
+    question: {
+      en:"Question 2",
+      es: "Pregunta 2"
+    },
+    answer:{
+      en:'Answer 2',
+      es: 'Respuesta 2'
+    }
+  },
+    {id: 3,
+    question: {
+      en:"Question 3",
+      es: "Pregunta 3"
+    },
+    answer:{
+      en:'Answer 3',
+      es: 'Respuesta 3'
+    }
+  },
+    {id: 4,
+    question: {
+      en:"Question 4",
+      es: "Pregunta 4"
+    },
+    answer:{
+      en:'Answer 4',
+      es: 'Respuesta 4'
+    }
+  },
+    {id: 5,
+    question: {
+      en:"Question 5",
+      es: "Pregunta 5"
+    },
+    answer:{
+      en:'Answer 5',
+      es: 'Respuesta 5'
+    }
+  },
+]

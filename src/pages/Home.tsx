@@ -2,18 +2,20 @@ import { Link } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
-import CatalogCard from "../components/CatalogCard";
+import CatalogCard from "../components/ui/CatalogCard";
 import { Hero } from "../components/Hero";
 import About from "../components/About";
 
 import { CATEGORIES, pageTitles } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
 import BrandsScrollBand from "../components/brandsScrollBand";
+import FaqArea from "../components/faqArea";
 
 export default function Home() {
   const { t } = useLanguage();
   const popular = pageTitles[0];
   const partners = pageTitles[3];
+  const faq = pageTitles[4];
 
   return (
     <AppShell>
@@ -76,6 +78,33 @@ export default function Home() {
             <About />
           </div>
         </div>
+
+        <div className="fqa">
+              <PageTitle
+                title={t(faq.title)}
+                subtitle={t(faq.subtitle)}
+                right={
+                   <Link
+                  to="/contact"
+                  className="
+                    rounded-xl
+                    border border-(--background-paper)
+                    px-4 py-2
+                    text-sm font-semibold
+                    text-(--background-default)
+                    transition
+                    hover:bg-(--secondary-light)
+                  "
+                >
+                  {t(faq.rightText)}
+                </Link>
+                }
+                extraContent={
+                  <FaqArea/>
+                }
+              />
+        </div>
+              
       </div>
     </AppShell>
   );

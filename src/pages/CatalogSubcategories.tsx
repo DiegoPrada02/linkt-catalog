@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
-import CatalogCard from "../components/CatalogCard";
+import CatalogCard from "../components/ui/CatalogCard";
 import { CATEGORIES, pages } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
 
