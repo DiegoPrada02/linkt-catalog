@@ -587,404 +587,230 @@ const img = (seed: number) => `https://picsum.photos/seed/${seed}/900/700`;
 
 
 export const CATEGORIES: Category[] = [
-  // 1) Shipping Boxes
+  /* ============================================================
+     1) PAPER BAGS – Brand-Carrying Assets
+  ============================================================ */
   {
-    id: "shipping-boxes",
-    title: { en: "Shipping Boxes", es: "Cajas para Envío" },
+    id: "paper-bags",
+    title: { en: "Paper Bags", es: "Bolsas de Papel" },
     description: {
-      en: "Corrugated boxes built for shipping, storage, and fulfillment.",
-      es: "Cajas corrugadas para envío, almacenamiento y logística.",
+      en: "More than packaging — a branded handoff experience your customers remember.",
+      es: "Más que una bolsa — una experiencia de entrega que tus clientes recuerdan.",
     },
-    image: img(1001),
+    image: img(3001),
     subcategories: [
       {
-        id: "rsc",
-        title: { en: "Regular Slotted Carton (RSC)", es: "Caja Ranurada Regular (RSC)" },
+        id: "bag-small",
+        title: { en: "Small", es: "Pequeña" },
         description: {
-          en: "The most common corrugated shipping box style.",
-          es: "El estilo más común de caja corrugada para envío.",
+          en: "Compact, elegant, and perfect for premium small items.",
+          es: "Compacta, elegante y perfecta para artículos pequeños premium.",
         },
-        image: img(1101),
+        image: img(3101),
         details: {
           longDescription: {
-            en: "A reliable, cost-effective box for a wide range of products. Great for warehousing and standard parcel shipping.",
-            es: "Una caja confiable y rentable para muchos productos. Ideal para almacén y envíos estándar.",
+            en: "Designed for boutiques and specialty retailers, this size delivers a refined brand moment without excess material. Ideal for accessories, cosmetics, and curated products.",
+            es: "Diseñada para boutiques y tiendas especializadas, ofrece una experiencia refinada sin exceso de material. Ideal para accesorios y cosméticos.",
           },
-          paperType: { en: "Corrugated Kraft (Single Wall)", es: "Kraft Corrugado (Una Pared)" },
-          paperGsm: 350,
-          size: { widthMm: 300, heightMm: 200, depthMm: 200 },
-          printing: { en: "1–2 color flexo", es: "Flexo 1–2 colores" },
-          minimumOrderQty: 500,
+          paperType: { en: "High-strength Kraft Paper", es: "Papel Kraft de alta resistencia" },
+          paperGsm: 120,
+          size: { widthMm: 180, heightMm: 240, depthMm: 80 },
+          printing: { en: "1–2 color branding", es: "Impresión 1–2 colores" },
+          minimumOrderQty: 1000,
+          productionTime: {
+            minDays: 6,
+            maxDays: 12,
+            note: {
+              en: "Fast production for recurring retail orders.",
+              es: "Producción rápida para pedidos recurrentes.",
+            },
+          },
+        },
+      },
+      {
+        id: "bag-medium",
+        title: { en: "Medium", es: "Mediana" },
+        description: {
+          en: "The go-to retail size — balanced capacity and brand presence.",
+          es: "El tamaño ideal para retail — equilibrio entre capacidad y presencia.",
+        },
+        image: img(3102),
+        details: {
+          longDescription: {
+            en: "Our most versatile format. Engineered for daily retail use while maintaining structural strength and visual impact.",
+            es: "Nuestro formato más versátil. Diseñado para uso diario manteniendo resistencia y presencia visual.",
+          },
+          paperType: { en: "Premium Kraft", es: "Kraft Premium" },
+          paperGsm: 130,
+          coating: { en: "Optional matte finish", es: "Acabado mate opcional" },
+          size: { widthMm: 260, heightMm: 320, depthMm: 120 },
+          printing: { en: "1–4 colors / CMYK", es: "1–4 colores / CMYK" },
+          minimumOrderQty: 1000,
           productionTime: { minDays: 7, maxDays: 14 },
         },
       },
       {
-        id: "mailer",
-        title: { en: "E-commerce Mailer Box", es: "Caja Mailer para E-commerce" },
+        id: "bag-large",
+        title: { en: "Large", es: "Grande" },
         description: {
-          en: "Self-locking mailer designed for a premium unboxing experience.",
-          es: "Caja auto-ensamblable para una experiencia premium de unboxing.",
+          en: "Built for volume, designed for strength, crafted for visibility.",
+          es: "Alta capacidad, gran resistencia y máxima visibilidad.",
         },
-        image: img(1102),
+        image: img(3103),
         details: {
           longDescription: {
-            en: "Perfect for DTC brands. Strong structure, clean presentation, and efficient packing.",
-            es: "Perfecta para marcas DTC. Estructura fuerte, excelente presentación y empaque eficiente.",
+            en: "Reinforced structure for apparel, multi-item purchases, and higher weight loads — without compromising presentation.",
+            es: "Estructura reforzada para ropa y compras múltiples sin sacrificar presentación.",
           },
-          paperType: { en: "Corrugated E-Flute", es: "Corrugado E-Flute" },
-          paperGsm: 320,
-          coating: { en: "Matte aqueous (optional)", es: "Acuoso mate (opcional)" },
-          size: { widthMm: 250, heightMm: 80, depthMm: 180 },
-          printing: { en: "CMYK digital / offset", es: "CMYK digital / offset" },
-          minimumOrderQty: 1000,
-          productionTime: { minDays: 10, maxDays: 18 },
+          paperType: { en: "Reinforced Kraft", es: "Kraft Reforzado" },
+          paperGsm: 150,
+          size: { widthMm: 320, heightMm: 420, depthMm: 150 },
+          printing: { en: "Full color CMYK available", es: "Disponible impresión CMYK" },
+          minimumOrderQty: 800,
+          productionTime: { minDays: 8, maxDays: 15 },
         },
       },
       {
-        id: "doublewall",
-        title: { en: "Heavy-Duty Double Wall Box", es: "Caja Doble Pared Reforzada" },
+        id: "bag-custom",
+        title: { en: "Custom", es: "Personalizada" },
         description: {
-          en: "Extra strength for heavier products and longer routes.",
-          es: "Mayor resistencia para productos pesados y rutas largas.",
+          en: "Your brand. Your dimensions. Your finishes.",
+          es: "Tu marca. Tus dimensiones. Tus acabados.",
         },
-        image: img(1103),
+        image: img(3104),
         details: {
           longDescription: {
-            en: "Designed for high load capacity and improved protection. Ideal for industrial items and bulk shipments.",
-            es: "Diseñada para alta capacidad de carga y mejor protección. Ideal para industria y envíos a granel.",
+            en: "Fully customized paper bags engineered to match your brand positioning — luxury, sustainable, minimalist, or bold. Every detail is intentional.",
+            es: "Bolsas totalmente personalizadas para reflejar el posicionamiento de tu marca — lujo, sostenibilidad o impacto visual.",
           },
-          paperType: { en: "Double Wall Corrugated", es: "Corrugado Doble Pared" },
-          paperGsm: 420,
-          size: { widthMm: 600, heightMm: 400, depthMm: 400 },
-          printing: { en: "1 color flexo", es: "Flexo 1 color" },
-          minimumOrderQty: 300,
-          productionTime: { minDays: 7, maxDays: 12 },
-        },
-      },
-      {
-        id: "archive",
-        title: { en: "Archive / File Storage Box", es: "Caja para Archivo / Documentos" },
-        description: {
-          en: "Organized storage for documents, files, and records.",
-          es: "Almacenamiento organizado para documentos y archivos.",
-        },
-        image: img(1104),
-        details: {
-          longDescription: {
-            en: "Flat-pack design for easy storage. Great for offices, schools, and record keeping.",
-            es: "Diseño plegable para fácil almacenamiento. Ideal para oficinas, escuelas y archivos.",
+          paperType: { en: "Custom paper selection", es: "Selección de papel personalizada" },
+          paperGsm: 140,
+          coating: { en: "Gloss / Matte / Soft-touch / Foil", es: "Brillante / Mate / Soft-touch / Foil" },
+          size: { widthMm: 300, heightMm: 350, depthMm: 120 },
+          printing: { en: "Premium custom finishes", es: "Acabados premium personalizados" },
+          minimumOrderQty: 1500,
+          productionTime: {
+            minDays: 12,
+            maxDays: 25,
+            note: {
+              en: "Timelines depend on complexity and specialty finishes.",
+              es: "El tiempo depende de complejidad y acabados especiales.",
+            },
           },
-          paperType: { en: "Corrugated Kraft", es: "Kraft Corrugado" },
-          paperGsm: 300,
-          size: { widthMm: 350, heightMm: 250, depthMm: 100 },
-          printing: { en: "No print / 1 color", es: "Sin impresión / 1 color" },
-          minimumOrderQty: 500,
-          productionTime: { minDays: 6, maxDays: 10 },
         },
       },
     ],
   },
 
-  // 2) Retail Boxes
+  /* ============================================================
+     2) FOLDING BOXES – Shelf Impact & Structural Confidence
+  ============================================================ */
   {
-    id: "retail-boxes",
-    title: { en: "Retail Boxes", es: "Cajas para Retail" },
+    id: "folding-boxes",
+    title: { en: "Folding Boxes", es: "Cajas Plegadizas" },
     description: {
-      en: "Packaging designed for shelf presence and brand presentation.",
-      es: "Empaques diseñados para presencia en estantería y marca.",
+      en: "Packaging engineered to win attention on the shelf and protect what matters.",
+      es: "Empaques diseñados para destacar en estantería y proteger tu producto.",
     },
-    image: img(2001),
+    image: img(4001),
     subcategories: [
       {
-        id: "folding-carton",
-        title: { en: "Folding Carton", es: "Cartón Plegadizo" },
+        id: "box-small",
+        title: { en: "Small", es: "Pequeña" },
         description: {
-          en: "Lightweight retail box for consumer goods.",
-          es: "Caja liviana para productos de consumo.",
+          en: "Compact retail carton with premium print clarity.",
+          es: "Caja compacta con impresión de alta calidad.",
         },
-        image: img(2101),
+        image: img(4101),
         details: {
           longDescription: {
-            en: "A versatile retail format used for cosmetics, supplements, and everyday products.",
-            es: "Formato versátil usado para cosméticos, suplementos y productos diarios.",
+            en: "Perfect for cosmetics, tech accessories, and specialty items where detail and precision matter.",
+            es: "Ideal para cosméticos y accesorios donde el detalle es clave.",
           },
           paperType: { en: "SBS Paperboard", es: "Cartulina SBS" },
+          paperGsm: 280,
+          size: { widthMm: 100, heightMm: 150, depthMm: 50 },
+          printing: { en: "High-resolution CMYK", es: "CMYK alta resolución" },
+          minimumOrderQty: 2000,
+          productionTime: { minDays: 10, maxDays: 18 },
+        },
+      },
+      {
+        id: "box-medium",
+        title: { en: "Medium", es: "Mediana" },
+        description: {
+          en: "Our most versatile folding box format.",
+          es: "Nuestro formato más versátil.",
+        },
+        image: img(4102),
+        details: {
+          longDescription: {
+            en: "Balanced structure and premium finish — ideal for consumer goods and everyday retail.",
+            es: "Estructura equilibrada con acabado premium — ideal para productos de consumo.",
+          },
+          paperType: { en: "Premium Paperboard", es: "Cartulina Premium" },
           paperGsm: 300,
-          coating: { en: "Gloss or matte (optional)", es: "Brillante o mate (opcional)" },
-          size: { widthMm: 120, heightMm: 200, depthMm: 60 },
+          coating: { en: "Gloss or matte options", es: "Opciones brillante o mate" },
+          size: { widthMm: 150, heightMm: 200, depthMm: 80 },
           printing: { en: "Full color CMYK", es: "Color completo CMYK" },
           minimumOrderQty: 2000,
           productionTime: { minDays: 10, maxDays: 20 },
         },
       },
       {
-        id: "window-box",
-        title: { en: "Window Box", es: "Caja con Ventana" },
+        id: "box-large",
+        title: { en: "Large", es: "Grande" },
         description: {
-          en: "Die-cut window to showcase the product.",
-          es: "Ventana troquelada para mostrar el producto.",
-        },
-        image: img(2102),
-        details: {
-          longDescription: {
-            en: "Great for food, gifts, and retail items where visibility drives sales.",
-            es: "Ideal para alimentos, regalos y productos donde la visibilidad vende.",
-          },
-          paperType: { en: "SBS Paperboard + PET window", es: "Cartulina SBS + Ventana PET" },
-          paperGsm: 320,
-          coating: { en: "Gloss lamination", es: "Laminado brillante" },
-          size: { widthMm: 150, heightMm: 180, depthMm: 70 },
-          printing: { en: "Full color CMYK", es: "Color completo CMYK" },
-          minimumOrderQty: 2000,
-          productionTime: { minDays: 12, maxDays: 22 },
-        },
-      },
-      {
-        id: "rigid",
-        title: { en: "Rigid Gift Box", es: "Caja Rígida Premium" },
-        description: {
-          en: "Premium rigid box for luxury products.",
-          es: "Caja rígida premium para productos de lujo.",
-        },
-        image: img(2103),
-        details: {
-          longDescription: {
-            en: "High-end structure with strong walls and refined finishes for premium presentation.",
-            es: "Estructura de alta gama con paredes firmes y acabados finos para presentación premium.",
-          },
-          paperType: { en: "Greyboard + art paper wrap", es: "Cartón gris + forro en papel couché" },
-          paperGsm: 1200,
-          coating: { en: "Soft-touch (optional)", es: "Soft-touch (opcional)" },
-          size: { widthMm: 250, heightMm: 80, depthMm: 200 },
-          printing: { en: "Foil / CMYK / emboss (optional)", es: "Foil / CMYK / relieve (opcional)" },
-          minimumOrderQty: 500,
-          productionTime: { minDays: 15, maxDays: 30 },
-        },
-      },
-      {
-        id: "display",
-        title: { en: "Counter Display Box", es: "Caja Exhibidora de Mostrador" },
-        description: {
-          en: "Point-of-sale display for retail counters.",
-          es: "Exhibidor para punto de venta en mostrador.",
-        },
-        image: img(2104),
-        details: {
-          longDescription: {
-            en: "Designed to present products neatly and drive impulse purchases at checkout.",
-            es: "Diseñada para presentar productos ordenadamente y aumentar compras por impulso.",
-          },
-          paperType: { en: "Corrugated E-Flute", es: "Corrugado E-Flute" },
-          paperGsm: 300,
-          size: { widthMm: 300, heightMm: 200, depthMm: 180 },
-          printing: { en: "Full color", es: "Color completo" },
-          minimumOrderQty: 1000,
-          productionTime: { minDays: 10, maxDays: 18 },
-        },
-      },
-    ],
-  },
-
-  // 3) Paper Bags
-  {
-    id: "paper-bags",
-    title: { en: "Paper Bags", es: "Bolsas de Papel" },
-    description: {
-      en: "Retail and food bags that elevate the handoff and protect the product.",
-      es: "Bolsas para retail y alimentos que elevan la entrega y protegen el producto.",
-    },
-    image: img(3001),
-    subcategories: [
-      {
-        id: "twisted-handle",
-        title: { en: "Twisted Handle Bag", es: "Bolsa con Asa Retorcida" },
-        description: {
-          en: "Classic kraft shopping bag with twisted handles.",
-          es: "Bolsa kraft clásica con asas retorcidas.",
-        },
-        image: img(3101),
-        details: {
-          longDescription: {
-            en: "A dependable retail staple with comfortable handles and strong load capacity.",
-            es: "Un básico confiable de retail con asas cómodas y buena capacidad de carga.",
-          },
-          paperType: { en: "Kraft Paper", es: "Papel Kraft" },
-          paperGsm: 120,
-          size: { widthMm: 320, heightMm: 420, depthMm: 120 },
-          printing: { en: "1–2 colors", es: "1–2 colores" },
-          minimumOrderQty: 1000,
-          productionTime: { minDays: 7, maxDays: 14 },
-        },
-      },
-      {
-        id: "flat-handle",
-        title: { en: "Flat Handle Bag", es: "Bolsa con Asa Plana" },
-        description: {
-          en: "Economical paper bag with flat handles.",
-          es: "Bolsa económica con asas planas.",
-        },
-        image: img(3102),
-        details: {
-          longDescription: {
-            en: "Great for high-volume retail. Clean look, efficient production, reliable strength.",
-            es: "Ideal para alto volumen. Look limpio, producción eficiente y resistencia confiable.",
-          },
-          paperType: { en: "Kraft Paper", es: "Papel Kraft" },
-          paperGsm: 110,
-          size: { widthMm: 300, heightMm: 400, depthMm: 100 },
-          printing: { en: "1 color", es: "1 color" },
-          minimumOrderQty: 2000,
-          productionTime: { minDays: 6, maxDays: 12 },
-        },
-      },
-      {
-        id: "luxury-bag",
-        title: { en: "Luxury Rope Handle Bag", es: "Bolsa Premium con Cordón" },
-        description: {
-          en: "Premium bag with rope handles and upgraded finishes.",
-          es: "Bolsa premium con cordón y acabados mejorados.",
-        },
-        image: img(3103),
-        details: {
-          longDescription: {
-            en: "Designed for boutiques and premium brands where presentation matters most.",
-            es: "Diseñada para boutiques y marcas premium donde la presentación es clave.",
-          },
-          paperType: { en: "Art Paper", es: "Papel Couche/Arte" },
-          paperGsm: 180,
-          coating: { en: "Matte lamination", es: "Laminado mate" },
-          size: { widthMm: 260, heightMm: 360, depthMm: 100 },
-          printing: { en: "CMYK + foil (optional)", es: "CMYK + foil (opcional)" },
-          minimumOrderQty: 1000,
-          productionTime: { minDays: 12, maxDays: 25 },
-        },
-      },
-      {
-        id: "food-delivery-bag",
-        title: { en: "Food Delivery Bag", es: "Bolsa para Delivery de Comida" },
-        description: {
-          en: "Sturdy food bag sized for takeout and delivery orders.",
-          es: "Bolsa resistente para pedidos de comida para llevar.",
-        },
-        image: img(3104),
-        details: {
-          longDescription: {
-            en: "Built to carry meals securely with optional grease-resistant liners.",
-            es: "Hecha para transportar comidas de forma segura con opción de recubrimiento anti-grasa.",
-          },
-          paperType: { en: "Kraft Paper", es: "Papel Kraft" },
-          paperGsm: 110,
-          coating: { en: "Grease-resistant (optional)", es: "Anti-grasa (opcional)" },
-          size: { widthMm: 260, heightMm: 320, depthMm: 140 },
-          printing: { en: "1–2 colors", es: "1–2 colores" },
-          minimumOrderQty: 2000,
-          productionTime: { minDays: 6, maxDays: 12 },
-        },
-      },
-    ],
-  },
-
-  // 4) Custom Packaging
-  {
-    id: "custom-packaging",
-    title: { en: "Custom Packaging", es: "Empaques Personalizados" },
-    description: {
-      en: "Fully custom boxes and bags—sizes, materials, print, and finishes.",
-      es: "Cajas y bolsas 100% personalizadas—tamaños, materiales, impresión y acabados.",
-    },
-    image: img(4001),
-    subcategories: [
-      {
-        id: "custom-box",
-        title: { en: "Custom Box", es: "Caja Personalizada" },
-        description: {
-          en: "A box built to your exact dimensions and performance needs.",
-          es: "Caja hecha a tus medidas y necesidades de resistencia.",
-        },
-        image: img(4101),
-        details: {
-          longDescription: {
-            en: "Choose style, flute, print, and finishes. Ideal for brands that need a perfect fit and premium presentation.",
-            es: "Elige estilo, flauta, impresión y acabados. Ideal para marcas que necesitan ajuste perfecto y presentación premium.",
-          },
-          paperType: { en: "Custom (Corrugated / Paperboard)", es: "Personalizado (Corrugado / Cartulina)" },
-          paperGsm: 300,
-          size: { widthMm: 300, heightMm: 150, depthMm: 200 },
-          printing: { en: "Custom (flexo / offset / digital)", es: "Personalizado (flexo / offset / digital)" },
-          minimumOrderQty: 1000,
-          productionTime: {
-            minDays: 15,
-            maxDays: 30,
-            note: { en: "Depends on complexity and finishes.", es: "Depende de complejidad y acabados." },
-          },
-        },
-      },
-      {
-        id: "custom-bag",
-        title: { en: "Custom Paper Bag", es: "Bolsa de Papel Personalizada" },
-        description: {
-          en: "Custom size + branding for retail or events.",
-          es: "Tamaño e imagen personalizada para retail o eventos.",
-        },
-        image: img(4102),
-        details: {
-          longDescription: {
-            en: "Select paper, handle type, and print coverage to match your brand standards.",
-            es: "Selecciona papel, tipo de asa y cobertura de impresión para tu marca.",
-          },
-          paperType: { en: "Custom (Kraft / Art paper)", es: "Personalizado (Kraft / Papel arte)" },
-          paperGsm: 140,
-          size: { widthMm: 260, heightMm: 360, depthMm: 120 },
-          printing: { en: "Custom (1–4 colors / CMYK)", es: "Personalizado (1–4 colores / CMYK)" },
-          minimumOrderQty: 1500,
-          productionTime: { minDays: 12, maxDays: 25 },
-        },
-      },
-      {
-        id: "prototype",
-        title: { en: "Prototype Sample", es: "Muestra Prototipo" },
-        description: {
-          en: "Short-run sampling to validate size, structure, and print.",
-          es: "Tiraje corto para validar tamaño, estructura e impresión.",
+          en: "Designed for larger retail products without sacrificing elegance.",
+          es: "Diseñada para productos grandes sin perder elegancia.",
         },
         image: img(4103),
         details: {
           longDescription: {
-            en: "Best for testing before committing to volume. Great for new product launches.",
-            es: "Ideal para probar antes de producir volumen. Perfecto para lanzamientos.",
+            en: "Reinforced folding carton that supports heavier products while delivering high-impact branding.",
+            es: "Caja reforzada que soporta mayor peso con alto impacto visual.",
           },
-          paperType: { en: "Various (by request)", es: "Varios (según solicitud)" },
-          paperGsm: 250,
-          size: { widthMm: 200, heightMm: 100, depthMm: 150 },
-          printing: { en: "Digital", es: "Digital" },
-          minimumOrderQty: 100,
-          productionTime: { minDays: 5, maxDays: 7 },
+          paperType: { en: "High-density Paperboard", es: "Cartulina de alta densidad" },
+          paperGsm: 350,
+          size: { widthMm: 250, heightMm: 300, depthMm: 120 },
+          printing: { en: "CMYK + premium finishes", es: "CMYK + acabados premium" },
+          minimumOrderQty: 1500,
+          productionTime: { minDays: 12, maxDays: 22 },
         },
       },
       {
-        id: "short-run",
-        title: { en: "Short Run Packaging", es: "Producción de Bajo Volumen" },
+        id: "box-custom",
+        title: { en: "Custom", es: "Personalizada" },
         description: {
-          en: "Lower MOQ runs for limited releases and seasonal drops.",
-          es: "MOQ más bajo para ediciones limitadas y temporadas.",
+          en: "Structural innovation tailored to your brand.",
+          es: "Innovación estructural adaptada a tu marca.",
         },
         image: img(4104),
         details: {
           longDescription: {
-            en: "Flexible quantities with fast turnaround. Ideal for market tests or special campaigns.",
-            es: "Cantidades flexibles con entrega rápida. Ideal para pruebas de mercado o campañas.",
+            en: "Custom dielines, specialty finishes, embossing, foil, and structural design engineered to create a premium shelf presence.",
+            es: "Troqueles personalizados, acabados especiales y diseño estructural para destacar en estantería.",
           },
-          paperType: { en: "Various (by request)", es: "Varios (según solicitud)" },
-          paperGsm: 250,
-          size: { widthMm: 220, heightMm: 110, depthMm: 160 },
-          printing: { en: "Digital / short-run offset", es: "Digital / offset corto" },
-          minimumOrderQty: 250,
-          productionTime: { minDays: 7, maxDays: 10 },
+          paperType: { en: "Custom paperboard selection", es: "Selección de cartulina personalizada" },
+          paperGsm: 320,
+          coating: { en: "Foil / Emboss / Spot UV", es: "Foil / Relieve / UV sectorizado" },
+          size: { widthMm: 200, heightMm: 200, depthMm: 100 },
+          printing: { en: "Advanced custom printing", es: "Impresión personalizada avanzada" },
+          minimumOrderQty: 2000,
+          productionTime: {
+            minDays: 15,
+            maxDays: 30,
+            note: {
+              en: "Premium finishes may extend timeline slightly.",
+              es: "Acabados premium pueden extender ligeramente el tiempo.",
+            },
+          },
         },
       },
     ],
   },
 ];
+
 
 // FAQ Area
 

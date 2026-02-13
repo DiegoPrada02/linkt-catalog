@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import AppShell from "../components/AppShell";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { contactCopy } from "../data/dictionary";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+//import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -12,7 +12,7 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [captchaToken, setCaptchaToken] = useState<string>("");
+ // const [captchaToken, setCaptchaToken] = useState<string>("");
 
   // Generate dynamic subject based on name
   const subject = useMemo(() => {
@@ -20,13 +20,13 @@ export default function Contact() {
     return clean ? `Quote for ${clean}` : "Quote request";
   }, [name]);
 
-  const onHCaptchaVerify = (token: string) => {
-    setCaptchaToken(token);
-  };
+ // const onHCaptchaVerify = (token: string) => {
+  //  setCaptchaToken(token);
+ // };
 
-  const onHCaptchaExpire = () => {
-    setCaptchaToken("");
-  };
+  //const onHCaptchaExpire = () => {
+  //  setCaptchaToken("");
+  //};
 
   return (
     <AppShell>
@@ -88,12 +88,12 @@ export default function Contact() {
                 value="51ba5711-db1a-4f65-8f8f-9fc33bbc740f"
               />
 
-              {/* hCaptcha token (required field name) */}
+              {/* hCaptcha token (required field name)
               <input
                 type="hidden"
                 name="h-captcha-response"
                 value={captchaToken}
-              />
+              /> */}
 
               {/* Dynamic Subject */}
               <input type="hidden" name="subject" value={subject} />
