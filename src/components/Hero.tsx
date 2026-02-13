@@ -4,6 +4,7 @@ import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react";
 import { SparklesText } from "./ui/sparkles-text";
 import Vidimg from "./ui/vidimg";
 import { useLanguage } from "../i18n/LanguageProvider";
+import { Link } from "react-router-dom";
 
 
 export function Hero() {
@@ -75,9 +76,9 @@ export function Hero() {
 
                 <p className="banner-text">{text}</p>
 
-                <a className="banner-cta" href={item.cta.href}>
+                <Link className="banner-cta" to={item.cta.href}>
                   {ctaText}
-                </a>
+                </Link>
               </div>
 
               {/* Media */}
