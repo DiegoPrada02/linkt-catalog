@@ -63,7 +63,7 @@ export function Hero() {
               data-variant={v}
               role="region"
               aria-label={`Promotional banner ${index + 1}`}
-              style={{ width: "100%", height: "100%", flex: "0 0 100%" }}
+              style={{ width: "100%", height: "100%", flex: "0 0 100%", padding: "2rem" }}
             >
               {/* Content */}
               <div className="banner-content">
