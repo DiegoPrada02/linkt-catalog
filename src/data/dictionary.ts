@@ -2,11 +2,6 @@ export type Lang = "en" | "es";
 export type I18nText = { en: string; es: string };
 
 
-const IMG = (i: number) =>
-  `https://picsum.photos/seed/${i}/200/300`
-const VID = (_seed: number) =>
-  `https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4`;
-
 type BannerDataItem = {
   title: I18nText;
   eyebrow: I18nText;
