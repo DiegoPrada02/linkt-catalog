@@ -35,7 +35,6 @@ export default function ResponsiveAppBar() {
   };
 
  const textColor = "var(--background-default)";
-  const bgColor = "var(--ink)";
 
   return (
     <AppBar position="static" elevation={0}   sx={{
