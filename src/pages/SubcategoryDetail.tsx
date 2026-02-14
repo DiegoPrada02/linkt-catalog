@@ -3,6 +3,7 @@ import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import { CATEGORIES } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
+import { Lens } from "../components/ui/lens";
 
 type Params = { categoryId: string; subcategoryId: string };
 
@@ -71,14 +72,19 @@ export default function SubcategoryDetail() {
                   "
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-5">
-                    {/* Media */}
-                    <div className="relative lg:col-span-2">
-                      <img
-                        src={subcategory.image}
-                        alt={t(subcategory.title)}
-                        className="h-72 w-full object-cover lg:h-full"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/45 via-black/10 to-transparent" />
+                    {/* Media - with lighter background */}
+                    <div className="relative lg:col-span-2 bg-linear-to-br from-blue-100 via-blue-50 to-slate-100 flex items-center justify-center p-4 lg:p-6 min-h-112 lg:min-h-full">
+                      <Lens zoomFactor={2}
+                          lensSize={150}
+                          isStatic={false}
+                          ariaLabel="Zoom Area" 
+                      >
+                         <img
+                          src={subcategory.image}
+                          alt={t(subcategory.title)}
+                          className="max-h-full lg:max-h-144 w-auto max-w-full object-contain rounded-xl shadow-lg"
+                          />
+                      </Lens>
 
                       {/* Floating chip */}
                       <div className="absolute left-4 top-4 rounded-2xl border border-white/15 bg-black/25 px-3 py-2 backdrop-blur">

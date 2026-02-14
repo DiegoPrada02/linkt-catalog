@@ -6,23 +6,58 @@ import { TIMELINE_DATA } from "../data/dictionary";
 
 export default function ProductionTimeline() {
   const { t } = useLanguage();
-
+  
+  // Helper function to detect if source is a video based on file extension
+  const isVideoSource = (src: string): boolean => {
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.mkv'];
+    return videoExtensions.some(ext => src.toLowerCase().endsWith(ext));
+  };
+  
   return (
     <Timeline 
       position="alternate"
       sx={{
-        // Remove default padding for better mobile experience
-        px: { xs: 0, sm: 2, md: 3 },
-        py: { xs: 1, sm: 2 },
+        // Better padding system
+        px: { xs: 0, sm: 3, md: 4 },
+        py: { xs: 2, sm: 3 },
         
-        // Ensure timeline doesn't overflow on small screens
+        // Ensure timeline doesn't overflow
         maxWidth: "100%",
-        overflow: "hidden",
+        overflow: "visible",
+        
+        // Custom connector styling
+        "& .MuiTimelineConnector-root": {
+          backgroundColor: "rgba(13, 27, 42, 0.12)",
+          width: "2px",
+        },
         
         // Better spacing between items
         "& .MuiTimelineItem-root": {
-          minHeight: { xs: "auto", sm: 200 },
-          mb: { xs: 2, sm: 3, md: 4 },
+          minHeight: { xs: "auto", sm: 220 },
+          mb: { xs: 3, sm: 4, md: 5 },
+          
+          "&::before": {
+            flex: { xs: 0, sm: 1 },
+            padding: { xs: 0, sm: "6px 16px" },
+          },
+        },
+        
+        // Opposite content (dates/labels on the other side)
+        "& .MuiTimelineOppositeContent-root": {
+          flex: { xs: 0, sm: 1 },
+          padding: { xs: 0, sm: "6px 16px" },
+          display: { xs: "none", sm: "block" },
+        },
+        
+        // Timeline content area
+        "& .MuiTimelineContent-root": {
+          padding: { xs: "6px 0 6px 16px", sm: "6px 16px" },
+        },
+        
+        // Dot styling
+        "& .MuiTimelineDot-root": {
+          margin: { xs: "12px 0", sm: "16px 0" },
+          boxShadow: "0 4px 12px rgba(13, 27, 42, 0.15)",
         },
         
         // On mobile, all items align to the right (no alternating)
@@ -31,8 +66,10 @@ export default function ProductionTimeline() {
             flexDirection: "row !important",
           },
           "& .MuiTimelineOppositeContent-root": {
-            flex: "0 !important",
-            paddingLeft: "0 !important",
+            display: "none !important",
+          },
+          "& .MuiTimelineContent-root": {
+            paddingLeft: "16px !important",
           },
         },
       }}
@@ -47,6 +84,7 @@ export default function ProductionTimeline() {
           timeframe={t(item.timeframe)}
           img_link={item.img_link}
           isLast={index === TIMELINE_DATA.length - 1}
+          isVideo={isVideoSource(item.img_link)}
         />
       ))}
     </Timeline>

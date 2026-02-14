@@ -31,10 +31,10 @@ export type ContactCopy = {
   addressValue: I18nText;
 
   emailLabel: I18nText;
-  emailValue: string; // email itself should not translate
+  emailValue: string;
 
   phoneLabel: I18nText;
-  phoneValue: string; // phone should not translate
+  phoneValue: string;
 
   formTitle: I18nText;
 
@@ -63,7 +63,7 @@ export type Brand = {
   footer: {
     navTitle: I18nText;
     contactTitle: I18nText;
-    rights: I18nText; // "All rights reserved."
+    rights: I18nText;
   };
 };
 
@@ -75,72 +75,63 @@ export const pages: Page[] = [
   { label: { en: "Contact", es: "Contacto" }, path: "/contact" },
 ];
 
-/**
- * Luxury / premium conversion copy notes:
- * - Clear value proposition + prestige framing
- * - Outcome-first (brand lift, protection, reliability)
- * - Risk reversal cues (built to perform, consistent quality)
- * - Speed + confidence (fast quotes, lead times)
- * - “You need this” without sounding cheap/spammy
- * - Spanish keeps the same premium tone (not literal)
- */
 export const BannerData: BannerDataItem[] = [
   {
     title: {
-      en: "The Premium Packaging Your Brand Deserves",
-      es: "El Empaque Premium que tu Marca Merece",
+      en: "Packaging That Makes Your Brand Unforgettable",
+      es: "Empaques Que Hacen Tu Marca Inolvidable",
     },
     eyebrow: {
-      en: "LINK'T SYSTEMS • Elevated Packaging",
-      es: "LINK'T SYSTEMS • Empaques de Alta Gama",
+      en: "LINK'T SYSTEMS • Where Quality Meets Luxury",
+      es: "LINK'T SYSTEMS • Donde Calidad Se Encuentra Con Lujo",
     },
     text: {
-      en: "Make every handoff feel high-end. Our bags are crafted to protect, impress, and turn first-time buyers into loyal customers.",
-      es: "Haz que cada entrega se sienta de lujo. Nuestras bolsas están hechas para proteger, impresionar y convertir compradores en clientes fieles.",
+      en: "Every touchpoint counts. Our premium bags transform ordinary handoffs into memorable brand experiences that convert first-time buyers into lifelong advocates.",
+      es: "Cada punto de contacto importa. Nuestras bolsas premium transforman entregas ordinarias en experiencias memorables que convierten compradores en defensores leales.",
     },
     img: "/images/banner-media/banner1.webp",
     cta: {
-      text: { en: "Shop Best Sellers", es: "Ver Más Vendidos" },
+      text: { en: "Discover Best Sellers", es: "Descubre Los Favoritos" },
       href: "/catalog",
     },
     isVideo: false,
   },
   {
     title: {
-      en: "Cold Chain Confidence",
-      es: "Confianza en Cadena de Frío",
+      en: "Zero Compromise on Freshness",
+      es: "Cero Compromiso en Frescura",
     },
     eyebrow: {
-      en: "Insulated Folding Boxes",
-      es: "Cajas Plegables Aisladas",
+      en: "Temperature-Controlled Excellence",
+      es: "Excelencia Con Control de Temperatura",
     },
     text: {
-      en: "Your frozen goods arrive exactly as intended—fresh, protected, and presentation-ready. Built for performance in real distribution.",
-      es: "Tus congelados llegan tal como deben—frescos, protegidos y listos para presentar. Diseñadas para rendir en distribución real.",
+      en: "Your frozen products deserve packaging that works as hard as you do. Our insulated boxes ensure your goods arrive fresh, protected, and ready to impress—every single time.",
+      es: "Tus productos congelados merecen empaques que trabajen tan duro como tú. Nuestras cajas aisladas garantizan que lleguen frescos, protegidos e impecables—cada vez.",
     },
     img: "/images/banner-media/banner2.webp",
     cta: {
-      text: { en: "Upgrade Your Packaging", es: "Mejora tu Empaque" },
+      text: { en: "Elevate Your Packaging", es: "Eleva Tu Empaque" },
       href: "/catalog",
     },
     isVideo: false,
   },
   {
     title: {
-      en: "Luxury Meets Sustainability",
-      es: "Lujo con Sostenibilidad",
+      en: "Beautiful Packaging, Better Planet",
+      es: "Empaques Hermosos, Mejor Planeta",
     },
     eyebrow: {
-      en: "Eco-Forward. Brand-First.",
-      es: "Eco-Responsable. Enfocado en Marca.",
+      en: "Eco-Conscious. Brand-Powerful.",
+      es: "Eco-Consciente. Poderoso en Marca.",
     },
     text: {
-      en: "Premium, responsible packaging that looks exceptional and performs under pressure—so you can meet modern expectations effortlessly.",
-      es: "Empaques premium y responsables que se ven impecables y rinden bajo presión—para cumplir expectativas modernas sin esfuerzo.",
+      en: "Who said sustainability can't be stunning? Our eco-premium packaging delivers jaw-dropping presentation and rock-solid performance—without compromising your values or your brand.",
+      es: "¿Quién dijo que sustentabilidad no puede ser impactante? Nuestros empaques eco-premium ofrecen presentación impresionante y rendimiento sólido—sin comprometer tus valores ni tu marca.",
     },
     img: "/images/banner-media/testmedia.mp4",
     cta: {
-      text: { en: "Discover Eco Premium", es: "Descubre Eco Premium" },
+      text: { en: "Explore Eco Premium", es: "Explora Eco Premium" },
       href: "/catalog",
     },
     isVideo: true,
@@ -150,128 +141,125 @@ export const BannerData: BannerDataItem[] = [
 export const pageTitles: PageTitleItem[] = [
   {
     title: {
-      en: "Most Requested Solutions",
-      es: "Soluciones Más Solicitadas",
+      en: "The Packaging Solutions Winning Teams Choose",
+      es: "Las Soluciones Que Eligen Equipos Ganadores",
     },
     subtitle: {
-      en: "Explore the categories businesses choose when quality, presentation, and reliability can’t be optional.",
-      es: "Explora las categorías que las empresas eligen cuando la calidad, la presentación y la confiabilidad no son opcionales.",
+      en: "Discover why industry leaders choose packaging that delivers quality, wow-factor, and unshakeable reliability—all in one.",
+      es: "Descubre por qué líderes de la industria eligen empaques que ofrecen calidad, factor sorpresa y confiabilidad inquebrantable—todo en uno.",
     },
-    rightText: { en: "View Full Catalog", es: "Ver Catálogo Completo" },
+    rightText: { en: "Browse Full Catalog", es: "Explorar Catálogo Completo" },
   },
   {
     title: {
-      en: "Packaging That Feels Like a Competitive Advantage",
-      es: "Empaques que se Sienten como una Ventaja Competitiva",
+      en: "Your Secret Weapon in a Competitive Market",
+      es: "Tu Arma Secreta en un Mercado Competitivo",
     },
     subtitle: {
-      en: "Premium materials. Consistent output. Built to scale with you.",
-      es: "Materiales premium. Producción consistente. Listo para crecer contigo.",
+      en: "Premium materials. Flawless execution. Built to grow with your ambitions.",
+      es: "Materiales premium. Ejecución impecable. Diseñado para crecer con tus ambiciones.",
     },
     text: {
-      en: "Link’T Systems delivers premium cardboard boxes and paper bags designed for retail, food service, e-commerce, and logistics. We focus on what drives conversion: strong presentation, dependable protection, and the operational reliability your team needs—order after order.",
-      es: "Link’T Systems ofrece cajas de cartón y bolsas de papel premium para retail, alimentos, e-commerce y logística. Nos enfocamos en lo que convierte: presentación sólida, protección confiable y la consistencia operativa que tu equipo necesita—pedido tras pedido.",
+      en: "Link'T Systems creates premium packaging that does more than protect—it converts. Our boxes and bags are engineered for retail excellence, food service reliability, e-commerce success, and logistics confidence. We obsess over the details that drive sales: stunning presentation, bulletproof protection, and the operational consistency your team can count on—order after order, month after month.",
+      es: "Link'T Systems crea empaques premium que hacen más que proteger—convierten. Nuestras cajas y bolsas están diseñadas para excelencia en retail, confiabilidad en servicio de alimentos, éxito en e-commerce y seguridad logística. Nos obsesionamos con los detalles que impulsan ventas: presentación impactante, protección blindada y consistencia operativa en la que tu equipo puede confiar—pedido tras pedido, mes tras mes.",
     },
   },
   {
     title: {
-      en: "Catalog",
-      es: "Catálogo",
+      en: "Premium Packaging, Ready to Ship Today",
+      es: "Empaques Premium, Listos Para Enviar Hoy",
     },
     subtitle: {
-      en: "Premium packaging—ready to ship, ready to impress.",
-      es: "Empaques premium—listos para enviar, listos para impresionar.",
+      en: "The packaging your customers will remember—and your competitors will envy.",
+      es: "Los empaques que tus clientes recordarán—y tus competidores envidiarán.",
     },
-    rightText: { en: "Browse Products", es: "Explorar Productos" },
+    rightText: { en: "Start Shopping", es: "Empezar a Comprar" },
   },
-    {
+  {
     title:{
-      en: "Our Partners",
-      es: "Nuestros Clientes",
+      en: "Trusted by Industry Champions",
+      es: "Confiado Por Campeones de la Industria",
     },
     subtitle:{
-      en: "We treat our partners like family.",
-      es: "Tratamos a nuestros clientes como familia."
-    }
-  },
-
-   {
-    title:{
-      en: "Frequently Asked Questions (FAQ)",
-      es: "Preguntas Frecuentes(FAQ)",
-    },
-    subtitle:{
-      en: "Clear answers to help you move forward with confidence.",
-      es: "Respuestas claras para avanzar con total confianza."
-    },
-    rightText:{
-      en:'More questions? Reach out!',
-      es:'¿Mas Preguntas? Contactanos!',
+      en: "We don't just serve clients—we build lasting partnerships.",
+      es: "No solo servimos clientes—construimos alianzas duraderas."
     }
   },
   {
     title:{
-      en: "Production Timeline",
-      es: "Cronología de Producción",
+      en: "Your Questions, Answered with Clarity",
+      es: "Tus Preguntas, Respondidas Con Claridad",
     },
     subtitle:{
-      en: "See how we build your packaging from start to finish.",
-      es: "Descubre cómo construimos tu empaque desde el inicio hasta el final."
+      en: "Everything you need to know to move forward with complete confidence.",
+      es: "Todo lo que necesitas saber para avanzar con total confianza."
+    },
+    rightText:{
+      en:'Still curious? Let\'s talk!',
+      es:'¿Aún tienes dudas? ¡Hablemos!',
+    }
+  },
+  {
+    title:{
+      en: "From Concept to Your Doorstep",
+      es: "Del Concepto a Tu Puerta",
+    },
+    subtitle:{
+      en: "Watch your vision come to life through our proven production process.",
+      es: "Mira cómo tu visión cobra vida a través de nuestro proceso de producción probado."
     },
   },
 ];
 
 export const contactCopy: ContactCopy = {
   infoTitle: {
-    en: "Get a Quote—Fast, Clear, and Competitive",
-    es: "Recibe una Cotización—Rápida, Clara y Competitiva",
+    en: "Get Your Quote in 24 Hours or Less",
+    es: "Recibe Tu Cotización en 24 Horas o Menos",
   },
   infoText: {
-    en: "Tell us what you need—bags, boxes, or custom packaging. We’ll respond with curated options, recommended quantities, and lead times so you can move forward with confidence.",
-    es: "Cuéntanos qué necesitas—bolsas, cajas o empaques personalizados. Te responderemos con opciones recomendadas, cantidades ideales y tiempos de entrega para que avances con confianza.",
+    en: "Share your packaging vision with us—bags, boxes, or fully custom solutions. We'll send back curated recommendations, smart quantity suggestions, and realistic timelines so you can make your decision with zero guesswork.",
+    es: "Comparte tu visión de empaque—bolsas, cajas o soluciones totalmente personalizadas. Te enviaremos recomendaciones curadas, sugerencias inteligentes de cantidades y plazos realistas para que decidas sin adivinar.",
   },
 
-
-  addressLabel: { en: "Address", es: "Dirección" },
+  addressLabel: { en: "Visit Us", es: "Visítanos" },
   addressValue: {
     en: "10930 NW 138TH ST UNIT 2 - HIALEAH GARDENS FL, 33018",
     es: "10930 NW 138TH ST BODEGA 2 - HIALEAH GARDENS FL, 33018",
   },
 
-  emailLabel: { en: "Email", es: "Correo" },
+  emailLabel: { en: "Email Us", es: "Escríbenos" },
   emailValue: "JUANPRADA@GRUPOELLIOT.COM",
 
-  phoneLabel: { en: "Phone", es: "Teléfono" },
+  phoneLabel: { en: "Call Us", es: "Llámanos" },
   phoneValue: "+1 (754) 423-5958 / +1 (225) 360-5760",
 
-  formTitle: { en: "Start Here", es: "Empieza Aquí" },
+  formTitle: { en: "Let's Make It Happen", es: "Hagámoslo Realidad" },
 
-  nameLabel: { en: "Company Name", es: "Nombre de la Compañia" },
-  namePlaceholder: { en: "Sample Company LLC", es: "Mi Compañia LLC" },
+  nameLabel: { en: "Company Name", es: "Nombre de la Compañía" },
+  namePlaceholder: { en: "Acme Industries Inc.", es: "Mi Empresa S.A." },
 
-  emailInputLabel: { en: "Email", es: "Correo" },
+  emailInputLabel: { en: "Email Address", es: "Correo Electrónico" },
   emailPlaceholder: { en: "jane@company.com", es: "juan@empresa.com" },
 
-  phoneInputLabel: { en: "Phone", es: "Teléfono" },
+  phoneInputLabel: { en: "Phone Number", es: "Número de Teléfono" },
   phonePlaceholder: { en: "(555) 555-5555", es: "(555) 555-5555" },
 
-  messageLabel: { en: "What do you need packaged?", es: "¿Qué necesitas empacar?" },
+  messageLabel: { en: "Tell us about your packaging needs", es: "Cuéntanos sobre tus necesidades de empaque" },
   messagePlaceholder: {
-    en: "Tell us the product type, sizes, quantities, and timeline. If you want custom printing, mention your brand colors and finish.",
-    es: "Cuéntanos el tipo de producto, tamaños, cantidades y fecha. Si deseas impresión personalizada, menciona colores de marca y acabado.",
+    en: "Share product details, ideal sizes, quantities you need, and your timeline. Planning custom branding? Let us know your colors, logo placement, and desired finish.",
+    es: "Comparte detalles del producto, tamaños ideales, cantidades necesarias y tu cronograma. ¿Planeas marca personalizada? Cuéntanos sobre colores, ubicación del logo y acabado deseado.",
   },
 
-  sendButton: { en: "Request My Quote", es: "Solicitar Mi Cotización" },
+  sendButton: { en: "Get My Custom Quote", es: "Obtener Mi Cotización Personalizada" },
 };
 
 export const brand: Brand = {
   name: { en: "Link'T Systems", es: "Link'T Systems" },
   tagline: {
-    en: "Luxury-grade packaging that protects, performs, and elevates your brand.",
-    es: "Empaques de nivel premium que protegen, rinden y elevan tu marca.",
+    en: "Packaging that protects your products, elevates your brand, and drives real results.",
+    es: "Empaques que protegen tus productos, elevan tu marca e impulsan resultados reales.",
   },
 
-  // DO NOT MODIFY CONTACT INFORMATION (kept identical)
   email: "JUANPRADA@GRUPOELLIOT.COM",
   phone: "+1 (754) 423-5958 / +1 (225) 360-5760",
   address: {
@@ -280,8 +268,8 @@ export const brand: Brand = {
   },
 
   footer: {
-    navTitle: { en: "Navigation", es: "Navegación" },
-    contactTitle: { en: "Contact", es: "Contacto" },
+    navTitle: { en: "Quick Links", es: "Enlaces Rápidos" },
+    contactTitle: { en: "Get In Touch", es: "Contáctanos" },
     rights: { en: "All rights reserved.", es: "Todos los derechos reservados." },
   },
 };
@@ -309,63 +297,62 @@ export type DistributionCopy = {
 };
 
 export const distributionCopy: DistributionCopy = {
-  title: { en: "Distribution", es: "Distribución" },
+  title: { en: "Distribution Done Right", es: "Distribución Bien Hecha" },
   subtitle: {
-    en: "We handle the distribution of your products nationwide—fast, reliable, and scalable.",
-    es: "Nos encargamos de la distribución de tus productos a nivel nacional—rápido, confiable y escalable.",
+    en: "Coast-to-coast logistics that scale with your success—fast, dependable, and built for growth.",
+    es: "Logística de costa a costa que escala con tu éxito—rápida, confiable y lista para crecer.",
   },
-  cta: { text: { en: "Contact Us", es: "Contáctanos" }, href: "/contact" },
+  cta: { text: { en: "Let's Talk Logistics", es: "Hablemos de Logística" }, href: "/contact" },
 
   heroImage:
     "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   heroImageAlt: {
-    en: "Distribution warehouse and logistics",
-    es: "Almacén de distribución y logística",
+    en: "State-of-the-art distribution center",
+    es: "Centro de distribución de última generación",
   },
 
   intro: {
-    en: "At LINK’T SYSTEMS, we go beyond traditional services by offering complete distribution and logistics management designed to help businesses scale with confidence. You focus on growth and sales—while we handle coordination, movement, and delivery.",
-    es: "En LINK’T SYSTEMS vamos más allá de los servicios tradicionales ofreciendo una gestión completa de distribución y logística para que tu empresa crezca con confianza. Tú te enfocas en crecer y vender—y nosotros nos encargamos de coordinar, mover y entregar.",
+    en: "At LINK'T SYSTEMS, we don't just ship boxes—we become your logistics backbone. Our end-to-end distribution management lets you focus on what you do best (growing your business) while we handle the heavy lifting: coordination, movement, tracking, and on-time delivery.",
+    es: "En LINK'T SYSTEMS no solo enviamos cajas—nos convertimos en tu columna vertebral logística. Nuestra gestión integral de distribución te permite enfocarte en lo que haces mejor (hacer crecer tu negocio) mientras nosotros manejamos el trabajo pesado: coordinación, movimiento, rastreo y entrega puntual.",
   },
 
-  highlightsTitle: { en: "What we provide", es: "Lo que ofrecemos" },
+  highlightsTitle: { en: "Why teams choose us for distribution", es: "Por qué eligen nuestra distribución" },
   highlights: [
     {
-      title: { en: "Nationwide delivery", es: "Entrega nacional" },
+      title: { en: "Nationwide coverage you can trust", es: "Cobertura nacional confiable" },
       text: {
-        en: "Integrated distribution across the U.S. with consistent processes and accountability.",
-        es: "Distribución integrada en EE. UU. con procesos consistentes y responsabilidad.",
+        en: "Seamless delivery across all 50 states with battle-tested processes and full accountability—no surprises, just results.",
+        es: "Entrega perfecta en los 50 estados con procesos comprobados y responsabilidad total—sin sorpresas, solo resultados.",
       },
     },
     {
-      title: { en: "International shipping", es: "Envíos internacionales" },
+      title: { en: "Global reach, local service", es: "Alcance global, servicio local" },
       text: {
-        en: "Global reach through strategic carrier partnerships (e.g., FedEx).",
-        es: "Alcance global mediante alianzas estratégicas con transportistas (p. ej., FedEx).",
+        en: "International shipping through premium carrier partnerships (like FedEx) that deliver your products safely anywhere in the world.",
+        es: "Envíos internacionales mediante alianzas premium (como FedEx) que entregan tus productos de forma segura en cualquier parte del mundo.",
       },
     },
     {
-      title: { en: "Operational simplicity", es: "Operación sin complicaciones" },
+      title: { en: "One partner, zero headaches", es: "Un socio, cero dolores de cabeza" },
       text: {
-        en: "One partner to streamline timelines, reduce coordination overhead, and scale smoothly.",
-        es: "Un solo socio para optimizar tiempos, reducir la coordinación y escalar sin fricción.",
+        en: "Stop juggling multiple vendors. We streamline your entire logistics operation, cutting coordination time and scaling effortlessly as you grow.",
+        es: "Deja de malabarear múltiples proveedores. Optimizamos toda tu operación logística, reducimos tiempo de coordinación y escalamos sin esfuerzo mientras creces.",
       },
     },
   ],
 
   stats: [
-    { value: { en: "48–72h", es: "48–72h" }, label: { en: "Typical dispatch window", es: "Ventana típica de despacho" } },
-    { value: { en: "Nationwide", es: "Nacional" }, label: { en: "Coverage", es: "Cobertura" } },
-    { value: { en: "Tracked", es: "Rastreado" }, label: { en: "Shipments", es: "Envíos" } },
+    { value: { en: "48–72h", es: "48–72h" }, label: { en: "Standard dispatch", es: "Despacho estándar" } },
+    { value: { en: "50 States", es: "50 Estados" }, label: { en: "Full coverage", es: "Cobertura completa" } },
+    { value: { en: "100%", es: "100%" }, label: { en: "Tracked shipments", es: "Envíos rastreados" } },
   ],
 
-  noteTitle: { en: "Built for growth", es: "Diseñado para crecer" },
+  noteTitle: { en: "Built to scale with winners", es: "Diseñado para escalar con ganadores" },
   noteText: {
-    en: "Whether you’re an established enterprise or a growing brand expanding into new markets, LINK’T SYSTEMS can become your long-term logistics partner.",
-    es: "Ya seas una empresa consolidada o una marca en crecimiento que busca nuevos mercados, LINK’T SYSTEMS puede ser tu socio logístico a largo plazo.",
+    en: "Whether you're an enterprise managing complex supply chains or a growing brand expanding into new territories, LINK'T SYSTEMS has the infrastructure, experience, and dedication to become your long-term logistics partner.",
+    es: "Ya seas una empresa gestionando cadenas de suministro complejas o una marca en crecimiento expandiéndose a nuevos territorios, LINK'T SYSTEMS tiene la infraestructura, experiencia y dedicación para ser tu socio logístico a largo plazo.",
   },
 };
-
 
 export type GalleryCopy = {
   title: I18nText;
@@ -375,33 +362,30 @@ export type GalleryCopy = {
   replaceHint: I18nText;
 };
 
-
-
 export const galleryCopy: GalleryCopy = {
-  title: { en: "Gallery", es: "Galería" },
+  title: { en: "See What's Possible", es: "Descubre Las Posibilidades" },
   subtitle: {
-    en: "A bento-style gallery of product visuals and short videos (placeholders for now).",
-    es: "Una galería tipo bento con imágenes y videos cortos (por ahora, contenido de ejemplo).",
+    en: "Real projects. Real results. Explore our portfolio of premium packaging that drives business impact.",
+    es: "Proyectos reales. Resultados reales. Explora nuestro portafolio de empaques premium que impulsan impacto empresarial.",
   },
   modalClose: { en: "Close", es: "Cerrar" },
   viewLabel: { en: "View", es: "Ver" },
   replaceHint: {
-    en: "Replace these placeholders with your real product photos and videos. Next we can add filters, categories, and a lightbox carousel.",
-    es: "Reemplaza estos ejemplos por tus fotos y videos reales. Luego podemos agregar filtros, categorías y un carrusel tipo lightbox.",
+    en: "This is your canvas. Replace with your actual product photography and video to showcase your capabilities and build trust with prospects.",
+    es: "Este es tu lienzo. Reemplaza con tu fotografía y video real de productos para mostrar tus capacidades y construir confianza con prospectos.",
   },
 };
 
 export const galleryFilters = {
-  all: { en: "All", es: "Todo" },
+  all: { en: "Show All", es: "Mostrar Todo" },
   boxes: { en: "Boxes", es: "Cajas" },
   bags: { en: "Bags", es: "Bolsas" },
   food: { en: "Food", es: "Alimentos" },
   retail: { en: "Retail", es: "Retail" },
   logistics: { en: "Logistics", es: "Logística" },
   eco: { en: "Eco", es: "Eco" },
-  video: { en: "Video", es: "Video" },
+  video: { en: "Videos", es: "Videos" },
 } satisfies Record<string, I18nText>;
-
 
 export type GalleryTagKey =
   | "boxes"
@@ -418,13 +402,8 @@ export type GalleryItem = {
   src: string;
   poster?: string;
   title: I18nText;
-
-  // ✅ for filtering
   tagKey: GalleryTagKey;
-
-  //for display (translated)
   tag: I18nText;
-
   colSpan: 1 | 2;
   rowSpan: 1 | 2;
 };
@@ -434,7 +413,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g1",
     kind: "image",
     src: "/images/gallery-images/1.webp",
-    title: { en: "Premium Boxes", es: "Cajas Premium" },
+    title: { en: "Premium Folding Boxes", es: "Cajas Plegables Premium" },
     tagKey: "boxes",
     tag: { en: "Boxes", es: "Cajas" },
     colSpan: 2,
@@ -444,7 +423,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g2",
     kind: "image",
     src: "/images/gallery-images/2.webp",
-    title: { en: "Paper Bags", es: "Bolsas de Papel" },
+    title: { en: "Luxury Paper Bags", es: "Bolsas de Papel de Lujo" },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
@@ -454,7 +433,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g3",
     kind: "image",
     src: "/images/gallery-images/3.webp",
-    title: { en: "Food Packaging", es: "Empaques para Alimentos" },
+    title: { en: "Food-Grade Packaging", es: "Empaques Grado Alimenticio" },
     tagKey: "food",
     tag: { en: "Food", es: "Alimentos" },
     colSpan: 1,
@@ -463,9 +442,9 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g4",
     kind: "video",
-    src: "/images/gallery-images/4.mp4", // ✅ video
+    src: "/images/gallery-images/4.mp4",
     poster: "/images/gallery-images/4.webp",
-    title: { en: "Production Line (Video)", es: "Línea de Producción (Video)" },
+    title: { en: "Production Excellence (Video)", es: "Excelencia en Producción (Video)" },
     tagKey: "video",
     tag: { en: "Video", es: "Video" },
     colSpan: 2,
@@ -475,7 +454,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g5",
     kind: "image",
     src: "/images/gallery-images/5.webp",
-    title: { en: "Shipping Solutions", es: "Soluciones de Envío" },
+    title: { en: "Logistics Solutions", es: "Soluciones Logísticas" },
     tagKey: "logistics",
     tag: { en: "Logistics", es: "Logística" },
     colSpan: 2,
@@ -485,7 +464,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g6",
     kind: "image",
     src: "/images/gallery-images/6.webp",
-    title: { en: "Retail Ready", es: "Listo para Retail" },
+    title: { en: "Retail-Ready Packaging", es: "Empaques Listos Para Retail" },
     tagKey: "retail",
     tag: { en: "Retail", es: "Retail" },
     colSpan: 2,
@@ -495,7 +474,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g7",
     kind: "image",
     src: "/images/gallery-images/7.webp",
-    title: { en: "Eco Options", es: "Opciones Eco" },
+    title: { en: "Eco-Friendly Options", es: "Opciones Eco-Amigables" },
     tagKey: "eco",
     tag: { en: "Eco", es: "Eco" },
     colSpan: 1,
@@ -505,7 +484,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g8",
     kind: "image",
     src: "/images/gallery-images/8.webp",
-    title: { en: "Kraft Bags", es: "Bolsas Kraft" },
+    title: { en: "Premium Kraft Bags", es: "Bolsas Kraft Premium" },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
@@ -515,7 +494,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g9",
     kind: "image",
     src: "/images/gallery-images/9.webp",
-    title: { en: "Die-cut Boxes", es: "Cajas Troqueladas" },
+    title: { en: "Custom Die-Cut Boxes", es: "Cajas Troqueladas Personalizadas" },
     tagKey: "boxes",
     tag: { en: "Boxes", es: "Cajas" },
     colSpan: 1,
@@ -525,7 +504,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g10",
     kind: "image",
     src: "/images/gallery-images/10.webp",
-    title: { en: "Custom Prints", es: "Impresión Personalizada" },
+    title: { en: "Brand Storytelling", es: "Narración de Marca" },
     tagKey: "retail",
     tag: { en: "Retail", es: "Retail" },
     colSpan: 1,
@@ -535,7 +514,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g11",
     kind: "image",
     src: "/images/gallery-images/11.webp",
-    title: { en: "Wholesale Orders", es: "Pedidos al por Mayor" },
+    title: { en: "Bulk Distribution Ready", es: "Listo Para Distribución a Granel" },
     tagKey: "logistics",
     tag: { en: "Logistics", es: "Logística" },
     colSpan: 1,
@@ -545,7 +524,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g12",
     kind: "image",
     src: "/images/gallery-images/12.webp",
-    title: { en: "Eco Packaging", es: "Empaque Ecológico" },
+    title: { en: "Sustainable Materials", es: "Materiales Sustentables" },
     tagKey: "eco",
     tag: { en: "Eco", es: "Eco" },
     colSpan: 1,
@@ -555,7 +534,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g13",
     kind: "image",
     src: "/images/gallery-images/13.webp",
-    title: { en: "Food Containers", es: "Contenedores para Alimentos" },
+    title: { en: "Temperature-Controlled Packaging", es: "Empaque Con Control de Temperatura" },
     tagKey: "food",
     tag: { en: "Food", es: "Alimentos" },
     colSpan: 1,
@@ -565,7 +544,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g14",
     kind: "image",
     src: "/images/gallery-images/14.webp",
-    title: { en: "Branded Packaging", es: "Empaques con Marca" },
+    title: { en: "Signature Branding", es: "Marca Distintiva" },
     tagKey: "boxes",
     tag: { en: "Boxes", es: "Cajas" },
     colSpan: 1,
@@ -575,7 +554,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g15",
     kind: "image",
     src: "/images/gallery-images/15.webp",
-    title: { en: "Retail Displays", es: "Displays para Retail" },
+    title: { en: "Point-of-Sale Displays", es: "Exhibidores Punto de Venta" },
     tagKey: "retail",
     tag: { en: "Retail", es: "Retail" },
     colSpan: 1,
@@ -583,15 +562,7 @@ export const galleryItems: GalleryItem[] = [
   },
 ];
 
-
-
-/* CATALOG AREA DO NOT MODIFY UNLESS YOU TALK TO DEV!!!!!!!!!!!!*/
-
-/* ========= TYPES ========= */
-
-// src/data/dictionary.ts (or Directory.ts)
-// ✅ Catalog section (fully translatable, no t(...) usage)
-
+/* CATALOG AREA */
 
 export type ProductionTime = {
   minDays: number;
@@ -630,32 +601,29 @@ export type Category = {
 
 const img = (seed: number) => `https://picsum.photos/seed/${seed}/900/700`;
 
-
 export const CATEGORIES: Category[] = [
-  /* ============================================================
-     1) PAPER BAGS – Brand-Carrying Assets
-  ============================================================ */
+  /* PAPER BAGS */
   {
     id: "paper-bags",
     title: { en: "Paper Bags", es: "Bolsas de Papel" },
     description: {
-      en: "More than packaging — a branded handoff experience your customers remember.",
-      es: "Más que una bolsa — una experiencia de entrega que tus clientes recuerdan.",
+      en: "Transform every customer handoff into a branded moment they'll remember and share.",
+      es: "Convierte cada entrega en un momento de marca que recordarán y compartirán.",
     },
-    image: img(3001),
+    image:"/images/catalog-images/bags/bag-cover.webp",
     subcategories: [
       {
         id: "bag-small",
         title: { en: "Small", es: "Pequeña" },
         description: {
-          en: "Compact, elegant, and perfect for premium small items.",
-          es: "Compacta, elegante y perfecta para artículos pequeños premium.",
+          en: "Perfectly sized luxury for boutique moments that matter.",
+          es: "Lujo perfectamente dimensionado para momentos boutique que importan.",
         },
-        image: img(3101),
+        image:"/images/catalog-images/bags/bag-s.webp",
         details: {
           longDescription: {
-            en: "Designed for boutiques and specialty retailers, this size delivers a refined brand moment without excess material. Ideal for accessories, cosmetics, and curated products.",
-            es: "Diseñada para boutiques y tiendas especializadas, ofrece una experiencia refinada sin exceso de material. Ideal para accesorios y cosméticos.",
+            en: "Crafted for retailers who understand that first impressions count. This size delivers maximum brand impact with minimal material—perfect for accessories, cosmetics, and premium small goods that deserve presentation as beautiful as the product inside.",
+            es: "Creada para retailers que entienden que las primeras impresiones cuentan. Este tamaño ofrece máximo impacto de marca con material mínimo—perfecta para accesorios, cosméticos y productos pequeños premium que merecen presentación tan hermosa como el contenido.",
           },
           paperType: { en: "High-strength Kraft Paper", es: "Papel Kraft de alta resistencia" },
           paperGsm: 120,
@@ -666,8 +634,8 @@ export const CATEGORIES: Category[] = [
             minDays: 6,
             maxDays: 12,
             note: {
-              en: "Fast production for recurring retail orders.",
-              es: "Producción rápida para pedidos recurrentes.",
+              en: "Lightning-fast turnaround for recurring retail stars.",
+              es: "Producción relámpago para estrellas del retail recurrente.",
             },
           },
         },
@@ -676,14 +644,14 @@ export const CATEGORIES: Category[] = [
         id: "bag-medium",
         title: { en: "Medium", es: "Mediana" },
         description: {
-          en: "The go-to retail size — balanced capacity and brand presence.",
-          es: "El tamaño ideal para retail — equilibrio entre capacidad y presencia.",
+          en: "The workhorse of retail—engineered for daily excellence.",
+          es: "El caballo de batalla del retail—diseñada para excelencia diaria.",
         },
-        image: img(3102),
+        image: "/images/catalog-images/bags/bag-m.webp",
         details: {
           longDescription: {
-            en: "Our most versatile format. Engineered for daily retail use while maintaining structural strength and visual impact.",
-            es: "Nuestro formato más versátil. Diseñado para uso diario manteniendo resistencia y presencia visual.",
+            en: "Your customers' favorite shopping companion. Proven durability meets striking brand presence in our most versatile format—built to handle real retail life while keeping your brand looking sharp, day after day.",
+            es: "El compañero de compras favorito de tus clientes. Durabilidad comprobada se encuentra con presencia de marca impactante en nuestro formato más versátil—diseñada para manejar la vida real del retail mientras mantiene tu marca luciendo impecable, día tras día.",
           },
           paperType: { en: "Premium Kraft", es: "Kraft Premium" },
           paperGsm: 130,
@@ -698,14 +666,14 @@ export const CATEGORIES: Category[] = [
         id: "bag-large",
         title: { en: "Large", es: "Grande" },
         description: {
-          en: "Built for volume, designed for strength, crafted for visibility.",
-          es: "Alta capacidad, gran resistencia y máxima visibilidad.",
+          en: "Maximum capacity meets premium presentation.",
+          es: "Máxima capacidad con presentación premium.",
         },
-        image: img(3103),
+        image: "/images/catalog-images/bags/bag-l.webp",
         details: {
           longDescription: {
-            en: "Reinforced structure for apparel, multi-item purchases, and higher weight loads — without compromising presentation.",
-            es: "Estructura reforzada para ropa y compras múltiples sin sacrificar presentación.",
+            en: "When your customers are buying big, give them a bag that matches the moment. Reinforced engineering supports serious weight while your brand makes a serious impression—from apparel bundles to multi-item purchases that deserve VIP treatment.",
+            es: "Cuando tus clientes compran en grande, dales una bolsa que esté a la altura. Ingeniería reforzada soporta peso considerable mientras tu marca hace una impresión seria—desde paquetes de ropa hasta compras múltiples que merecen trato VIP.",
           },
           paperType: { en: "Reinforced Kraft", es: "Kraft Reforzado" },
           paperGsm: 150,
@@ -719,14 +687,14 @@ export const CATEGORIES: Category[] = [
         id: "bag-custom",
         title: { en: "Custom", es: "Personalizada" },
         description: {
-          en: "Your brand. Your dimensions. Your finishes.",
-          es: "Tu marca. Tus dimensiones. Tus acabados.",
+          en: "Your vision, engineered to perfection.",
+          es: "Tu visión, ingeniada a la perfección.",
         },
-        image: img(3104),
+        image: "/images/catalog-images/bags/bag-c.webp",
         details: {
           longDescription: {
-            en: "Fully customized paper bags engineered to match your brand positioning — luxury, sustainable, minimalist, or bold. Every detail is intentional.",
-            es: "Bolsas totalmente personalizadas para reflejar el posicionamiento de tu marca — lujo, sostenibilidad o impacto visual.",
+            en: "Step into the spotlight with packaging that's unmistakably yours. From luxury finishes to sustainable statements, from minimalist elegance to bold brand energy—we engineer every detail to amplify your unique positioning and make competitors wish they thought of it first.",
+            es: "Entra al centro de atención con empaques inconfundiblemente tuyos. Desde acabados de lujo hasta declaraciones sustentables, desde elegancia minimalista hasta energía de marca audaz—ingeniamos cada detalle para amplificar tu posicionamiento único y hacer que competidores deseen haberlo pensado primero.",
           },
           paperType: { en: "Custom paper selection", es: "Selección de papel personalizada" },
           paperGsm: 140,
@@ -738,8 +706,8 @@ export const CATEGORIES: Category[] = [
             minDays: 12,
             maxDays: 25,
             note: {
-              en: "Timelines depend on complexity and specialty finishes.",
-              es: "El tiempo depende de complejidad y acabados especiales.",
+              en: "Worth the wait—timelines vary with specialty magic.",
+              es: "Vale la pena la espera—los tiempos varían con magia especial.",
             },
           },
         },
@@ -747,15 +715,13 @@ export const CATEGORIES: Category[] = [
     ],
   },
 
-  /* ============================================================
-     2) FOLDING BOXES – Shelf Impact & Structural Confidence
-  ============================================================ */
+  /* FOLDING BOXES */
   {
     id: "folding-boxes",
     title: { en: "Folding Boxes", es: "Cajas Plegadizas" },
     description: {
-      en: "Packaging engineered to win attention on the shelf and protect what matters.",
-      es: "Empaques diseñados para destacar en estantería y proteger tu producto.",
+      en: "Packaging that wins shelf battles and protects like armor.",
+      es: "Empaques que ganan batallas de estantería y protegen como armadura.",
     },
     image: img(4001),
     subcategories: [
@@ -763,14 +729,14 @@ export const CATEGORIES: Category[] = [
         id: "box-small",
         title: { en: "Small", es: "Pequeña" },
         description: {
-          en: "Compact retail carton with premium print clarity.",
-          es: "Caja compacta con impresión de alta calidad.",
+          en: "Precision packaging for products that demand perfection.",
+          es: "Empaque de precisión para productos que exigen perfección.",
         },
         image: img(4101),
         details: {
           longDescription: {
-            en: "Perfect for cosmetics, tech accessories, and specialty items where detail and precision matter.",
-            es: "Ideal para cosméticos y accesorios donde el detalle es clave.",
+            en: "Engineered for the products where every millimeter matters. High-resolution printing brings your brand to life on packaging designed for cosmetics, tech accessories, and specialty retail items that deserve packaging as exceptional as what's inside.",
+            es: "Diseñada para productos donde cada milímetro importa. Impresión de alta resolución da vida a tu marca en empaques creados para cosméticos, accesorios tecnológicos y artículos especializados que merecen empaque tan excepcional como su contenido.",
           },
           paperType: { en: "SBS Paperboard", es: "Cartulina SBS" },
           paperGsm: 280,
@@ -784,14 +750,14 @@ export const CATEGORIES: Category[] = [
         id: "box-medium",
         title: { en: "Medium", es: "Mediana" },
         description: {
-          en: "Our most versatile folding box format.",
-          es: "Nuestro formato más versátil.",
+          en: "The retail champion—built for everyday excellence.",
+          es: "El campeón del retail—hecha para excelencia cotidiana.",
         },
         image: img(4102),
         details: {
           longDescription: {
-            en: "Balanced structure and premium finish — ideal for consumer goods and everyday retail.",
-            es: "Estructura equilibrada con acabado premium — ideal para productos de consumo.",
+            en: "Strike the perfect balance between protection and presentation. This format dominates shelves across consumer goods—combining structural integrity with premium finishes that make customers reach for your product first.",
+            es: "Logra el equilibrio perfecto entre protección y presentación. Este formato domina estanterías en bienes de consumo—combinando integridad estructural con acabados premium que hacen que clientes elijan tu producto primero.",
           },
           paperType: { en: "Premium Paperboard", es: "Cartulina Premium" },
           paperGsm: 300,
@@ -806,14 +772,14 @@ export const CATEGORIES: Category[] = [
         id: "box-large",
         title: { en: "Large", es: "Grande" },
         description: {
-          en: "Designed for larger retail products without sacrificing elegance.",
-          es: "Diseñada para productos grandes sin perder elegancia.",
+          en: "Powerful protection meets commanding shelf presence.",
+          es: "Protección poderosa con presencia dominante en estantería.",
         },
         image: img(4103),
         details: {
           longDescription: {
-            en: "Reinforced folding carton that supports heavier products while delivering high-impact branding.",
-            es: "Caja reforzada que soporta mayor peso con alto impacto visual.",
+            en: "When your product carries weight, your packaging should too. Reinforced construction handles heavier loads while premium printing ensures your brand dominates every inch of shelf space—because bigger products deserve bigger impact.",
+            es: "Cuando tu producto tiene peso, tu empaque también debería. Construcción reforzada maneja cargas más pesadas mientras impresión premium asegura que tu marca domine cada centímetro de espacio—porque productos más grandes merecen mayor impacto.",
           },
           paperType: { en: "High-density Paperboard", es: "Cartulina de alta densidad" },
           paperGsm: 350,
@@ -827,14 +793,14 @@ export const CATEGORIES: Category[] = [
         id: "box-custom",
         title: { en: "Custom", es: "Personalizada" },
         description: {
-          en: "Structural innovation tailored to your brand.",
-          es: "Innovación estructural adaptada a tu marca.",
+          en: "Structural brilliance engineered for your brand.",
+          es: "Brillantez estructural diseñada para tu marca.",
         },
         image: img(4104),
         details: {
           longDescription: {
-            en: "Custom dielines, specialty finishes, embossing, foil, and structural design engineered to create a premium shelf presence.",
-            es: "Troqueles personalizados, acabados especiales y diseño estructural para destacar en estantería.",
+            en: "Break free from cookie-cutter boxes. Custom dielines, specialty finishes, embossing, foil stamping, and structural innovation combine to create packaging that doesn't just hold your product—it amplifies everything you stand for and makes walking past impossible.",
+            es: "Libérate de cajas genéricas. Troqueles personalizados, acabados especiales, relieve, estampado en foil e innovación estructural se combinan para crear empaques que no solo contienen tu producto—amplifican todo lo que representas y hacen imposible pasar de largo.",
           },
           paperType: { en: "Custom paperboard selection", es: "Selección de cartulina personalizada" },
           paperGsm: 320,
@@ -846,8 +812,8 @@ export const CATEGORIES: Category[] = [
             minDays: 15,
             maxDays: 30,
             note: {
-              en: "Premium finishes may extend timeline slightly.",
-              es: "Acabados premium pueden extender ligeramente el tiempo.",
+              en: "Excellence takes time—premium finishes add polish and precision.",
+              es: "La excelencia toma tiempo—acabados premium añaden pulido y precisión.",
             },
           },
         },
@@ -855,7 +821,6 @@ export const CATEGORIES: Category[] = [
     ],
   },
 ];
-
 
 // FAQ Area
 
@@ -868,56 +833,55 @@ type FAQ =  {
 export const FAQs : FAQ[]  = [
   {id: 1,
     question: {
-      en:"Do we need to provide our own design?",
-      es: "¿Necesitamos proporcionar nuestro propio diseño?"
+      en:"Do I need to provide my own design?",
+      es: "¿Necesito proporcionar mi propio diseño?"
     },
     answer:{
-      en:"Not at all. LINK'T SYSTEMS has a highly experienced design team ready to transform your ideas into professional, production-ready designs. We can also refine, adjust, or enhance your existing artwork to ensure it meets both aesthetic and technical standards.",
-      es: "No necesitas proporcionar tu propio diseño. Nuestro equipo de diseño tiene amplia experiencia y está listo para transformar tus ideas en diseños profesionales y listos para producción. También podemos refinar, ajustar o mejorar tu arte existente para asegurar que cumpla con los estándares estéticos y técnicos."
+      en:"Not at all. Our veteran design team lives and breathes packaging excellence. Share your vision, and we'll transform it into production-ready brilliance—or we can refine your existing artwork to perfection. Either way, you get packaging that looks as good as it performs.",
+      es: "Para nada. Nuestro equipo veterano de diseño vive y respira excelencia en empaque. Comparte tu visión y la transformaremos en brillantez lista para producción—o podemos perfeccionar tu arte existente. De cualquier forma, obtienes empaque que luce tan bien como funciona."
     }
   },
-    {id: 2,
+  {id: 2,
     question: {
-      en:"What is the minimum order quantity?",
-      es: "¿Cuál es la cantidad mínima de pedido?"
+      en:"What's your minimum order quantity?",
+      es: "¿Cuál es su cantidad mínima de pedido?"
     },
     answer:{
-      en:'Our standard minimum order quantity is 1,000 units. For specialized projects or custom requirements, please contact us to discuss available options.',
-      es: 'La cantidad mínima de pedido estándar es de 1,000 unidades. Para proyectos especializados o requisitos personalizados, por favor contáctanos para discutir las opciones disponibles.'
+      en:'Our sweet spot starts at 1,000 units—perfect for testing new designs or maintaining inventory. Need something different? Let\'s talk. We love solving unique challenges.',
+      es: 'Nuestro punto óptimo comienza en 1,000 unidades—perfecto para probar nuevos diseños o mantener inventario. ¿Necesitas algo diferente? Hablemos. Nos encanta resolver desafíos únicos.'
     }
   },
-    {id: 3,
+  {id: 3,
     question: {
       en:"Do you offer free shipping?",
       es: "¿Ofrecen envío gratuito?"
     },
     answer:{
-      en:'Yes, we offer complimentary shipping on most orders. Shipping terms may vary depending on order size and destination. For detailed information, please reach out to our team.',
-      es: 'Sí, ofrecemos envío gratuito en la mayoría de los pedidos. Los términos de envío pueden variar según el tamaño del pedido y la ubicación. Para información detallada, por favor contacta con nuestro equipo.'
+      en:'Yes! Free shipping is standard on most orders because logistics shouldn\'t add stress to your life. Some variations apply based on order size and destination—our team will give you the full picture upfront.',
+      es: 'Sí! El envío gratuito es estándar en la mayoría de pedidos porque la logística no debería agregar estrés a tu vida. Algunas variaciones aplican según tamaño del pedido y destino—nuestro equipo te dará el panorama completo desde el inicio.'
     }
   },
-    {id: 4,
+  {id: 4,
     question: {
-      en:"I have a question about my quote or order. Who should I contact?",
-      es: "¿Tengo una pregunta sobre mi cotización u orden? ¿A quién debo contactar?"
+      en:"I have questions about my quote or order. Who do I contact?",
+      es: "Tengo preguntas sobre mi cotización u orden. ¿A quién contacto?"
     },
     answer:{
-      en:"You can contact us at placeholder@email.com or call us at +1 (555) 555-5555. Our team will be happy to assist you promptly.",
-      es: 'Puedes contactarnos a placeholder@email.com o llamarnos al +1 (555) 555-5555. Nuestro equipo estará encantado de ayudarte oportunamente.'
+      en:"Reach out anytime at placeholder@email.com or call +1 (555) 555-5555. Our team responds fast because we know your time is valuable—and your success matters to us.",
+      es: 'Contáctanos cuando sea a placeholder@email.com o llama al +1 (555) 555-5555. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso—y tu éxito nos importa.'
     }
   },
-    {id: 5,
+  {id: 5,
     question: {
-      en:"Do you provide proofs before production?",
-      es: "¿Ofrecen pruebas antes de la producción?"
+      en:"Do you provide samples before production?",
+      es: "¿Proporcionan muestras antes de producción?"
     },
     answer:{
-      en:'Yes. We provide digital proofs for your approval prior to production. Pre-production samples are also available upon request to ensure complete confidence before full manufacturing begins.',
-      es: 'Sí. Ofrecemos pruebas digitales para su aprobación antes de la producción. Las muestras preproducción también están disponibles bajo solicitud para garantizar total confianza antes de comenzar la fabricación completa.'
+      en:'Absolutely. Digital proofs come standard to ensure perfection. Want to hold it in your hands first? Pre-production samples are available on request—because confidence matters before you commit to the full run.',
+      es: 'Absolutamente. Las pruebas digitales son estándar para asegurar perfección. ¿Quieres tenerlo en tus manos primero? Muestras de preproducción están disponibles bajo solicitud—porque la confianza importa antes de comprometerte con la producción completa.'
     }
   },
 ]
-
 
 export type TimelineItemData = {
   id: number;
@@ -925,17 +889,17 @@ export type TimelineItemData = {
   description: I18nText;
   timeframe: I18nText;
   img_link: string;
-  opposite: I18nText; // "Phase 1" / "Fase 1"
+  opposite: I18nText;
 };
 
 export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 1,
     opposite: { en: "Phase 1", es: "Fase 1" },
-    title: { en: "Design & Concept", es: "Diseño y Concepto" },
+    title: { en: "Vision to Reality", es: "Visión a Realidad" },
     description: {
-      en: "We create your design—or refine your existing artwork—to ensure it’s print-ready, brand-consistent, and optimized for production.",
-      es: "Creamos tu diseño—o perfeccionamos tu arte existente—para que esté listo para impresión, sea consistente con tu marca y optimizado para producción.",
+      en: "We transform your ideas into print-ready masterpieces—or elevate your existing artwork to production perfection. Every design detail is obsessed over to ensure flawless brand consistency and manufacturing excellence.",
+      es: "Transformamos tus ideas en obras maestras listas para imprimir—o elevamos tu arte existente a perfección de producción. Cada detalle del diseño es perfeccionado para asegurar consistencia de marca impecable y excelencia en manufactura.",
     },
     timeframe: { en: "1–3 days", es: "1–3 días" },
     img_link:
@@ -944,10 +908,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 2,
     opposite: { en: "Phase 2", es: "Fase 2" },
-    title: { en: "Materials Approval & Pre-Production", es: "Aprobación de Materiales y Pre-Producción" },
+    title: { en: "Materials & Precision Planning", es: "Materiales y Planificación de Precisión" },
     description: {
-      en: "We select and approve materials, confirm specifications, produce samples when needed, and lock the final design for manufacturing.",
-      es: "Seleccionamos y aprobamos materiales, confirmamos especificaciones, realizamos muestras si es necesario y cerramos el diseño final para fabricar.",
+      en: "We hand-select premium materials, lock down specifications, create samples when needed, and finalize every manufacturing detail. Nothing goes to production until it's bulletproof.",
+      es: "Seleccionamos materiales premium a mano, cerramos especificaciones, creamos muestras cuando es necesario y finalizamos cada detalle de manufactura. Nada va a producción hasta que es a prueba de balas.",
     },
     timeframe: { en: "3–7 days", es: "3–7 días" },
     img_link:
@@ -956,10 +920,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 3,
     opposite: { en: "Phase 3", es: "Fase 3" },
-    title: { en: "Printing & Die-Cutting", es: "Impresión y Troquelado" },
+    title: { en: "Precision Production", es: "Producción de Precisión" },
     description: {
-      en: "Your materials go into production: printing, die-cutting, and precision preparation—built for clean presentation and consistent output.",
-      es: "Tus materiales entran en producción: impresión, troquelado y preparación precisa—para una presentación impecable y resultados consistentes.",
+      en: "Your materials hit our production floor where cutting-edge printing and die-cutting technology meets master craftsmanship. We're engineering consistent quality at scale—because your brand reputation depends on it.",
+      es: "Tus materiales llegan a nuestro piso de producción donde tecnología de impresión y troquelado de vanguardia se encuentra con artesanía maestra. Estamos ingeniando calidad consistente a escala—porque la reputación de tu marca depende de ello.",
     },
     timeframe: { en: "1–2 weeks", es: "1–2 semanas" },
     img_link: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
@@ -967,10 +931,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 4,
     opposite: { en: "Phase 4", es: "Fase 4" },
-    title: { en: "Finishing & Assembly", es: "Acabados y Ensamble" },
+    title: { en: "Finishing Touches", es: "Toques Finales" },
     description: {
-      en: "We complete finishing steps—edge trimming, gluing, folding, and assembly—so the product is retail-ready and durable in real handling.",
-      es: "Completamos los acabados—despicado, pegado, doblado y ensamble—para que el producto quede listo para retail y resistente en manejo real.",
+      en: "Precision edge finishing, expert gluing, perfect folding, and meticulous assembly transform raw materials into retail-ready packaging that looks stunning and survives real-world handling.",
+      es: "Acabado de bordes de precisión, pegado experto, doblado perfecto y ensamblaje meticuloso transforman materias primas en empaques listos para retail que lucen impresionantes y sobreviven manejo del mundo real.",
     },
     timeframe: { en: "3–7 days", es: "3–7 días" },
     img_link:
@@ -979,10 +943,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 5,
     opposite: { en: "Phase 5", es: "Fase 5" },
-    title: { en: "Quality Control, Packaging & Palletizing", es: "Control de Calidad, Empaque y Paletizado" },
+    title: { en: "Quality Assurance & Strategic Packing", es: "Aseguramiento de Calidad y Empaque Estratégico" },
     description: {
-      en: "Every batch is inspected before being packaged and palletized—ensuring consistent quality, cleaner logistics, and fewer issues on arrival.",
-      es: "Inspeccionamos cada lote antes de empacar y paletizar—asegurando calidad consistente, logística más limpia y menos incidencias al recibir.",
+      en: "Every single unit passes rigorous inspection before being expertly packaged and palletized. We're eliminating defects, streamlining logistics, and ensuring your order arrives perfect—because good enough isn't in our vocabulary.",
+      es: "Cada unidad pasa inspección rigurosa antes de ser empacada y paletizada expertamente. Estamos eliminando defectos, optimizando logística y asegurando que tu pedido llegue perfecto—porque 'suficientemente bueno' no está en nuestro vocabulario.",
     },
     timeframe: { en: "2–5 days", es: "2–5 días" },
     img_link:
@@ -991,10 +955,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 6,
     opposite: { en: "Phase 6", es: "Fase 6" },
-    title: { en: "Distribution & Warehousing", es: "Distribución y Almacenamiento" },
+    title: { en: "Global Logistics Network", es: "Red Logística Global" },
     description: {
-      en: "We coordinate warehousing and distribution—nationwide or international—so your product reaches customers reliably and on schedule.",
-      es: "Coordinamos almacenamiento y distribución—nacional o internacional—para que tu producto llegue de forma confiable y a tiempo.",
+      en: "Our distribution infrastructure kicks into gear—coordinating warehousing, managing carriers, and tracking every shipment to ensure your packaging arrives on time, intact, and ready to impress customers worldwide.",
+      es: "Nuestra infraestructura de distribución entra en acción—coordinando almacenamiento, gestionando transportistas y rastreando cada envío para asegurar que tu empaque llegue a tiempo, intacto y listo para impresionar clientes en todo el mundo.",
     },
     timeframe: { en: "Ongoing", es: "Continuo" },
     img_link: "https://www.w3schools.com/html/mov_bbb.mp4",

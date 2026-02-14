@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import MenuIcon from "@mui/icons-material/Menu";
 import Tooltip from "@mui/material/Tooltip";
+import CloseIcon from "@mui/icons-material/Close";
 
 import { pages } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
@@ -34,20 +35,25 @@ export default function ResponsiveAppBar() {
     return location.pathname.startsWith(path);
   };
 
- const textColor = "var(--background-default)";
+  const textColor = "var(--background-default)";
 
   return (
-    <AppBar position="static" elevation={0}   sx={{
-    background: "linear-gradient(to right, var(--ink), rgba(1,38,86,0.85))",
-    color: "var(--background-default)",
-    borderBottom: "1px solid var(--primary-light)",
-    backdropFilter: "blur(8px)",
-  }}>
+    <AppBar 
+      position="static" 
+      elevation={0}   
+      sx={{
+        background: "linear-gradient(135deg, var(--ink) 0%, rgba(1,38,86,0.95) 50%, var(--ink) 100%)",
+        color: textColor,
+        borderBottom: "1px solid rgba(224,225,221,0.15)",
+        backdropFilter: "blur(12px)",
+        boxShadow: "0 4px 20px rgba(13,27,42,0.15)",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
           sx={{
-            minHeight: 72,
+            minHeight: { xs: 64, md: 76 },
             display: "flex",
             alignItems: "center",
             gap: 1,
@@ -63,16 +69,28 @@ export default function ResponsiveAppBar() {
             }}
           >
             {/* MOBILE: hamburger */}
-            <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center", mr: 0.5 }}>
+            <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center", mr: 1 }}>
               <IconButton
                 size="large"
                 aria-label="open navigation menu"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                sx={{ color: textColor }}
+                sx={{ 
+                  color: textColor,
+                  width: 44,
+                  height: 44,
+                  borderRadius: "12px",
+                  border: "1px solid rgba(224,225,221,0.2)",
+                  backgroundColor: "rgba(255,255,255,0.05)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    transform: "scale(1.05)",
+                  }
+                }}
               >
-                <MenuIcon />
+                {Boolean(anchorElNav) ? <CloseIcon /> : <MenuIcon />}
               </IconButton>
 
               <Menu
@@ -85,45 +103,74 @@ export default function ResponsiveAppBar() {
                 onClose={handleCloseNavMenu}
                 PaperProps={{
                   sx: {
-                    mt: 1,
-                    minWidth: 220,
-                    borderRadius: 3,
+                    mt: 1.5,
+                    minWidth: 240,
+                    borderRadius: "16px",
                     backgroundColor: "var(--background-default)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(13,27,42,0.08)",
+                    boxShadow: "0 8px 32px rgba(13,27,42,0.12)",
+                    overflow: "hidden",
                   },
                 }}
                 sx={{ display: { xs: "block", md: "none" } }}
               >
-                {pages.map((p) => (
-                  <MenuItem key={p.path} onClick={handleCloseNavMenu}>
-                    <Button
-                      component={Link}
-                      to={p.path}
+                {pages.map((p) => {
+                  const active = isActive(p.path);
+                  return (
+                    <MenuItem 
+                      key={p.path} 
+                      onClick={handleCloseNavMenu}
                       sx={{
-                        width: "100%",
-                        justifyContent: "flex-start",
-                        textTransform: "none",
-                        fontWeight: 800,
-                        color: "var(--ink)",
+                        px: 2,
+                        py: 1.5,
+                        borderLeft: active ? "3px solid var(--ink)" : "3px solid transparent",
+                        backgroundColor: active ? "rgba(13,27,42,0.04)" : "transparent",
+                        transition: "all 0.2s ease",
+                        "&:hover": {
+                          backgroundColor: "rgba(13,27,42,0.06)",
+                        }
                       }}
                     >
-                      {t(p.label)}
-                    </Button>
-                  </MenuItem>
-                ))}
+                      <Button
+                        component={Link}
+                        to={p.path}
+                        sx={{
+                          width: "100%",
+                          justifyContent: "flex-start",
+                          textTransform: "none",
+                          fontWeight: active ? 900 : 700,
+                          fontSize: "15px",
+                          color: active ? "var(--ink)" : "var(--ink-72)",
+                          padding: 0,
+                          "&:hover": {
+                            backgroundColor: "transparent",
+                            color: "var(--ink)",
+                          }
+                        }}
+                      >
+                        {t(p.label)}
+                      </Button>
+                    </MenuItem>
+                  );
+                })}
 
                 {/* Mobile language toggle */}
-                <MenuItem disableRipple sx={{ cursor: "default" }}>
+                <Box sx={{ px: 2, py: 2, mt: 1, borderTop: "1px solid rgba(13,27,42,0.08)" }}>
                   <Box
                     sx={{
-                      width: "100%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
                     }}
                   >
-                    <Typography sx={{ fontWeight: 800, color: "var(--ink)" }}>
-                      {lang === "en" ? "English" : "Español"}
+                    <Typography 
+                      sx={{ 
+                        fontWeight: 700, 
+                        color: "var(--ink-72)",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {lang === "en" ? "Language" : "Idioma"}
                     </Typography>
 
                     <Tooltip title={lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"}>
@@ -132,9 +179,14 @@ export default function ResponsiveAppBar() {
                         sx={{
                           width: 44,
                           height: 44,
-                          borderRadius: 999,
+                          borderRadius: "12px",
                           border: "1px solid rgba(13,27,42,0.12)",
-                          backgroundColor: "rgba(255,255,255,0.8)",
+                          backgroundColor: "white",
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            backgroundColor: "rgba(13,27,42,0.04)",
+                            transform: "scale(1.05)",
+                          }
                         }}
                         aria-label="Toggle language"
                       >
@@ -144,7 +196,7 @@ export default function ResponsiveAppBar() {
                       </IconButton>
                     </Tooltip>
                   </Box>
-                </MenuItem>
+                </Box>
               </Menu>
             </Box>
 
@@ -158,23 +210,44 @@ export default function ResponsiveAppBar() {
                 textDecoration: "none",
                 color: "inherit",
                 minWidth: 0,
+                transition: "transform 0.2s ease",
+                "&:hover": {
+                  transform: "scale(1.02)",
+                }
               }}
             >
-              <img
-                src="/Logo.png"
-                alt="Link'T Systems logo"
-                style={{ height: 48, width: "auto", display: "block" }}
-              />
+              <Box
+                sx={{
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 52,
+                  height: 52,
+                  borderRadius: "14px",
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  overflow: "hidden",
+                  mr: 1.5,
+                }}
+              >
+                <img
+                  src="/Logo.png"
+                  alt="Link'T Systems logo"
+                  style={{ height: 40, width: "auto", display: "block" }}
+                />
+              </Box>
               <Typography
                 variant="h6"
                 sx={{
-                  ml: 1,
-                  fontWeight: 700,
-                  letterSpacing: ".1em",
+                  fontWeight: 800,
+                  letterSpacing: ".08em",
+                  fontSize: { xs: "16px", sm: "18px" },
                   color: textColor,
                   whiteSpace: "nowrap",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
+                  fontFamily: "'Sora', 'system-ui', sans-serif",
                 }}
               >
                 LINK&apos;T SYSTEMS
@@ -182,7 +255,7 @@ export default function ResponsiveAppBar() {
             </Box>
           </Box>
 
-          {/* CENTER: desktop tabs (true centered because left/right are flex:1) */}
+          {/* CENTER: desktop tabs */}
           <Box
             sx={{
               flex: 1,
@@ -204,27 +277,50 @@ export default function ResponsiveAppBar() {
                   sx={{
                     color: textColor,
                     textTransform: "none",
-                    fontWeight: 800,
-                    letterSpacing: ".06em",
-                    px: 1.8,
-                    py: 1.2,
-                    borderRadius: 2,
+                    fontWeight: active ? 900 : 700,
+                    letterSpacing: ".04em",
+                    fontSize: "15px",
+                    px: 2.5,
+                    py: 1.5,
+                    borderRadius: "12px",
                     position: "relative",
+                    backgroundColor: active ? "rgba(255,255,255,0.1)" : "transparent",
+                    transition: "all 0.3s ease",
+                    fontFamily: "'Inter', sans-serif",
 
-                    // underline
+                    // Hover background
+                    "&:hover": {
+                      backgroundColor: "rgba(255,255,255,0.15)",
+                      transform: "translateY(-2px)",
+                    },
+
+                    // Active indicator dot
+                    "&::before": active ? {
+                      content: '""',
+                      position: "absolute",
+                      top: 8,
+                      right: 8,
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      backgroundColor: "var(--secondary-main)",
+                      boxShadow: "0 0 8px var(--secondary-main)",
+                    } : {},
+
+                    // Bottom underline
                     "&::after": {
                       content: '""',
                       position: "absolute",
-                      left: 14,
-                      right: 14,
+                      left: 16,
+                      right: 16,
                       bottom: 6,
                       height: 2,
                       borderRadius: 2,
                       backgroundColor: textColor,
                       transform: active ? "scaleX(1)" : "scaleX(0)",
-                      transformOrigin: "left",
-                      transition: "transform 180ms ease",
-                      opacity: 0.92,
+                      transformOrigin: "center",
+                      transition: "transform 0.3s ease",
+                      opacity: 0.8,
                     },
                     "&:hover::after": {
                       transform: "scaleX(1)",
@@ -237,13 +333,14 @@ export default function ResponsiveAppBar() {
             })}
           </Box>
 
-          {/* RIGHT: desktop language toggle (stays right) */}
+          {/* RIGHT: desktop language toggle */}
           <Box
             sx={{
               flex: 1,
               display: { xs: "none", md: "flex" },
               justifyContent: "flex-end",
               alignItems: "center",
+              gap: 2,
               ml: 1,
               minWidth: 0,
             }}
@@ -252,15 +349,27 @@ export default function ResponsiveAppBar() {
               <IconButton
                 onClick={toggleLang}
                 sx={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 999,
-                  border: "1px solid rgba(224,225,221,0.35)",
+                  width: 48,
+                  height: 48,
+                  borderRadius: "12px",
+                  border: "1px solid rgba(224,225,221,0.25)",
+                  backgroundColor: "rgba(255,255,255,0.08)",
                   color: textColor,
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.15)",
+                    transform: "scale(1.05)",
+                    borderColor: "rgba(224,225,221,0.4)",
+                  },
+                  "&:active": {
+                    transform: "scale(0.95)",
+                  }
                 }}
                 aria-label="Toggle language"
               >
-                <span style={{ fontSize: 20, lineHeight: 1 }}>{lang === "en" ? "🇺🇸" : "🇪🇸"}</span>
+                <span style={{ fontSize: 22, lineHeight: 1 }}>
+                  {lang === "en" ? "🇺🇸" : "🇪🇸"}
+                </span>
               </IconButton>
             </Tooltip>
           </Box>

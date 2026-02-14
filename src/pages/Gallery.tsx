@@ -6,6 +6,7 @@ import { useLanguage } from "../i18n/LanguageProvider";
 import { galleryCopy, galleryFilters, galleryItems } from "../data/dictionary";
 import type { GalleryTagKey } from "../data/dictionary";
 import Vidimg from "../components/ui/vidimg";
+import { X, Play, ZoomIn } from "lucide-react";
 
 type FilterKey = "all" | GalleryTagKey;
 
@@ -41,162 +42,245 @@ export default function Gallery() {
           title={t(galleryCopy.title)}
           subtitle={t(galleryCopy.subtitle)}
           extraContent={
-            <div className="grid gap-4">
+            <div className="space-y-8">
               {/* Filters */}
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center">
                 {filterButtons.map((b) => {
                   const active = b.key === filter;
                   return (
                     <button
                       key={b.key}
                       onClick={() => setFilter(b.key)}
-                      className={[
-                        "rounded-full px-4 py-2 text-xs sm:text-sm font-extrabold transition",
-                        "border",
-                        active
-                          ? "bg-(--ink) text-(--background-paper) border-[rgba(13,27,42,0.25)]"
-                          : "bg-(--background-default)/60 text-(--ink) border-[rgba(13,27,42,0.12)] hover:bg-white/80",
-                      ].join(" ")}
+                      className={`
+                        relative overflow-hidden
+                        rounded-xl px-5 py-2.5
+                        text-sm font-bold
+                        border
+                        transition-all duration-300
+                        ${active 
+                          ? "bg-(--ink) text-(--background-paper) border-(--ink) shadow-lg scale-105" 
+                          : "bg-white text-(--ink-72) border-(--ink-12) hover:border-(--ink-18) hover:bg-white hover:text-(--ink) hover:shadow-md"
+                        }
+                      `}
+                      style={{ fontFamily: "'Sora', sans-serif" }}
                       aria-pressed={active}
                     >
-                      {t(b.label)}
+                      {active && (
+                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent" />
+                      )}
+                      <span className="relative z-10">{t(b.label)}</span>
                     </button>
                   );
                 })}
               </div>
 
-              {/* Bento grid */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[170px]">
+              {/* Results Counter */}
+              {filter !== "all" && (
+                <div className="text-center">
+                  <p 
+                    className="text-sm font-semibold text-(--ink-72)"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {t({ en: "Showing", es: "Mostrando" })} {filtered.length} {t({ en: "items", es: "artículos" })}
+                  </p>
+                </div>
+              )}
+
+              {/* Bento Grid */}
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px]">
                 {filtered.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => setSelected(item.id)}
-                    className={[
-                      "group relative overflow-hidden text-left",
-                      "rounded-3xl",
-                      "border border-[rgba(13,27,42,0.12)]",
-                      "bg-white/65 backdrop-blur-md",
-                      "shadow-[0_14px_40px_rgba(13,27,42,0.10)]",
-                      "transition",
-                      "hover:-translate-y-0.5 hover:shadow-[0_18px_55px_rgba(13,27,42,0.16)]",
-                      item.colSpan === 2 ? "lg:col-span-2" : "",
-                      item.rowSpan === 2 ? "sm:row-span-2" : "",
-                    ].join(" ")}
+                    className={`
+                      group relative overflow-hidden text-left
+                      rounded-2xl
+                      border border-(--ink-12)
+                      bg-white
+                      shadow-md
+                      transition-all duration-300
+                      hover:-translate-y-2 hover:shadow-2xl hover:border-(--ink-18)
+                      ${item.colSpan === 2 ? "lg:col-span-2" : ""}
+                      ${item.rowSpan === 2 ? "sm:row-span-2" : ""}
+                    `}
                     aria-label={`${t(galleryCopy.viewLabel)} ${t(item.title)}`}
                   >
-                    {/* Media (using Vidimg) */}
-                    <div className="absolute inset-0">
+                    {/* Media */}
+                    <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
                       <Vidimg
                         source={item.src}
                         isVideo={item.kind === "video"}
                         title={t(item.title)}
+                        className="object-cover"
                       />
                     </div>
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-linear-to-t from-black/55 via-black/15 to-transparent" />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-                    {/* Text */}
-                    <div className="relative z-10 flex h-full flex-col justify-between p-4">
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="text-sm font-extrabold text-white/95 line-clamp-2">
+                    {/* Content */}
+                    <div className="relative z-10 flex h-full flex-col justify-between p-5">
+                      {/* Top Section */}
+                      <div className="flex items-start justify-between gap-3">
+                        <div 
+                          className="text-base font-bold text-white line-clamp-2 drop-shadow-lg"
+                          style={{ fontFamily: "'Sora', sans-serif" }}
+                        >
                           {t(item.title)}
                         </div>
 
-                        <span className="rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-extrabold text-(--ink)">
+                        <span 
+                          className="shrink-0 rounded-lg bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-black text-(--ink) shadow-lg"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
                           {t(item.tag)}
                         </span>
                       </div>
 
+                      {/* Bottom Section */}
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-extrabold tracking-wide text-white/80">
-                          {t(galleryCopy.viewLabel)} →
+                        <span 
+                          className="flex items-center gap-2 text-sm font-bold text-white/90 drop-shadow-lg"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {item.kind === "video" ? (
+                            <>
+                              <Play className="w-4 h-4" strokeWidth={2.5} />
+                              {t({ en: "Watch", es: "Ver" })}
+                            </>
+                          ) : (
+                            <>
+                              <ZoomIn className="w-4 h-4" strokeWidth={2.5} />
+                              {t(galleryCopy.viewLabel)}
+                            </>
+                          )}
                         </span>
 
-                        <span className="grid h-9 w-9 place-items-center rounded-2xl bg-white/15 backdrop-blur border border-white/20">
-                          <span className="text-white/90 text-lg leading-none">
-                            {item.kind === "video" ? "▶" : "+"}
-                          </span>
-                        </span>
+                        <div 
+                          className="
+                            grid h-10 w-10 place-items-center 
+                            rounded-xl 
+                            bg-white/15 backdrop-blur-md 
+                            border border-white/30
+                            transition-all duration-300
+                            group-hover:bg-white/25 group-hover:scale-110
+                          "
+                        >
+                          {item.kind === "video" ? (
+                            <Play className="w-5 h-5 text-white ml-0.5" strokeWidth={2.5} fill="white" />
+                          ) : (
+                            <ZoomIn className="w-5 h-5 text-white" strokeWidth={2.5} />
+                          )}
+                        </div>
                       </div>
                     </div>
                   </button>
                 ))}
               </div>
 
-              {filtered.length === 0 ? (
-                <div className="rounded-2xl border border-[rgba(13,27,42,0.12)] bg-white/70 p-5 text-sm font-semibold text-(--ink)">
-                  {t({
-                    en: "No items in this category yet.",
-                    es: "Aún no hay elementos en esta categoría.",
-                  })}
+              {/* Empty State */}
+              {filtered.length === 0 && (
+                <div className="text-center py-16">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-(--ink)/5 mb-4">
+                    <ZoomIn className="w-8 h-8 text-(--ink-60)" strokeWidth={1.5} />
+                  </div>
+                  <p 
+                    className="text-base font-semibold text-(--ink-72)"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {t({
+                      en: "No items in this category yet.",
+                      es: "Aún no hay elementos en esta categoría.",
+                    })}
+                  </p>
                 </div>
-              ) : null}
+              )}
             </div>
           }
         />
       </div>
 
       {/* Modal Preview */}
-{selectedItem ? (
-  <div
-    className="fixed inset-0 z-100 grid place-items-center bg-black/55 p-4"
-    role="dialog"
-    aria-modal="true"
-    onClick={() => setSelected(null)}
-  >
-    <div
-      className="
-        w-full max-w-4xl overflow-hidden
-        rounded-3xl
-        border border-[rgba(255,255,255,0.18)]
-        bg-white/85 backdrop-blur-md
-        shadow-[0_25px_80px_rgba(0,0,0,0.35)]
-      "
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="relative h-[45vh] w-full">
-        {/* 🔥 Using Vidimg here */}
-        <Vidimg
-          source={selectedItem.src}
-          isVideo={selectedItem.kind === "video"}
-          title={t(selectedItem.title)}
-        />
-
-        {/* Close button */}
-        <button
-          className="
-            absolute right-3 top-3 z-20
-            rounded-full bg-black/40 text-white
-            px-3 py-2 text-sm font-extrabold
-            hover:bg-black/55 transition
-          "
+      {selectedItem && (
+        <div
+          className="fixed inset-0 z-50 grid place-items-center bg-black/80 backdrop-blur-sm p-4"
+          role="dialog"
+          aria-modal="true"
           onClick={() => setSelected(null)}
-          aria-label={t(galleryCopy.modalClose)}
         >
-          {t(galleryCopy.modalClose)}
-        </button>
-      </div>
+          <div
+            className="
+              w-full max-w-5xl overflow-hidden
+              rounded-3xl
+              border border-white/10
+              bg-white
+              shadow-2xl
+              animate-in fade-in zoom-in-95 duration-300
+            "
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Media Container */}
+            <div className="relative bg-black">
+              <div className="relative aspect-video w-full">
+                <Vidimg
+                  source={selectedItem.src}
+                  isVideo={selectedItem.kind === "video"}
+                  title={t(selectedItem.title)}
+                />
+              </div>
 
-      <div className="p-5 sm:p-6">
-        <div className="text-xl font-extrabold text-(--ink)">
-          {t(selectedItem.title)}
+              {/* Close Button */}
+              <button
+                className="
+                  absolute right-4 top-4 z-20
+                  flex items-center gap-2
+                  rounded-xl 
+                  bg-black/60 backdrop-blur-md
+                  border border-white/20
+                  text-white
+                  px-4 py-2.5 
+                  text-sm font-bold
+                  transition-all duration-300
+                  hover:bg-black/80 hover:scale-105
+                  active:scale-100
+                "
+                style={{ fontFamily: "'Sora', sans-serif" }}
+                onClick={() => setSelected(null)}
+                aria-label={t(galleryCopy.modalClose)}
+              >
+                <X className="w-4 h-4" strokeWidth={2.5} />
+                {t(galleryCopy.modalClose)}
+              </button>
+            </div>
+
+            {/* Info Section */}
+            <div className="p-6 sm:p-8 bg-linear-to-br from-slate-50 to-blue-50/30">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <h3 
+                  className="text-2xl font-black text-(--ink)"
+                  style={{ fontFamily: "'Sora', sans-serif" }}
+                >
+                  {t(selectedItem.title)}
+                </h3>
+
+                <span 
+                  className="shrink-0 rounded-xl border border-(--ink-12) bg-white px-4 py-2 text-sm font-bold text-(--ink) shadow-sm"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  {t(selectedItem.tag)}
+                </span>
+              </div>
+
+              <p 
+                className="text-base leading-relaxed text-(--ink-72)"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {t(galleryCopy.replaceHint)}
+              </p>
+            </div>
+          </div>
         </div>
-
-        <div className="mt-2">
-          <span className="inline-flex rounded-full border border-[rgba(13,27,42,0.12)] bg-(--background-default)/60 px-3 py-1 text-xs font-extrabold text-(--ink)">
-            {t(selectedItem.tag)}
-          </span>
-        </div>
-
-        <p className="mt-4 text-sm leading-relaxed text-[rgba(13,27,42,0.72)]">
-          {t(galleryCopy.replaceHint)}
-        </p>
-      </div>
-    </div>
-  </div>
-) : null}
-
+      )}
     </AppShell>
   );
 }

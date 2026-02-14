@@ -2,10 +2,10 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import { Clock } from "lucide-react";
 import Vidimg from "./vidimg";
-import { Box } from "@mui/material";
 
 type TimelineCardProps = {
   id: number;
@@ -14,233 +14,155 @@ type TimelineCardProps = {
   description: string;
   timeframe: string;
   img_link: string;
-  isLast?: boolean;
+  isVideo?: boolean;
+  isLast: boolean;
 };
 
 export default function TimelineCard({
-  id,
   oppositeLabel,
   title,
   description,
   timeframe,
   img_link,
-  isLast = false,
+  isVideo = false,
+  isLast,
 }: TimelineCardProps) {
-  const isVideo = img_link.includes(".mp4") || img_link.includes("video");
-
   return (
-    <TimelineItem
-      sx={{
-        // Prevent layout issues
-        width: "100%",
-        minWidth: 0,
-        alignItems: "stretch",
-
-        // Remove default gutter pseudo element
-        "&::before": { 
-          flex: 0, 
-          padding: 0,
-          content: { xs: '""', sm: "none" },
-        },
-
-        // Stack vertically on mobile, horizontal on desktop
-        flexDirection: { xs: "column", sm: "row" },
-        
-        // Better spacing
-        mb: { xs: 3, sm: 4, md: 5 },
-      }}
-    >
-      {/* Timeline Label (Phase name & timeframe) */}
+    <TimelineItem>
+      {/* Opposite Content - Date/Phase Label */}
       <TimelineOppositeContent
         sx={{
-          width: "100%",
-          minWidth: 0,
-          flex: { xs: "0 0 auto", sm: 0.3, md: 0.26 },
-          px: { xs: 0, sm: 1.5, md: 2 },
-          mb: { xs: 1.5, sm: 0 },
-          mt: { xs: 0, sm: 0.5 },
-          textAlign: { xs: "left", sm: "right" },
-          color: "rgba(13,27,42,0.72)",
-          
-          // Ensure text doesn't overflow
-          overflow: "hidden",
+          display: { xs: "none", sm: "flex" },
+          alignItems: "center",
+          justifyContent: "flex-end",
+          pr: 3,
         }}
       >
-        <Box
-          sx={{
-            fontWeight: 900,
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            padding: "8px 16px",
+            borderRadius: "12px",
+            backgroundColor: "rgba(13, 27, 42, 0.06)",
+            border: "1px solid rgba(13, 27, 42, 0.10)",
+            fontFamily: "'Sora', sans-serif",
+            fontSize: "14px",
+            fontWeight: 700,
             color: "var(--ink)",
-            fontSize: { xs: 16, sm: 14, md: 15 },
-            lineHeight: 1.3,
-            mb: 0.5,
-            // Prevent text overflow
-            wordBreak: "break-word",
           }}
         >
+          <Clock size={16} strokeWidth={2.5} />
           {oppositeLabel}
-        </Box>
-        <Box
-          sx={{
-            fontSize: { xs: 12, sm: 11, md: 13 },
-            lineHeight: 1.4,
-            wordBreak: "break-word",
-          }}
-        >
-          {timeframe}
-        </Box>
+        </div>
       </TimelineOppositeContent>
 
-      {/* Timeline Dot & Connector */}
-      <TimelineSeparator
-        sx={{
-          // Horizontal on mobile, vertical on desktop
-          flexDirection: { xs: "row", sm: "column" },
-          alignItems: "center",
-          justifyContent: { xs: "flex-start", sm: "center" },
-          px: 0,
-          mb: { xs: 1.5, sm: 0 },
-          minHeight: { xs: "auto", sm: 100 },
-        }}
-      >
+      {/* Separator - Dot and Line */}
+      <TimelineSeparator>
         <TimelineDot
           sx={{
-            bgcolor: "var(--ink)",
-            boxShadow: "0 10px 25px rgba(13,27,42,0.22)",
-            width: { xs: 12, sm: 14, md: 16 },
-            height: { xs: 12, sm: 14, md: 16 },
+            width: 16,
+            height: 16,
+            backgroundColor: "var(--ink)",
+            border: "3px solid var(--background-default)",
+            boxShadow: "0 0 0 3px rgba(13, 27, 42, 0.12)",
             m: 0,
+            p: 0,
           }}
         />
         {!isLast && (
           <TimelineConnector
             sx={{
-              bgcolor: "rgba(13,27,42,0.22)",
-              // Horizontal line on mobile, vertical on desktop
-              width: { xs: 40, sm: 2 },
-              height: { xs: 2, sm: "100%" },
-              minHeight: { xs: 2, sm: 60 },
-              my: { xs: 0, sm: 1 },
-              mx: { xs: 1.5, sm: 0 },
-              flexGrow: { xs: 0, sm: 1 },
+              backgroundColor: "rgba(13, 27, 42, 0.12)",
+              width: "2px",
+              minHeight: "60px",
             }}
           />
         )}
       </TimelineSeparator>
 
-      {/* Timeline Card Content */}
-      <TimelineContent
-        sx={{
-          width: "100%",
-          minWidth: 0,
-          px: { xs: 0, sm: 1.5, md: 2 },
-          py: { xs: 0, sm: 1, md: 2 },
-          flex: { xs: "1 1 auto", sm: 1 },
-        }}
-      >
-        <Box
-          sx={{
-            width: "100%",
-            minWidth: 0,
-            overflow: "hidden",
-            borderRadius: "16px", // rounded-2xl = 16px
-            border: "1px solid rgba(13,27,42,0.14)",
-            background: "rgba(255,255,255,0.75)",
-            backdropFilter: "blur(10px)",
-            boxShadow: {
-              xs: "0 8px 24px rgba(13,27,42,0.1)",
-              sm: "0 12px 32px rgba(13,27,42,0.12)",
-              md: "0 18px 45px rgba(13,27,42,0.14)",
-            },
-            transition: "all 0.3s ease",
-            
-            // Subtle hover effect
-            "&:hover": {
-              transform: { sm: "translateY(-4px)" },
-              boxShadow: {
-                xs: "0 8px 24px rgba(13,27,42,0.1)",
-                sm: "0 16px 40px rgba(13,27,42,0.18)",
-                md: "0 24px 56px rgba(13,27,42,0.2)",
-              },
-            },
-          }}
+      {/* Main Content - Card */}
+      <TimelineContent>
+        <div
+          className="
+            group
+            overflow-hidden rounded-2xl
+            border border-(--ink-12)
+            bg-white
+            shadow-md
+            transition-all duration-300
+            hover:shadow-xl hover:-translate-y-1 hover:border-(--ink-18)
+          "
         >
-          {/* Header strip */}
-          <Box
-            sx={{
-              padding: { xs: "12px 14px", sm: "14px 16px", md: "16px 18px" },
-              background: "linear-gradient(90deg, var(--ink), rgba(13,27,42,0.85))",
-              color: "var(--background-paper)",
-            }}
-          >
-            <Box
-              sx={{
-                fontSize: { xs: 10, sm: 11, md: 12 },
-                fontWeight: 900,
-                opacity: 0.9,
-                mb: 0.25,
-                letterSpacing: "0.5px",
-                textTransform: "uppercase",
-              }}
-            >
-              {`Phase ${id}`}
-            </Box>
-            <Box
-              sx={{
-                fontSize: { xs: 17, sm: 18, md: 20 },
-                fontWeight: 900,
-                lineHeight: 1.15,
-                wordBreak: "break-word",
-              }}
+          {/* Media using Vidimg */}
+          {img_link && (
+            <div className="relative overflow-hidden bg-linear-to-br from-slate-100 to-blue-50/30 aspect-video">
+              <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
+                <Vidimg
+                  source={img_link}
+                  isVideo={isVideo}
+                  title={title}
+                  priority={false}
+                />
+              </div>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+            </div>
+          )}
+
+          {/* Content */}
+          <div className="p-5 sm:p-6">
+            {/* Mobile-only opposite label */}
+            <div className="sm:hidden mb-3">
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "6px 12px",
+                  borderRadius: "10px",
+                  backgroundColor: "rgba(13, 27, 42, 0.06)",
+                  border: "1px solid rgba(13, 27, 42, 0.10)",
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  color: "var(--ink-72)",
+                }}
+              >
+                <Clock size={14} strokeWidth={2.5} />
+                {oppositeLabel}
+              </div>
+            </div>
+
+            {/* Title */}
+            <h3
+              className="text-lg sm:text-xl font-black text-(--ink) mb-2"
+              style={{ fontFamily: "'Sora', sans-serif" }}
             >
               {title}
-            </Box>
-          </Box>
+            </h3>
 
-          {/* Body */}
-          <Box
-            sx={{
-              padding: { xs: "14px", sm: "16px", md: "18px" },
-            }}
-          >
-            <Box
-              component="p"
-              sx={{
-                margin: 0,
-                fontSize: { xs: 13, sm: 13.5, md: 14 },
-                lineHeight: { xs: 1.6, sm: 1.65, md: 1.7 },
-                color: "rgba(13,27,42,0.78)",
-                mb: { xs: 2, sm: 2.5, md: 3 },
-                wordBreak: "break-word",
-              }}
+            {/* Description */}
+            <p
+              className="text-sm leading-relaxed text-(--ink-72) mb-4"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {description}
-            </Box>
+            </p>
 
-            {/* Media container */}
-            <Box
-              sx={{
-                borderRadius: "16px", // rounded-2xl = 16px
-                overflow: "hidden",
-                border: "1px solid rgba(13,27,42,0.14)",
-                background: "rgba(255,255,255,0.5)",
-                
-                // Ensure media is responsive
-                position: "relative",
-                width: "100%",
-                
-                // Prevent layout shift
-                "& img, & video": {
-                  display: "block",
-                  width: "100%",
-                  height: "auto",
-                  maxWidth: "100%",
-                },
-              }}
-            >
-              <Vidimg source={img_link} isVideo={isVideo} title={title} />
-            </Box>
-          </Box>
-        </Box>
+            {/* Timeframe Badge */}
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-(--secondary-main)" />
+              <span
+                className="text-xs font-bold text-(--ink-60) uppercase tracking-wider"
+                style={{ fontFamily: "'Sora', sans-serif" }}
+              >
+                {timeframe}
+              </span>
+            </div>
+          </div>
+        </div>
       </TimelineContent>
     </TimelineItem>
   );

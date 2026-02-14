@@ -3,7 +3,7 @@ import PageTitle from "../components/PageTitle";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { distributionCopy } from "../data/dictionary";
-import { Globe, Truck, Layers } from "lucide-react";
+import { Globe, Truck, Layers, ArrowRight } from "lucide-react";
 
 export default function Distribution() {
   const { t } = useLanguage();
@@ -11,159 +11,241 @@ export default function Distribution() {
 
   return (
     <AppShell>
-
-        <div className="body-style">
-            <PageTitle
-        title={t(d.title)}
-        subtitle={t(d.subtitle)}
-        right={
-          <Link
-            to={d.cta.href}
-            className="
-              rounded-2xl px-4 py-2 text-sm font-extrabold
-              bg-(--ink) text-(--background-paper)
-              shadow-[0_10px_25px_rgba(13,27,42,0.16)]
-              hover:opacity-95 hover:-translate-y-0.5 transition
-            "
-          >
-            {t(d.cta.text)}
-          </Link>
-        }
-        extraContent={
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-            {/* Left column */}
-            <div className="lg:col-span-7">
-              {/* Hero image */}
-              <div
-                className="
-                  overflow-hidden rounded-3xl
-                  border border-[rgba(13,27,42,0.12)]
-                  bg-white/70 backdrop-blur-md
-                  shadow-[0_16px_45px_rgba(13,27,42,0.12)]
-                "
-              >
-                <div className="relative">
-                  <img
-                    src={d.heroImage}
-                    alt={t(d.heroImageAlt)}
-                    className="h-56 w-full object-cover sm:h-72"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
-                </div>
-
-                <div className="p-5 sm:p-6">
-                  <p className="text-sm sm:text-base leading-relaxed text-[rgba(13,27,42,0.72)]">
-                    {t(d.intro)}
-                  </p>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {d.stats.map((s, idx) => (
-                  <div
-                    key={idx}
-                    className="
-                      rounded-2xl
-                      border border-[rgba(13,27,42,0.12)]
-                      bg-white/65 backdrop-blur-md
-                      p-4
-                      shadow-[0_10px_28px_rgba(13,27,42,0.10)]
-                    "
-                  >
-                    <div className="text-lg font-extrabold text-(--ink)">
-                      {t(s.value)}
-                    </div>
-                    <div className="mt-1 text-xs font-extrabold tracking-wide uppercase text-[rgba(13,27,42,0.55)]">
-                      {t(s.label)}
-                    </div>
+      <div className="body-style">
+        <PageTitle
+          title={t(d.title)}
+          subtitle={t(d.subtitle)}
+          right={
+            <Link
+              to={d.cta.href}
+              className="
+                inline-flex items-center gap-2
+                rounded-2xl px-6 py-3 text-sm font-bold
+                bg-(--ink) text-(--background-paper)
+                shadow-lg
+                hover:opacity-90 hover:scale-105
+                active:scale-100
+                transition-all duration-300
+              "
+              style={{ fontFamily: "'Sora', sans-serif" }}
+            >
+              {t(d.cta.text)}
+              <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
+            </Link>
+          }
+          extraContent={
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+              {/* Left Column */}
+              <div className="lg:col-span-7 space-y-6">
+                {/* Hero Image Card */}
+                <div
+                  className="
+                    group overflow-hidden rounded-2xl
+                    border border-(--ink-12)
+                    bg-white
+                    shadow-lg
+                    transition-all duration-300
+                    hover:shadow-xl
+                  "
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={d.heroImage}
+                      alt={t(d.heroImageAlt)}
+                      className="h-64 sm:h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
+                    
+                    {/* Decorative corner accent */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-blue-100/40 to-transparent rounded-bl-3xl" />
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Right column */}
-            <aside className="lg:col-span-5">
-              <div
-                className="
-                  rounded-3xl
-                  border border-[rgba(13,27,42,0.12)]
-                  bg-white/70 backdrop-blur-md
-                  p-5 sm:p-6
-                  shadow-[0_16px_45px_rgba(13,27,42,0.12)]
-                "
-              >
-                <h3 className="text-base sm:text-lg font-extrabold text-(--ink)">
-                  {t(d.highlightsTitle)}
-                </h3>
+                  <div className="p-6 sm:p-8">
+                    <p 
+                      className="text-base sm:text-lg leading-relaxed text-(--ink-80)"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {t(d.intro)}
+                    </p>
+                  </div>
+                </div>
 
-                <div className="mt-4 grid gap-3">
-                  {d.highlights.map((h, idx) => {
-                    const Icon = idx === 0 ? Truck : idx === 1 ? Globe : Layers;
-
-                    return (
-                      <div
-                        key={idx}
-                        className="
-                          rounded-2xl
-                          border border-[rgba(13,27,42,0.10)]
-                          bg-(--background-default)/60
-                          p-4
-                        "
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className="
-                              grid h-10 w-10 place-items-center
-                              rounded-2xl
-                              bg-white/75
-                              border border-[rgba(13,27,42,0.10)]
-                            "
-                          >
-                            <Icon className="h-5 w-5 text-(--ink)" />
-                          </div>
-
-                          <div>
-                            <div className="font-extrabold text-(--ink)">
-                              {t(h.title)}
-                            </div>
-                            <div className="mt-1 text-sm leading-relaxed text-[rgba(13,27,42,0.72)]">
-                              {t(h.text)}
-                            </div>
-                          </div>
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  {d.stats.map((s, idx) => (
+                    <div
+                      key={idx}
+                      className="
+                        group relative overflow-hidden
+                        rounded-2xl
+                        border border-(--ink-12)
+                        bg-white
+                        p-5
+                        shadow-sm
+                        transition-all duration-300
+                        hover:shadow-lg hover:-translate-y-1 hover:border-(--ink-18)
+                      "
+                    >
+                      {/* Background gradient on hover */}
+                      <div className="absolute inset-0 bg-linear-to-br from-blue-50/50 to-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      <div className="relative">
+                        <div 
+                          className="text-3xl font-black text-(--ink) mb-1"
+                          style={{ fontFamily: "'Sora', sans-serif" }}
+                        >
+                          {t(s.value)}
+                        </div>
+                        <div 
+                          className="text-xs font-bold tracking-wider uppercase text-(--ink-60)"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {t(s.label)}
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
 
-                <div className="mt-6 rounded-2xl bg-(--ink) p-4 text-(--background-paper)">
-                  <div className="text-sm font-extrabold">{t(d.noteTitle)}</div>
-                  <div className="mt-2 text-sm leading-relaxed text-[rgba(224,225,221,0.9)]">
-                    {t(d.noteText)}
-                  </div>
-
-                  <Link
-                    to={d.cta.href}
-                    className="
-                      mt-4 inline-flex items-center justify-center
-                      rounded-full
-                      bg-(--background-paper) text-(--ink)
-                      px-4 py-2 text-sm font-extrabold
-                      hover:opacity-95 transition
-                    "
-                  >
-                    {t(d.cta.text)} →
-                  </Link>
+                      {/* Bottom accent line */}
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-(--ink) via-(--secondary-main) to-(--ink) opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  ))}
                 </div>
               </div>
-            </aside>
-          </div>
-        }
-      />
-        </div>
-      
+
+              {/* Right Column */}
+              <aside className="lg:col-span-5">
+                <div
+                  className="
+                    sticky top-8
+                    rounded-2xl
+                    border border-(--ink-12)
+                    bg-white
+                    shadow-lg
+                  "
+                >
+                  {/* Highlights Section */}
+                  <div className="p-6 sm:p-8">
+                    <h3 
+                      className="text-xl font-black text-(--ink) mb-6"
+                      style={{ fontFamily: "'Sora', sans-serif" }}
+                    >
+                      {t(d.highlightsTitle)}
+                    </h3>
+
+                    <div className="space-y-4">
+                      {d.highlights.map((h, idx) => {
+                        const Icon = idx === 0 ? Truck : idx === 1 ? Globe : Layers;
+
+                        return (
+                          <div
+                            key={idx}
+                            className="
+                              group
+                              rounded-xl
+                              border border-(--ink-10)
+                              bg-linear-to-br from-slate-50 to-blue-50/30
+                              p-4
+                              transition-all duration-300
+                              hover:shadow-md hover:border-(--ink-18)
+                            "
+                          >
+                            <div className="flex items-start gap-4">
+                              <div
+                                className="
+                                  shrink-0
+                                  grid h-12 w-12 place-items-center
+                                  rounded-xl
+                                  bg-(--ink)
+                                  shadow-md
+                                  transition-transform duration-300
+                                  group-hover:scale-110
+                                "
+                              >
+                                <Icon className="h-6 w-6 text-(--background-paper)" strokeWidth={2} />
+                              </div>
+
+                              <div className="flex-1 min-w-0">
+                                <div 
+                                  className="font-bold text-(--ink) mb-1"
+                                  style={{ fontFamily: "'Sora', sans-serif" }}
+                                >
+                                  {t(h.title)}
+                                </div>
+                                <div 
+                                  className="text-sm leading-relaxed text-(--ink-72)"
+                                  style={{ fontFamily: "'Inter', sans-serif" }}
+                                >
+                                  {t(h.text)}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* CTA Card */}
+                  <div className="p-6 sm:p-8 pt-0">
+                    <div 
+                      className="
+                        relative overflow-hidden
+                        rounded-xl 
+                        bg-linear-to-br from-(--ink) to-[rgba(1,38,86,0.95)]
+                        p-6
+                        shadow-lg
+                      "
+                    >
+                      {/* Decorative elements */}
+                      <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-white/5 blur-2xl" />
+                      <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/5 blur-2xl" />
+                      
+                      <div className="relative">
+                        <div 
+                          className="text-sm font-black uppercase tracking-wider text-(--background-paper)/80 mb-2"
+                          style={{ fontFamily: "'Sora', sans-serif" }}
+                        >
+                          {t(d.noteTitle)}
+                        </div>
+                        <div 
+                          className="text-sm leading-relaxed text-(--background-paper)/90 mb-5"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {t(d.noteText)}
+                        </div>
+
+                        <Link
+                          to={d.cta.href}
+                          className="
+                            group
+                            inline-flex items-center gap-2
+                            rounded-xl
+                            bg-(--background-paper) text-(--ink)
+                            px-6 py-3 text-sm font-bold
+                            shadow-lg
+                            hover:shadow-xl
+                            transition-all duration-300
+                            hover:scale-105
+                            active:scale-100
+                          "
+                          style={{ fontFamily: "'Sora', sans-serif" }}
+                        >
+                          {t(d.cta.text)}
+                          <ArrowRight 
+                            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+                            strokeWidth={2.5} 
+                          />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          }
+        />
+      </div>
     </AppShell>
   );
 }

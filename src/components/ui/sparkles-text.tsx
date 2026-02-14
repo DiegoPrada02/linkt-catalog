@@ -1,6 +1,5 @@
-import { type CSSProperties, type ReactElement, useEffect, useState } from "react"
+import { type CSSProperties, type ReactElement, useEffect, useState, useMemo } from "react"
 import { motion } from "motion/react"
-
 import { cn } from "../../lib/utils"
 
 interface Sparkle {
@@ -24,7 +23,12 @@ const Sparkle: React.FC<Sparkle> = ({ id, x, y, color, delay, scale }) => {
         scale: [0, scale, 0],
         rotate: [75, 120, 150],
       }}
-      transition={{ duration: 0.8, repeat: Infinity, delay }}
+      transition={{ 
+        duration: 0.8, 
+        repeat: Infinity, 
+        delay,
+        ease: "easeInOut"
+      }}
       width="21"
       height="21"
       viewBox="0 0 21 21"
@@ -45,7 +49,6 @@ interface SparklesTextProps {
    * The component to be rendered as the text
    * */
   as?: ReactElement
-
   /**
    * @default ""
    * @type string
@@ -53,7 +56,6 @@ interface SparklesTextProps {
    * The className of the text
    */
   className?: string
-
   /**
    * @required
    * @type ReactNode
@@ -61,7 +63,6 @@ interface SparklesTextProps {
    * The content to be displayed
    * */
   children: React.ReactNode
-
   /**
    * @default 10
    * @type number
@@ -69,9 +70,8 @@ interface SparklesTextProps {
    * The count of sparkles
    * */
   sparklesCount?: number
-
   /**
-   * @default "{first: '#9E7AFF', second: '#FE8BBB'}"
+   * @default "{first: '#ff00ff', second: '#FE8BBB'}"
    * @type string
    * @description
    * The colors of the sparkles
@@ -84,30 +84,35 @@ interface SparklesTextProps {
 
 export const SparklesText: React.FC<SparklesTextProps> = ({
   children,
-  colors = { first: "#9E7AFF", second: "#FE8BBB" },
+  colors = { first: "#ff00ff", second: "#FE8BBB" },
   className,
   sparklesCount = 10,
   ...props
 }) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([])
 
-  useEffect(() => {
-    const generateStar = (): Sparkle => {
+  // Memoize the color generation logic
+  const generateStar = useMemo(() => {
+    return (): Sparkle => {
       const starX = `${Math.random() * 100}%`
       const starY = `${Math.random() * 100}%`
       const color = Math.random() > 0.5 ? colors.first : colors.second
       const delay = Math.random() * 2
-      const scale = Math.random() * 1 + 0.3
+      const scale = Math.random() * 0.7 + 0.5 // Range: 0.5 to 1.2
       const lifespan = Math.random() * 10 + 5
-      const id = `${starX}-${starY}-${Date.now()}`
+      const id = `sparkle-${Date.now()}-${Math.random()}`
       return { id, x: starX, y: starY, color, delay, scale, lifespan }
     }
+  }, [colors.first, colors.second])
 
+  useEffect(() => {
+    // Initialize sparkles
     const initializeStars = () => {
-      const newSparkles = Array.from({ length: sparklesCount }, generateStar)
+      const newSparkles = Array.from({ length: sparklesCount }, () => generateStar())
       setSparkles(newSparkles)
     }
 
+    // Update sparkles lifecycle
     const updateStars = () => {
       setSparkles((currentSparkles) =>
         currentSparkles.map((star) => {
@@ -124,16 +129,16 @@ export const SparklesText: React.FC<SparklesTextProps> = ({
     const interval = setInterval(updateStars, 100)
 
     return () => clearInterval(interval)
-  }, [colors.first, colors.second, sparklesCount])
+  }, [generateStar, sparklesCount])
 
   return (
     <div
-      className={cn("text-6xl font-bold", className)}
+      className={cn("relative inline-block", className)}
       {...props}
       style={
         {
-          "--sparkles-first-color": `${colors.first}`,
-          "--sparkles-second-color": `${colors.second}`,
+          "--sparkles-first-color": colors.first,
+          "--sparkles-second-color": colors.second,
         } as CSSProperties
       }
     >
@@ -141,7 +146,7 @@ export const SparklesText: React.FC<SparklesTextProps> = ({
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
-        <strong>{children}</strong>
+        <strong className="relative z-10">{children}</strong>
       </span>
     </div>
   )

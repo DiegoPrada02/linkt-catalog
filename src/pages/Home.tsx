@@ -5,7 +5,6 @@ import Grid from "../components/Grid";
 import CatalogCard from "../components/ui/CatalogCard";
 import { Hero } from "../components/Hero";
 import About from "../components/About";
-
 import { CATEGORIES, pageTitles } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
 import BrandsScrollBand from "../components/brandsScrollBand";
@@ -15,17 +14,20 @@ import ProductionTimeline from "../components/ProductionTimeline";
 export default function Home() {
   const { t } = useLanguage();
   const popular = pageTitles[0];
-  const partners = pageTitles[3];
   const faq = pageTitles[4];
   const timeline = pageTitles[5];
 
   return (
     <AppShell>
+      {/* Hero Section - Full Width, Maximum Impact */}
       <Hero />
 
       <div className="body-style">
-        <div className="mx-auto flex flex-col gap-16">
-          <div className="mt-5">
+        {/* Main Content Flow */}
+        <div className="mx-auto flex flex-col">
+          
+          {/* Popular Products - First Engagement Point */}
+          <section className="mt-8 sm:mt-12">
             <PageTitle
               title={t(popular.title)}
               subtitle={t(popular.subtitle)}
@@ -33,13 +35,16 @@ export default function Home() {
                 <Link
                   to="/catalog"
                   className="
-                    rounded-xl
+                    rounded-2xl
                     border border-(--background-paper)
-                    px-4 py-2
-                    text-sm font-semibold
+                    px-5 py-2.5
+                    text-sm font-bold
                     text-(--background-default)
-                    transition
-                    hover:bg-(--secondary-light)
+                    transition-all duration-300
+                    hover:bg-(--background-paper)
+                    hover:text-(--ink)
+                    hover:scale-105
+                    active:scale-100
                   "
                 >
                   {popular.rightText ? t(popular.rightText) : "View all"}
@@ -62,59 +67,55 @@ export default function Home() {
                 </Grid>
               }
             />
-          </div>
+          </section>
 
-          <div>
-            <PageTitle
-              title={t(partners.title)}
-              subtitle={t(partners.subtitle)}
-              extraContent = {
-                 <BrandsScrollBand/>
-              }
-            />
-          </div>
+          {/* Social Proof - Trust Building */}
+          <section className="mt-20 sm:mt-24">
+            <BrandsScrollBand />
+          </section>
 
-
-
-          <div id="about-us">
+          {/* About Section - Story & Connection */}
+          <section id="about-us" className="mt-20 sm:mt-28">
             <About />
-          </div>
-        </div>
+          </section>
 
-                <div className="mt-16">
-          <PageTitle
-            title={t(timeline.title)}
-            subtitle={t(timeline.subtitle)}
-            extraContent={<ProductionTimeline />}
-          />
-        </div>
+          {/* Production Timeline - Process Transparency */}
+          <section className="mt-20 sm:mt-28">
+            <PageTitle
+              title={t(timeline.title)}
+              subtitle={t(timeline.subtitle)}
+              extraContent={<ProductionTimeline />}
+            />
+          </section>
 
-        <div className="mt-16">
-              <PageTitle
-                title={t(faq.title)}
-                subtitle={t(faq.subtitle)}
-                right={
-                   <Link
+          {/* FAQ Section - Address Concerns & CTA */}
+          <section className="mt-20 sm:mt-28 mb-16 sm:mb-20">
+            <PageTitle
+              title={t(faq.title)}
+              subtitle={t(faq.subtitle)}
+              right={
+                <Link
                   to="/contact"
                   className="
-                    rounded-xl
-                    border border-(--background-paper)
-                    px-4 py-2
-                    text-sm font-semibold
-                    text-(--background-default)
-                    transition
-                    hover:bg-(--secondary-light)
+                    rounded-2xl
+                    bg-(--secondary-main)
+                    px-6 py-2.5
+                    text-sm font-bold
+                    text-white
+                    transition-all duration-300
+                    hover:opacity-90
+                    hover:scale-105
+                    active:scale-100
+                    shadow-lg
                   "
                 >
                   {t(faq.rightText)}
                 </Link>
-                }
-                extraContent={
-                  <FaqArea/>
-                }
-              />
+              }
+              extraContent={<FaqArea />}
+            />
+          </section>
         </div>
-              
       </div>
     </AppShell>
   );

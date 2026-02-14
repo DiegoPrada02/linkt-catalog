@@ -3,9 +3,9 @@ import { FAQs } from "../data/dictionary";
 
 export default function FaqArea() {
   return (
-    <div className="grid gap-3">
-      {FAQs.map((c) => (
-        <FaqCard key={c.id} Question={c.question} Answer={c.answer} />
+    <div className="space-y-4 max-w-4xl mx-auto">
+      {FAQs.map((faq) => (
+        <FaqCard key={faq.id} Question={faq.question} Answer={faq.answer} />
       ))}
     </div>
   );
