@@ -31,7 +31,7 @@ export default function Gallery() {
     { key: "food", label: galleryFilters.food },
     { key: "retail", label: galleryFilters.retail },
     { key: "logistics", label: galleryFilters.logistics },
-    { key: "eco", label: galleryFilters.eco },
+    { key: "distribution", label: galleryFilters.distribution },
     { key: "video", label: galleryFilters.video },
   ];
 
@@ -253,30 +253,48 @@ export default function Gallery() {
               </button>
             </div>
 
-            {/* Info Section */}
-            <div className="p-6 sm:p-8 bg-linear-to-br from-slate-50 to-blue-50/30">
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <h3 
-                  className="text-2xl font-black text-(--ink)"
-                  style={{ fontFamily: "'Sora', sans-serif" }}
-                >
-                  {t(selectedItem.title)}
-                </h3>
+{/* Info Section */}
+            <div className="relative overflow-hidden p-6 sm:p-8 bg-linear-to-br from-slate-50 via-blue-50/20 to-slate-50">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-blue-100/30 to-transparent rounded-bl-3xl" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-linear-to-tr from-slate-100/50 to-transparent rounded-tr-3xl" />
+              
+              <div className="relative">
+                {/* Header with title and tag */}
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex-1 min-w-0">
+                    <h3 
+                      className="text-2xl sm:text-3xl font-black text-(--ink) leading-tight"
+                      style={{ fontFamily: "'Sora', sans-serif" }}
+                    >
+                      {t(selectedItem.title)}
+                    </h3>
+                  </div>
+                  
+                  <span 
+                    className="
+                      shrink-0
+                      inline-flex items-center gap-2
+                      rounded-xl 
+                      border border-(--ink-12) 
+                      bg-white 
+                      px-4 py-2 
+                      text-sm font-bold text-(--ink) 
+                      shadow-sm
+                      transition-all duration-200
+                      hover:shadow-md hover:scale-105
+                    "
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-(--secondary-main)" />
+                    {t(selectedItem.tag)}
+                  </span>
+                </div>
 
-                <span 
-                  className="shrink-0 rounded-xl border border-(--ink-12) bg-white px-4 py-2 text-sm font-bold text-(--ink) shadow-sm"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  {t(selectedItem.tag)}
-                </span>
+                {/* Metadata bar */}
+                <div className="pt-6 border-t border-(--ink-10)">
+                </div>
               </div>
-
-              <p 
-                className="text-base leading-relaxed text-(--ink-72)"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                {t(galleryCopy.replaceHint)}
-              </p>
             </div>
           </div>
         </div>
