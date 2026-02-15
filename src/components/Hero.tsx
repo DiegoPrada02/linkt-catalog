@@ -1,10 +1,10 @@
-import { useMemo, useState } from "react";
-import { BannerData } from "../data/dictionary";
 import { ChevronLeft, ChevronRight, Circle, Dot } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { BannerData } from "../data/dictionary";
+import { useLanguage } from "../i18n/LanguageProvider";
 import { SparklesText } from "./ui/sparkles-text";
 import Vidimg from "./ui/vidimg";
-import { useLanguage } from "../i18n/LanguageProvider";
-import { Link } from "react-router-dom";
 
 export function Hero() {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -58,7 +58,7 @@ export function Hero() {
                 {/* Content Container - Left Side */}
                 <div className="banner-content relative z-10 flex-1 max-w-xl pr-8">
                   {/* Eyebrow */}
-                  <p 
+                  <p
                     className="banner-eyebrow"
                     style={{ fontFamily: "'Sora', sans-serif" }}
                   >
@@ -66,7 +66,7 @@ export function Hero() {
                   </p>
 
                   {/* Title */}
-                  <h2 
+                  <h2
                     className="banner-title"
                     style={{ fontFamily: "'Sora', 'system-ui', sans-serif" }}
                   >
@@ -74,7 +74,7 @@ export function Hero() {
                   </h2>
 
                   {/* Description */}
-                  <p 
+                  <p
                     className="banner-text"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
@@ -82,19 +82,24 @@ export function Hero() {
                   </p>
 
                   {/* CTA Button */}
-                  <Link 
+                  <Link
                     className="banner-cta"
                     to={item.cta.href}
                     style={{ fontFamily: "'Sora', sans-serif" }}
                   >
                     {ctaText}
-                    <svg 
-                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -102,7 +107,11 @@ export function Hero() {
                 {/* Media Container - Right Side */}
                 <div className="relative z-10 flex-1 max-w-xl flex items-center justify-center">
                   <div className="w-full h-auto max-h-96 rounded-2xl overflow-hidden shadow-2xl">
-                    <Vidimg source={item.img} isVideo={item.isVideo} title={title} />
+                    <Vidimg
+                      source={item.img}
+                      isVideo={item.isVideo}
+                      title={title}
+                    />
                   </div>
                 </div>
 
@@ -178,9 +187,15 @@ export function Hero() {
             aria-current={index === sliderIndex ? "true" : "false"}
           >
             {index === sliderIndex ? (
-              <Dot className="w-6 h-6 fill-current transition-transform duration-300" strokeWidth={3} />
+              <Dot
+                className="w-6 h-6 fill-current transition-transform duration-300"
+                strokeWidth={3}
+              />
             ) : (
-              <Circle className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300" strokeWidth={2} />
+              <Circle
+                className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                strokeWidth={2}
+              />
             )}
           </button>
         ))}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BorderBeam } from "./border-beam";
 
 type CatalogCardProps = {
   title: string;
@@ -41,7 +42,7 @@ export default function CatalogCard({
           "
           loading="lazy"
         />
-        
+
         {/* Gradient overlay that fades on hover */}
         <div
           className="
@@ -163,11 +164,15 @@ export default function CatalogCard({
           "
         />
       </div>
+      <BorderBeam size={120} duration={8} className="pointer-events-none" />
     </article>
   );
 
   return href ? (
-    <Link to={href} className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl">
+    <Link
+      to={href}
+      className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+    >
       {content}
     </Link>
   ) : (

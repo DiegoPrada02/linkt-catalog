@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
-import AppShell from "../components/AppShell";
-import PageTitle from "../components/PageTitle";
-import Grid from "../components/Grid";
-import CatalogCard from "../components/ui/CatalogCard";
-import { Hero } from "../components/Hero";
 import About from "../components/About";
-import { CATEGORIES, pageTitles } from "../data/dictionary";
-import { useLanguage } from "../i18n/LanguageProvider";
+import AppShell from "../components/AppShell";
 import BrandsScrollBand from "../components/brandsScrollBand";
 import FaqArea from "../components/faqArea";
+import Grid from "../components/Grid";
+import { Hero } from "../components/Hero";
+import PageTitle from "../components/PageTitle";
 import ProductionTimeline from "../components/ProductionTimeline";
+import CatalogCard from "../components/ui/CatalogCard";
+import { CATEGORIES, pageTitles } from "../data/dictionary";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Home() {
   const { t } = useLanguage();
   const popular = pageTitles[0];
   const faq = pageTitles[4];
   const timeline = pageTitles[5];
+  const brands = pageTitles[6];
 
   return (
     <AppShell>
@@ -25,7 +26,6 @@ export default function Home() {
       <div className="body-style">
         {/* Main Content Flow */}
         <div className="mx-auto flex flex-col">
-          
           {/* Popular Products - First Engagement Point */}
           <section className="mt-8 sm:mt-12">
             <PageTitle
@@ -36,15 +36,15 @@ export default function Home() {
                   to="/catalog"
                   className="
                     rounded-2xl
-                    border border-(--background-paper)
-                    px-5 py-2.5
+                    bg-(--secondary-main)
+                    px-6 py-2.5
                     text-sm font-bold
-                    text-(--background-default)
+                    text-white
                     transition-all duration-300
-                    hover:bg-(--background-paper)
-                    hover:text-(--ink)
-                    hover:scale-105
+                    hover:opacity-90
+                    hover:scale-120
                     active:scale-100
+                    shadow-lg
                   "
                 >
                   {popular.rightText ? t(popular.rightText) : "View all"}
@@ -59,9 +59,10 @@ export default function Home() {
                       description={t(c.description)}
                       image={c.image}
                       href={`/catalog/${c.id}`}
-                      badge={`${c.subcategories.length} ${t(
-                        { en: "items", es: "artículos" }
-                      )}`}
+                      badge={`${c.subcategories.length} ${t({
+                        en: "items",
+                        es: "artículos",
+                      })}`}
                     />
                   ))}
                 </Grid>
@@ -71,7 +72,11 @@ export default function Home() {
 
           {/* Social Proof - Trust Building */}
           <section className="mt-20 sm:mt-24">
-            <BrandsScrollBand />
+            <PageTitle
+              title={t(brands.title)}
+              subtitle={t(brands.subtitle)}
+              extraContent={<BrandsScrollBand />}
+            />
           </section>
 
           {/* About Section - Story & Connection */}
@@ -104,7 +109,7 @@ export default function Home() {
                     text-white
                     transition-all duration-300
                     hover:opacity-90
-                    hover:scale-105
+                    hover:scale-120
                     active:scale-100
                     shadow-lg
                   "

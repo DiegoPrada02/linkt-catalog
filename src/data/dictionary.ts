@@ -1,7 +1,6 @@
 export type Lang = "en" | "es";
 export type I18nText = { en: string; es: string };
 
-
 type BannerDataItem = {
   title: I18nText;
   eyebrow: I18nText;
@@ -176,37 +175,57 @@ export const pageTitles: PageTitleItem[] = [
     rightText: { en: "Start Shopping", es: "Empezar a Comprar" },
   },
   {
-    title:{
+    title: {
       en: "Trusted by Industry Champions",
       es: "Confiado Por Campeones de la Industria",
     },
-    subtitle:{
+    subtitle: {
       en: "We don't just serve clients—we build lasting partnerships.",
-      es: "No solo servimos clientes—construimos alianzas duraderas."
-    }
+      es: "No solo servimos clientes—construimos alianzas duraderas.",
+    },
   },
   {
-    title:{
+    title: {
       en: "Your Questions, Answered with Clarity",
       es: "Tus Preguntas, Respondidas Con Claridad",
     },
-    subtitle:{
+    subtitle: {
       en: "Everything you need to know to move forward with complete confidence.",
-      es: "Todo lo que necesitas saber para avanzar con total confianza."
+      es: "Todo lo que necesitas saber para avanzar con total confianza.",
     },
-    rightText:{
-      en:'Still curious? Let\'s talk!',
-      es:'¿Aún tienes dudas? ¡Hablemos!',
-    }
+    rightText: {
+      en: "Still curious? Let's talk!",
+      es: "¿Aún tienes dudas? ¡Hablemos!",
+    },
   },
   {
-    title:{
+    title: {
       en: "From Concept to Your Doorstep",
       es: "Del Concepto a Tu Puerta",
     },
-    subtitle:{
+    subtitle: {
       en: "Watch your vision come to life through our proven production process.",
-      es: "Mira cómo tu visión cobra vida a través de nuestro proceso de producción probado."
+      es: "Mira cómo tu visión cobra vida a través de nuestro proceso de producción probado.",
+    },
+  },
+  {
+    title: {
+      en: "Trusted by Industry Leaders",
+      es: "Confiado Por Campeones de la Industria",
+    },
+    subtitle: {
+      en: "Partnering with exceptional brands to deliver quality packaging solutions",
+      es: "Colaborando con marcas excepcionales para ofrecer soluciones de empaque de calidad.",
+    },
+  },
+  {
+    title: {
+      en: "Let's Make It Happen",
+      es: "Hagámoslo Realidad",
+    },
+    subtitle: {
+      en: "Share your packaging vision with us—bags, boxes, or fully custom solutions. We'll send back curated recommendations, smart quantity suggestions, and realistic timelines so you can make your decision with zero guesswork.",
+      es: "Comparte tu visión de empaque—bolsas, cajas o soluciones totalmente personalizadas. Te enviaremos recomendaciones curadas, sugerencias inteligentes de cantidades y plazos realistas para que decidas sin adivinar.",
     },
   },
 ];
@@ -244,13 +263,19 @@ export const contactCopy: ContactCopy = {
   phoneInputLabel: { en: "Phone Number", es: "Número de Teléfono" },
   phonePlaceholder: { en: "(555) 555-5555", es: "(555) 555-5555" },
 
-  messageLabel: { en: "Tell us about your packaging needs", es: "Cuéntanos sobre tus necesidades de empaque" },
+  messageLabel: {
+    en: "Tell us about your packaging needs",
+    es: "Cuéntanos sobre tus necesidades de empaque",
+  },
   messagePlaceholder: {
     en: "Share product details, ideal sizes, quantities you need, and your timeline. Planning custom branding? Let us know your colors, logo placement, and desired finish.",
     es: "Comparte detalles del producto, tamaños ideales, cantidades necesarias y tu cronograma. ¿Planeas marca personalizada? Cuéntanos sobre colores, ubicación del logo y acabado deseado.",
   },
 
-  sendButton: { en: "Get My Custom Quote", es: "Obtener Mi Cotización Personalizada" },
+  sendButton: {
+    en: "Get My Custom Quote",
+    es: "Obtener Mi Cotización Personalizada",
+  },
 };
 
 export const brand: Brand = {
@@ -270,7 +295,10 @@ export const brand: Brand = {
   footer: {
     navTitle: { en: "Quick Links", es: "Enlaces Rápidos" },
     contactTitle: { en: "Get In Touch", es: "Contáctanos" },
-    rights: { en: "All rights reserved.", es: "Todos los derechos reservados." },
+    rights: {
+      en: "All rights reserved.",
+      es: "Todos los derechos reservados.",
+    },
   },
 };
 
@@ -302,7 +330,10 @@ export const distributionCopy: DistributionCopy = {
     en: "Coast-to-coast logistics that scale with your success—fast, dependable, and built for growth.",
     es: "Logística de costa a costa que escala con tu éxito—rápida, confiable y lista para crecer.",
   },
-  cta: { text: { en: "Let's Talk Logistics", es: "Hablemos de Logística" }, href: "/contact" },
+  cta: {
+    text: { en: "Let's Talk Logistics", es: "Hablemos de Logística" },
+    href: "/contact",
+  },
 
   heroImage:
     "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -316,24 +347,36 @@ export const distributionCopy: DistributionCopy = {
     es: "En LINK'T SYSTEMS no solo enviamos cajas—nos convertimos en tu columna vertebral logística. Nuestra gestión integral de distribución te permite enfocarte en lo que haces mejor (hacer crecer tu negocio) mientras nosotros manejamos el trabajo pesado: coordinación, movimiento, rastreo y entrega puntual.",
   },
 
-  highlightsTitle: { en: "Why teams choose us for distribution", es: "Por qué eligen nuestra distribución" },
+  highlightsTitle: {
+    en: "Why teams choose us for distribution",
+    es: "Por qué eligen nuestra distribución",
+  },
   highlights: [
     {
-      title: { en: "Nationwide coverage you can trust", es: "Cobertura nacional confiable" },
+      title: {
+        en: "Nationwide coverage you can trust",
+        es: "Cobertura nacional confiable",
+      },
       text: {
         en: "Seamless delivery across all 50 states with battle-tested processes and full accountability—no surprises, just results.",
         es: "Entrega perfecta en los 50 estados con procesos comprobados y responsabilidad total—sin sorpresas, solo resultados.",
       },
     },
     {
-      title: { en: "Global reach, local service", es: "Alcance global, servicio local" },
+      title: {
+        en: "Global reach, local service",
+        es: "Alcance global, servicio local",
+      },
       text: {
         en: "International shipping through premium carrier partnerships (like FedEx) that deliver your products safely anywhere in the world.",
         es: "Envíos internacionales mediante alianzas premium (como FedEx) que entregan tus productos de forma segura en cualquier parte del mundo.",
       },
     },
     {
-      title: { en: "One partner, zero headaches", es: "Un socio, cero dolores de cabeza" },
+      title: {
+        en: "One partner, zero headaches",
+        es: "Un socio, cero dolores de cabeza",
+      },
       text: {
         en: "Stop juggling multiple vendors. We streamline your entire logistics operation, cutting coordination time and scaling effortlessly as you grow.",
         es: "Deja de malabarear múltiples proveedores. Optimizamos toda tu operación logística, reducimos tiempo de coordinación y escalamos sin esfuerzo mientras creces.",
@@ -342,12 +385,24 @@ export const distributionCopy: DistributionCopy = {
   ],
 
   stats: [
-    { value: { en: "48–72h", es: "48–72h" }, label: { en: "Standard dispatch", es: "Despacho estándar" } },
-    { value: { en: "50 States", es: "50 Estados" }, label: { en: "Full coverage", es: "Cobertura completa" } },
-    { value: { en: "100%", es: "100%" }, label: { en: "Tracked shipments", es: "Envíos rastreados" } },
+    {
+      value: { en: "48–72h", es: "48–72h" },
+      label: { en: "Standard dispatch", es: "Despacho estándar" },
+    },
+    {
+      value: { en: "50 States", es: "50 Estados" },
+      label: { en: "Full coverage", es: "Cobertura completa" },
+    },
+    {
+      value: { en: "100%", es: "100%" },
+      label: { en: "Tracked shipments", es: "Envíos rastreados" },
+    },
   ],
 
-  noteTitle: { en: "Built to scale with winners", es: "Diseñado para escalar con ganadores" },
+  noteTitle: {
+    en: "Built to scale with winners",
+    es: "Diseñado para escalar con ganadores",
+  },
   noteText: {
     en: "Whether you're an enterprise managing complex supply chains or a growing brand expanding into new territories, LINK'T SYSTEMS has the infrastructure, experience, and dedication to become your long-term logistics partner.",
     es: "Ya seas una empresa gestionando cadenas de suministro complejas o una marca en crecimiento expandiéndose a nuevos territorios, LINK'T SYSTEMS tiene la infraestructura, experiencia y dedicación para ser tu socio logístico a largo plazo.",
@@ -418,7 +473,10 @@ export const galleryItems: GalleryItem[] = [
     id: "g3",
     kind: "image",
     src: "/images/gallery-images/3.webp",
-    title: { en: "Mario Hernandez Luxury Line", es: "Línea de Lujo Mario Hernández" },
+    title: {
+      en: "Mario Hernandez Luxury Line",
+      es: "Línea de Lujo Mario Hernández",
+    },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
@@ -469,7 +527,10 @@ export const galleryItems: GalleryItem[] = [
     id: "g8",
     kind: "image",
     src: "/images/gallery-images/8.webp",
-    title: { en: "Premium Packaging Showcase", es: "Exhibición de Empaque Premium" },
+    title: {
+      en: "Premium Packaging Showcase",
+      es: "Exhibición de Empaque Premium",
+    },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
@@ -479,7 +540,10 @@ export const galleryItems: GalleryItem[] = [
     id: "g9",
     kind: "image",
     src: "/images/gallery-images/9.webp",
-    title: { en: "Signature Shopping Experience", es: "Experiencia de Compra Distintiva" },
+    title: {
+      en: "Signature Shopping Experience",
+      es: "Experiencia de Compra Distintiva",
+    },
     tagKey: "bags",
     tag: { en: "Bag", es: "Bolsa" },
     colSpan: 1,
@@ -519,7 +583,10 @@ export const galleryItems: GalleryItem[] = [
     id: "g13",
     kind: "image",
     src: "/images/gallery-images/13.webp",
-    title: { en: "State-of-the-Art Facility", es: "Instalaciones de Vanguardia" },
+    title: {
+      en: "State-of-the-Art Facility",
+      es: "Instalaciones de Vanguardia",
+    },
     tagKey: "logistics",
     tag: { en: "Logistics", es: "Logística" },
     colSpan: 2,
@@ -539,7 +606,10 @@ export const galleryItems: GalleryItem[] = [
     id: "g15",
     kind: "image",
     src: "/images/gallery-images/15.webp",
-    title: { en: "Panna Restaurant Collection", es: "Colección Restaurante Panna" },
+    title: {
+      en: "Panna Restaurant Collection",
+      es: "Colección Restaurante Panna",
+    },
     tagKey: "food",
     tag: { en: "Food", es: "Comida" },
     colSpan: 2,
@@ -595,7 +665,7 @@ export const CATEGORIES: Category[] = [
       en: "Transform every customer handoff into a branded moment they'll remember and share.",
       es: "Convierte cada entrega en un momento de marca que recordarán y compartirán.",
     },
-    image:"/images/catalog-images/bags/bag-cover.webp",
+    image: "/images/catalog-images/bags/bag-cover.webp",
     subcategories: [
       {
         id: "bag-small",
@@ -604,13 +674,16 @@ export const CATEGORIES: Category[] = [
           en: "Perfectly sized luxury for boutique moments that matter.",
           es: "Lujo perfectamente dimensionado para momentos boutique que importan.",
         },
-        image:"/images/catalog-images/bags/bag-s.webp",
+        image: "/images/catalog-images/bags/bag-s.webp",
         details: {
           longDescription: {
             en: "Crafted for retailers who understand that first impressions count. This size delivers maximum brand impact with minimal material—perfect for accessories, cosmetics, and premium small goods that deserve presentation as beautiful as the product inside.",
             es: "Creada para retailers que entienden que las primeras impresiones cuentan. Este tamaño ofrece máximo impacto de marca con material mínimo—perfecta para accesorios, cosméticos y productos pequeños premium que merecen presentación tan hermosa como el contenido.",
           },
-          paperType: { en: "High-strength Kraft Paper", es: "Papel Kraft de alta resistencia" },
+          paperType: {
+            en: "High-strength Kraft Paper",
+            es: "Papel Kraft de alta resistencia",
+          },
           paperGsm: 120,
           size: { widthMm: 180, heightMm: 240, depthMm: 80 },
           printing: { en: "1–2 color branding", es: "Impresión 1–2 colores" },
@@ -663,7 +736,10 @@ export const CATEGORIES: Category[] = [
           paperType: { en: "Reinforced Kraft", es: "Kraft Reforzado" },
           paperGsm: 150,
           size: { widthMm: 320, heightMm: 420, depthMm: 150 },
-          printing: { en: "Full color CMYK available", es: "Disponible impresión CMYK" },
+          printing: {
+            en: "Full color CMYK available",
+            es: "Disponible impresión CMYK",
+          },
           minimumOrderQty: 800,
           productionTime: { minDays: 8, maxDays: 15 },
         },
@@ -681,11 +757,20 @@ export const CATEGORIES: Category[] = [
             en: "Step into the spotlight with packaging that's unmistakably yours. From luxury finishes to sustainable statements, from minimalist elegance to bold brand energy—we engineer every detail to amplify your unique positioning and make competitors wish they thought of it first.",
             es: "Entra al centro de atención con empaques inconfundiblemente tuyos. Desde acabados de lujo hasta declaraciones sustentables, desde elegancia minimalista hasta energía de marca audaz—ingeniamos cada detalle para amplificar tu posicionamiento único y hacer que competidores deseen haberlo pensado primero.",
           },
-          paperType: { en: "Custom paper selection", es: "Selección de papel personalizada" },
+          paperType: {
+            en: "Custom paper selection",
+            es: "Selección de papel personalizada",
+          },
           paperGsm: 140,
-          coating: { en: "Gloss / Matte / Soft-touch / Foil", es: "Brillante / Mate / Soft-touch / Foil" },
+          coating: {
+            en: "Gloss / Matte / Soft-touch / Foil",
+            es: "Brillante / Mate / Soft-touch / Foil",
+          },
           size: { widthMm: 300, heightMm: 350, depthMm: 120 },
-          printing: { en: "Premium custom finishes", es: "Acabados premium personalizados" },
+          printing: {
+            en: "Premium custom finishes",
+            es: "Acabados premium personalizados",
+          },
           minimumOrderQty: 1500,
           productionTime: {
             minDays: 12,
@@ -746,7 +831,10 @@ export const CATEGORIES: Category[] = [
           },
           paperType: { en: "Premium Paperboard", es: "Cartulina Premium" },
           paperGsm: 300,
-          coating: { en: "Gloss or matte options", es: "Opciones brillante o mate" },
+          coating: {
+            en: "Gloss or matte options",
+            es: "Opciones brillante o mate",
+          },
           size: { widthMm: 150, heightMm: 200, depthMm: 80 },
           printing: { en: "Full color CMYK", es: "Color completo CMYK" },
           minimumOrderQty: 2000,
@@ -766,10 +854,16 @@ export const CATEGORIES: Category[] = [
             en: "When your product carries weight, your packaging should too. Reinforced construction handles heavier loads while premium printing ensures your brand dominates every inch of shelf space—because bigger products deserve bigger impact.",
             es: "Cuando tu producto tiene peso, tu empaque también debería. Construcción reforzada maneja cargas más pesadas mientras impresión premium asegura que tu marca domine cada centímetro de espacio—porque productos más grandes merecen mayor impacto.",
           },
-          paperType: { en: "High-density Paperboard", es: "Cartulina de alta densidad" },
+          paperType: {
+            en: "High-density Paperboard",
+            es: "Cartulina de alta densidad",
+          },
           paperGsm: 350,
           size: { widthMm: 250, heightMm: 300, depthMm: 120 },
-          printing: { en: "CMYK + premium finishes", es: "CMYK + acabados premium" },
+          printing: {
+            en: "CMYK + premium finishes",
+            es: "CMYK + acabados premium",
+          },
           minimumOrderQty: 1500,
           productionTime: { minDays: 12, maxDays: 22 },
         },
@@ -787,11 +881,20 @@ export const CATEGORIES: Category[] = [
             en: "Break free from cookie-cutter boxes. Custom dielines, specialty finishes, embossing, foil stamping, and structural innovation combine to create packaging that doesn't just hold your product—it amplifies everything you stand for and makes walking past impossible.",
             es: "Libérate de cajas genéricas. Troqueles personalizados, acabados especiales, relieve, estampado en foil e innovación estructural se combinan para crear empaques que no solo contienen tu producto—amplifican todo lo que representas y hacen imposible pasar de largo.",
           },
-          paperType: { en: "Custom paperboard selection", es: "Selección de cartulina personalizada" },
+          paperType: {
+            en: "Custom paperboard selection",
+            es: "Selección de cartulina personalizada",
+          },
           paperGsm: 320,
-          coating: { en: "Foil / Emboss / Spot UV", es: "Foil / Relieve / UV sectorizado" },
+          coating: {
+            en: "Foil / Emboss / Spot UV",
+            es: "Foil / Relieve / UV sectorizado",
+          },
           size: { widthMm: 200, heightMm: 200, depthMm: 100 },
-          printing: { en: "Advanced custom printing", es: "Impresión personalizada avanzada" },
+          printing: {
+            en: "Advanced custom printing",
+            es: "Impresión personalizada avanzada",
+          },
           minimumOrderQty: 2000,
           productionTime: {
             minDays: 15,
@@ -809,64 +912,69 @@ export const CATEGORIES: Category[] = [
 
 // FAQ Area
 
-type FAQ =  {
-  id: number,
-  question: I18nText,
-  answer: I18nText,
-}
+type FAQ = {
+  id: number;
+  question: I18nText;
+  answer: I18nText;
+};
 
-export const FAQs : FAQ[]  = [
-  {id: 1,
+export const FAQs: FAQ[] = [
+  {
+    id: 1,
     question: {
-      en:"Do I need to provide my own design?",
-      es: "¿Necesito proporcionar mi propio diseño?"
+      en: "Do I need to provide my own design?",
+      es: "¿Necesito proporcionar mi propio diseño?",
     },
-    answer:{
-      en:"Not at all. Our veteran design team lives and breathes packaging excellence. Share your vision, and we'll transform it into production-ready brilliance—or we can refine your existing artwork to perfection. Either way, you get packaging that looks as good as it performs.",
-      es: "Para nada. Nuestro equipo veterano de diseño vive y respira excelencia en empaque. Comparte tu visión y la transformaremos en brillantez lista para producción—o podemos perfeccionar tu arte existente. De cualquier forma, obtienes empaque que luce tan bien como funciona."
-    }
+    answer: {
+      en: "Not at all. Our veteran design team lives and breathes packaging excellence. Share your vision, and we'll transform it into production-ready brilliance—or we can refine your existing artwork to perfection. Either way, you get packaging that looks as good as it performs.",
+      es: "Para nada. Nuestro equipo veterano de diseño vive y respira excelencia en empaque. Comparte tu visión y la transformaremos en brillantez lista para producción—o podemos perfeccionar tu arte existente. De cualquier forma, obtienes empaque que luce tan bien como funciona.",
+    },
   },
-  {id: 2,
+  {
+    id: 2,
     question: {
-      en:"What's your minimum order quantity?",
-      es: "¿Cuál es su cantidad mínima de pedido?"
+      en: "What's your minimum order quantity?",
+      es: "¿Cuál es su cantidad mínima de pedido?",
     },
-    answer:{
-      en:'Our sweet spot starts at 1,000 units—perfect for testing new designs or maintaining inventory. Need something different? Let\'s talk. We love solving unique challenges.',
-      es: 'Nuestro punto óptimo comienza en 1,000 unidades—perfecto para probar nuevos diseños o mantener inventario. ¿Necesitas algo diferente? Hablemos. Nos encanta resolver desafíos únicos.'
-    }
+    answer: {
+      en: "Our sweet spot starts at 1,000 units—perfect for testing new designs or maintaining inventory. Need something different? Let's talk. We love solving unique challenges.",
+      es: "Nuestro punto óptimo comienza en 1,000 unidades—perfecto para probar nuevos diseños o mantener inventario. ¿Necesitas algo diferente? Hablemos. Nos encanta resolver desafíos únicos.",
+    },
   },
-  {id: 3,
+  {
+    id: 3,
     question: {
-      en:"Do you offer free shipping?",
-      es: "¿Ofrecen envío gratuito?"
+      en: "Do you offer free shipping?",
+      es: "¿Ofrecen envío gratuito?",
     },
-    answer:{
-      en:'Yes! Free shipping is standard on most orders because logistics shouldn\'t add stress to your life. Some variations apply based on order size and destination—our team will give you the full picture upfront.',
-      es: 'Sí! El envío gratuito es estándar en la mayoría de pedidos porque la logística no debería agregar estrés a tu vida. Algunas variaciones aplican según tamaño del pedido y destino—nuestro equipo te dará el panorama completo desde el inicio.'
-    }
+    answer: {
+      en: "Yes! Free shipping is standard on most orders because logistics shouldn't add stress to your life. Some variations apply based on order size and destination—our team will give you the full picture upfront.",
+      es: "Sí! El envío gratuito es estándar en la mayoría de pedidos porque la logística no debería agregar estrés a tu vida. Algunas variaciones aplican según tamaño del pedido y destino—nuestro equipo te dará el panorama completo desde el inicio.",
+    },
   },
-  {id: 4,
+  {
+    id: 4,
     question: {
-      en:"I have questions about my quote or order. Who do I contact?",
-      es: "Tengo preguntas sobre mi cotización u orden. ¿A quién contacto?"
+      en: "I have questions about my quote or order. Who do I contact?",
+      es: "Tengo preguntas sobre mi cotización u orden. ¿A quién contacto?",
     },
-    answer:{
-      en:"Reach out anytime at placeholder@email.com or call +1 (555) 555-5555. Our team responds fast because we know your time is valuable—and your success matters to us.",
-      es: 'Contáctanos cuando sea a placeholder@email.com o llama al +1 (555) 555-5555. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso—y tu éxito nos importa.'
-    }
+    answer: {
+      en: "Reach out anytime at placeholder@email.com or call +1 (555) 555-5555. Our team responds fast because we know your time is valuable—and your success matters to us.",
+      es: "Contáctanos cuando sea a placeholder@email.com o llama al +1 (555) 555-5555. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso—y tu éxito nos importa.",
+    },
   },
-  {id: 5,
+  {
+    id: 5,
     question: {
-      en:"Do you provide samples before production?",
-      es: "¿Proporcionan muestras antes de producción?"
+      en: "Do you provide samples before production?",
+      es: "¿Proporcionan muestras antes de producción?",
     },
-    answer:{
-      en:'Absolutely. Digital proofs come standard to ensure perfection. Want to hold it in your hands first? Pre-production samples are available on request—because confidence matters before you commit to the full run.',
-      es: 'Absolutamente. Las pruebas digitales son estándar para asegurar perfección. ¿Quieres tenerlo en tus manos primero? Muestras de preproducción están disponibles bajo solicitud—porque la confianza importa antes de comprometerte con la producción completa.'
-    }
+    answer: {
+      en: "Absolutely. Digital proofs come standard to ensure perfection. Want to hold it in your hands first? Pre-production samples are available on request—because confidence matters before you commit to the full run.",
+      es: "Absolutamente. Las pruebas digitales son estándar para asegurar perfección. ¿Quieres tenerlo en tus manos primero? Muestras de preproducción están disponibles bajo solicitud—porque la confianza importa antes de comprometerte con la producción completa.",
+    },
   },
-]
+];
 
 export type TimelineItemData = {
   id: number;
@@ -893,7 +1001,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 2,
     opposite: { en: "Phase 2", es: "Fase 2" },
-    title: { en: "Materials & Precision Planning", es: "Materiales y Planificación de Precisión" },
+    title: {
+      en: "Materials & Precision Planning",
+      es: "Materiales y Planificación de Precisión",
+    },
     description: {
       en: "We hand-select premium materials, lock down specifications, create samples when needed, and finalize every manufacturing detail. Nothing goes to production until it's bulletproof.",
       es: "Seleccionamos materiales premium a mano, cerramos especificaciones, creamos muestras cuando es necesario y finalizamos cada detalle de manufactura. Nada va a producción hasta que es a prueba de balas.",
@@ -911,7 +1022,8 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Tus materiales llegan a nuestro piso de producción donde tecnología de impresión y troquelado de vanguardia se encuentra con artesanía maestra. Estamos ingeniando calidad consistente a escala—porque la reputación de tu marca depende de ello.",
     },
     timeframe: { en: "1–2 weeks", es: "1–2 semanas" },
-    img_link: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    img_link:
+      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     id: 4,
@@ -928,7 +1040,10 @@ export const TIMELINE_DATA: TimelineItemData[] = [
   {
     id: 5,
     opposite: { en: "Phase 5", es: "Fase 5" },
-    title: { en: "Quality Assurance & Strategic Packing", es: "Aseguramiento de Calidad y Empaque Estratégico" },
+    title: {
+      en: "Quality Assurance & Strategic Packing",
+      es: "Aseguramiento de Calidad y Empaque Estratégico",
+    },
     description: {
       en: "Every single unit passes rigorous inspection before being expertly packaged and palletized. We're eliminating defects, streamlining logistics, and ensuring your order arrives perfect—because good enough isn't in our vocabulary.",
       es: "Cada unidad pasa inspección rigurosa antes de ser empacada y paletizada expertamente. Estamos eliminando defectos, optimizando logística y asegurando que tu pedido llegue perfecto—porque 'suficientemente bueno' no está en nuestro vocabulario.",

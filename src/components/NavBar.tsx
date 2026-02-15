@@ -90,7 +90,7 @@ export default function ResponsiveAppBar() {
                   }
                 }}
               >
-                {Boolean(anchorElNav) ? <CloseIcon /> : <MenuIcon />}
+                {anchorElNav ? <CloseIcon /> : <MenuIcon />}
               </IconButton>
 
               <Menu

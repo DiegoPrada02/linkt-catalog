@@ -1,5 +1,4 @@
 import React from "react";
-import { BorderBeam } from "./ui/border-beam";
 
 type PageTitleProps = {
   title: string;
@@ -16,52 +15,29 @@ export default function PageTitle({
 }: PageTitleProps) {
   return (
     <div
-      className="
-        relative overflow-hidden
-        mt-10
-        rounded-3xl
-        bg-white/80
-        backdrop-blur-md
-        text-(--ink)
-        shadow-[0_8px_40px_rgba(0,0,0,0.12)]
-        transition-shadow duration-500
-        hover:shadow-[0_12px_50px_rgba(0,0,0,0.16)]
-      "
+      className="relative mb-8"
+      style={{ fontFamily: "'Inter', 'system-ui', sans-serif" }}
     >
       {/* Header Section */}
       <div
         className="
           relative
-          flex flex-col gap-4
-          sm:flex-row sm:items-end sm:justify-between
-          rounded-t-3xl
-          px-8 py-6
-          bg-linear-to-r
-          from-(--ink)
-          to-[rgba(1,38,86,0.85)]
-          text-(--background-default)
-          overflow-hidden
-        "
+          px-8 py-8
+          text-center
+          text-(--ink)
+          border-b-3
+          flex
+          flex-col
+          items-center
+          gap-4"
       >
-        {/* Decorative geometric accent - top right */}
-        <div
-          className="
-            absolute -top-8 -right-8
-            w-40 h-40
-            rounded-full
-            bg-white/5
-            blur-2xl
-            pointer-events-none
-          "
-        />
-        
-        {/* Decorative geometric accent - bottom left */}
+        {/* Decorative geometric accent*/}
         <div
           className="
             absolute -bottom-6 -left-6
-            w-32 h-32
+            w-340 h-32
             rounded-full
-            bg-white/5
+            bg-linear-to-r from-[rgba(0,21,255,0.47)]/10 to-(--secondary-main)/20
             blur-xl
             pointer-events-none
           "
@@ -69,23 +45,22 @@ export default function PageTitle({
 
         {/* Content */}
         <div className="relative z-10 flex-1">
-          <h1 
+          <h1
             className="
-              text-3xl sm:text-4xl font-bold tracking-tight
-              text-(--background-default)
-              drop-shadow-sm
+              text-4xl md:text-5xl
+              mb-2
+              font-display
             "
-            style={{ fontFamily: "'Sora', 'system-ui', sans-serif" }}
+            style={{ fontFamily: "'Moul', 'system-ui', sans-serif" }}
           >
             {title}
           </h1>
           {subtitle && (
-            <p 
+            <p
               className="
-                mt-2.5 max-w-2xl 
-                text-sm sm:text-base 
-                text-(--background-default)/85
-                leading-relaxed
+                text-lg md:text-xl
+                text-(--ink-80)
+                mb-10
               "
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
@@ -95,11 +70,7 @@ export default function PageTitle({
         </div>
 
         {/* Right Content */}
-        {right && (
-          <div className="relative z-10 shrink-0">
-            {right}
-          </div>
-        )}
+        {right && <div className="relative z-10 shrink-0">{right}</div>}
 
         {/* Subtle bottom border gradient */}
         <div
@@ -112,17 +83,8 @@ export default function PageTitle({
 
       {/* Optional Extra Content */}
       {extraContent && (
-        <div className="px-8 py-6 text-base text-(--ink)">
-          {extraContent}
-        </div>
+        <div className="px-8 py-6 text-base text-(--ink)">{extraContent}</div>
       )}
-
-      {/* MagicUI BorderBeam */}
-      <BorderBeam
-        size={120}
-        duration={8}
-        className="pointer-events-none"
-      />
     </div>
   );
 }
