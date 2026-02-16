@@ -1,10 +1,10 @@
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Building2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useMemo, useState } from "react";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
 import { contactCopy as copy } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
-//import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -14,7 +14,8 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  // const [captchaToken, setCaptchaToken] = useState<string>("");
+
+  const [captchaToken, setCaptchaToken] = useState<string>("");
 
   // Generate dynamic subject based on name
   const subject = useMemo(() => {
@@ -22,13 +23,13 @@ export default function Contact() {
     return clean ? `Quote for ${clean}` : "Quote request";
   }, [name]);
 
-  // const onHCaptchaVerify = (token: string) => {
-  //   setCaptchaToken(token);
-  // };
+  const onHCaptchaVerify = (token: string) => {
+    setCaptchaToken(token);
+  };
 
-  // const onHCaptchaExpire = () => {
-  //   setCaptchaToken("");
-  // };
+  const onHCaptchaExpire = () => {
+    setCaptchaToken("");
+  };
 
   return (
     <AppShell>
@@ -159,12 +160,12 @@ export default function Contact() {
                       value="51ba5711-db1a-4f65-8f8f-9fc33bbc740f"
                     />
 
-                    {/* hCaptcha token (required field name)
-                <input
-                  type="hidden"
-                  name="h-captcha-response"
-                  value={captchaToken}
-                /> */}
+                    {/* REQUIRED: hCaptcha token field name for Web3Forms */}
+                    <input
+                      type="hidden"
+                      name="h-captcha-response"
+                      value={captchaToken}
+                    />
 
                     {/* Dynamic Subject */}
                     <input type="hidden" name="subject" value={subject} />
@@ -185,7 +186,7 @@ export default function Contact() {
                       {/* Name */}
                       <div className="sm:col-span-2">
                         <label
-                          className="block text-sm font-bold  mb-2"
+                          className="block text-sm font-bold mb-2"
                           htmlFor="name"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
@@ -195,17 +196,7 @@ export default function Contact() {
                           id="name"
                           type="text"
                           name="Company Name"
-                          className="
-                        w-full rounded-xl
-                        border border-(--ink-14)
-                        bg-white
-                        px-4 py-3
-                        text-sm font-medium text-(--ink)
-                        placeholder:text-(--ink-60) placeholder:font-normal
-                        outline-none
-                        transition-all duration-300
-                        focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10
-                      "
+                          className="w-full rounded-xl border border-(--ink-14) bg-white px-4 py-3 text-sm font-medium text-(--ink) placeholder:text-(--ink-60) placeholder:font-normal outline-none transition-all duration-300 focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                           placeholder={t(contactCopy.namePlaceholder)}
                           value={name}
@@ -217,7 +208,7 @@ export default function Contact() {
                       {/* Email */}
                       <div>
                         <label
-                          className="block text-sm font-bold  mb-2"
+                          className="block text-sm font-bold mb-2"
                           htmlFor="email"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
@@ -227,17 +218,7 @@ export default function Contact() {
                           id="email"
                           type="email"
                           name="email"
-                          className="
-                        w-full rounded-xl
-                        border border-(--ink-14)
-                        bg-white
-                        px-4 py-3
-                        text-sm font-medium text-(--ink)
-                        placeholder:text-(--ink-60) placeholder:font-normal
-                        outline-none
-                        transition-all duration-300
-                        focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10
-                      "
+                          className="w-full rounded-xl border border-(--ink-14) bg-white px-4 py-3 text-sm font-medium text-(--ink) placeholder:text-(--ink-60) placeholder:font-normal outline-none transition-all duration-300 focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                           placeholder={t(contactCopy.emailPlaceholder)}
                           value={email}
@@ -249,7 +230,7 @@ export default function Contact() {
                       {/* Phone */}
                       <div>
                         <label
-                          className="block text-sm font-bold  mb-2"
+                          className="block text-sm font-bold mb-2"
                           htmlFor="phone"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
@@ -259,17 +240,7 @@ export default function Contact() {
                           id="phone"
                           type="tel"
                           name="phone"
-                          className="
-                        w-full rounded-xl
-                        border border-(--ink-14)
-                        bg-white
-                        px-4 py-3
-                        text-sm font-medium text-(--ink)
-                        placeholder:text-(--ink-60) placeholder:font-normal
-                        outline-none
-                        transition-all duration-300
-                        focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10
-                      "
+                          className="w-full rounded-xl border border-(--ink-14) bg-white px-4 py-3 text-sm font-medium text-(--ink) placeholder:text-(--ink-60) placeholder:font-normal outline-none transition-all duration-300 focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                           placeholder={t(contactCopy.phonePlaceholder)}
                           value={phone}
@@ -280,7 +251,7 @@ export default function Contact() {
                       {/* Message */}
                       <div className="sm:col-span-2">
                         <label
-                          className="block text-sm font-bold  mb-2"
+                          className="block text-sm font-bold mb-2"
                           htmlFor="message"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
@@ -290,18 +261,7 @@ export default function Contact() {
                           id="message"
                           name="message"
                           rows={5}
-                          className="
-                        w-full rounded-xl
-                        border border-(--ink-14)
-                        bg-white
-                        px-4 py-3
-                        text-sm font-medium text-(--ink)
-                        placeholder:text-(--ink-60) placeholder:font-normal
-                        outline-none
-                        resize-vertical
-                        transition-all duration-300
-                        focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10
-                      "
+                          className="w-full rounded-xl border border-(--ink-14) bg-white px-4 py-3 text-sm font-medium text-(--ink) placeholder:text-(--ink-60) placeholder:font-normal outline-none resize-vertical transition-all duration-300 focus:border-(--ink-60) focus:ring-2 focus:ring-(--ink)/10"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                           placeholder={t(contactCopy.messagePlaceholder)}
                           value={message}
@@ -311,34 +271,27 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    {/* activate hCaptcha Component before production */}
-                    {/* <div className="my-5"><HCaptcha
-                  sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                  reCaptchaCompat={false}
-                  onVerify={onHCaptchaVerify}
-                  onExpire={onHCaptchaExpire}
-                /></div> */}
+                    {/* hCaptcha */}
+                    <div className="my-5">
+                      <HCaptcha
+                        sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                        reCaptchaCompat={false}
+                        onVerify={onHCaptchaVerify}
+                        onExpire={onHCaptchaExpire}
+                      />
+                    </div>
 
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="
-                    group
-                    w-full
-                    flex items-center justify-center gap-2
-                    rounded-xl
-                    bg-(--ink)
-                    px-6 py-4
-                    text-base font-bold text-(--background-paper)
-                    shadow-lg
-                    transition-all duration-300
-                    hover:opacity-90 hover:scale-105
-                    active:scale-100
-                    hover:shadow-xl
-                    hover:cursor-pointer
-                  "
+                      disabled={!captchaToken}
+                      className={[
+                        "group w-full flex items-center justify-center gap-2 rounded-xl px-6 py-4 text-base font-bold shadow-lg transition-all duration-300",
+                        !captchaToken
+                          ? "bg-white/20 text-white/60 cursor-not-allowed opacity-70"
+                          : "bg-(--ink) text-(--background-paper) hover:opacity-90 hover:scale-105 active:scale-100 hover:shadow-xl hover:cursor-pointer",
+                      ].join(" ")}
                       style={{ fontFamily: "'Sora', sans-serif" }}
-                      // disabled={!captchaToken}
                     >
                       {t(contactCopy.sendButton)}
                       <Send
