@@ -90,7 +90,7 @@ export default function SubcategoryDetail() {
                         <img
                           src={subcategory.image}
                           alt={t(subcategory.title)}
-                          className="h-200 w-auto object-cover object-center"
+                          className="h-200 w-auto object-contain object-center"
                         />
                       </Lens>
 

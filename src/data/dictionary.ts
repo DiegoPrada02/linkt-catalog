@@ -463,6 +463,16 @@ export const galleryItems: GalleryItem[] = [
     id: "g1",
     kind: "image",
     src: "/images/gallery-images/1.webp",
+    title: { en: "Ganachery Bags", es: "Bolsas de Ganachery" },
+    tagKey: "bags",
+    tag: { en: "Bags", es: "Bolsas" },
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    id: "g2",
+    kind: "image",
+    src: "/images/gallery-images/2.webp",
     title: { en: "Caffè Gourmet Collection", es: "Colección Caffè Gourmet" },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
@@ -479,7 +489,7 @@ export const galleryItems: GalleryItem[] = [
     },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
-    colSpan: 1,
+    colSpan: 2,
     rowSpan: 2,
   },
   {
@@ -615,6 +625,16 @@ export const galleryItems: GalleryItem[] = [
     colSpan: 2,
     rowSpan: 1,
   },
+  {
+    id: "g16",
+    kind: "image",
+    src: "/images/gallery-images/16.webp",
+    title: { en: "Pallets", es: "Palets" },
+    tagKey: "logistics",
+    tag: { en: "Logistics", es: "Logística" },
+    colSpan: 1,
+    rowSpan: 2,
+  },
 ];
 
 /* CATALOG AREA */
@@ -677,16 +697,16 @@ export const CATEGORIES: Category[] = [
         image: "/images/catalog-images/bags/bag-s.webp",
         details: {
           longDescription: {
-            en: "Crafted for retailers who understand that first impressions count. This size delivers maximum brand impact with minimal material—perfect for accessories, cosmetics, and premium small goods that deserve presentation as beautiful as the product inside.",
-            es: "Creada para retailers que entienden que las primeras impresiones cuentan. Este tamaño ofrece máximo impacto de marca con material mínimo—perfecta para accesorios, cosméticos y productos pequeños premium que merecen presentación tan hermosa como el contenido.",
+            en: "Crafted for retailers who understand that first impressions count. This size delivers maximum brand impact with minimal material, perfect for accessories, cosmetics, and premium small goods that deserve presentation as beautiful as the product inside.",
+            es: "Creada para retailers que entienden que las primeras impresiones cuentan. Este tamaño ofrece máximo impacto de marca con material mínimo, perfecta para accesorios, cosméticos y productos pequeños premium que merecen presentación tan hermosa como el contenido.",
           },
           paperType: {
-            en: "High-strength Kraft Paper",
-            es: "Papel Kraft de alta resistencia",
+            en: "White Bristol 150 gsm 70x100",
+            es: "Bristol Blanco 150 gsm 70X100",
           },
-          paperGsm: 120,
-          size: { widthMm: 180, heightMm: 240, depthMm: 80 },
-          printing: { en: "1–2 color branding", es: "Impresión 1–2 colores" },
+          paperGsm: 150,
+          size: { widthMm: 350, heightMm: 370, depthMm: 120 },
+          printing: { en: "1-2 Colors", es: "Impresión 1–2 colores" },
           minimumOrderQty: 1000,
           productionTime: {
             minDays: 6,
@@ -711,10 +731,12 @@ export const CATEGORIES: Category[] = [
             en: "Your customers' favorite shopping companion. Proven durability meets striking brand presence in our most versatile format, built to handle real retail life while keeping your brand looking sharp, day after day.",
             es: "El compañero de compras favorito de tus clientes. Durabilidad comprobada se encuentra con presencia de marca impactante en nuestro formato más versátil, diseñada para manejar la vida real del retail mientras mantiene tu marca luciendo impecable, día tras día.",
           },
-          paperType: { en: "Premium Kraft", es: "Kraft Premium" },
-          paperGsm: 130,
-          coating: { en: "Optional matte finish", es: "Acabado mate opcional" },
-          size: { widthMm: 260, heightMm: 320, depthMm: 120 },
+          paperType: {
+            en: "White Bristol 150 gsm 70X100",
+            es: "Bristol Blanco 150 gsm 70X100",
+          },
+          paperGsm: 150,
+          size: { widthMm: 254, heightMm: 330.2, depthMm: 177 },
           printing: { en: "1–4 colors / CMYK", es: "1–4 colores / CMYK" },
           minimumOrderQty: 1000,
           productionTime: { minDays: 7, maxDays: 14 },
@@ -733,14 +755,14 @@ export const CATEGORIES: Category[] = [
             en: "When your customers are buying big, give them a bag that matches the moment. Reinforced engineering supports serious weight while your brand makes a serious impression—from apparel bundles to multi-item purchases that deserve VIP treatment.",
             es: "Cuando tus clientes compran en grande, dales una bolsa que esté a la altura. Ingeniería reforzada soporta peso considerable mientras tu marca hace una impresión seria—desde paquetes de ropa hasta compras múltiples que merecen trato VIP.",
           },
-          paperType: { en: "Reinforced Kraft", es: "Kraft Reforzado" },
-          paperGsm: 150,
-          size: { widthMm: 320, heightMm: 420, depthMm: 150 },
+          paperType: { en: "White Bond 115 gsm", es: "Bond Blanco 115 gsm" },
+          paperGsm: 115,
+          size: { widthMm: 900, heightMm: 700, depthMm: 300 },
           printing: {
-            en: "Full color CMYK available",
-            es: "Disponible impresión CMYK",
+            en: "5 colors / CMYK available",
+            es: "5 colores / CMYK disponible",
           },
-          minimumOrderQty: 800,
+          minimumOrderQty: 1000,
           productionTime: { minDays: 8, maxDays: 15 },
         },
       },
@@ -771,7 +793,7 @@ export const CATEGORIES: Category[] = [
             en: "Premium custom finishes",
             es: "Acabados premium personalizados",
           },
-          minimumOrderQty: 1500,
+          minimumOrderQty: 1000,
           productionTime: {
             minDays: 12,
             maxDays: 25,
@@ -802,7 +824,7 @@ export const CATEGORIES: Category[] = [
           en: "Precision packaging for products that demand perfection.",
           es: "Empaque de precisión para productos que exigen perfección.",
         },
-        image: img(4101),
+        image: "/images/catalog-images/folding-boxes/folding-box-s.webp",
         details: {
           longDescription: {
             en: "Engineered for the products where every millimeter matters. High-resolution printing brings your brand to life on packaging designed for cosmetics, tech accessories, and specialty retail items that deserve packaging as exceptional as what's inside.",
@@ -823,7 +845,7 @@ export const CATEGORIES: Category[] = [
           en: "The retail champion—built for everyday excellence.",
           es: "El campeón del retail—hecha para excelencia cotidiana.",
         },
-        image: img(4102),
+        image: "/images/catalog-images/folding-boxes/folding-box-m.webp",
         details: {
           longDescription: {
             en: "Strike the perfect balance between protection and presentation. This format dominates shelves across consumer goods, combining structural integrity with premium finishes that make customers reach for your product first.",
@@ -848,7 +870,7 @@ export const CATEGORIES: Category[] = [
           en: "Powerful protection meets commanding shelf presence.",
           es: "Protección poderosa con presencia dominante en estantería.",
         },
-        image: img(4103),
+        image: "/images/catalog-images/folding-boxes/folding-box-l.webp",
         details: {
           longDescription: {
             en: "When your product carries weight, your packaging should too. Reinforced construction handles heavier loads while premium printing ensures your brand dominates every inch of shelf space—because bigger products deserve bigger impact.",
@@ -995,8 +1017,7 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Transformamos tus ideas en obras maestras listas para imprimir—o elevamos tu arte existente a perfección de producción. Cada detalle del diseño es perfeccionado para asegurar consistencia de marca impecable y excelencia en manufactura.",
     },
     timeframe: { en: "1–3 days", es: "1–3 días" },
-    img_link:
-      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=1200&auto=format&fit=crop&q=60",
+    img_link: "/images/timeline-images/1.webp",
   },
   {
     id: 2,
@@ -1010,8 +1031,7 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Seleccionamos materiales premium a mano, cerramos especificaciones, creamos muestras cuando es necesario y finalizamos cada detalle de manufactura. Nada va a producción hasta que es a prueba de balas.",
     },
     timeframe: { en: "3–7 days", es: "3–7 días" },
-    img_link:
-      "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=1200&auto=format&fit=crop&q=60",
+    img_link: "/images/timeline-images/2.webp",
   },
   {
     id: 3,
@@ -1022,8 +1042,7 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Tus materiales llegan a nuestro piso de producción donde tecnología de impresión y troquelado de vanguardia se encuentra con artesanía maestra. Estamos ingeniando calidad consistente a escala—porque la reputación de tu marca depende de ello.",
     },
     timeframe: { en: "1–2 weeks", es: "1–2 semanas" },
-    img_link:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    img_link: "/images/timeline-images/3.webp",
   },
   {
     id: 4,
@@ -1034,8 +1053,7 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Acabado de bordes de precisión, pegado experto, doblado perfecto y ensamblaje meticuloso transforman materias primas en empaques listos para retail que lucen impresionantes y sobreviven manejo del mundo real.",
     },
     timeframe: { en: "3–7 days", es: "3–7 días" },
-    img_link:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&auto=format&fit=crop&q=60",
+    img_link: "/images/timeline-images/4.webp",
   },
   {
     id: 5,
@@ -1049,8 +1067,7 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Cada unidad pasa inspección rigurosa antes de ser empacada y paletizada expertamente. Estamos eliminando defectos, optimizando logística y asegurando que tu pedido llegue perfecto—porque 'suficientemente bueno' no está en nuestro vocabulario.",
     },
     timeframe: { en: "2–5 days", es: "2–5 días" },
-    img_link:
-      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&auto=format&fit=crop&q=60",
+    img_link: "/images/timeline-images/5.webp",
   },
   {
     id: 6,

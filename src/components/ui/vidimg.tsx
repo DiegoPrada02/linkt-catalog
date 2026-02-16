@@ -18,7 +18,7 @@ export default function Vidimg({
   priority = false,
 }: VidimgProps) {
   const safeTitle = typeof title === "string" ? title : "";
-  
+
   if (isVideo) {
     return (
       <video
@@ -31,11 +31,11 @@ export default function Vidimg({
         playsInline
         preload="metadata"
         aria-label={safeTitle}
-        style={{ objectPosition: 'center center' }}
+        style={{ objectPosition: "center center" }}
       />
     );
   }
-  
+
   return (
     <img
       src={source}
@@ -44,7 +44,7 @@ export default function Vidimg({
       loading={priority ? "eager" : "lazy"}
       decoding="async"
       draggable={false}
-      style={{ objectPosition: 'center center' }}
+      style={{ objectPosition: "center center" }}
     />
   );
 }

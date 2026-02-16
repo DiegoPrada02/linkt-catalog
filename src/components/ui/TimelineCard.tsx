@@ -1,11 +1,11 @@
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
+// TimelineCard.tsx
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
+import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Clock } from "lucide-react";
-import Vidimg from "./vidimg";
 
 type TimelineCardProps = {
   id: number;
@@ -16,6 +16,7 @@ type TimelineCardProps = {
   img_link: string;
   isVideo?: boolean;
   isLast: boolean;
+  onClick?: () => void;
 };
 
 export default function TimelineCard({
@@ -26,6 +27,7 @@ export default function TimelineCard({
   img_link,
   isVideo = false,
   isLast,
+  onClick,
 }: TimelineCardProps) {
   return (
     <TimelineItem>
@@ -85,6 +87,7 @@ export default function TimelineCard({
       {/* Main Content - Card */}
       <TimelineContent>
         <div
+          onClick={onClick}
           className="
             group
             overflow-hidden rounded-2xl
@@ -94,17 +97,34 @@ export default function TimelineCard({
             transition-all duration-300
             hover:shadow-xl hover:-translate-y-1 hover:border-(--ink-18)
           "
+          style={{
+            cursor: onClick ? "pointer" : "default",
+          }}
         >
-          {/* Media using Vidimg */}
+          {/* Media */}
           {img_link && (
             <div className="relative overflow-hidden bg-linear-to-br from-slate-100 to-blue-50/30 aspect-video">
               <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
-                <Vidimg
-                  source={img_link}
-                  isVideo={isVideo}
-                  title={title}
-                  priority={false}
-                />
+                {isVideo ? (
+                  <video
+                    src={img_link}
+                    className="w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={img_link}
+                    alt={title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
