@@ -1,9 +1,9 @@
+import { ArrowRight, Globe, Layers, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
-import { Link } from "react-router-dom";
-import { useLanguage } from "../i18n/LanguageProvider";
 import { distributionCopy } from "../data/dictionary";
-import { Globe, Truck, Layers, ArrowRight } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Distribution() {
   const { t } = useLanguage();
@@ -21,7 +21,7 @@ export default function Distribution() {
               className="
                 inline-flex items-center gap-2
                 rounded-2xl px-6 py-3 text-sm font-bold
-                bg-(--ink) text-(--background-paper)
+                bg-(--background-paper) text-(--ink)
                 shadow-lg
                 hover:opacity-90 hover:scale-105
                 active:scale-100
@@ -57,13 +57,13 @@ export default function Distribution() {
                     />
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
-                    
+
                     {/* Decorative corner accent */}
                     <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-blue-100/40 to-transparent rounded-bl-3xl" />
                   </div>
 
                   <div className="p-6 sm:p-8">
-                    <p 
+                    <p
                       className="text-base sm:text-lg leading-relaxed text-(--ink-80)"
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
@@ -90,15 +90,15 @@ export default function Distribution() {
                     >
                       {/* Background gradient on hover */}
                       <div className="absolute inset-0 bg-linear-to-br from-blue-50/50 to-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
+
                       <div className="relative">
-                        <div 
+                        <div
                           className="text-3xl font-black text-(--ink) mb-1"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
                           {t(s.value)}
                         </div>
-                        <div 
+                        <div
                           className="text-xs font-bold tracking-wider uppercase text-(--ink-60)"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
@@ -126,7 +126,7 @@ export default function Distribution() {
                 >
                   {/* Highlights Section */}
                   <div className="p-6 sm:p-8">
-                    <h3 
+                    <h3
                       className="text-xl font-black text-(--ink) mb-6"
                       style={{ fontFamily: "'Sora', sans-serif" }}
                     >
@@ -135,7 +135,8 @@ export default function Distribution() {
 
                     <div className="space-y-4">
                       {d.highlights.map((h, idx) => {
-                        const Icon = idx === 0 ? Truck : idx === 1 ? Globe : Layers;
+                        const Icon =
+                          idx === 0 ? Truck : idx === 1 ? Globe : Layers;
 
                         return (
                           <div
@@ -162,17 +163,20 @@ export default function Distribution() {
                                   group-hover:scale-110
                                 "
                               >
-                                <Icon className="h-6 w-6 text-(--background-paper)" strokeWidth={2} />
+                                <Icon
+                                  className="h-6 w-6 text-(--background-paper)"
+                                  strokeWidth={2}
+                                />
                               </div>
 
                               <div className="flex-1 min-w-0">
-                                <div 
+                                <div
                                   className="font-bold text-(--ink) mb-1"
                                   style={{ fontFamily: "'Sora', sans-serif" }}
                                 >
                                   {t(h.title)}
                                 </div>
-                                <div 
+                                <div
                                   className="text-sm leading-relaxed text-(--ink-72)"
                                   style={{ fontFamily: "'Inter', sans-serif" }}
                                 >
@@ -188,7 +192,7 @@ export default function Distribution() {
 
                   {/* CTA Card */}
                   <div className="p-6 sm:p-8 pt-0">
-                    <div 
+                    <div
                       className="
                         relative overflow-hidden
                         rounded-xl 
@@ -200,15 +204,15 @@ export default function Distribution() {
                       {/* Decorative elements */}
                       <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-white/5 blur-2xl" />
                       <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/5 blur-2xl" />
-                      
+
                       <div className="relative">
-                        <div 
+                        <div
                           className="text-sm font-black uppercase tracking-wider text-(--background-paper)/80 mb-2"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
                           {t(d.noteTitle)}
                         </div>
-                        <div 
+                        <div
                           className="text-sm leading-relaxed text-(--background-paper)/90 mb-5"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
@@ -232,9 +236,9 @@ export default function Distribution() {
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
                           {t(d.cta.text)}
-                          <ArrowRight 
-                            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
-                            strokeWidth={2.5} 
+                          <ArrowRight
+                            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                            strokeWidth={2.5}
                           />
                         </Link>
                       </div>

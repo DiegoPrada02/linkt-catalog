@@ -21,23 +21,23 @@ export default function PageTitle({
       {/* Header Section */}
       <div
         className="
-          relative
-          px-8 py-8
-          text-center
-          text-(--ink)
-          border-b-3
-          flex
-          flex-col
-          items-center
-          gap-4"
+        text-center
+        px-8 py-6
+        bg-(--ink)        backdrop-blur-md
+        rounded-3xl
+        shadow-xl
+        flex flex-col lg:flex-col items-center justify-between
+        gap-6
+        my-5
+        text-(--background-paper)
+      "
       >
         {/* Decorative geometric accent*/}
         <div
           className="
-            absolute -bottom-6 -left-6
-            w-340 h-32
+            absolute -left-6
+            w-360 h-10
             rounded-full
-            bg-linear-to-r from-[rgba(0,21,255,0.47)]/10 to-(--secondary-main)/20
             blur-xl
             pointer-events-none
           "
@@ -48,7 +48,7 @@ export default function PageTitle({
           <h1
             className="
               text-4xl md:text-5xl
-              mb-2
+              my-5
               font-display
             "
             style={{ fontFamily: "'Moul', 'system-ui', sans-serif" }}
@@ -59,8 +59,6 @@ export default function PageTitle({
             <p
               className="
                 text-lg md:text-xl
-                text-(--ink-80)
-                mb-10
               "
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
