@@ -1006,7 +1006,7 @@ export const CATEGORIES: Category[] = [
           en: "Structural brilliance engineered for your brand.",
           es: "Brillantez estructural diseñada para tu marca.",
         },
-        image: img(4104),
+        image: "/images/catalog-images/folding-boxes/folding-box-c.webp",
         details: {
           longDescription: {
             en: "Break free from cookie-cutter boxes. Custom dielines, specialty finishes, embossing, foil stamping, and structural innovation combine to create packaging that doesn't just hold your product—it amplifies everything you stand for and makes walking past impossible.",
