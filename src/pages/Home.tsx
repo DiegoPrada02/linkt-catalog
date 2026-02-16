@@ -35,16 +35,13 @@ export default function Home() {
                 <Link
                   to="/catalog"
                   className="
-                    rounded-2xl
-                    bg-(--secondary-main)
-                    px-6 py-2.5
-                    text-sm font-bold
-                    text-white
-                    transition-all duration-300
-                    hover:opacity-90
-                    hover:scale-120
-                    active:scale-100
-                    shadow-lg
+                inline-flex items-center gap-2
+                rounded-2xl px-6 py-3 text-sm font-bold
+                bg-(--background-paper) text-(--ink)
+                shadow-lg
+                hover:opacity-90 hover:scale-105
+                active:scale-100
+                transition-all duration-300
                   "
                 >
                   {popular.rightText ? t(popular.rightText) : "View all"}
@@ -102,16 +99,13 @@ export default function Home() {
                 <Link
                   to="/contact"
                   className="
-                    rounded-2xl
-                    bg-(--secondary-main)
-                    px-6 py-2.5
-                    text-sm font-bold
-                    text-white
-                    transition-all duration-300
-                    hover:opacity-90
-                    hover:scale-120
-                    active:scale-100
-                    shadow-lg
+                inline-flex items-center gap-2
+                rounded-2xl px-6 py-3 text-sm font-bold
+                bg-(--background-paper) text-(--ink)
+                shadow-lg
+                hover:opacity-90 hover:scale-105
+                active:scale-100
+                transition-all duration-300
                   "
                 >
                   {t(faq.rightText)}

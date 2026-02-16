@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import AppShell from "../components/AppShell";
-import PageTitle from "../components/PageTitle";
 import Grid from "../components/Grid";
+import PageTitle from "../components/PageTitle";
 import CatalogCard from "../components/ui/CatalogCard";
 import { CATEGORIES, pages } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
@@ -13,10 +13,15 @@ export default function CatalogSubcategories() {
   const category = CATEGORIES.find((c) => c.id === categoryId);
   if (!category) return <Navigate to="/catalog" replace />;
 
-  const catalogLabel =
-    pages.find((p) => p.path === "/catalog")?.label ?? { en: "Catalog", es: "Catálogo" };
+  const catalogLabel = pages.find((p) => p.path === "/catalog")?.label ?? {
+    en: "Catalog",
+    es: "Catálogo",
+  };
 
-  const backLabel = { en: "Back to categories", es: "Volver a categorías" };
+  const backLabel = {
+    en: `Back to ${t(catalogLabel)}`,
+    es: `Volver a ${t(catalogLabel)}`,
+  };
   const detailsBadge = { en: "Details", es: "Detalles" };
 
   return (
@@ -35,7 +40,9 @@ export default function CatalogSubcategories() {
 
               <span className="opacity-50">/</span>
 
-              <span className="font-extrabold text-(--ink)">{t(category.title)}</span>
+              <span className="font-extrabold text-(--ink)">
+                {t(category.title)}
+              </span>
             </div>
 
             <PageTitle
@@ -43,7 +50,7 @@ export default function CatalogSubcategories() {
               subtitle={t(category.description)}
               right={
                 <Link
-                  to="/catalog"
+                  to={`/catalog/${category.title}`}
                   className="
                     rounded-xl
                     border border-(--primary-light)

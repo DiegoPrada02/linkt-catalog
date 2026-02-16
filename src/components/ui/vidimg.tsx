@@ -24,7 +24,7 @@ export default function Vidimg({
       <video
         src={source}
         poster={poster}
-        className={`w-full h-full object-cover block ${className}`}
+        className={`w-full h-full object-contain block ${className}`}
         autoPlay
         muted
         loop

@@ -9,7 +9,7 @@ type Params = { categoryId: string; subcategoryId: string };
 
 const labels = {
   catalog: { en: "Catalog", es: "Catálogo" },
-  backToCatalog: { en: "Back to catalog", es: "Volver al catálogo" },
+  backToCatalog: { en: "Back to category", es: "Volver a la categoría" },
   requestQuote: { en: "Request a quote", es: "Solicitar cotización" },
   specs: { en: "Specifications", es: "Especificaciones" },
   prodTime: {
@@ -56,7 +56,7 @@ export default function SubcategoryDetail() {
             subtitle={t(subcategory.title)}
             right={
               <Link
-                to="/catalog"
+                to={`/catalog/${category.id}`}
                 className="
                   rounded-2xl border border-(--primary-light)
                   px-4 py-2 text-sm font-extrabold

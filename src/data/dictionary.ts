@@ -463,7 +463,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g1",
     kind: "image",
     src: "/images/gallery-images/1.webp",
-    title: { en: "Ganachery Bags", es: "Bolsas de Ganachery" },
+    title: { en: "Ganachery Signature Bags", es: "Bolsas Signature Ganachery" },
     tagKey: "bags",
     tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
@@ -495,9 +495,12 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g4",
     kind: "video",
-    src: "/images/gallery-images/4.mp4",
+    src: "/images/gallery-images/4.webm",
     poster: "/images/gallery-images/4.webp",
-    title: { en: "Paper Cups in Action", es: "Vasos de Papel en Acción" },
+    title: {
+      en: "Paper Cup Production in Motion",
+      es: "Producción de Vasos en Acción",
+    },
     tagKey: "video",
     tag: { en: "Video", es: "Video" },
     colSpan: 2,
@@ -517,7 +520,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g6",
     kind: "image",
     src: "/images/gallery-images/6.webp",
-    title: { en: "Carama Brand Collection", es: "Colección de Marca Carama" },
+    title: { en: "Carama Premium Packaging", es: "Empaque Premium Carama" },
     tagKey: "boxes",
     tag: { en: "Boxes", es: "Cajas" },
     colSpan: 2,
@@ -551,11 +554,11 @@ export const galleryItems: GalleryItem[] = [
     kind: "image",
     src: "/images/gallery-images/9.webp",
     title: {
-      en: "Signature Shopping Experience",
-      es: "Experiencia de Compra Distintiva",
+      en: "Signature Retail Experience",
+      es: "Experiencia Retail Distintiva",
     },
     tagKey: "bags",
-    tag: { en: "Bag", es: "Bolsa" },
+    tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
     rowSpan: 1,
   },
@@ -573,7 +576,10 @@ export const galleryItems: GalleryItem[] = [
     id: "g11",
     kind: "image",
     src: "/images/gallery-images/11.webp",
-    title: { en: "Production Excellence", es: "Excelencia en Producción" },
+    title: {
+      en: "Production Line Excellence",
+      es: "Excelencia en Línea de Producción",
+    },
     tagKey: "logistics",
     tag: { en: "Logistics", es: "Logística" },
     colSpan: 2,
@@ -583,7 +589,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g12",
     kind: "image",
     src: "/images/gallery-images/12.webp",
-    title: { en: "Manufacturing Precision", es: "Precisión en Manufactura" },
+    title: { en: "Precision Manufacturing", es: "Manufactura de Precisión" },
     tagKey: "logistics",
     tag: { en: "Logistics", es: "Logística" },
     colSpan: 1,
@@ -606,7 +612,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g14",
     kind: "image",
     src: "/images/gallery-images/14.webp",
-    title: { en: "Cold Chain Solutions", es: "Soluciones Cadena de Frío" },
+    title: { en: "Cold Chain Solutions", es: "Soluciones de Cadena de Frío" },
     tagKey: "boxes",
     tag: { en: "Boxes", es: "Cajas" },
     colSpan: 2,
@@ -629,9 +635,112 @@ export const galleryItems: GalleryItem[] = [
     id: "g16",
     kind: "image",
     src: "/images/gallery-images/16.webp",
-    title: { en: "Pallets", es: "Palets" },
+    title: {
+      en: "Industrial Pallet Systems",
+      es: "Sistemas de Palets Industriales",
+    },
     tagKey: "logistics",
     tag: { en: "Logistics", es: "Logística" },
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    id: "g17",
+    kind: "image",
+    src: "/images/gallery-images/17.webp",
+    title: {
+      en: "Retail-Optimized Packaging",
+      es: "Empaque Optimizado para Retail",
+    },
+    tagKey: "retail",
+    tag: { en: "Retail", es: "Retail" },
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    id: "g18",
+    kind: "image",
+    src: "/images/gallery-images/18.webp",
+    title: {
+      en: "Distribution Ready Systems",
+      es: "Sistemas Listos para Distribución",
+    },
+    tagKey: "logistics",
+    tag: { en: "Logistics", es: "Logística" },
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    id: "g19",
+    kind: "image",
+    src: "/images/gallery-images/19.webp",
+    title: {
+      en: "Advanced Manufacturing Floor",
+      es: "Planta de Manufactura Avanzada",
+    },
+    tagKey: "logistics",
+    tag: { en: "Logistics", es: "Logística" },
+    colSpan: 2,
+    rowSpan: 1,
+  },
+  {
+    id: "g20",
+    kind: "image",
+    src: "/images/gallery-images/20.webp",
+    title: {
+      en: "Best manufacturing Standards",
+      es: "Los mejores estándares de Manufactura",
+    },
+    tagKey: "logistics",
+    tag: { en: "Logistics", es: "Logística" },
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    id: "g21",
+    kind: "image",
+    src: "/images/gallery-images/21.webp",
+    title: {
+      en: "High-Capacity Production",
+      es: "Producción de Alta Capacidad",
+    },
+    tagKey: "logistics",
+    tag: { en: "Logistics", es: "Logística" },
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    id: "g22",
+    kind: "image",
+    src: "/images/gallery-images/22.webp",
+    title: { en: "Warehouse Efficiency", es: "Eficiencia en Almacén" },
+    tagKey: "logistics",
+    tag: { en: "Logistics", es: "Logística" },
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    id: "g23",
+    kind: "video",
+    src: "/images/gallery-images/23.webm",
+    poster: "/images/gallery-images/23.webp",
+    title: { en: "Smart Manufacturing", es: "Fabricación Inteligente" },
+    tagKey: "video",
+    tag: { en: "Video", es: "Video" },
+    colSpan: 1,
+    rowSpan: 1,
+  },
+  {
+    id: "g24",
+    kind: "video",
+    src: "/images/gallery-images/24.webm",
+    poster: "/images/gallery-images/24.webp",
+    title: {
+      en: "Automation in Action",
+      es: "Automatización en Acción",
+    },
+    tagKey: "video",
+    tag: { en: "Video", es: "Video" },
     colSpan: 1,
     rowSpan: 2,
   },
@@ -689,7 +798,7 @@ export const CATEGORIES: Category[] = [
     subcategories: [
       {
         id: "bag-small",
-        title: { en: "Small", es: "Pequeña" },
+        title: { en: "Size: Small", es: "Tamaño: Pequeña" },
         description: {
           en: "Perfectly sized luxury for boutique moments that matter.",
           es: "Lujo perfectamente dimensionado para momentos boutique que importan.",
@@ -720,7 +829,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "bag-medium",
-        title: { en: "Medium", es: "Mediana" },
+        title: { en: "Size: Medium", es: "Tamaño: Mediana" },
         description: {
           en: "The workhorse of retail, engineered for daily excellence.",
           es: "El caballo de batalla del retail, diseñada para excelencia diaria.",
@@ -744,7 +853,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "bag-large",
-        title: { en: "Large", es: "Grande" },
+        title: { en: "Size: Large", es: "Tamaño: Grande" },
         description: {
           en: "Maximum capacity meets premium presentation.",
           es: "Máxima capacidad con presentación premium.",
@@ -768,7 +877,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "bag-custom",
-        title: { en: "Custom", es: "Personalizada" },
+        title: { en: "Type: Custom", es: "Tipo: Personalizada" },
         description: {
           en: "Your vision, engineered to perfection.",
           es: "Tu visión, ingeniada a la perfección.",
@@ -819,7 +928,7 @@ export const CATEGORIES: Category[] = [
     subcategories: [
       {
         id: "box-small",
-        title: { en: "Small", es: "Pequeña" },
+        title: { en: "Size: Small", es: "Tamaño: Pequeña" },
         description: {
           en: "Precision packaging for products that demand perfection.",
           es: "Empaque de precisión para productos que exigen perfección.",
@@ -840,7 +949,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "box-medium",
-        title: { en: "Medium", es: "Mediana" },
+        title: { en: "Size: Medium", es: "Tamaño: Mediana" },
         description: {
           en: "The retail champion—built for everyday excellence.",
           es: "El campeón del retail—hecha para excelencia cotidiana.",
@@ -865,7 +974,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "box-large",
-        title: { en: "Large", es: "Grande" },
+        title: { en: "Size: Large", es: "Tamaño: Grande" },
         description: {
           en: "Powerful protection meets commanding shelf presence.",
           es: "Protección poderosa con presencia dominante en estantería.",
@@ -892,7 +1001,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "box-custom",
-        title: { en: "Custom", es: "Personalizada" },
+        title: { en: "Type: Custom", es: "Tipo: Personalizada" },
         description: {
           en: "Structural brilliance engineered for your brand.",
           es: "Brillantez estructural diseñada para tu marca.",
