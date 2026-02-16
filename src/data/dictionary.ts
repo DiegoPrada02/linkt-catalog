@@ -106,7 +106,7 @@ export const BannerData: BannerDataItem[] = [
     },
     text: {
       en: "Your frozen products deserve packaging that works as hard as you do. Our insulated boxes ensure your goods arrive fresh, protected, and ready to impress—every single time.",
-      es: "Tus productos congelados merecen empaques que trabajen tan duro como tú. Nuestras cajas aisladas garantizan que lleguen frescos, protegidos e impecables—cada vez.",
+      es: "Tus productos congelados merecen empaques que trabajen tan duro como tú. Nuestras cajas aisladas garantizan que lleguen frescos, protegidos e impecables cada vez.",
     },
     img: "/images/banner-media/banner2.webp",
     cta: {
@@ -144,8 +144,8 @@ export const pageTitles: PageTitleItem[] = [
       es: "Las Soluciones Que Eligen Equipos Ganadores",
     },
     subtitle: {
-      en: "Discover why industry leaders choose packaging that delivers quality, wow-factor, and unshakeable reliability—all in one.",
-      es: "Descubre por qué líderes de la industria eligen empaques que ofrecen calidad, factor sorpresa y confiabilidad inquebrantable—todo en uno.",
+      en: "Discover why industry leaders choose packaging that delivers quality, wow-factor, and unshakeable reliability all in one.",
+      es: "Descubre por qué líderes de la industria eligen empaques que ofrecen calidad, factor sorpresa y confiabilidad inquebrantable todo en uno.",
     },
     rightText: { en: "Browse Full Catalog", es: "Explorar Catálogo Completo" },
   },
@@ -159,18 +159,18 @@ export const pageTitles: PageTitleItem[] = [
       es: "Materiales premium. Ejecución impecable. Diseñado para crecer con tus ambiciones.",
     },
     text: {
-      en: "Link'T Systems creates premium packaging that does more than protect—it converts. Our boxes and bags are engineered for retail excellence, food service reliability, e-commerce success, and logistics confidence. We obsess over the details that drive sales: stunning presentation, bulletproof protection, and the operational consistency your team can count on—order after order, month after month.",
-      es: "Link'T Systems crea empaques premium que hacen más que proteger—convierten. Nuestras cajas y bolsas están diseñadas para excelencia en retail, confiabilidad en servicio de alimentos, éxito en e-commerce y seguridad logística. Nos obsesionamos con los detalles que impulsan ventas: presentación impactante, protección blindada y consistencia operativa en la que tu equipo puede confiar—pedido tras pedido, mes tras mes.",
+      en: "Link'T Systems creates premium packaging that does more than protect. Our boxes and bags are engineered for retail excellence, food service reliability, e-commerce success, and logistics confidence. We obsess over the details that drive sales: stunning presentation, bulletproof protection, and the operational consistency your team can count on order after order, month after month.",
+      es: "Link'T Systems crea empaques premium que hacen más que proteger. Nuestras cajas y bolsas están diseñadas para excelencia en retail, confiabilidad en servicio de alimentos, éxito en e-commerce y seguridad logística. Nos obsesionamos con los detalles que impulsan ventas: presentación impactante, protección blindada y consistencia operativa en la que tu equipo puede confiar pedido tras pedido, mes tras mes.",
     },
   },
   {
     title: {
-      en: "Premium Packaging, Ready to Ship Today",
-      es: "Empaques Premium, Listos Para Enviar Hoy",
+      en: "Our Catalog",
+      es: "Nuestro Catalogo",
     },
     subtitle: {
-      en: "The packaging your customers will remember—and your competitors will envy.",
-      es: "Los empaques que tus clientes recordarán—y tus competidores envidiarán.",
+      en: "The packaging your customers will remember and your competitors will envy.",
+      es: "Los empaques que tus clientes recordarán y tus competidores envidiarán.",
     },
     rightText: { en: "Start Shopping", es: "Empezar a Comprar" },
   },
@@ -180,8 +180,8 @@ export const pageTitles: PageTitleItem[] = [
       es: "Confiado Por Campeones de la Industria",
     },
     subtitle: {
-      en: "We don't just serve clients—we build lasting partnerships.",
-      es: "No solo servimos clientes—construimos alianzas duraderas.",
+      en: "We don't just serve clients, we build lasting partnerships.",
+      es: "No solo servimos clientes, construimos alianzas duraderas.",
     },
   },
   {
@@ -224,8 +224,8 @@ export const pageTitles: PageTitleItem[] = [
       es: "Hagámoslo Realidad",
     },
     subtitle: {
-      en: "Share your packaging vision with us—bags, boxes, or fully custom solutions. We'll send back curated recommendations, smart quantity suggestions, and realistic timelines so you can make your decision with zero guesswork.",
-      es: "Comparte tu visión de empaque—bolsas, cajas o soluciones totalmente personalizadas. Te enviaremos recomendaciones curadas, sugerencias inteligentes de cantidades y plazos realistas para que decidas sin adivinar.",
+      en: "Share your packaging vision with us, bags, boxes, or fully custom solutions. We'll send back curated recommendations, smart quantity suggestions, and realistic timelines so you can make your decision with zero guesswork.",
+      es: "Comparte tu visión de empaque/bolsas, cajas o soluciones totalmente personalizadas. Te enviaremos recomendaciones curadas, sugerencias inteligentes de cantidades y plazos realistas para que decidas sin adivinar.",
     },
   },
 ];
@@ -236,8 +236,8 @@ export const contactCopy: ContactCopy = {
     es: "Recibe Tu Cotización en 24 Horas o Menos",
   },
   infoText: {
-    en: "Share your packaging vision with us—bags, boxes, or fully custom solutions. We'll send back curated recommendations, smart quantity suggestions, and realistic timelines so you can make your decision with zero guesswork.",
-    es: "Comparte tu visión de empaque—bolsas, cajas o soluciones totalmente personalizadas. Te enviaremos recomendaciones curadas, sugerencias inteligentes de cantidades y plazos realistas para que decidas sin adivinar.",
+    en: "Share your packaging vision with us, bags, boxes, or fully custom solutions. We'll send back curated recommendations, smart quantity suggestions, and realistic timelines so you can make your decision with zero guesswork.",
+    es: "Comparte tu visión de empaque/bolsas, cajas o soluciones totalmente personalizadas. Te enviaremos recomendaciones curadas, sugerencias inteligentes de cantidades y plazos realistas para que decidas sin adivinar.",
   },
 
   addressLabel: { en: "Visit Us", es: "Visítanos" },
@@ -327,8 +327,8 @@ export type DistributionCopy = {
 export const distributionCopy: DistributionCopy = {
   title: { en: "Distribution Done Right", es: "Distribución Bien Hecha" },
   subtitle: {
-    en: "Coast-to-coast logistics that scale with your success—fast, dependable, and built for growth.",
-    es: "Logística de costa a costa que escala con tu éxito—rápida, confiable y lista para crecer.",
+    en: "Coast-to-coast logistics that scale with your success, fast, dependable, and built for growth.",
+    es: "Logística de costa a costa que escala con tu éxito rápidamente, confiable y lista para crecer.",
   },
   cta: {
     text: { en: "Let's Talk Logistics", es: "Hablemos de Logística" },
@@ -343,8 +343,8 @@ export const distributionCopy: DistributionCopy = {
   },
 
   intro: {
-    en: "At LINK'T SYSTEMS, we don't just ship boxes—we become your logistics backbone. Our end-to-end distribution management lets you focus on what you do best (growing your business) while we handle the heavy lifting: coordination, movement, tracking, and on-time delivery.",
-    es: "En LINK'T SYSTEMS no solo enviamos cajas—nos convertimos en tu columna vertebral logística. Nuestra gestión integral de distribución te permite enfocarte en lo que haces mejor (hacer crecer tu negocio) mientras nosotros manejamos el trabajo pesado: coordinación, movimiento, rastreo y entrega puntual.",
+    en: "At LINK'T SYSTEMS, we don't just ship boxes, we become your logistics backbone. Our end-to-end distribution management lets you focus on what you do best (growing your business) while we handle the heavy lifting: coordination, movement, tracking, and on-time delivery.",
+    es: "En LINK'T SYSTEMS no solo enviamos cajas, nos convertimos en tu columna vertebral logística. Nuestra gestión integral de distribución te permite enfocarte en lo que haces mejor (hacer crecer tu negocio) mientras nosotros manejamos el trabajo pesado: coordinación, movimiento, rastreo y entrega puntual.",
   },
 
   highlightsTitle: {
@@ -702,14 +702,14 @@ export const CATEGORIES: Category[] = [
         id: "bag-medium",
         title: { en: "Medium", es: "Mediana" },
         description: {
-          en: "The workhorse of retail—engineered for daily excellence.",
-          es: "El caballo de batalla del retail—diseñada para excelencia diaria.",
+          en: "The workhorse of retail, engineered for daily excellence.",
+          es: "El caballo de batalla del retail, diseñada para excelencia diaria.",
         },
         image: "/images/catalog-images/bags/bag-m.webp",
         details: {
           longDescription: {
-            en: "Your customers' favorite shopping companion. Proven durability meets striking brand presence in our most versatile format—built to handle real retail life while keeping your brand looking sharp, day after day.",
-            es: "El compañero de compras favorito de tus clientes. Durabilidad comprobada se encuentra con presencia de marca impactante en nuestro formato más versátil—diseñada para manejar la vida real del retail mientras mantiene tu marca luciendo impecable, día tras día.",
+            en: "Your customers' favorite shopping companion. Proven durability meets striking brand presence in our most versatile format, built to handle real retail life while keeping your brand looking sharp, day after day.",
+            es: "El compañero de compras favorito de tus clientes. Durabilidad comprobada se encuentra con presencia de marca impactante en nuestro formato más versátil, diseñada para manejar la vida real del retail mientras mantiene tu marca luciendo impecable, día tras día.",
           },
           paperType: { en: "Premium Kraft", es: "Kraft Premium" },
           paperGsm: 130,
@@ -776,8 +776,8 @@ export const CATEGORIES: Category[] = [
             minDays: 12,
             maxDays: 25,
             note: {
-              en: "Worth the wait—timelines vary with specialty magic.",
-              es: "Vale la pena la espera—los tiempos varían con magia especial.",
+              en: "Worth the wait, timelines vary with specialty magic.",
+              es: "Vale la pena la espera, los tiempos varían con magia especial.",
             },
           },
         },
@@ -826,8 +826,8 @@ export const CATEGORIES: Category[] = [
         image: img(4102),
         details: {
           longDescription: {
-            en: "Strike the perfect balance between protection and presentation. This format dominates shelves across consumer goods—combining structural integrity with premium finishes that make customers reach for your product first.",
-            es: "Logra el equilibrio perfecto entre protección y presentación. Este formato domina estanterías en bienes de consumo—combinando integridad estructural con acabados premium que hacen que clientes elijan tu producto primero.",
+            en: "Strike the perfect balance between protection and presentation. This format dominates shelves across consumer goods, combining structural integrity with premium finishes that make customers reach for your product first.",
+            es: "Logra el equilibrio perfecto entre protección y presentación. Este formato domina estanterías en bienes de consumo, combinando integridad estructural con acabados premium que hacen que clientes elijan tu producto primero.",
           },
           paperType: { en: "Premium Paperboard", es: "Cartulina Premium" },
           paperGsm: 300,
@@ -900,8 +900,8 @@ export const CATEGORIES: Category[] = [
             minDays: 15,
             maxDays: 30,
             note: {
-              en: "Excellence takes time—premium finishes add polish and precision.",
-              es: "La excelencia toma tiempo—acabados premium añaden pulido y precisión.",
+              en: "Excellence takes time, premium finishes add polish and precision.",
+              es: "La excelencia toma tiempo, acabados premium añaden pulido y precisión.",
             },
           },
         },
@@ -926,8 +926,8 @@ export const FAQs: FAQ[] = [
       es: "¿Necesito proporcionar mi propio diseño?",
     },
     answer: {
-      en: "Not at all. Our veteran design team lives and breathes packaging excellence. Share your vision, and we'll transform it into production-ready brilliance—or we can refine your existing artwork to perfection. Either way, you get packaging that looks as good as it performs.",
-      es: "Para nada. Nuestro equipo veterano de diseño vive y respira excelencia en empaque. Comparte tu visión y la transformaremos en brillantez lista para producción—o podemos perfeccionar tu arte existente. De cualquier forma, obtienes empaque que luce tan bien como funciona.",
+      en: "Not at all. Our veteran design team lives and breathes packaging excellence. Share your vision, and we'll transform it into production-ready brilliance, or we can refine your existing artwork to perfection. Either way, you get packaging that looks as good as it performs.",
+      es: "Para nada. Nuestro equipo veterano de diseño vive y respira excelencia en empaque. Comparte tu visión y la transformaremos en brillantez lista para producción, o podemos perfeccionar tu arte existente. De cualquier forma, obtienes empaque que luce tan bien como funciona.",
     },
   },
   {
@@ -937,8 +937,8 @@ export const FAQs: FAQ[] = [
       es: "¿Cuál es su cantidad mínima de pedido?",
     },
     answer: {
-      en: "Our sweet spot starts at 1,000 units—perfect for testing new designs or maintaining inventory. Need something different? Let's talk. We love solving unique challenges.",
-      es: "Nuestro punto óptimo comienza en 1,000 unidades—perfecto para probar nuevos diseños o mantener inventario. ¿Necesitas algo diferente? Hablemos. Nos encanta resolver desafíos únicos.",
+      en: "Our sweet spot starts at 1,000 units, perfect for testing new designs or maintaining inventory. Need something different? Let's talk. We love solving unique challenges.",
+      es: "Nuestro punto óptimo comienza en 1,000 unidades, perfecto para probar nuevos diseños o mantener inventario. ¿Necesitas algo diferente? Hablemos. Nos encanta resolver desafíos únicos.",
     },
   },
   {
@@ -948,8 +948,8 @@ export const FAQs: FAQ[] = [
       es: "¿Ofrecen envío gratuito?",
     },
     answer: {
-      en: "Yes! Free shipping is standard on most orders because logistics shouldn't add stress to your life. Some variations apply based on order size and destination—our team will give you the full picture upfront.",
-      es: "Sí! El envío gratuito es estándar en la mayoría de pedidos porque la logística no debería agregar estrés a tu vida. Algunas variaciones aplican según tamaño del pedido y destino—nuestro equipo te dará el panorama completo desde el inicio.",
+      en: "Yes! Free shipping is standard on most orders because logistics shouldn't add stress to your life. Some variations apply based on order size and destination, our team will give you the full picture upfront.",
+      es: "Sí! El envío gratuito es estándar en la mayoría de pedidos porque la logística no debería agregar estrés a tu vida. Algunas variaciones aplican según tamaño del pedido y destino, nuestro equipo te dará el panorama completo desde el inicio.",
     },
   },
   {
@@ -959,8 +959,8 @@ export const FAQs: FAQ[] = [
       es: "Tengo preguntas sobre mi cotización u orden. ¿A quién contacto?",
     },
     answer: {
-      en: "Reach out anytime at placeholder@email.com or call +1 (555) 555-5555. Our team responds fast because we know your time is valuable—and your success matters to us.",
-      es: "Contáctanos cuando sea a placeholder@email.com o llama al +1 (555) 555-5555. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso—y tu éxito nos importa.",
+      en: "Reach out anytime at placeholder@email.com or call +1 (555) 555-5555. Our team responds fast because we know your time is valuable, and your success matters to us.",
+      es: "Contáctanos cuando sea a placeholder@email.com o llama al +1 (555) 555-5555. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso, y tu éxito nos importa.",
     },
   },
   {
@@ -1057,8 +1057,8 @@ export const TIMELINE_DATA: TimelineItemData[] = [
     opposite: { en: "Phase 6", es: "Fase 6" },
     title: { en: "Global Logistics Network", es: "Red Logística Global" },
     description: {
-      en: "Our distribution infrastructure kicks into gear—coordinating warehousing, managing carriers, and tracking every shipment to ensure your packaging arrives on time, intact, and ready to impress customers worldwide.",
-      es: "Nuestra infraestructura de distribución entra en acción—coordinando almacenamiento, gestionando transportistas y rastreando cada envío para asegurar que tu empaque llegue a tiempo, intacto y listo para impresionar clientes en todo el mundo.",
+      en: "Our distribution infrastructure kicks into gear, coordinating warehousing, managing carriers, and tracking every shipment to ensure your packaging arrives on time, intact, and ready to impress customers worldwide.",
+      es: "Nuestra infraestructura de distribución entra en acción, coordinando almacenamiento, gestionando transportistas y rastreando cada envío para asegurar que tu empaque llegue a tiempo, intacto y listo para impresionar clientes en todo el mundo.",
     },
     timeframe: { en: "Ongoing", es: "Continuo" },
     img_link: "https://www.w3schools.com/html/mov_bbb.mp4",

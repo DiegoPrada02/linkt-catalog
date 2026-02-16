@@ -1,9 +1,9 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import PageTitle from "../components/PageTitle";
+import { Lens } from "../components/ui/lens";
 import { CATEGORIES } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
-import { Lens } from "../components/ui/lens";
 
 type Params = { categoryId: string; subcategoryId: string };
 
@@ -12,7 +12,10 @@ const labels = {
   backToCatalog: { en: "Back to catalog", es: "Volver al catálogo" },
   requestQuote: { en: "Request a quote", es: "Solicitar cotización" },
   specs: { en: "Specifications", es: "Especificaciones" },
-  prodTime: { en: "Estimated production time", es: "Tiempo estimado de producción" },
+  prodTime: {
+    en: "Estimated production time",
+    es: "Tiempo estimado de producción",
+  },
   businessDays: { en: "business days", es: "días hábiles" },
 
   paperType: { en: "Paper type", es: "Tipo de papel" },
@@ -28,7 +31,9 @@ export default function SubcategoryDetail() {
   const { categoryId, subcategoryId } = useParams<Params>();
 
   const category = CATEGORIES.find((c) => c.id === categoryId);
-  const subcategory = category?.subcategories.find((s) => s.id === subcategoryId);
+  const subcategory = category?.subcategories.find(
+    (s) => s.id === subcategoryId,
+  );
 
   if (!category || !subcategory) return <Navigate to="/catalog" replace />;
 
@@ -38,7 +43,9 @@ export default function SubcategoryDetail() {
     d.size.depthMm ? ` × ${d.size.depthMm}` : ""
   } mm`;
 
-  const prodNote = d.productionTime.note ? ` • ${t(d.productionTime.note)}` : "";
+  const prodNote = d.productionTime.note
+    ? ` • ${t(d.productionTime.note)}`
+    : "";
 
   return (
     <div className="rounded-3xl bg-(--background-default)/80 backdrop-blur-md shadow-xl">
@@ -73,17 +80,18 @@ export default function SubcategoryDetail() {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-5">
                     {/* Media - with lighter background */}
-                    <div className="relative lg:col-span-2 bg-linear-to-br from-blue-100 via-blue-50 to-slate-100 flex items-center justify-center p-4 lg:p-6 min-h-112 lg:min-h-full">
-                      <Lens zoomFactor={2}
-                          lensSize={150}
-                          isStatic={false}
-                          ariaLabel="Zoom Area" 
+                    <div className="relative lg:col-span-2 bg-linear-to-br from-blue-100 via-blue-50 to-slate-100 flex items-center justify-center  min-h-112 lg:min-h-full">
+                      <Lens
+                        zoomFactor={2}
+                        lensSize={150}
+                        isStatic={false}
+                        ariaLabel="Zoom Area"
                       >
-                         <img
+                        <img
                           src={subcategory.image}
                           alt={t(subcategory.title)}
-                          className="max-h-full lg:max-h-144 w-auto max-w-full object-contain rounded-xl shadow-lg"
-                          />
+                          className="h-200 w-auto object-cover object-center"
+                        />
                       </Lens>
 
                       {/* Floating chip */}
@@ -92,7 +100,8 @@ export default function SubcategoryDetail() {
                           {t(labels.prodTime)}
                         </div>
                         <div className="mt-0.5 text-sm font-semibold text-white">
-                          {d.productionTime.minDays}–{d.productionTime.maxDays} {t(labels.businessDays)}
+                          {d.productionTime.minDays}–{d.productionTime.maxDays}{" "}
+                          {t(labels.businessDays)}
                           {prodNote}
                         </div>
                       </div>
@@ -146,14 +155,28 @@ export default function SubcategoryDetail() {
 
                       {/* Specs */}
                       <div className="mt-6 rounded-3xl border border-white/10 bg-white/6 p-5 backdrop-blur-md">
-                        <h2 className="text-base font-extrabold text-white">{t(labels.specs)}</h2>
+                        <h2 className="text-base font-extrabold text-white">
+                          {t(labels.specs)}
+                        </h2>
 
                         <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                          <SpecDark label={t(labels.paperType)} value={t(d.paperType)} />
-                          <SpecDark label={t(labels.paperGsm)} value={`${d.paperGsm} gsm`} />
-                          <SpecDark label={t(labels.coating)} value={d.coating ? t(d.coating) : "—"} />
+                          <SpecDark
+                            label={t(labels.paperType)}
+                            value={t(d.paperType)}
+                          />
+                          <SpecDark
+                            label={t(labels.paperGsm)}
+                            value={`${d.paperGsm} gsm`}
+                          />
+                          <SpecDark
+                            label={t(labels.coating)}
+                            value={d.coating ? t(d.coating) : "—"}
+                          />
                           <SpecDark label={t(labels.size)} value={sizeText} />
-                          <SpecDark label={t(labels.printing)} value={t(d.printing)} />
+                          <SpecDark
+                            label={t(labels.printing)}
+                            value={t(d.printing)}
+                          />
                           <SpecDark
                             label={t(labels.minOrder)}
                             value={`${d.minimumOrderQty.toLocaleString()} pcs`}
