@@ -924,7 +924,7 @@ export const CATEGORIES: Category[] = [
       en: "Packaging that wins shelf battles and protects like armor.",
       es: "Empaques que ganan batallas de estantería y protegen como armadura.",
     },
-    image: img(4001),
+    image: "/images/catalog-images/folding-boxes/folding-box-cover.webp",
     subcategories: [
       {
         id: "box-small",
@@ -1033,6 +1033,112 @@ export const CATEGORIES: Category[] = [
             note: {
               en: "Excellence takes time, premium finishes add polish and precision.",
               es: "La excelencia toma tiempo, acabados premium añaden pulido y precisión.",
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+    id: "sushi-line",
+    title: { en: "Sushi Line", es: "Cajas de Sushi" },
+    description: {
+      en: "Specialized packaging solutions for sushi and Japanese cuisine.",
+      es: "Soluciones de empaque especializadas para sushi y cocina japonesa.",
+    },
+    image: "/images/catalog-images/sushi-line/sushi-line-cover.webp",
+    subcategories: [
+      {
+        id: "sushi-bag",
+        title: { en: "Sushi Bags", es: "Bolsas de Sushi" },
+        description: {
+          en: "Designed for freshness and presentation, our sushi bags keep your culinary creations at their best while showcasing your brand with style.",
+          es: "Diseñadas para la frescura y presentación, nuestras bolsas de sushi mantienen tus creaciones culinarias en su mejor estado mientras muestran tu marca con estilo.",
+        },
+        image: "/images/catalog-images/sushi-line/sushi-line-bags.webp",
+        details: {
+          longDescription: {
+            en: "Our sushi bags are crafted with food-grade materials that provide excellent moisture resistance and durability, ensuring your sushi stays fresh and intact during transport. With customizable printing options, you can create a unique brand experience that resonates with your customers and elevates your sushi offerings.",
+            es: "Nuestras bolsas de sushi están fabricadas con materiales aptos para alimentos que ofrecen excelente resistencia a la humedad y durabilidad, asegurando que tu sushi se mantenga fresco e intacto durante el transporte. Con opciones de impresión personalizables, puedes crear una experiencia de marca única que resuene con tus clientes y eleve tus ofertas de sushi.",
+          },
+          paperType: {
+            en: "Food-grade laminated paper",
+            es: "Papel laminado apto para alimentos",
+          },
+          paperGsm: 200,
+          size: { widthMm: 300, heightMm: 400, depthMm: 100 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 7, maxDays: 14 },
+        },
+      },
+      {
+        id: "sushi-box",
+        title: { en: "Sushi Boxes", es: "Cajas de Sushi" },
+        description: {
+          en: "Our sushi boxes are designed to keep your culinary creations fresh and visually appealing, with customizable options to showcase your brand's unique style.",
+          es: "Nuestras cajas de sushi están diseñadas para mantener tus creaciones culinarias frescas y visualmente atractivas, con opciones personalizables para mostrar el estilo único de tu marca.",
+        },
+        image: "/images/catalog-images/sushi-line/sushi-line-boxes.webp",
+        details: {
+          longDescription: {
+            en: "Crafted with food-grade materials, our sushi boxes provide excellent moisture resistance and durability, ensuring your sushi stays fresh and intact during transport. With customizable printing options, you can create a unique brand experience that resonates with your customers and elevates your sushi offerings.",
+            es: "Fabricadas con materiales aptos para alimentos, nuestras cajas de sushi ofrecen excelente resistencia a la humedad y durabilidad, asegurando que tu sushi se mantenga fresco e intacto durante el transporte. Con opciones de impresión personalizables, puedes crear una experiencia de marca única que resuene con tus clientes y eleve tus ofertas de sushi.",
+          },
+          paperType: {
+            en: "Food-grade laminated paperboard",
+            es: "Cartulina laminada apta para alimentos",
+          },
+          paperGsm: 300,
+          size: { widthMm: 200, heightMm: 200, depthMm: 50 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "sushi-custom",
+        title: {
+          en: "Custom Sushi Packaging",
+          es: "Empaque de Sushi Personalizado",
+        },
+        description: {
+          en: "Tailored packaging solutions for sushi and Japanese cuisine, designed to meet your specific needs and elevate your brand's presentation.",
+          es: "Soluciones de empaque personalizadas para sushi y cocina japonesa, diseñadas para satisfacer tus necesidades específicas y elevar la presentación de tu marca.",
+        },
+        image: "/images/catalog-images/sushi-line/sushi-custom.webp",
+        details: {
+          longDescription: {
+            en: "Our custom sushi packaging solutions are designed to meet your specific needs, whether you're looking for unique shapes, sizes, or finishes. We work closely with you to create packaging that not only keeps your sushi fresh and secure but also enhances your brand's presentation and resonates with your customers.",
+            es: "Nuestras soluciones de empaque de sushi personalizado están diseñadas para satisfacer tus necesidades específicas, ya sea que busques formas, tamaños o acabados únicos. Trabajamos estrechamente contigo para crear empaques que no solo mantengan tu sushi fresco y seguro, sino que también mejoren la presentación de tu marca y resuenen con tus clientes.",
+          },
+          paperType: {
+            en: "Custom food-grade materials",
+            es: "Materiales personalizados aptos para alimentos",
+          },
+          paperGsm: 250,
+          coating: {
+            en: "Custom finishes available",
+            es: "Acabados personalizados disponibles",
+          },
+          size: { widthMm: 250, heightMm: 250, depthMm: 100 },
+          printing: {
+            en: "Advanced custom printing with food-safe inks",
+            es: "Impresión personalizada avanzada con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: {
+            minDays: 15,
+            maxDays: 30,
+            note: {
+              en: "Custom solutions require a bit more time, but the results are worth it.",
+              es: "Las soluciones personalizadas requieren un poco más de tiempo, pero los resultados valen la pena.",
             },
           },
         },

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChevronLeft, ChevronRight, Circle, Dot } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
