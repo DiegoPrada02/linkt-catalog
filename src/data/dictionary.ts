@@ -783,8 +783,6 @@ export type Category = {
   subcategories: Subcategory[];
 };
 
-const img = (seed: number) => `https://picsum.photos/seed/${seed}/900/700`;
-
 export const CATEGORIES: Category[] = [
   /* PAPER BAGS */
   {
