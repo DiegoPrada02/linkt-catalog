@@ -1,12 +1,11 @@
-// src/components/vidimg.tsx
+// src/components/ui/vidimg.tsx
 type VidimgProps = {
   source: string;
   isVideo: boolean;
   title?: string;
-  // Optional extras (won't break existing usage)
   poster?: string;
   className?: string;
-  priority?: boolean; // if true, don't lazy-load images
+  priority?: boolean;
 };
 
 export default function Vidimg({
@@ -19,19 +18,22 @@ export default function Vidimg({
 }: VidimgProps) {
   const safeTitle = typeof title === "string" ? title : "";
 
+  // Both video and img fill the parent box completely via object-cover.
+  // The parent (Hero) is the one that sets the fixed width + height.
+  const base = `w-full h-full object-cover block ${className}`;
+
   if (isVideo) {
     return (
       <video
         src={source}
         poster={poster}
-        className={`w-full h-full object-contain block ${className}`}
+        className={base}
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
         aria-label={safeTitle}
-        style={{ objectPosition: "center center" }}
       />
     );
   }
@@ -40,11 +42,10 @@ export default function Vidimg({
     <img
       src={source}
       alt={safeTitle}
-      className={`w-full h-full object-contain block ${className}`}
+      className={base}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
       draggable={false}
-      style={{ objectPosition: "center center" }}
     />
   );
 }

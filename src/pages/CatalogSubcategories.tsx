@@ -72,7 +72,7 @@ export default function CatalogSubcategories() {
                       key={s.id}
                       title={t(s.title)}
                       description={t(s.description)}
-                      image={s.image}
+                      image={s.image[0]}
                       href={`/catalog/${category.id}/${s.id}`}
                       badge={t(detailsBadge)}
                     />

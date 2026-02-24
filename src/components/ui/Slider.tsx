@@ -1,80 +1,143 @@
-import { useState } from "react";
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react";
+import { useState } from "react";
 import { TextAnimate } from "./text-animate";
 
 type SliderHeroProps = {
   title?: string[];
   subtitle?: string[];
   imageUrl: string[];
+  className?: string;
 };
 
-function Slider({ title, subtitle, imageUrl }: SliderHeroProps) {
+function Slider({ title, subtitle, imageUrl, className }: SliderHeroProps) {
   const [sliderIndex, setSliderIndex] = useState(0);
 
+  if (!imageUrl?.length) return null;
+
   function showPreviousImage() {
-    setSliderIndex((index) => {
-      if (index === 0) return imageUrl.length - 1;
-      return index - 1;
-    });
+    setSliderIndex((index) => (index === 0 ? imageUrl.length - 1 : index - 1));
   }
 
   function showNextImage() {
-    setSliderIndex((index) => {
-      if (index === imageUrl.length - 1) return 0;
-      return index + 1;
-    });
+    setSliderIndex((index) => (index === imageUrl.length - 1 ? 0 : index + 1));
   }
 
   return (
-    <div style={{ width: "100%", aspectRatio: "16 / 5",position: "relative", overflow: "hidden"}}>
-      <div style={{ width: "100%", height: "100%", display: "flex", overflow: "hidden" }}>
+    <div
+      className={`relative w-full h-full overflow-hidden ${className ?? ""}`}
+    >
+      {/* Track */}
+      <div
+        style={{
+          display: "flex",
+          height: "100%",
+          transform: `translateX(-${sliderIndex * 100}%)`,
+          transition: "transform 300ms ease",
+        }}
+      >
         {imageUrl.map((url, index) => {
           const altText =
             title && title[index] ? title[index] : `Image ${index + 1}`;
 
           return (
-            <img
-              key={url}
-              src={url}
-              alt={altText}
-              className="slider-image"
-              style={{ translate: `${-100 * sliderIndex}%` }}
-            />
+            <div
+              key={`${url}-${index}`}
+              style={{ flex: "0 0 100%", height: "100%" }}
+            >
+              <img
+                src={url}
+                alt={altText}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "scale-down",
+                  display: "block",
+                }}
+                loading="lazy"
+              />
+            </div>
           );
         })}
       </div>
 
-      <button onClick={showPreviousImage} className="slider-btn" style={{ left: 0 }}>
-        <ArrowBigLeft />
-      </button>
-
-      <button onClick={showNextImage} className="slider-btn" style={{ right: 0 }}>
-        <ArrowBigRight />
-      </button>
-
-      <div
-        style={{
-          position: "absolute",
-          bottom: ".5rem",
-          left: "50%",
-          translate: "-50%",
-          display: "flex",
-          gap: ".25rem",
-        }}
-      >
-        {imageUrl.map((_, index) => (
+      {imageUrl.length > 1 ? (
+        <div>
+          {/* Controls */}
           <button
-            key={index}
-            className="slider-dot"
-            onClick={() => setSliderIndex(index)}
-            aria-label={title?.[index] ? `Go to: ${title[index]}` : `Go to slide ${index + 1}`}
+            onClick={showPreviousImage}
+            aria-label="Previous slide"
+            style={{
+              position: "absolute",
+              left: "0.5rem",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              padding: ".35rem",
+              borderRadius: "999px",
+              background: "rgba(0,0,0,0.35)",
+              color: "white",
+              backdropFilter: "blur(6px)",
+              cursor: "pointer",
+            }}
           >
-            {index === sliderIndex ? <CircleDot /> : <Circle />}
+            <ArrowBigLeft />
           </button>
-        ))}
-      </div>
 
-      {/* Optional: render title/subtitle for current slide */}
+          <button
+            onClick={showNextImage}
+            aria-label="Next slide"
+            style={{
+              position: "absolute",
+              right: "0.5rem",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              padding: ".35rem",
+              borderRadius: "999px",
+              background: "rgba(0,0,0,0.35)",
+              color: "white",
+              backdropFilter: "blur(6px)",
+              cursor: "pointer",
+            }}
+          >
+            <ArrowBigRight />
+          </button>
+
+          {/* Dots */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: ".5rem",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              gap: ".25rem",
+              zIndex: 10,
+            }}
+          >
+            {imageUrl.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setSliderIndex(index)}
+                aria-label={
+                  title?.[index]
+                    ? `Go to: ${title[index]}`
+                    : `Go to slide ${index + 1}`
+                }
+                style={{
+                  color: "black",
+                  opacity: index === sliderIndex ? 1 : 0.65,
+                  cursor: "pointer",
+                }}
+              >
+                {index === sliderIndex ? <CircleDot /> : <Circle />}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {/* Optional title/subtitle */}
       {(title?.[sliderIndex] || subtitle?.[sliderIndex]) && (
         <div
           style={{
@@ -83,6 +146,7 @@ function Slider({ title, subtitle, imageUrl }: SliderHeroProps) {
             bottom: "2.5rem",
             color: "white",
             textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+            zIndex: 10,
           }}
         >
           {title?.[sliderIndex] && (
@@ -91,7 +155,7 @@ function Slider({ title, subtitle, imageUrl }: SliderHeroProps) {
             </TextAnimate>
           )}
           {subtitle?.[sliderIndex] && (
-            <TextAnimate animation="fadeIn" by="word" as="p" delay={.5} className="">
+            <TextAnimate animation="fadeIn" by="word" as="p" delay={0.5}>
               {subtitle[sliderIndex]}
             </TextAnimate>
           )}

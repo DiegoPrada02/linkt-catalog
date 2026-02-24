@@ -758,7 +758,7 @@ export type Subcategory = {
   id: string;
   title: I18nText;
   description: I18nText;
-  image: string;
+  image: string[];
   details: {
     longDescription: I18nText;
     paperType: I18nText;
@@ -801,7 +801,12 @@ export const CATEGORIES: Category[] = [
           en: "Perfectly sized luxury for boutique moments that matter.",
           es: "Lujo perfectamente dimensionado para momentos boutique que importan.",
         },
-        image: "/images/catalog-images/bags/bag-s.webp",
+        image: [
+          "/images/catalog-images/bags/bag-s.webp",
+          "/images/catalog-images/bags/bag-s-2.webp",
+          "/images/catalog-images/bags/bag-s-3.webp",
+          "/images/catalog-images/bags/bag-s-4.webp",
+        ],
         details: {
           longDescription: {
             en: "Crafted for retailers who understand that first impressions count. This size delivers maximum brand impact with minimal material, perfect for accessories, cosmetics, and premium small goods that deserve presentation as beautiful as the product inside.",
@@ -832,7 +837,12 @@ export const CATEGORIES: Category[] = [
           en: "The workhorse of retail, engineered for daily excellence.",
           es: "El caballo de batalla del retail, diseñada para excelencia diaria.",
         },
-        image: "/images/catalog-images/bags/bag-m.webp",
+        image: [
+          "/images/catalog-images/bags/bag-m.webp",
+          "/images/catalog-images/bags/bag-m-2.webp",
+          "/images/catalog-images/bags/bag-m-3.webp",
+          "/images/catalog-images/bags/bag-m-4.webp",
+        ],
         details: {
           longDescription: {
             en: "Your customers' favorite shopping companion. Proven durability meets striking brand presence in our most versatile format, built to handle real retail life while keeping your brand looking sharp, day after day.",
@@ -856,7 +866,7 @@ export const CATEGORIES: Category[] = [
           en: "Maximum capacity meets premium presentation.",
           es: "Máxima capacidad con presentación premium.",
         },
-        image: "/images/catalog-images/bags/bag-l.webp",
+        image: ["/images/catalog-images/bags/bag-l.webp"],
         details: {
           longDescription: {
             en: "When your customers are buying big, give them a bag that matches the moment. Reinforced engineering supports serious weight while your brand makes a serious impression—from apparel bundles to multi-item purchases that deserve VIP treatment.",
@@ -880,7 +890,7 @@ export const CATEGORIES: Category[] = [
           en: "Your vision, engineered to perfection.",
           es: "Tu visión, ingeniada a la perfección.",
         },
-        image: "/images/catalog-images/bags/bag-c.webp",
+        image: ["/images/catalog-images/bags/bag-c.webp"],
         details: {
           longDescription: {
             en: "Step into the spotlight with packaging that's unmistakably yours. From luxury finishes to sustainable statements, from minimalist elegance to bold brand energy—we engineer every detail to amplify your unique positioning and make competitors wish they thought of it first.",
@@ -931,7 +941,7 @@ export const CATEGORIES: Category[] = [
           en: "Precision packaging for products that demand perfection.",
           es: "Empaque de precisión para productos que exigen perfección.",
         },
-        image: "/images/catalog-images/folding-boxes/folding-box-s.webp",
+        image: ["/images/catalog-images/folding-boxes/folding-box-s.webp"],
         details: {
           longDescription: {
             en: "Engineered for the products where every millimeter matters. High-resolution printing brings your brand to life on packaging designed for cosmetics, tech accessories, and specialty retail items that deserve packaging as exceptional as what's inside.",
@@ -952,7 +962,7 @@ export const CATEGORIES: Category[] = [
           en: "The retail champion—built for everyday excellence.",
           es: "El campeón del retail—hecha para excelencia cotidiana.",
         },
-        image: "/images/catalog-images/folding-boxes/folding-box-m.webp",
+        image: ["/images/catalog-images/folding-boxes/folding-box-m.webp"],
         details: {
           longDescription: {
             en: "Strike the perfect balance between protection and presentation. This format dominates shelves across consumer goods, combining structural integrity with premium finishes that make customers reach for your product first.",
@@ -977,7 +987,7 @@ export const CATEGORIES: Category[] = [
           en: "Powerful protection meets commanding shelf presence.",
           es: "Protección poderosa con presencia dominante en estantería.",
         },
-        image: "/images/catalog-images/folding-boxes/folding-box-l.webp",
+        image: ["/images/catalog-images/folding-boxes/folding-box-l.webp"],
         details: {
           longDescription: {
             en: "When your product carries weight, your packaging should too. Reinforced construction handles heavier loads while premium printing ensures your brand dominates every inch of shelf space—because bigger products deserve bigger impact.",
@@ -1004,7 +1014,7 @@ export const CATEGORIES: Category[] = [
           en: "Structural brilliance engineered for your brand.",
           es: "Brillantez estructural diseñada para tu marca.",
         },
-        image: "/images/catalog-images/folding-boxes/folding-box-c.webp",
+        image: ["/images/catalog-images/folding-boxes/folding-box-c.webp"],
         details: {
           longDescription: {
             en: "Break free from cookie-cutter boxes. Custom dielines, specialty finishes, embossing, foil stamping, and structural innovation combine to create packaging that doesn't just hold your product—it amplifies everything you stand for and makes walking past impossible.",
@@ -1053,7 +1063,7 @@ export const CATEGORIES: Category[] = [
           en: "Designed for freshness and presentation, our sushi bags keep your culinary creations at their best while showcasing your brand with style.",
           es: "Diseñadas para la frescura y presentación, nuestras bolsas de sushi mantienen tus creaciones culinarias en su mejor estado mientras muestran tu marca con estilo.",
         },
-        image: "/images/catalog-images/sushi-line/sushi-line-bags.webp",
+        image: ["/images/catalog-images/sushi-line/sushi-line-bags.webp"],
         details: {
           longDescription: {
             en: "Our sushi bags are crafted with food-grade materials that provide excellent moisture resistance and durability, ensuring your sushi stays fresh and intact during transport. With customizable printing options, you can create a unique brand experience that resonates with your customers and elevates your sushi offerings.",
@@ -1080,7 +1090,7 @@ export const CATEGORIES: Category[] = [
           en: "Our sushi boxes are designed to keep your culinary creations fresh and visually appealing, with customizable options to showcase your brand's unique style.",
           es: "Nuestras cajas de sushi están diseñadas para mantener tus creaciones culinarias frescas y visualmente atractivas, con opciones personalizables para mostrar el estilo único de tu marca.",
         },
-        image: "/images/catalog-images/sushi-line/sushi-line-boxes.webp",
+        image: ["/images/catalog-images/sushi-line/sushi-line-boxes.webp"],
         details: {
           longDescription: {
             en: "Crafted with food-grade materials, our sushi boxes provide excellent moisture resistance and durability, ensuring your sushi stays fresh and intact during transport. With customizable printing options, you can create a unique brand experience that resonates with your customers and elevates your sushi offerings.",
@@ -1110,7 +1120,7 @@ export const CATEGORIES: Category[] = [
           en: "Tailored packaging solutions for sushi and Japanese cuisine, designed to meet your specific needs and elevate your brand's presentation.",
           es: "Soluciones de empaque personalizadas para sushi y cocina japonesa, diseñadas para satisfacer tus necesidades específicas y elevar la presentación de tu marca.",
         },
-        image: "/images/catalog-images/sushi-line/sushi-custom.webp",
+        image: ["/images/catalog-images/sushi-line/sushi-custom.webp"],
         details: {
           longDescription: {
             en: "Our custom sushi packaging solutions are designed to meet your specific needs, whether you're looking for unique shapes, sizes, or finishes. We work closely with you to create packaging that not only keeps your sushi fresh and secure but also enhances your brand's presentation and resonates with your customers.",
