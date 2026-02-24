@@ -1204,8 +1204,8 @@ export const FAQs: FAQ[] = [
       es: "Tengo preguntas sobre mi cotización u orden. ¿A quién contacto?",
     },
     answer: {
-      en: "Reach out anytime at placeholder@email.com or call +1 (555) 555-5555. Our team responds fast because we know your time is valuable, and your success matters to us.",
-      es: "Contáctanos cuando sea a placeholder@email.com o llama al +1 (555) 555-5555. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso, y tu éxito nos importa.",
+      en: `Reach out anytime at ${brand.email} or call ${brand.phone}. Our team responds fast because we know your time is valuable, and your success matters to us.`,
+      es: `Contáctanos cuando sea a ${brand.email} o llama al ${brand.phone}. Nuestro equipo responde rápido porque sabemos que tu tiempo es valioso, y tu éxito nos importa.`,
     },
   },
   {
