@@ -866,7 +866,12 @@ export const CATEGORIES: Category[] = [
           en: "Maximum capacity meets premium presentation.",
           es: "Máxima capacidad con presentación premium.",
         },
-        image: ["/images/catalog-images/bags/bag-l.webp"],
+        image: [
+          "/images/catalog-images/bags/bag-l.webp",
+          "/images/catalog-images/bags/bag-l-2.webp",
+          "/images/catalog-images/bags/bag-l-3.webp",
+          "/images/catalog-images/bags/bag-l-4.webp",
+        ],
         details: {
           longDescription: {
             en: "When your customers are buying big, give them a bag that matches the moment. Reinforced engineering supports serious weight while your brand makes a serious impression—from apparel bundles to multi-item purchases that deserve VIP treatment.",
