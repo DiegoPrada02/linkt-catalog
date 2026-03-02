@@ -1158,6 +1158,273 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+  {
+    id: "paper-cups",
+    title: { en: "Paper Cups", es: "Vasos de Papel" },
+    description: {
+      en: "High-quality paper cup solutions for hot and cold beverages.",
+      es: "Soluciones de vasos de papel de alta calidad para bebidas frías y calientes.",
+    },
+    image: "/images/catalog-images/paper-cups/paper-cups-cover.webp",
+    subcategories: [
+      {
+        id: "paper-cup-small",
+        title: { en: "Small Paper Cups", es: "Vasos de Papel Pequeños" },
+        description: {
+          en: "Compact and practical small paper cups, ideal for espresso, samples, and small servings.",
+          es: "Vasos de papel pequeños, compactos y prácticos, ideales para espresso, muestras y porciones pequeñas.",
+        },
+        image: ["/images/catalog-images/paper-cups/paper-cups-small.webp"],
+        details: {
+          longDescription: {
+            en: "Our small paper cups are crafted with food-grade materials, offering excellent insulation and leak resistance. Perfect for coffee shops, events, and sampling stations, they can be fully customized with your brand's artwork to create a memorable customer experience.",
+            es: "Nuestros vasos de papel pequeños están fabricados con materiales aptos para alimentos, ofreciendo excelente aislamiento y resistencia a fugas. Perfectos para cafeterías, eventos y estaciones de muestras, pueden personalizarse completamente con el arte de tu marca para crear una experiencia memorable.",
+          },
+          paperType: {
+            en: "Food-grade single-wall PE-coated paper",
+            es: "Papel con recubrimiento de PE de pared simple apto para alimentos",
+          },
+          paperGsm: 190,
+          size: { widthMm: 60, heightMm: 75, depthMm: 60 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 7, maxDays: 14 },
+        },
+      },
+      {
+        id: "paper-cup-medium",
+        title: { en: "Medium Paper Cups", es: "Vasos de Papel Medianos" },
+        description: {
+          en: "Versatile medium paper cups suitable for coffee, tea, soft drinks, and everyday beverages.",
+          es: "Vasos de papel medianos versátiles, adecuados para café, té, refrescos y bebidas del día a día.",
+        },
+        image: ["/images/catalog-images/paper-cups/paper-cups-medium.webp"],
+        details: {
+          longDescription: {
+            en: "Designed for everyday use, our medium paper cups balance capacity and portability. Made with food-grade PE-coated paper, they maintain temperature effectively for both hot and cold drinks. Customizable printing ensures your brand stands out at every sip.",
+            es: "Diseñados para el uso diario, nuestros vasos de papel medianos equilibran capacidad y portabilidad. Fabricados con papel con recubrimiento de PE apto para alimentos, mantienen la temperatura de manera efectiva tanto para bebidas frías como calientes. La impresión personalizable asegura que tu marca destaque en cada sorbo.",
+          },
+          paperType: {
+            en: "Food-grade single-wall PE-coated paper",
+            es: "Papel con recubrimiento de PE de pared simple apto para alimentos",
+          },
+          paperGsm: 210,
+          size: { widthMm: 80, heightMm: 100, depthMm: 80 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 7, maxDays: 14 },
+        },
+      },
+      {
+        id: "paper-cup-large",
+        title: { en: "Large Paper Cups", es: "Vasos de Papel Grandes" },
+        description: {
+          en: "Generous large paper cups perfect for smoothies, large coffees, fountain drinks, and more.",
+          es: "Amplios vasos de papel grandes, perfectos para smoothies, cafés grandes, refrescos y más.",
+        },
+        image: ["/images/catalog-images/paper-cups/paper-cups-large.webp"],
+        details: {
+          longDescription: {
+            en: "Our large paper cups are built for high-volume beverage service, offering superior structural integrity and insulation. Ideal for restaurants, stadiums, and fast-food chains, they are available with double-wall options for extra heat retention and full custom branding.",
+            es: "Nuestros vasos de papel grandes están diseñados para servicio de bebidas de alto volumen, ofreciendo superior integridad estructural y aislamiento. Ideales para restaurantes, estadios y cadenas de comida rápida, están disponibles con opciones de doble pared para mayor retención de calor y marca personalizada completa.",
+          },
+          paperType: {
+            en: "Food-grade double-wall PE-coated paper",
+            es: "Papel con recubrimiento de PE de doble pared apto para alimentos",
+          },
+          paperGsm: 250,
+          size: { widthMm: 95, heightMm: 145, depthMm: 95 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "paper-cup-custom",
+        title: { en: "Custom Paper Cups", es: "Vasos de Papel Personalizados" },
+        description: {
+          en: "Fully tailored paper cup solutions designed to match your brand's exact specifications and vision.",
+          es: "Soluciones de vasos de papel completamente personalizadas, diseñadas para coincidir con las especificaciones exactas y la visión de tu marca.",
+        },
+        image: ["/images/catalog-images/paper-cups/paper-cups-custom.webp"],
+        details: {
+          longDescription: {
+            en: "Our custom paper cups are designed from the ground up to meet your unique requirements. From custom sizes and capacities to specialty coatings and finishes, we collaborate with you to produce cups that perfectly represent your brand while maintaining the highest food-safety standards.",
+            es: "Nuestros vasos de papel personalizados están diseñados desde cero para satisfacer tus requisitos únicos. Desde tamaños y capacidades personalizadas hasta recubrimientos y acabados especiales, colaboramos contigo para producir vasos que representen perfectamente tu marca mientras mantienen los más altos estándares de seguridad alimentaria.",
+          },
+          paperType: {
+            en: "Custom food-grade materials",
+            es: "Materiales personalizados aptos para alimentos",
+          },
+          paperGsm: 200,
+          coating: {
+            en: "Custom finishes available (PE, PLA, matte, gloss)",
+            es: "Acabados personalizados disponibles (PE, PLA, mate, brillante)",
+          },
+          size: { widthMm: 0, heightMm: 0, depthMm: 0 },
+          printing: {
+            en: "Advanced custom printing with food-safe inks",
+            es: "Impresión personalizada avanzada con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: {
+            minDays: 15,
+            maxDays: 30,
+            note: {
+              en: "Custom solutions require a bit more time, but the results are worth it.",
+              es: "Las soluciones personalizadas requieren un poco más de tiempo, pero los resultados valen la pena.",
+            },
+          },
+        },
+      },
+    ],
+  },
+
+  {
+    id: "food-containers",
+    title: { en: "Food Containers", es: "Contenedores de Comida" },
+    description: {
+      en: "Durable and customizable food containers for a wide variety of culinary offerings.",
+      es: "Contenedores de comida duraderos y personalizables para una amplia variedad de ofertas culinarias.",
+    },
+    image: "/images/catalog-images/food-containers/food-containers-cover.webp",
+    subcategories: [
+      {
+        id: "burger-container",
+        title: {
+          en: "Burger Containers",
+          es: "Contenedores para Hamburguesas",
+        },
+        description: {
+          en: "Sturdy and grease-resistant burger containers that keep your burgers fresh, warm, and visually appealing.",
+          es: "Contenedores para hamburguesas resistentes y a prueba de grasa que mantienen tus hamburguesas frescas, calientes y visualmente atractivas.",
+        },
+        image: ["/images/catalog-images/food-containers/burger-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our burger containers are engineered with grease-resistant, food-grade materials that lock in heat and freshness. Designed with a secure clamshell closure, they prevent spills and maintain the structural integrity of your burgers during delivery or takeout. Fully customizable with your brand's artwork for a premium presentation.",
+            es: "Nuestros contenedores para hamburguesas están fabricados con materiales aptos para alimentos y resistentes a la grasa que retienen el calor y la frescura. Diseñados con un cierre tipo almeja seguro, evitan derrames y mantienen la integridad estructural de tus hamburguesas durante la entrega o para llevar. Totalmente personalizables con el arte de tu marca para una presentación premium.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 300,
+          size: { widthMm: 130, heightMm: 80, depthMm: 130 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "hotdog-container",
+        title: {
+          en: "Hotdog Containers",
+          es: "Contenedores para Perros Calientes",
+        },
+        description: {
+          en: "Elongated and practical hotdog containers designed to hold and present your hotdogs with style.",
+          es: "Contenedores para perros calientes alargados y prácticos, diseñados para sostener y presentar tus perros calientes con estilo.",
+        },
+        image: ["/images/catalog-images/food-containers/hotdog-container.webp"],
+        details: {
+          longDescription: {
+            en: "Specifically shaped for hotdogs and sausages, our hotdog containers provide a snug fit that keeps the food secure and warm. Made from food-grade grease-resistant materials, they are ideal for stadiums, food trucks, and fast-food outlets. Custom printing options allow you to reinforce your brand at every serving.",
+            es: "Con una forma específica para perros calientes y salchichas, nuestros contenedores ofrecen un ajuste perfecto que mantiene la comida segura y caliente. Fabricados con materiales resistentes a la grasa aptos para alimentos, son ideales para estadios, food trucks y establecimientos de comida rápida. Las opciones de impresión personalizada te permiten reforzar tu marca en cada servicio.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 280,
+          size: { widthMm: 60, heightMm: 70, depthMm: 200 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "arepa-container",
+        title: { en: "Arepa Containers", es: "Contenedores para Arepas" },
+        description: {
+          en: "Purpose-built arepa containers that preserve warmth and freshness while showcasing your brand's identity.",
+          es: "Contenedores para arepas diseñados específicamente para preservar el calor y la frescura mientras muestran la identidad de tu marca.",
+        },
+        image: ["/images/catalog-images/food-containers/arepa-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our arepa containers are specially designed to accommodate the unique shape and size of arepas, keeping them warm, fresh, and intact. Crafted from food-grade grease-resistant paperboard, they are perfect for areperas, food trucks, and Latin cuisine restaurants. Fully customizable to reflect your brand's culture and personality.",
+            es: "Nuestros contenedores para arepas están especialmente diseñados para acomodar la forma y el tamaño únicos de las arepas, manteniéndolas calientes, frescas e intactas. Fabricados con cartulina resistente a la grasa apta para alimentos, son perfectos para areperas, food trucks y restaurantes de cocina latina. Totalmente personalizables para reflejar la cultura y personalidad de tu marca.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 290,
+          size: { widthMm: 150, heightMm: 60, depthMm: 150 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "custom-container",
+        title: { en: "Custom Containers", es: "Contenedores Personalizados" },
+        description: {
+          en: "Fully bespoke food container solutions tailored to your product's unique shape, size, and branding requirements.",
+          es: "Soluciones de contenedores de comida completamente a medida, adaptadas a la forma, tamaño y requisitos de marca únicos de tu producto.",
+        },
+        image: ["/images/catalog-images/food-containers/custom-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our custom food containers are built to your exact specifications. Whether you need an unconventional shape, a specific material, or a unique finish, our team works closely with you to design and produce containers that perfectly complement your food offering and brand identity. No idea is too complex — we bring your vision to life.",
+            es: "Nuestros contenedores de comida personalizados se fabrican según tus especificaciones exactas. Ya sea que necesites una forma poco convencional, un material específico o un acabado único, nuestro equipo trabaja estrechamente contigo para diseñar y producir contenedores que complementen perfectamente tu oferta gastronómica e identidad de marca. Ninguna idea es demasiado compleja: damos vida a tu visión.",
+          },
+          paperType: {
+            en: "Custom food-grade materials",
+            es: "Materiales personalizados aptos para alimentos",
+          },
+          paperGsm: 300,
+          coating: {
+            en: "Custom finishes available (matte, gloss, grease-resistant)",
+            es: "Acabados personalizados disponibles (mate, brillante, resistente a la grasa)",
+          },
+          size: { widthMm: 0, heightMm: 0, depthMm: 0 },
+          printing: {
+            en: "Advanced custom printing with food-safe inks",
+            es: "Impresión personalizada avanzada con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: {
+            minDays: 15,
+            maxDays: 30,
+            note: {
+              en: "Custom solutions require a bit more time, but the results are worth it.",
+              es: "Las soluciones personalizadas requieren un poco más de tiempo, pero los resultados valen la pena.",
+            },
+          },
+        },
+      },
+    ],
+  },
 ];
 
 // FAQ Area
