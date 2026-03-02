@@ -1386,6 +1386,87 @@ export const CATEGORIES: Category[] = [
         },
       },
       {
+        id: "cono-container",
+        title: { en: "Food Cones", es: "Conos Para comida" },
+        description: {
+          en: "Purpose-built arepa containers that preserve warmth and freshness while showcasing your brand's identity.",
+          es: "Contenedores para arepas diseñados específicamente para preservar el calor y la frescura mientras muestran la identidad de tu marca.",
+        },
+        image: ["/images/catalog-images/food-containers/arepa-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our arepa containers are specially designed to accommodate the unique shape and size of arepas, keeping them warm, fresh, and intact. Crafted from food-grade grease-resistant paperboard, they are perfect for areperas, food trucks, and Latin cuisine restaurants. Fully customizable to reflect your brand's culture and personality.",
+            es: "Nuestros contenedores para arepas están especialmente diseñados para acomodar la forma y el tamaño únicos de las arepas, manteniéndolas calientes, frescas e intactas. Fabricados con cartulina resistente a la grasa apta para alimentos, son perfectos para areperas, food trucks y restaurantes de cocina latina. Totalmente personalizables para reflejar la cultura y personalidad de tu marca.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 290,
+          size: { widthMm: 150, heightMm: 60, depthMm: 150 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "to-go-container",
+        title: { en: "To Go Containers", es: "Contenedores To go" },
+        description: {
+          en: "Purpose-built arepa containers that preserve warmth and freshness while showcasing your brand's identity.",
+          es: "Contenedores para arepas diseñados específicamente para preservar el calor y la frescura mientras muestran la identidad de tu marca.",
+        },
+        image: ["/images/catalog-images/food-containers/arepa-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our arepa containers are specially designed to accommodate the unique shape and size of arepas, keeping them warm, fresh, and intact. Crafted from food-grade grease-resistant paperboard, they are perfect for areperas, food trucks, and Latin cuisine restaurants. Fully customizable to reflect your brand's culture and personality.",
+            es: "Nuestros contenedores para arepas están especialmente diseñados para acomodar la forma y el tamaño únicos de las arepas, manteniéndolas calientes, frescas e intactas. Fabricados con cartulina resistente a la grasa apta para alimentos, son perfectos para areperas, food trucks y restaurantes de cocina latina. Totalmente personalizables para reflejar la cultura y personalidad de tu marca.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 290,
+          size: { widthMm: 150, heightMm: 60, depthMm: 150 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "crepe-container",
+        title: { en: "Crêpe Containers", es: "Contenedores para Crêpes" },
+        description: {
+          en: "Purpose-built arepa containers that preserve warmth and freshness while showcasing your brand's identity.",
+          es: "Contenedores para arepas diseñados específicamente para preservar el calor y la frescura mientras muestran la identidad de tu marca.",
+        },
+        image: ["/images/catalog-images/food-containers/arepa-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our arepa containers are specially designed to accommodate the unique shape and size of arepas, keeping them warm, fresh, and intact. Crafted from food-grade grease-resistant paperboard, they are perfect for areperas, food trucks, and Latin cuisine restaurants. Fully customizable to reflect your brand's culture and personality.",
+            es: "Nuestros contenedores para arepas están especialmente diseñados para acomodar la forma y el tamaño únicos de las arepas, manteniéndolas calientes, frescas e intactas. Fabricados con cartulina resistente a la grasa apta para alimentos, son perfectos para areperas, food trucks y restaurantes de cocina latina. Totalmente personalizables para reflejar la cultura y personalidad de tu marca.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 290,
+          size: { widthMm: 150, heightMm: 60, depthMm: 150 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
         id: "custom-container",
         title: { en: "Custom Containers", es: "Contenedores Personalizados" },
         description: {
@@ -1421,6 +1502,77 @@ export const CATEGORIES: Category[] = [
               es: "Las soluciones personalizadas requieren un poco más de tiempo, pero los resultados valen la pena.",
             },
           },
+        },
+      },
+    ],
+  },
+  {
+    id: "bakery-containers",
+    title: { en: "Bakery Boxes", es: "Contenedores de Panaderia" },
+    description: {
+      en: "Durable and customizable food containers for a wide variety of culinary offerings.",
+      es: "Contenedores de comida duraderos y personalizables para una amplia variedad de ofertas culinarias.",
+    },
+    image: "/images/catalog-images/food-containers/food-containers-cover.webp",
+    subcategories: [
+      {
+        id: "cake-box",
+        title: {
+          en: "Cake Box",
+          es: "Caja Para Pastel",
+        },
+        description: {
+          en: "Sturdy and grease-resistant burger containers that keep your burgers fresh, warm, and visually appealing.",
+          es: "Contenedores para hamburguesas resistentes y a prueba de grasa que mantienen tus hamburguesas frescas, calientes y visualmente atractivas.",
+        },
+        image: ["/images/catalog-images/food-containers/burger-container.webp"],
+        details: {
+          longDescription: {
+            en: "Our burger containers are engineered with grease-resistant, food-grade materials that lock in heat and freshness. Designed with a secure clamshell closure, they prevent spills and maintain the structural integrity of your burgers during delivery or takeout. Fully customizable with your brand's artwork for a premium presentation.",
+            es: "Nuestros contenedores para hamburguesas están fabricados con materiales aptos para alimentos y resistentes a la grasa que retienen el calor y la frescura. Diseñados con un cierre tipo almeja seguro, evitan derrames y mantienen la integridad estructural de tus hamburguesas durante la entrega o para llevar. Totalmente personalizables con el arte de tu marca para una presentación premium.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 300,
+          size: { widthMm: 130, heightMm: 80, depthMm: 130 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "pan-jamon-box",
+        title: {
+          en: "Pan Jamon Box",
+          es: "Caja para Pan Jamon",
+        },
+        description: {
+          en: "Elongated and practical hotdog containers designed to hold and present your hotdogs with style.",
+          es: "Contenedores para perros calientes alargados y prácticos, diseñados para sostener y presentar tus perros calientes con estilo.",
+        },
+        image: ["/images/catalog-images/food-containers/hotdog-container.webp"],
+        details: {
+          longDescription: {
+            en: "Specifically shaped for hotdogs and sausages, our hotdog containers provide a snug fit that keeps the food secure and warm. Made from food-grade grease-resistant materials, they are ideal for stadiums, food trucks, and fast-food outlets. Custom printing options allow you to reinforce your brand at every serving.",
+            es: "Con una forma específica para perros calientes y salchichas, nuestros contenedores ofrecen un ajuste perfecto que mantiene la comida segura y caliente. Fabricados con materiales resistentes a la grasa aptos para alimentos, son ideales para estadios, food trucks y establecimientos de comida rápida. Las opciones de impresión personalizada te permiten reforzar tu marca en cada servicio.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 280,
+          size: { widthMm: 60, heightMm: 70, depthMm: 200 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
         },
       },
     ],
