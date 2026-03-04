@@ -432,7 +432,7 @@ export const galleryFilters = {
   bags: { en: "Bags", es: "Bolsas" },
   food: { en: "Food", es: "Alimentos" },
   retail: { en: "Retail", es: "Retail" },
-  logistics: { en: "Manufacturing", es: "Manufactura" },
+  manufacturing: { en: "Manufacturing", es: "Manufactura" },
   distribution: { en: "Distribution", es: "Distribución" },
   video: { en: "Videos", es: "Videos" },
 } satisfies Record<string, I18nText>;
@@ -454,7 +454,14 @@ export type GalleryItem = {
   src: string;
   poster?: string;
   title: { en: string; es: string };
-  tagKey: "bags" | "boxes" | "food" | "retail" | "manufacturing" | "video";
+  tagKey:
+    | "bags"
+    | "boxes"
+    | "food"
+    | "retail"
+    | "manufacturing"
+    | "distribution"
+    | "video";
   tag: { en: string; es: string };
   colSpan: number;
   rowSpan: number;
@@ -466,6 +473,7 @@ const TAG_LABELS: Record<GalleryItem["tagKey"], { en: string; es: string }> = {
   food: { en: "Food", es: "Comida" },
   retail: { en: "Retail", es: "Retail" },
   manufacturing: { en: "Manufacturing", es: "Manufactura" },
+  distribution: { en: "Distribution", es: "Distribución" },
   video: { en: "Video", es: "Video" },
 };
 
@@ -483,7 +491,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 1,
     kind: "image",
-    title: { en: "Ganachery Signature Bags", es: "Bolsas Signature Ganachery" },
+    title: {
+      en: "Ganachery Signature Bag Collection",
+      es: "Colección de Bolsas Signature Ganachery",
+    },
     tagKey: "bags",
     colSpan: 1,
     rowSpan: 2,
@@ -491,7 +502,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 2,
     kind: "image",
-    title: { en: "Caffè Gourmet Collection", es: "Colección Caffè Gourmet" },
+    title: {
+      en: "Caffè Gourmet Packaging Collection",
+      es: "Colección de Empaques Caffè Gourmet",
+    },
     tagKey: "bags",
     colSpan: 1,
     rowSpan: 2,
@@ -500,8 +514,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 3,
     kind: "image",
     title: {
-      en: "Mario Hernandez Luxury Line",
-      es: "Línea de Lujo Mario Hernández",
+      en: "Mario Hernandez Luxury Packaging",
+      es: "Empaques de Lujo Mario Hernández",
     },
     tagKey: "bags",
     colSpan: 2,
@@ -511,7 +525,7 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 4,
     kind: "video",
     title: {
-      en: "Paper Cup Production in Motion",
+      en: "Paper Cup Production in Action",
       es: "Producción de Vasos en Acción",
     },
     tagKey: "video",
@@ -522,7 +536,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 5,
     kind: "image",
-    title: { en: "Spago Restaurant Suite", es: "Suite Restaurante Spago" },
+    title: {
+      en: "Spago Restaurant Packaging Suite",
+      es: "Suite de Empaques Restaurante Spago",
+    },
     tagKey: "boxes",
     colSpan: 2,
     rowSpan: 2,
@@ -530,7 +547,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 6,
     kind: "image",
-    title: { en: "Carama Premium Packaging", es: "Empaque Premium Carama" },
+    title: {
+      en: "Carama Premium Packaging Line",
+      es: "Línea de Empaques Premium Carama",
+    },
     tagKey: "boxes",
     colSpan: 2,
     rowSpan: 1,
@@ -538,7 +558,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 7,
     kind: "image",
-    title: { en: "CUT by Wolfgang Puck", es: "CUT por Wolfgang Puck" },
+    title: {
+      en: "CUT by Wolfgang Puck Packaging",
+      es: "Empaques CUT por Wolfgang Puck",
+    },
     tagKey: "food",
     colSpan: 2,
     rowSpan: 2,
@@ -548,7 +571,7 @@ const GALLERY_SEEDS: GallerySeed[] = [
     kind: "image",
     title: {
       en: "Premium Packaging Showcase",
-      es: "Exhibición de Empaque Premium",
+      es: "Exhibición de Empaques Premium",
     },
     tagKey: "bags",
     colSpan: 1,
@@ -558,8 +581,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 9,
     kind: "image",
     title: {
-      en: "Signature Retail Experience",
-      es: "Experiencia Retail Distintiva",
+      en: "Signature Retail Packaging Experience",
+      es: "Experiencia Distintiva de Empaque Retail",
     },
     tagKey: "bags",
     colSpan: 1,
@@ -568,19 +591,21 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 10,
     kind: "image",
-    title: { en: "Retail Display Ready", es: "Lista para Exhibición" },
+    title: {
+      en: "Retail-Ready Display Packaging",
+      es: "Empaques Listos para Exhibición Retail",
+    },
     tagKey: "retail",
     colSpan: 1,
     rowSpan: 2,
   },
 
-  // ✅ NOTE: all former "logistics" -> "manufacturing"
   {
     n: 11,
     kind: "image",
     title: {
-      en: "Production Line Excellence",
-      es: "Excelencia en Línea de Producción",
+      en: "High-Performance Production Lines",
+      es: "Líneas de Producción de Alto Rendimiento",
     },
     tagKey: "manufacturing",
     colSpan: 2,
@@ -589,7 +614,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 12,
     kind: "image",
-    title: { en: "Precision Manufacturing", es: "Manufactura de Precisión" },
+    title: {
+      en: "Precision Manufacturing Technology",
+      es: "Tecnología de Manufactura de Precisión",
+    },
     tagKey: "manufacturing",
     colSpan: 1,
     rowSpan: 1,
@@ -598,8 +626,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 13,
     kind: "image",
     title: {
-      en: "State-of-the-Art Facility",
-      es: "Instalaciones de Vanguardia",
+      en: "State-of-the-Art Manufacturing Facility",
+      es: "Instalaciones de Manufactura de Última Generación",
     },
     tagKey: "manufacturing",
     colSpan: 2,
@@ -608,7 +636,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 14,
     kind: "image",
-    title: { en: "Cold Chain Solutions", es: "Soluciones de Cadena de Frío" },
+    title: {
+      en: "Cold Chain Packaging Solutions",
+      es: "Soluciones de Empaque para Cadena de Frío",
+    },
     tagKey: "boxes",
     colSpan: 2,
     rowSpan: 1,
@@ -617,8 +648,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 15,
     kind: "image",
     title: {
-      en: "Panna Restaurant Collection",
-      es: "Colección Restaurante Panna",
+      en: "Panna Restaurant Packaging Collection",
+      es: "Colección de Empaques Restaurante Panna",
     },
     tagKey: "food",
     colSpan: 2,
@@ -628,8 +659,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 16,
     kind: "image",
     title: {
-      en: "Industrial Pallet Systems",
-      es: "Sistemas de Palets Industriales",
+      en: "Industrial Pallet Handling Systems",
+      es: "Sistemas Industriales de Manejo de Palets",
     },
     tagKey: "manufacturing",
     colSpan: 1,
@@ -639,8 +670,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 17,
     kind: "image",
     title: {
-      en: "Retail-Optimized Packaging",
-      es: "Empaque Optimizado para Retail",
+      en: "Retail-Optimized Packaging Solutions",
+      es: "Soluciones de Empaque Optimizadas para Retail",
     },
     tagKey: "retail",
     colSpan: 1,
@@ -650,8 +681,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 18,
     kind: "image",
     title: {
-      en: "Distribution Ready Systems",
-      es: "Sistemas Listos para Distribución",
+      en: "Distribution-Ready Packaging Systems",
+      es: "Sistemas de Empaque Listos para Distribución",
     },
     tagKey: "manufacturing",
     colSpan: 2,
@@ -661,8 +692,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 19,
     kind: "image",
     title: {
-      en: "Advanced Manufacturing Floor",
-      es: "Planta de Manufactura Avanzada",
+      en: "Advanced Manufacturing Operations",
+      es: "Operaciones de Manufactura Avanzada",
     },
     tagKey: "manufacturing",
     colSpan: 2,
@@ -672,8 +703,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 20,
     kind: "image",
     title: {
-      en: "Best Manufacturing Standards",
-      es: "Los mejores estándares de Manufactura",
+      en: "World-Class Manufacturing Standards",
+      es: "Estándares de Manufactura de Clase Mundial",
     },
     tagKey: "manufacturing",
     colSpan: 2,
@@ -683,8 +714,8 @@ const GALLERY_SEEDS: GallerySeed[] = [
     n: 21,
     kind: "image",
     title: {
-      en: "High-Capacity Production",
-      es: "Producción de Alta Capacidad",
+      en: "High-Capacity Production Systems",
+      es: "Sistemas de Producción de Alta Capacidad",
     },
     tagKey: "manufacturing",
     colSpan: 1,
@@ -693,7 +724,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 22,
     kind: "image",
-    title: { en: "Warehouse Efficiency", es: "Eficiencia en Almacén" },
+    title: {
+      en: "Efficient Warehouse Operations",
+      es: "Operaciones de Almacén Eficientes",
+    },
     tagKey: "manufacturing",
     colSpan: 1,
     rowSpan: 2,
@@ -701,7 +735,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 23,
     kind: "video",
-    title: { en: "Smart Manufacturing", es: "Fabricación Inteligente" },
+    title: {
+      en: "Smart Manufacturing Technology",
+      es: "Tecnología de Fabricación Inteligente",
+    },
     tagKey: "video",
     colSpan: 1,
     rowSpan: 1,
@@ -709,7 +746,10 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 24,
     kind: "video",
-    title: { en: "Automation in Action", es: "Automatización en Acción" },
+    title: {
+      en: "Automation in Production",
+      es: "Automatización en Producción",
+    },
     tagKey: "video",
     colSpan: 1,
     rowSpan: 2,
@@ -717,10 +757,200 @@ const GALLERY_SEEDS: GallerySeed[] = [
   {
     n: 25,
     kind: "image",
-    title: { en: "Pico E Gallo Collection", es: "Collecion " },
-    tagKey: "video",
+    title: {
+      en: "Pico e Gallo Packaging Collection",
+      es: "Colección de Empaques Pico e Gallo",
+    },
+    tagKey: "food",
     colSpan: 2,
     rowSpan: 1,
+  },
+  {
+    n: 26,
+    kind: "image",
+    title: {
+      en: "Inter Miami Packaging Collection",
+      es: "Colección de Empaques Inter Miami",
+    },
+    tagKey: "boxes",
+    colSpan: 1,
+    rowSpan: 1,
+  },
+  {
+    n: 27,
+    kind: "image",
+    title: {
+      en: "Toma Cone Packaging Design",
+      es: "Diseño de Empaque Toma Cone",
+    },
+    tagKey: "boxes",
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    n: 28,
+    kind: "image",
+    title: {
+      en: "Frozen-Ready Packaging Solutions",
+      es: "Soluciones de Empaque para Congelados",
+    },
+    tagKey: "retail",
+    colSpan: 2,
+    rowSpan: 1,
+  },
+  {
+    n: 29,
+    kind: "image",
+    title: {
+      en: "Mr. Eats Packaging Collection",
+      es: "Colección de Empaques Mr. Eats",
+    },
+    tagKey: "boxes",
+    colSpan: 2,
+    rowSpan: 1,
+  },
+  {
+    n: 30,
+    kind: "image",
+    title: {
+      en: "Ganachery Premium Box Collection",
+      es: "Colección de Cajas Premium Ganachery",
+    },
+    tagKey: "boxes",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 31,
+    kind: "video",
+    title: {
+      en: "Frozen Packaging Performance",
+      es: "Empaques Resistentes para Congelación",
+    },
+    tagKey: "video",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 32,
+    kind: "image",
+    title: {
+      en: "Premium Folding Box Solutions",
+      es: "Soluciones de Cajas Plegadizas Premium",
+    },
+    tagKey: "boxes",
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    n: 33,
+    kind: "image",
+    title: {
+      en: "Global Distribution Packaging",
+      es: "Empaques para Distribución Global",
+    },
+    tagKey: "distribution",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 34,
+    kind: "image",
+    title: {
+      en: "Ultra-High Quality Printing",
+      es: "Impresión de Máxima Calidad",
+    },
+    tagKey: "boxes",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 35,
+    kind: "image",
+    title: {
+      en: "Premium Offset Printing",
+      es: "Impresión Offset Premium",
+    },
+    tagKey: "boxes",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 36,
+    kind: "image",
+    title: {
+      en: "Luxury Packaging Print Finish",
+      es: "Acabados de Impresión de Lujo",
+    },
+    tagKey: "boxes",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 37,
+    kind: "image",
+    title: {
+      en: "Large-Scale Packaging Operations",
+      es: "Operaciones de Empaque a Gran Escala",
+    },
+    tagKey: "distribution",
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    n: 38,
+    kind: "image",
+    title: {
+      en: "Fully Custom Packaging Designs",
+      es: "Diseños de Empaque Totalmente Personalizados",
+    },
+    tagKey: "manufacturing",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 39,
+    kind: "video",
+    title: {
+      en: "Precision Die-Cutting Technology",
+      es: "Tecnología de Corte de Precisión",
+    },
+    tagKey: "manufacturing",
+    colSpan: 1,
+    rowSpan: 1,
+  },
+  {
+    n: 40,
+    kind: "video",
+    title: {
+      en: "High-Quality Production Process",
+      es: "Proceso de Producción de Alta Calidad",
+    },
+    tagKey: "manufacturing",
+    colSpan: 1,
+    rowSpan: 1,
+  },
+  {
+    n: 42,
+    kind: "image",
+    title: {
+      en: "Your Brand, Everywhere",
+      es: "Tu Marca en Todas Partes",
+    },
+    tagKey: "food",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    n: 43,
+    kind: "image",
+    title: {
+      en: "Premium Print Quality Packaging",
+      es: "Empaques con Impresión de Alta Calidad",
+    },
+    tagKey: "boxes",
+    colSpan: 2,
+    rowSpan: 2,
   },
 ];
 
