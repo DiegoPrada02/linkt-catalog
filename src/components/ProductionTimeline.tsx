@@ -8,7 +8,13 @@ import { useState } from "react";
 import { TIMELINE_DATA } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
 import TimelineCard from "./ui/TimelineCard";
-import { Lens } from "./ui/lens";
+
+const FONT = "'Funnel Sans', system-ui, sans-serif";
+
+const isVideoSource = (src: string): boolean =>
+  [".mp4", ".webm", ".ogg", ".mov", ".avi", ".mkv"].some((ext) =>
+    src.toLowerCase().endsWith(ext),
+  );
 
 export default function ProductionTimeline() {
   const { t } = useLanguage();
@@ -16,79 +22,47 @@ export default function ProductionTimeline() {
     (typeof TIMELINE_DATA)[0] | null
   >(null);
 
-  // Helper function to detect if source is a video based on file extension
-  const isVideoSource = (src: string): boolean => {
-    const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".avi", ".mkv"];
-    return videoExtensions.some((ext) => src.toLowerCase().endsWith(ext));
-  };
-
-  const handleCardClick = (item: (typeof TIMELINE_DATA)[0]) => {
-    setSelectedCard(item);
-  };
-
-  const handleClose = () => {
-    setSelectedCard(null);
-  };
-
   return (
     <>
+      {/* ── Timeline ──────────────────────────────────────────────────────── */}
       <Timeline
         position="alternate"
         sx={{
-          // Better padding system
           px: { xs: 0, sm: 3, md: 4 },
           py: { xs: 2, sm: 3 },
-
-          // Ensure timeline doesn't overflow
           maxWidth: "100%",
           overflow: "visible",
 
-          // Custom connector styling
           "& .MuiTimelineConnector-root": {
-            backgroundColor: "rgba(13, 27, 42, 0.12)",
+            backgroundColor: "var(--ink-12)",
             width: "2px",
           },
-
-          // Better spacing between items
           "& .MuiTimelineItem-root": {
             minHeight: { xs: "auto", sm: 220 },
             mb: { xs: 3, sm: 4, md: 5 },
-
             "&::before": {
               flex: { xs: 0, sm: 1 },
               padding: { xs: 0, sm: "6px 16px" },
             },
           },
-
-          // Opposite content (dates/labels on the other side)
           "& .MuiTimelineOppositeContent-root": {
             flex: { xs: 0, sm: 1 },
             padding: { xs: 0, sm: "6px 16px" },
             display: { xs: "none", sm: "block" },
           },
-
-          // Timeline content area
           "& .MuiTimelineContent-root": {
             padding: { xs: "6px 0 6px 16px", sm: "6px 16px" },
           },
-
-          // Dot styling
           "& .MuiTimelineDot-root": {
             margin: { xs: "12px 0", sm: "16px 0" },
-            boxShadow: "0 4px 12px rgba(13, 27, 42, 0.15)",
+            boxShadow: "0 4px 12px var(--ink-18)",
           },
-
-          // On mobile, all items align to the right (no alternating)
           "@media (max-width: 600px)": {
-            "& .MuiTimelineItem-root": {
-              flexDirection: "row !important",
-            },
+            "& .MuiTimelineItem-root": { flexDirection: "row !important" },
             "& .MuiTimelineOppositeContent-root": {
               display: "none !important",
             },
-            "& .MuiTimelineContent-root": {
-              paddingLeft: "16px !important",
-            },
+            "& .MuiTimelineContent-root": { paddingLeft: "16px !important" },
           },
         }}
       >
@@ -103,117 +77,238 @@ export default function ProductionTimeline() {
             img_link={item.img_link}
             isLast={index === TIMELINE_DATA.length - 1}
             isVideo={isVideoSource(item.img_link)}
-            onClick={() => handleCardClick(item)}
+            onClick={() => setSelectedCard(item)}
           />
         ))}
       </Timeline>
 
-      {/* Expanded Card Dialog */}
+      {/* ── Detail dialog ─────────────────────────────────────────────────── */}
       <Dialog
         open={selectedCard !== null}
-        onClose={handleClose}
+        onClose={() => setSelectedCard(null)}
         maxWidth="lg"
         fullWidth
         PaperProps={{
           sx: {
-            borderRadius: 3,
+            borderRadius: "22px",
             maxHeight: "90vh",
-            bgcolor: "var(--background-default)",
+            overflow: "hidden",
+            background:
+              "linear-gradient(160deg, #ffffff 0%, var(--background-default) 100%)",
+            border: "1px solid var(--ink-12)",
+            boxShadow: "0 24px 60px var(--ink-18)",
+            fontFamily: FONT,
           },
         }}
       >
+        {/* Close button */}
         <IconButton
-          onClick={handleClose}
+          onClick={() => setSelectedCard(null)}
           sx={{
             position: "absolute",
             right: 16,
             top: 16,
-            bgcolor: "white",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
             zIndex: 1300,
+            width: 40,
+            height: 40,
+            borderRadius: "12px",
+            backgroundColor: "rgba(255,255,255,0.9)",
+            border: "1px solid var(--ink-12)",
+            boxShadow: "0 4px 14px var(--ink-14)",
+            color: "var(--ink)",
+            transition: "all 0.2s ease",
             "&:hover": {
-              bgcolor: "rgba(255,255,255,0.95)",
-              transform: "scale(1.05)",
+              backgroundColor: "white",
+              transform: "scale(1.06)",
+              boxShadow: "0 6px 18px var(--ink-18)",
             },
-            transition: "all 0.2s",
           }}
         >
-          <X size={20} strokeWidth={2.5} />
+          <X size={18} strokeWidth={2.5} />
         </IconButton>
 
         <DialogContent sx={{ p: 0, overflow: "hidden" }}>
           {selectedCard && (
-            <div className="bg-white">
-              {/* Media Section */}
-              <div className="relative overflow-hidden bg-linear-to-br from-slate-100 to-blue-50/30 w-full h-75 sm:h-125">
-                <Lens>
-                  {isVideoSource(selectedCard.img_link) ? (
-                    <video
-                      src={selectedCard.img_link}
-                      className="w-300 h-auto object-center"
-                      controls
-                      autoPlay
-                      loop
-                      playsInline
-                    />
-                  ) : (
-                    <img
-                      src={selectedCard.img_link}
-                      alt={t(selectedCard.title)}
-                      className="w-auto h-120 mx-auto"
-                    />
-                  )}
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                </Lens>
+            <div style={{ position: "relative", overflow: "hidden" }}>
+              {/* Decorative background slab */}
+              <div
+                aria-hidden="true"
+                style={{
+                  pointerEvents: "none",
+                  position: "absolute",
+                  right: "-6%",
+                  top: "-20%",
+                  width: "38%",
+                  height: "140%",
+                  background:
+                    "linear-gradient(135deg, var(--gradient-blue-light), var(--gradient-blue-soft))",
+                  transform: "rotate(-12deg)",
+                  borderRadius: "18px",
+                  opacity: 0.35,
+                  zIndex: 0,
+                }}
+              />
+
+              {/* ── Media ─────────────────────────────────────────────────── */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  maxHeight: "480px",
+                  background: "black",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                }}
+              >
+                {isVideoSource(selectedCard.img_link) ? (
+                  <video
+                    src={selectedCard.img_link}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "480px",
+                      width: "auto",
+                      height: "auto",
+                      display: "block",
+                      objectFit: "contain",
+                    }}
+                    controls
+                    autoPlay
+                    loop
+                    playsInline
+                    muted
+                  />
+                ) : (
+                  <img
+                    src={selectedCard.img_link}
+                    alt={t(selectedCard.title)}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "480px",
+                      width: "auto",
+                      height: "auto",
+                      display: "block",
+                      objectFit: "contain",
+                    }}
+                  />
+                )}
+                {/* Scrim */}
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    pointerEvents: "none",
+                    background:
+                      "linear-gradient(to top, rgba(13,27,42,0.35), transparent 60%)",
+                  }}
+                />
               </div>
 
-              {/* Content Section */}
-              <div className="p-6 sm:p-8 lg:p-10">
-                {/* Phase Label */}
-                <div className="mb-4">
+              {/* ── Content ───────────────────────────────────────────────── */}
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  padding: "clamp(1.5rem, 4vw, 2.5rem)",
+                }}
+              >
+                {/* Phase chip */}
+                <div style={{ marginBottom: "1.25rem" }}>
                   <div
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "8px",
-                      padding: "10px 18px",
+                      gap: "7px",
+                      padding: "7px 14px",
                       borderRadius: "12px",
-                      backgroundColor: "rgba(13, 27, 42, 0.06)",
-                      border: "1px solid rgba(13, 27, 42, 0.10)",
-                      fontFamily: "'Sora', sans-serif",
-                      fontSize: "14px",
+                      background: "rgba(13,27,42,0.05)",
+                      border: "1px solid var(--ink-12)",
+                      fontFamily: FONT,
+                      fontSize: "13px",
                       fontWeight: 700,
-                      color: "var(--ink)",
+                      color: "var(--ink-80)",
+                      letterSpacing: "0.01em",
                     }}
                   >
-                    <Clock size={18} strokeWidth={2.5} />
+                    <Clock
+                      size={14}
+                      strokeWidth={2.5}
+                      style={{ color: "var(--ink-60)" }}
+                    />
                     {t(selectedCard.opposite)}
                   </div>
                 </div>
 
                 {/* Title */}
                 <h2
-                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-(--ink) mb-4"
-                  style={{ fontFamily: "'Sora', sans-serif" }}
+                  style={{
+                    margin: "0 0 0.85rem",
+                    fontFamily: FONT,
+                    fontSize: "clamp(1.4rem, 3vw, 2.2rem)",
+                    fontWeight: 900,
+                    color: "var(--ink)",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.1,
+                  }}
                 >
                   {t(selectedCard.title)}
                 </h2>
 
                 {/* Description */}
                 <p
-                  className="text-base sm:text-lg leading-relaxed text-(--ink-72) mb-6"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{
+                    margin: "0 0 1.75rem",
+                    fontFamily: FONT,
+                    fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)",
+                    fontWeight: 400,
+                    lineHeight: 1.75,
+                    color: "var(--ink-72)",
+                    maxWidth: "70ch",
+                  }}
                 >
                   {t(selectedCard.description)}
                 </p>
 
-                {/* Timeframe Badge */}
-                <div className="flex items-center gap-3 pt-4 border-t border-(--ink-12)">
-                  <div className="w-2 h-2 rounded-full bg-(--secondary-main)" />
+                {/* Timeframe row */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.6rem",
+                    paddingTop: "1.25rem",
+                    borderTop: "1px solid var(--ink-12)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 22,
+                      height: 22,
+                      borderRadius: "7px",
+                      background: "var(--ink)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 2px 8px var(--ink-18)",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Clock
+                      size={12}
+                      strokeWidth={2.5}
+                      color="var(--background-paper)"
+                    />
+                  </div>
                   <span
-                    className="text-sm font-bold text-(--ink-60) uppercase tracking-wider"
-                    style={{ fontFamily: "'Sora', sans-serif" }}
+                    style={{
+                      fontFamily: FONT,
+                      fontSize: "11px",
+                      fontWeight: 800,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "var(--ink-60)",
+                    }}
                   >
                     {t(selectedCard.timeframe)}
                   </span>

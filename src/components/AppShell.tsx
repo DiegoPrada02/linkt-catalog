@@ -8,36 +8,48 @@ interface AppShellProps {
 export default function AppShell({ children }: AppShellProps) {
   return (
     <div
-      className="
-        min-h-screen
-        animated-pastel-bg
-        text-(--ink)
-        flex flex-col
-      "
+      className="animated-pastel-bg"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        color: "var(--ink)",
+        fontFamily: "'Funnel Sans', system-ui, sans-serif",
+      }}
     >
-      {/* Header */}
+      {/* ── Header ─────────────────────────────────────────────────────────── */}
       <header
-        className="
-          sticky top-0 z-50
-          border-b border-(--ink-14)
-          backdrop-blur-md
-          shadow-sm
-        "
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          borderBottom: "1px solid var(--ink-12)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          boxShadow: "0 2px 16px var(--ink-12)",
+        }}
       >
         <ResponsiveAppBar />
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1 relative z-10">
-        <div className="mx-auto px-4 py-8 sm:py-12">
+      {/* ── Main ───────────────────────────────────────────────────────────── */}
+      <main
+        style={{
+          flex: 1,
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        <div
+          className="body-style"
+          style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}
+        >
           {children}
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-10">
-        <Footer />
-      </footer>
+      {/* ── Footer ─────────────────────────────────────────────────────────── */}
+      <Footer />
     </div>
   );
 }

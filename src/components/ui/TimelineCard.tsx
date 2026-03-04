@@ -7,6 +7,8 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Clock } from "lucide-react";
 
+const FONT = "'Funnel Sans', system-ui, sans-serif";
+
 type TimelineCardProps = {
   id: number;
   oppositeLabel: string;
@@ -31,7 +33,7 @@ export default function TimelineCard({
 }: TimelineCardProps) {
   return (
     <TimelineItem>
-      {/* Opposite Content - Date/Phase Label */}
+      {/* ── Opposite label — desktop ───────────────────────────────────────── */}
       <TimelineOppositeContent
         sx={{
           display: { xs: "none", sm: "flex" },
@@ -44,31 +46,38 @@ export default function TimelineCard({
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: "8px",
-            padding: "8px 16px",
+            gap: "7px",
+            padding: "7px 14px",
             borderRadius: "12px",
-            backgroundColor: "rgba(13, 27, 42, 0.06)",
-            border: "1px solid rgba(13, 27, 42, 0.10)",
-            fontFamily: "'Sora', sans-serif",
-            fontSize: "14px",
+            background:
+              "linear-gradient(160deg, #ffffff, var(--background-default))",
+            border: "1px solid var(--ink-12)",
+            boxShadow: "0 2px 10px var(--ink-12)",
+            fontFamily: FONT,
+            fontSize: "13px",
             fontWeight: 700,
-            color: "var(--ink)",
+            color: "var(--ink-80)",
+            letterSpacing: "0.01em",
           }}
         >
-          <Clock size={16} strokeWidth={2.5} />
+          <Clock
+            size={14}
+            strokeWidth={2.5}
+            style={{ color: "var(--ink-60)" }}
+          />
           {oppositeLabel}
         </div>
       </TimelineOppositeContent>
 
-      {/* Separator - Dot and Line */}
+      {/* ── Separator ─────────────────────────────────────────────────────── */}
       <TimelineSeparator>
         <TimelineDot
           sx={{
-            width: 16,
-            height: 16,
+            width: 14,
+            height: 14,
             backgroundColor: "var(--ink)",
             border: "3px solid var(--background-default)",
-            boxShadow: "0 0 0 3px rgba(13, 27, 42, 0.12)",
+            boxShadow: "0 0 0 3px var(--ink-12)",
             m: 0,
             p: 0,
           }}
@@ -76,7 +85,7 @@ export default function TimelineCard({
         {!isLast && (
           <TimelineConnector
             sx={{
-              backgroundColor: "rgba(13, 27, 42, 0.12)",
+              backgroundColor: "var(--ink-12)",
               width: "2px",
               minHeight: "60px",
             }}
@@ -84,26 +93,63 @@ export default function TimelineCard({
         )}
       </TimelineSeparator>
 
-      {/* Main Content - Card */}
-      <TimelineContent>
+      {/* ── Card ──────────────────────────────────────────────────────────── */}
+      <TimelineContent sx={{ pb: 4 }}>
         <div
           onClick={onClick}
-          className="
-            group
-            overflow-hidden rounded-2xl
-            border border-(--ink-12)
-            bg-white
-            shadow-md
-            transition-all duration-300
-            hover:shadow-xl hover:-translate-y-1 hover:border-(--ink-18)
-          "
+          className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
           style={{
             cursor: onClick ? "pointer" : "default",
+            borderRadius: "20px",
+            border: "1px solid var(--ink-12)",
+            background:
+              "linear-gradient(160deg, #ffffff 0%, var(--background-default) 100%)",
+            boxShadow: "0 4px 18px var(--ink-12)",
+            transition:
+              "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.boxShadow =
+              "0 14px 36px var(--ink-14)";
+            (e.currentTarget as HTMLElement).style.borderColor =
+              "var(--ink-18)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.boxShadow =
+              "0 4px 18px var(--ink-12)";
+            (e.currentTarget as HTMLElement).style.borderColor =
+              "var(--ink-12)";
           }}
         >
-          {/* Media */}
+          {/* Decorative background slab */}
+          <div
+            aria-hidden="true"
+            style={{
+              pointerEvents: "none",
+              position: "absolute",
+              right: "-8%",
+              top: "-35%",
+              width: "44%",
+              height: "170%",
+              background:
+                "linear-gradient(135deg, var(--gradient-blue-light), var(--gradient-blue-soft))",
+              transform: "rotate(-12deg)",
+              borderRadius: "14px",
+              opacity: 0.3,
+              transition: "opacity 0.3s ease",
+            }}
+            className="group-hover:opacity-50"
+          />
+
+          {/* ── Media ───────────────────────────────────────────────────── */}
           {img_link && (
-            <div className="relative overflow-hidden bg-linear-to-br from-slate-100 to-blue-50/30 aspect-video">
+            <div
+              className="relative overflow-hidden"
+              style={{
+                aspectRatio: "16/9",
+                background: "var(--background-default)",
+              }}
+            >
               <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
                 {isVideo ? (
                   <video
@@ -126,62 +172,134 @@ export default function TimelineCard({
                   />
                 )}
               </div>
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              {/* Gradient scrim */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  pointerEvents: "none",
+                  background:
+                    "linear-gradient(to top, rgba(13,27,42,0.22), transparent 55%)",
+                }}
+              />
             </div>
           )}
 
-          {/* Content */}
-          <div className="p-5 sm:p-6">
-            {/* Mobile-only opposite label */}
-            <div className="sm:hidden mb-3">
+          {/* ── Body ────────────────────────────────────────────────────── */}
+          <div
+            style={{
+              position: "relative",
+              zIndex: 1,
+              padding: "1.5rem 1.5rem 1.35rem",
+            }}
+          >
+            {/* Mobile-only phase label */}
+            <div className="sm:hidden" style={{ marginBottom: "0.85rem" }}>
               <div
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "6px",
-                  padding: "6px 12px",
+                  padding: "5px 11px",
                   borderRadius: "10px",
-                  backgroundColor: "rgba(13, 27, 42, 0.06)",
-                  border: "1px solid rgba(13, 27, 42, 0.10)",
-                  fontFamily: "'Sora', sans-serif",
-                  fontSize: "12px",
+                  background: "rgba(13,27,42,0.05)",
+                  border: "1px solid var(--ink-12)",
+                  fontFamily: FONT,
+                  fontSize: "11px",
                   fontWeight: 700,
                   color: "var(--ink-72)",
                 }}
               >
-                <Clock size={14} strokeWidth={2.5} />
+                <Clock size={12} strokeWidth={2.5} />
                 {oppositeLabel}
               </div>
             </div>
 
             {/* Title */}
             <h3
-              className="text-lg sm:text-xl font-black text-(--ink) mb-2"
-              style={{ fontFamily: "'Sora', sans-serif" }}
+              style={{
+                margin: "0 0 0.5rem",
+                fontFamily: FONT,
+                fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+                fontWeight: 900,
+                color: "var(--ink)",
+                letterSpacing: "-0.01em",
+                lineHeight: 1.2,
+              }}
             >
               {title}
             </h3>
 
             {/* Description */}
             <p
-              className="text-sm leading-relaxed text-(--ink-72) mb-4"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{
+                margin: "0 0 1.1rem",
+                fontFamily: FONT,
+                fontSize: "0.875rem",
+                fontWeight: 400,
+                lineHeight: 1.7,
+                color: "var(--ink-72)",
+              }}
             >
               {description}
             </p>
 
-            {/* Timeframe Badge */}
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-(--secondary-main)" />
+            {/* Timeframe badge */}
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <div
+                style={{
+                  width: 20,
+                  height: 20,
+                  borderRadius: "6px",
+                  background: "var(--ink)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 2px 6px var(--ink-18)",
+                  flexShrink: 0,
+                }}
+              >
+                <Clock
+                  size={11}
+                  strokeWidth={2.5}
+                  color="var(--background-paper)"
+                />
+              </div>
               <span
-                className="text-xs font-bold text-(--ink-60) uppercase tracking-wider"
-                style={{ fontFamily: "'Sora', sans-serif" }}
+                style={{
+                  fontFamily: FONT,
+                  fontSize: "11px",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--ink-60)",
+                }}
               >
                 {timeframe}
               </span>
             </div>
           </div>
+
+          {/* Bottom streak on hover */}
+          <div
+            aria-hidden="true"
+            className="group-hover:opacity-100"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "2px",
+              borderRadius: "0 0 20px 20px",
+              background:
+                "linear-gradient(90deg, transparent, var(--ink) 35%, var(--ink) 65%, transparent)",
+              opacity: 0,
+              transition: "opacity 0.3s ease",
+            }}
+          />
         </div>
       </TimelineContent>
     </TimelineItem>

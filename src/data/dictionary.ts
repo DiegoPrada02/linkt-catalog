@@ -1988,6 +1988,6 @@ export const TIMELINE_DATA: TimelineItemData[] = [
       es: "Nuestra infraestructura de distribución entra en acción, coordinando almacenamiento, gestionando transportistas y rastreando cada envío para asegurar que tu empaque llegue a tiempo, intacto y listo para impresionar clientes en todo el mundo.",
     },
     timeframe: { en: "Ongoing", es: "Continuo" },
-    img_link: "https://www.w3schools.com/html/mov_bbb.mp4",
+    img_link: "/images/gallery-images/40.webm",
   },
 ];

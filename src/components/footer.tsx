@@ -1,7 +1,7 @@
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pages, brand } from "../data/dictionary";
+import { brand, pages } from "../data/dictionary";
 import { useLanguage } from "../i18n/LanguageProvider";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -9,210 +9,450 @@ export default function Footer() {
 
   return (
     <footer
-      className="
-        relative z-40 mt-24
-        border-t border-(--ink-14)
-        bg-linear-to-br from-(--ink) via-[rgba(1,38,86,0.95)] to-(--ink)
-        backdrop-blur-md
-        overflow-hidden
-      "
+      className="relative z-40 mt-24 overflow-hidden"
+      style={{
+        background: "var(--ink)",
+        borderTop: "1px solid var(--ink-18)",
+        fontFamily: "'Funnel Sans', system-ui, sans-serif",
+      }}
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-500/10 rounded-full blur-3xl" />
+      {/* ── Decorative shapes (banner language) ─────────────────────────── */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        {/* Large rotated slab — right */}
+        <div
+          style={{
+            position: "absolute",
+            right: "-8%",
+            top: "-60%",
+            width: "38%",
+            height: "220%",
+            background:
+              "linear-gradient(135deg, rgba(199,221,247,0.055), rgba(219,234,254,0.025))",
+            transform: "rotate(-12deg)",
+            borderRadius: "18px",
+          }}
+        />
+        {/* Thin skewed streak */}
+        <div
+          style={{
+            position: "absolute",
+            right: "28%",
+            top: 0,
+            width: "6px",
+            height: "100%",
+            background: "rgba(224,225,221,0.06)",
+            transform: "skewX(-18deg)",
+            borderRadius: "999px",
+          }}
+        />
+        {/* Faint second streak */}
+        <div
+          style={{
+            position: "absolute",
+            right: "30%",
+            top: 0,
+            width: "2px",
+            height: "100%",
+            background: "rgba(224,225,221,0.03)",
+            transform: "skewX(-18deg)",
+            borderRadius: "999px",
+          }}
+        />
+        {/* Bottom-left glow */}
+        <div
+          style={{
+            position: "absolute",
+            left: "-60px",
+            bottom: "-60px",
+            width: "280px",
+            height: "280px",
+            borderRadius: "999px",
+            background:
+              "radial-gradient(circle, rgba(163,207,255,0.06), transparent 70%)",
+          }}
+        />
+        {/* Top-right glow */}
+        <div
+          style={{
+            position: "absolute",
+            right: "-40px",
+            top: "-40px",
+            width: "220px",
+            height: "220px",
+            borderRadius: "999px",
+            background:
+              "radial-gradient(circle, rgba(199,221,247,0.05), transparent 70%)",
+          }}
+        />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8 py-16">
-        {/* Main Content Grid */}
+        {/* ── Main grid ─────────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 mb-12">
-          
-          {/* Brand Section - Takes more space */}
+          {/* Brand */}
           <div className="lg:col-span-5">
-            {/* Logo */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-3 mb-5 group"
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                style={{
+                  width: 46,
+                  height: 46,
+                  borderRadius: "13px",
+                  backgroundColor: "rgba(255,255,255,0.09)",
+                  border: "1px solid rgba(224,225,221,0.18)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  flexShrink: 0,
+                  transition: "opacity 0.2s ease",
+                }}
+                className="group-hover:opacity-80"
+              >
                 <img
                   src="/Logo.png"
                   alt="Link'T Systems logo"
-                  className="w-8 h-8 object-contain"
+                  style={{ height: 34, width: "auto" }}
                 />
               </div>
-              <h3 
-                className="text-2xl font-black tracking-tight text-(--background-paper)"
-                style={{ fontFamily: "'Sora', sans-serif" }}
+              <span
+                style={{
+                  fontFamily: "'Funnel Sans', system-ui, sans-serif",
+                  fontWeight: 900,
+                  fontSize: "18px",
+                  letterSpacing: "0.10em",
+                  textTransform: "uppercase",
+                  color: "var(--background-paper)",
+                }}
               >
-                {t(brand.name)}
-              </h3>
-            </div>
+                Link&apos;T Systems
+              </span>
+            </Link>
 
-            <p 
-              className="mt-4 max-w-md text-base leading-relaxed text-(--background-paper)/85"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+            <p
+              style={{
+                marginTop: "0.25rem",
+                maxWidth: "42ch",
+                fontSize: "0.95rem",
+                lineHeight: 1.65,
+                color: "rgba(224,225,221,0.68)",
+                fontWeight: 400,
+              }}
             >
               {t(brand.tagline)}
             </p>
 
-            {/* Social proof badges */}
+            {/* Stats badges */}
             <div className="mt-6 flex flex-wrap gap-3">
-              <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-2 backdrop-blur-sm">
-                <div className="text-xs font-bold text-(--background-paper)/70 uppercase tracking-wide mb-0.5">
-                  {t({ en: "Experience", es: "Experiencia" })}
+              {[
+                {
+                  label: { en: "Experience", es: "Experiencia" },
+                  value: `15+ ${t({ en: "Years", es: "Años" })}`,
+                },
+                {
+                  label: { en: "Projects", es: "Proyectos" },
+                  value: "10,000+",
+                },
+              ].map((badge) => (
+                <div
+                  key={badge.value}
+                  style={{
+                    borderRadius: "14px",
+                    background: "rgba(255,255,255,0.055)",
+                    border: "1px solid rgba(224,225,221,0.14)",
+                    padding: "0.55rem 1rem",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 800,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "rgba(224,225,221,0.50)",
+                      marginBottom: "2px",
+                    }}
+                  >
+                    {t(badge.label)}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "1.1rem",
+                      fontWeight: 900,
+                      color: "var(--background-paper)",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {badge.value}
+                  </div>
                 </div>
-                <div className="text-lg font-black text-(--background-paper)">
-                  15+ {t({ en: "Years", es: "Años" })}
-                </div>
-              </div>
-              <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-2 backdrop-blur-sm">
-                <div className="text-xs font-bold text-(--background-paper)/70 uppercase tracking-wide mb-0.5">
-                  {t({ en: "Projects", es: "Proyectos" })}
-                </div>
-                <div className="text-lg font-black text-(--background-paper)">10,000+</div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Nav links */}
           <div className="lg:col-span-3">
-            <h4 
-              className="text-sm font-black tracking-wider uppercase text-(--background-paper) mb-5"
-              style={{ fontFamily: "'Sora', sans-serif" }}
+            <h4
+              style={{
+                margin: "0 0 1.25rem",
+                fontSize: "11px",
+                fontWeight: 800,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "rgba(224,225,221,0.50)",
+              }}
             >
               {t(brand.footer.navTitle)}
             </h4>
-            <ul className="space-y-3">
+            <ul
+              style={{
+                listStyle: "none",
+                margin: 0,
+                padding: 0,
+                display: "grid",
+                gap: "0.6rem",
+              }}
+            >
               {pages.map((p) => (
                 <li key={p.path}>
                   <Link
                     to={p.path}
-                    className="
-                      group inline-flex items-center gap-1
-                      text-base text-(--background-paper)/80
-                      hover:text-(--background-paper)
-                      transition-all duration-200
-                    "
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    className="group"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.25rem",
+                      textDecoration: "none",
+                      fontSize: "0.95rem",
+                      fontWeight: 600,
+                      color: "rgba(224,225,221,0.75)",
+                      transition: "color 0.2s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--background-paper)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "rgba(224,225,221,0.75)")
+                    }
                   >
-                    <span className="relative">
+                    <span style={{ position: "relative" }}>
                       {t(p.label)}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-(--secondary-main) transition-all duration-300 group-hover:w-full" />
+                      {/* skewed underline on hover via CSS class */}
+                      <span
+                        className="footer-nav-line"
+                        style={{
+                          position: "absolute",
+                          bottom: -1,
+                          left: 0,
+                          height: "2px",
+                          width: 0,
+                          borderRadius: "2px",
+                          background: "var(--background-paper)",
+                          transform: "skewX(-8deg)",
+                          transition: "width 0.25s ease",
+                        }}
+                      />
                     </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" strokeWidth={2.5} />
+                    <ArrowUpRight
+                      className="footer-nav-arrow"
+                      style={{
+                        width: 13,
+                        height: 13,
+                        opacity: 0,
+                        transform: "translateX(-4px)",
+                        transition: "opacity 0.2s ease, transform 0.2s ease",
+                        strokeWidth: 2.5,
+                      }}
+                    />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact */}
           <div className="lg:col-span-4">
-            <h4 
-              className="text-sm font-black tracking-wider uppercase text-(--background-paper) mb-5"
-              style={{ fontFamily: "'Sora', sans-serif" }}
+            <h4
+              style={{
+                margin: "0 0 1.25rem",
+                fontSize: "11px",
+                fontWeight: 800,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "rgba(224,225,221,0.50)",
+              }}
             >
               {t(brand.footer.contactTitle)}
             </h4>
-            <div className="space-y-4">
-              {/* Email */}
-              <a 
-                href={`mailto:${brand.email}`}
-                className="
-                  group flex items-start gap-3
-                  text-(--background-paper)/80
-                  hover:text-(--background-paper)
-                  transition-all duration-200
-                "
-              >
-                <div className="mt-0.5 rounded-lg bg-white/5 p-2 border border-white/10 group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-200">
-                  <Mail className="w-4 h-4" strokeWidth={2} />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-(--background-paper)/60 uppercase tracking-wide mb-1">
-                    Email
-                  </div>
-                  <div 
-                    className="text-sm font-medium group-hover:underline underline-offset-2"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+            <div style={{ display: "grid", gap: "1rem" }}>
+              {[
+                {
+                  Icon: Mail,
+                  label: "Email",
+                  value: brand.email,
+                  href: `mailto:${brand.email}`,
+                  isLink: true,
+                },
+                {
+                  Icon: Phone,
+                  label: t({ en: "Phone", es: "Teléfono" }),
+                  value: brand.phone,
+                  href: undefined,
+                  isLink: false,
+                },
+                {
+                  Icon: MapPin,
+                  label: t({ en: "Location", es: "Ubicación" }),
+                  value: t(brand.address),
+                  href: undefined,
+                  isLink: false,
+                },
+              ].map(({ Icon, label, value, href, isLink }) => {
+                const inner = (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                    }}
                   >
-                    {brand.email}
+                    <div
+                      style={{
+                        marginTop: "2px",
+                        borderRadius: "10px",
+                        background: "rgba(255,255,255,0.05)",
+                        border: "1px solid rgba(224,225,221,0.12)",
+                        padding: "0.45rem",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        transition:
+                          "background 0.2s ease, border-color 0.2s ease",
+                      }}
+                    >
+                      <Icon style={{ width: 15, height: 15, strokeWidth: 2 }} />
+                    </div>
+                    <div>
+                      <div
+                        style={{
+                          fontSize: "10px",
+                          fontWeight: 800,
+                          letterSpacing: "0.12em",
+                          textTransform: "uppercase",
+                          color: "rgba(224,225,221,0.45)",
+                          marginBottom: "3px",
+                        }}
+                      >
+                        {label}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "0.875rem",
+                          fontWeight: 500,
+                          lineHeight: 1.5,
+                          color: "rgba(224,225,221,0.78)",
+                        }}
+                      >
+                        {value}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </a>
+                );
 
-              {/* Phone */}
-              <div className="flex items-start gap-3 text-(--background-paper)/80">
-                <div className="mt-0.5 rounded-lg bg-white/5 p-2 border border-white/10">
-                  <Phone className="w-4 h-4" strokeWidth={2} />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-(--background-paper)/60 uppercase tracking-wide mb-1">
-                    {t({ en: "Phone", es: "Teléfono" })}
-                  </div>
-                  <div 
-                    className="text-sm font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                return isLink ? (
+                  <a
+                    key={label}
+                    href={href}
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                      transition: "opacity 0.2s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.opacity = "0.85")
+                    }
+                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                   >
-                    {brand.phone}
-                  </div>
-                </div>
-              </div>
-
-              {/* Address */}
-              <div className="flex items-start gap-3 text-(--background-paper)/80">
-                <div className="mt-0.5 rounded-lg bg-white/5 p-2 border border-white/10">
-                  <MapPin className="w-4 h-4" strokeWidth={2} />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-(--background-paper)/60 uppercase tracking-wide mb-1">
-                    {t({ en: "Location", es: "Ubicación" })}
-                  </div>
-                  <div 
-                    className="text-sm font-medium leading-relaxed"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {t(brand.address)}
-                  </div>
-                </div>
-              </div>
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={label}>{inner}</div>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="relative pt-8 border-t border-white/10">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            {/* Copyright */}
-            <div 
-              className="text-sm text-(--background-paper)/70"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+        {/* ── Bottom bar ────────────────────────────────────────────────── */}
+        <div
+          style={{
+            position: "relative",
+            paddingTop: "2rem",
+            borderTop: "1px solid rgba(224,225,221,0.10)",
+          }}
+        >
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p
+              style={{
+                margin: 0,
+                fontSize: "0.82rem",
+                fontWeight: 500,
+                color: "rgba(224,225,221,0.45)",
+              }}
             >
               © {year} {t(brand.name)}. {t(brand.footer.rights)}
-            </div>
-
-            {/* Quick Contact */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-(--background-paper)/70">
-              <a 
+            </p>
+            <div
+              className="flex flex-wrap items-center gap-3"
+              style={{ fontSize: "0.82rem", color: "rgba(224,225,221,0.45)" }}
+            >
+              <a
                 href={`mailto:${brand.email}`}
-                className="
-                  hover:text-(--background-paper) 
-                  transition-colors duration-200
-                  hover:underline underline-offset-2
-                "
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{
+                  textDecoration: "none",
+                  color: "rgba(224,225,221,0.55)",
+                  fontWeight: 500,
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--background-paper)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "rgba(224,225,221,0.55)")
+                }
               >
                 {brand.email}
               </a>
-              <span className="opacity-40">•</span>
-              <span style={{ fontFamily: "'Inter', sans-serif" }}>
-                {brand.phone}
-              </span>
+              <span style={{ opacity: 0.3 }}>•</span>
+              <span style={{ fontWeight: 500 }}>{brand.phone}</span>
             </div>
           </div>
 
-          {/* Decorative gradient line */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-(--secondary-main)/50 to-transparent" />
+          {/* Skewed gradient rule — signature motif */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "1px",
+              background:
+                "linear-gradient(90deg, transparent, rgba(224,225,221,0.18) 35%, rgba(224,225,221,0.18) 65%, transparent)",
+              transform: "skewX(-2deg)",
+            }}
+          />
         </div>
       </div>
+
+      {/* Hover helpers via injected style — avoids extra CSS file */}
+      <style>{`
+        .group:hover .footer-nav-line { width: 100% !important; }
+        .group:hover .footer-nav-arrow { opacity: 1 !important; transform: translateX(0) !important; }
+      `}</style>
     </footer>
   );
 }

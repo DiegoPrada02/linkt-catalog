@@ -7,6 +7,8 @@ import { useLanguage } from "../i18n/LanguageProvider";
 import { SparklesText } from "./ui/sparkles-text";
 import Vidimg from "./ui/vidimg";
 
+const FONT = "'Funnel Sans', system-ui, sans-serif";
+
 export function Hero() {
   const [sliderIndex, setSliderIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -14,7 +16,6 @@ export function Hero() {
   const { t } = useLanguage();
   const total = BannerData.length;
 
-  // Track viewport breakpoint (md = 768 px)
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
     const handler = (e: MediaQueryListEvent | MediaQueryList) =>
@@ -24,13 +25,14 @@ export function Hero() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const variants = useMemo(() => {
-    return BannerData.map((item, index) => {
-      const v = (item as any).variant as number | undefined;
-      if (typeof v === "number") return Math.max(0, Math.min(5, v));
-      return index % 6;
-    });
-  }, []);
+  const variants = useMemo(
+    () =>
+      BannerData.map((item, index) => {
+        const v = (item as any).variant as number | undefined;
+        return typeof v === "number" ? Math.max(0, Math.min(5, v)) : index % 6;
+      }),
+    [],
+  );
 
   function showPreviousImage() {
     setSliderIndex((i) => (i === 0 ? total - 1 : i - 1));
@@ -39,7 +41,6 @@ export function Hero() {
     setSliderIndex((i) => (i === total - 1 ? 0 : i + 1));
   }
 
-  // ── Swipe / touch support ───────────────────────────────────────────────
   function onTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX;
   }
@@ -51,21 +52,24 @@ export function Hero() {
     touchStartX.current = null;
   }
 
-  // ── Fixed dimension tokens ──────────────────────────────────────────────
-  const DESKTOP_HEIGHT = 520; // px — slider wrapper on desktop
-  const DESKTOP_MEDIA_W = 480; // px — right-side media box width
-  const DESKTOP_MEDIA_H = 340; // px — right-side media box height
-  const MOBILE_HEIGHT = 500; // px — total slide height on mobile
-  const MOBILE_MEDIA_H = 220; // px — image/video block on mobile
+  const DESKTOP_HEIGHT = 540;
+  const DESKTOP_MEDIA_W = 480;
+  const DESKTOP_MEDIA_H = 360;
+  const MOBILE_HEIGHT = 500;
+  const MOBILE_MEDIA_H = 220;
 
   return (
     <div
-      className="hero-slider relative w-full overflow-hidden rounded-3xl shadow-2xl"
-      style={{ height: isMobile ? MOBILE_HEIGHT : DESKTOP_HEIGHT }}
+      className="hero-slider relative w-full overflow-hidden rounded-3xl"
+      style={{
+        height: isMobile ? MOBILE_HEIGHT : DESKTOP_HEIGHT,
+        boxShadow: "0 18px 45px var(--ink-18)",
+        border: "1px solid var(--ink-12)",
+      }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* ── Slider Track ───────────────────────────────────────────────────── */}
+      {/* ── Slider track ───────────────────────────────────────────────────── */}
       <div
         className="flex h-full transition-transform duration-500 ease-out"
         style={{
@@ -93,9 +97,9 @@ export function Hero() {
               }}
             >
               {isMobile ? (
-                /* ════════════ MOBILE — stacked ════════════════════════════ */
+                /* ══════════════ MOBILE — stacked ═══════════════════════════ */
                 <div className="relative w-full h-full flex flex-col overflow-hidden">
-                  {/* Media — top, fixed height */}
+                  {/* Media */}
                   <div
                     className="relative z-10 w-full shrink-0 overflow-hidden"
                     style={{ height: MOBILE_MEDIA_H }}
@@ -108,91 +112,39 @@ export function Hero() {
                     />
                   </div>
 
-                  {/* Text — remaining space */}
+                  {/* Text */}
                   <div
-                    className="banner-content relative z-10 flex flex-col justify-center gap-3 px-4 py-4 overflow-hidden"
-                    style={{ height: MOBILE_HEIGHT - MOBILE_MEDIA_H }}
-                  >
-                    <p
-                      className="banner-eyebrow text-xs"
-                      style={{ fontFamily: "'Sora', sans-serif" }}
-                    >
-                      {eyebrow}
-                    </p>
-
-                    <h2
-                      className="banner-title line-clamp-2 text-xl! leading-tight!"
-                      style={{ fontFamily: "'Sora', 'system-ui', sans-serif" }}
-                    >
-                      <SparklesText>{title}</SparklesText>
-                    </h2>
-
-                    <p
-                      className="banner-text line-clamp-3 text-sm!"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {text}
-                    </p>
-
-                    <Link
-                      className="banner-cta self-start text-sm! px-4! py-2!"
-                      to={item.cta.href}
-                      style={{ fontFamily: "'Sora', sans-serif" }}
-                    >
-                      {ctaText}
-                      <svg
-                        className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
-
-                  {/* Decorative shapes */}
-                  <div className="banner-art" aria-hidden="true">
-                    <span className="shape a" />
-                    <span className="shape b" />
-                    <span className="shape c" />
-                    <span className="shape d" />
-                  </div>
-                </div>
-              ) : (
-                /* ════════════ DESKTOP — side-by-side ══════════════════════ */
-                <div className="relative w-full h-full flex items-center justify-between px-15 sm:px-15 lg:px-20 gap-8 overflow-hidden">
-                  {/* Left: Text */}
-                  <div
-                    className="banner-content relative z-10 flex flex-col justify-center gap-4 shrink-0 overflow-hidden"
+                    className="banner-content relative z-10 flex flex-col justify-center px-5 py-5 overflow-hidden"
                     style={{
-                      width: `calc(100% - ${DESKTOP_MEDIA_W}px - 2rem)`,
-                      maxWidth: 520,
-                      height: DESKTOP_MEDIA_H,
+                      height: MOBILE_HEIGHT - MOBILE_MEDIA_H,
+                      gap: "0.6rem",
                     }}
                   >
                     <p
                       className="banner-eyebrow"
-                      style={{ fontFamily: "'Sora', sans-serif" }}
+                      style={{ fontFamily: FONT, fontSize: "10px" }}
                     >
                       {eyebrow}
                     </p>
 
                     <h2
-                      className="banner-title line-clamp-3"
-                      style={{ fontFamily: "'Sora', 'system-ui', sans-serif" }}
+                      className="banner-title line-clamp-2"
+                      style={{
+                        fontFamily: FONT,
+                        fontSize: "1.2rem",
+                        lineHeight: 1.15,
+                      }}
                     >
                       <SparklesText>{title}</SparklesText>
                     </h2>
 
                     <p
-                      className="banner-text line-clamp-4"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      className="banner-text line-clamp-2"
+                      style={{
+                        fontFamily: FONT,
+                        fontSize: "0.82rem",
+                        lineHeight: 1.6,
+                      }}
                     >
                       {text}
                     </p>
@@ -200,29 +152,75 @@ export function Hero() {
                     <Link
                       className="banner-cta self-start"
                       to={item.cta.href}
-                      style={{ fontFamily: "'Sora', sans-serif" }}
+                      style={{
+                        fontFamily: FONT,
+                        fontSize: "0.8rem",
+                        padding: "0.55rem 1.1rem",
+                        borderRadius: "12px",
+                        marginTop: "0.25rem",
+                      }}
                     >
                       {ctaText}
-                      <svg
-                        className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
+                      <ArrowIcon small />
                     </Link>
                   </div>
 
-                  {/* Right: Fixed media box */}
+                  <BannerShapes />
+                </div>
+              ) : (
+                /* ══════════════ DESKTOP — side-by-side ═══════════════════ */
+                <div
+                  className="relative w-full h-full flex items-center justify-between overflow-hidden"
+                  style={{ padding: "0 5rem 0 5rem", gap: "3rem" }}
+                >
+                  {/* Left: Text */}
                   <div
-                    className="relative z-10 shrink-0 rounded-2xl overflow-hidden shadow-2xl"
-                    style={{ width: DESKTOP_MEDIA_W, height: DESKTOP_MEDIA_H }}
+                    className="banner-content relative z-10 flex flex-col justify-center shrink-0"
+                    style={{
+                      width: `calc(100% - ${DESKTOP_MEDIA_W}px - 3rem)`,
+                      maxWidth: 520,
+                      height: DESKTOP_MEDIA_H,
+                      gap: "1rem",
+                    }}
+                  >
+                    <p className="banner-eyebrow" style={{ fontFamily: FONT }}>
+                      {eyebrow}
+                    </p>
+
+                    <h2
+                      className="banner-title line-clamp-3"
+                      style={{ fontFamily: FONT }}
+                    >
+                      <SparklesText>{title}</SparklesText>
+                    </h2>
+
+                    <p
+                      className="banner-text line-clamp-3"
+                      style={{ fontFamily: FONT }}
+                    >
+                      {text}
+                    </p>
+
+                    <Link
+                      className="banner-cta self-start"
+                      to={item.cta.href}
+                      style={{ fontFamily: FONT, marginTop: "0.25rem" }}
+                    >
+                      {ctaText}
+                      <ArrowIcon />
+                    </Link>
+                  </div>
+
+                  {/* Right: Media */}
+                  <div
+                    className="relative z-10 shrink-0 overflow-hidden"
+                    style={{
+                      width: DESKTOP_MEDIA_W,
+                      height: DESKTOP_MEDIA_H,
+                      borderRadius: "18px",
+                      boxShadow: "0 12px 40px var(--ink-18)",
+                      border: "1px solid var(--ink-12)",
+                    }}
                   >
                     <Vidimg
                       source={item.img}
@@ -232,13 +230,7 @@ export function Hero() {
                     />
                   </div>
 
-                  {/* Decorative shapes */}
-                  <div className="banner-art" aria-hidden="true">
-                    <span className="shape a" />
-                    <span className="shape b" />
-                    <span className="shape c" />
-                    <span className="shape d" />
-                  </div>
+                  <BannerShapes />
                 </div>
               )}
             </section>
@@ -246,71 +238,46 @@ export function Hero() {
         })}
       </div>
 
-      {/* ── Prev / Next buttons — desktop only (mobile uses swipe) ─────────── */}
+      {/* ── Prev / Next — desktop only ─────────────────────────────────────── */}
       {!isMobile && (
         <>
-          <button
+          <NavButton
+            direction="left"
             onClick={showPreviousImage}
-            className="
-              slider-btn absolute left-4 top-1/2 -translate-y-1/2 z-20
-              w-12 h-12 rounded-full
-              bg-white/10 backdrop-blur-md border border-white/20
-              flex items-center justify-center
-              transition-all duration-300
-              hover:bg-white/20 hover:scale-110 active:scale-95 shadow-lg
-            "
             aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
-          </button>
-
-          <button
+          />
+          <NavButton
+            direction="right"
             onClick={showNextImage}
-            className="
-              slider-btn absolute right-4 top-1/2 -translate-y-1/2 z-20
-              w-12 h-12 rounded-full
-              bg-white/10 backdrop-blur-md border border-white/20
-              flex items-center justify-center
-              transition-all duration-300
-              hover:bg-white/20 hover:scale-110 active:scale-95 shadow-lg
-            "
             aria-label="Next slide"
-          >
-            <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
-          </button>
+          />
         </>
       )}
 
       {/* ── Pagination dots ────────────────────────────────────────────────── */}
       <div
-        className="
-          absolute bottom-4 left-1/2 -translate-x-1/2 z-20
-          flex items-center gap-1.5
-          px-3 py-1.5 rounded-full
-          bg-black/20 backdrop-blur-md border border-white/10
-        "
+        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5"
+        style={{
+          padding: "0.4rem 0.75rem",
+          borderRadius: "999px",
+          background: "rgba(13,27,42,0.22)",
+          backdropFilter: "blur(8px)",
+          border: "1px solid rgba(224,225,221,0.12)",
+        }}
       >
         {BannerData.map((_, index) => (
           <button
             key={index}
-            className="
-              slider-dot group
-              w-7 h-7 rounded-full
-              flex items-center justify-center
-              transition-all duration-300 hover:scale-110
-            "
+            className="slider-dot group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
             onClick={() => setSliderIndex(index)}
             aria-label={`Go to slide ${index + 1}`}
             aria-current={index === sliderIndex ? "true" : "false"}
           >
             {index === sliderIndex ? (
-              <Dot
-                className="w-5 h-5 fill-current transition-transform duration-300"
-                strokeWidth={3}
-              />
+              <Dot className="w-5 h-5 fill-current" strokeWidth={3} />
             ) : (
               <Circle
-                className="w-2.5 h-2.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                className="w-2.5 h-2.5 opacity-50 group-hover:opacity-90 transition-opacity duration-300"
                 strokeWidth={2}
               />
             )}
@@ -318,5 +285,75 @@ export function Hero() {
         ))}
       </div>
     </div>
+  );
+}
+
+/* ── Small sub-components ──────────────────────────────────────────────────── */
+
+function BannerShapes() {
+  return (
+    <div className="banner-art" aria-hidden="true">
+      <span className="shape a" />
+      <span className="shape b" />
+      <span className="shape c" />
+      <span className="shape d" />
+    </div>
+  );
+}
+
+function ArrowIcon({ small }: { small?: boolean }) {
+  const size = small ? 13 : 16;
+  return (
+    <svg
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      style={{ flexShrink: 0, transition: "transform 0.25s ease" }}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2.5}
+        d="M13 7l5 5m0 0l-5 5m5-5H6"
+      />
+    </svg>
+  );
+}
+
+function NavButton({
+  direction,
+  onClick,
+  ...rest
+}: {
+  direction: "left" | "right";
+  onClick: () => void;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  const isLeft = direction === "left";
+  return (
+    <button
+      onClick={onClick}
+      {...rest}
+      className="slider-btn absolute z-20 top-1/2 -translate-y-1/2 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
+      style={{
+        [isLeft ? "left" : "right"]: "1.25rem",
+        width: 44,
+        height: 44,
+        borderRadius: "50%",
+        background: "rgba(13,27,42,0.30)",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(224,225,221,0.20)",
+        boxShadow: "0 4px 14px var(--ink-18)",
+        color: "var(--background-paper)",
+        cursor: "pointer",
+      }}
+    >
+      {isLeft ? (
+        <ChevronLeft style={{ width: 20, height: 20, strokeWidth: 2.5 }} />
+      ) : (
+        <ChevronRight style={{ width: 20, height: 20, strokeWidth: 2.5 }} />
+      )}
+    </button>
   );
 }
