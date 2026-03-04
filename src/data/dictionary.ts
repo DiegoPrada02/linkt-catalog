@@ -432,7 +432,7 @@ export const galleryFilters = {
   bags: { en: "Bags", es: "Bolsas" },
   food: { en: "Food", es: "Alimentos" },
   retail: { en: "Retail", es: "Retail" },
-  logistics: { en: "Logistics", es: "Logística" },
+  logistics: { en: "Manufacturing", es: "Manufactura" },
   distribution: { en: "Distribution", es: "Distribución" },
   video: { en: "Videos", es: "Videos" },
 } satisfies Record<string, I18nText>;
@@ -442,309 +442,304 @@ export type GalleryTagKey =
   | "bags"
   | "food"
   | "retail"
-  | "logistics"
+  | "Manufacturing"
   | "distribution"
   | "video";
 
+type GalleryKind = "image" | "video";
+
 export type GalleryItem = {
   id: string;
-  kind: "image" | "video";
+  kind: GalleryKind;
   src: string;
   poster?: string;
-  title: I18nText;
-  tagKey: GalleryTagKey;
-  tag: I18nText;
-  colSpan: 1 | 2;
-  rowSpan: 1 | 2;
+  title: { en: string; es: string };
+  tagKey: "bags" | "boxes" | "food" | "retail" | "manufacturing" | "video";
+  tag: { en: string; es: string };
+  colSpan: number;
+  rowSpan: number;
 };
 
-export const galleryItems: GalleryItem[] = [
+const TAG_LABELS: Record<GalleryItem["tagKey"], { en: string; es: string }> = {
+  bags: { en: "Bags", es: "Bolsas" },
+  boxes: { en: "Boxes", es: "Cajas" },
+  food: { en: "Food", es: "Comida" },
+  retail: { en: "Retail", es: "Retail" },
+  manufacturing: { en: "Manufacturing", es: "Manufactura" },
+  video: { en: "Video", es: "Video" },
+};
+
+type GallerySeed = {
+  n: number; // image/video number (maps to /images/gallery-images/{n}.*)
+  kind: GalleryKind;
+  title: { en: string; es: string };
+  tagKey: GalleryItem["tagKey"];
+  colSpan: number;
+  rowSpan: number;
+};
+
+// ✅ Only maintain this list (short + readable)
+const GALLERY_SEEDS: GallerySeed[] = [
   {
-    id: "g1",
+    n: 1,
     kind: "image",
-    src: "/images/gallery-images/1.webp",
     title: { en: "Ganachery Signature Bags", es: "Bolsas Signature Ganachery" },
     tagKey: "bags",
-    tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g2",
+    n: 2,
     kind: "image",
-    src: "/images/gallery-images/2.webp",
     title: { en: "Caffè Gourmet Collection", es: "Colección Caffè Gourmet" },
     tagKey: "bags",
-    tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g3",
+    n: 3,
     kind: "image",
-    src: "/images/gallery-images/3.webp",
     title: {
       en: "Mario Hernandez Luxury Line",
       es: "Línea de Lujo Mario Hernández",
     },
     tagKey: "bags",
-    tag: { en: "Bags", es: "Bolsas" },
     colSpan: 2,
     rowSpan: 2,
   },
   {
-    id: "g4",
+    n: 4,
     kind: "video",
-    src: "/images/gallery-images/4.webm",
-    poster: "/images/gallery-images/4.webp",
     title: {
       en: "Paper Cup Production in Motion",
       es: "Producción de Vasos en Acción",
     },
     tagKey: "video",
-    tag: { en: "Video", es: "Video" },
     colSpan: 2,
     rowSpan: 2,
   },
+
   {
-    id: "g5",
+    n: 5,
     kind: "image",
-    src: "/images/gallery-images/5.webp",
     title: { en: "Spago Restaurant Suite", es: "Suite Restaurante Spago" },
     tagKey: "boxes",
-    tag: { en: "Boxes", es: "Cajas" },
     colSpan: 2,
     rowSpan: 2,
   },
   {
-    id: "g6",
+    n: 6,
     kind: "image",
-    src: "/images/gallery-images/6.webp",
     title: { en: "Carama Premium Packaging", es: "Empaque Premium Carama" },
     tagKey: "boxes",
-    tag: { en: "Boxes", es: "Cajas" },
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    id: "g7",
+    n: 7,
     kind: "image",
-    src: "/images/gallery-images/7.webp",
     title: { en: "CUT by Wolfgang Puck", es: "CUT por Wolfgang Puck" },
     tagKey: "food",
-    tag: { en: "Food", es: "Comida" },
     colSpan: 2,
     rowSpan: 2,
   },
   {
-    id: "g8",
+    n: 8,
     kind: "image",
-    src: "/images/gallery-images/8.webp",
     title: {
       en: "Premium Packaging Showcase",
       es: "Exhibición de Empaque Premium",
     },
     tagKey: "bags",
-    tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g9",
+    n: 9,
     kind: "image",
-    src: "/images/gallery-images/9.webp",
     title: {
       en: "Signature Retail Experience",
       es: "Experiencia Retail Distintiva",
     },
     tagKey: "bags",
-    tag: { en: "Bags", es: "Bolsas" },
     colSpan: 1,
     rowSpan: 1,
   },
   {
-    id: "g10",
+    n: 10,
     kind: "image",
-    src: "/images/gallery-images/10.webp",
     title: { en: "Retail Display Ready", es: "Lista para Exhibición" },
     tagKey: "retail",
-    tag: { en: "Retail", es: "Retail" },
     colSpan: 1,
     rowSpan: 2,
   },
+
+  // ✅ NOTE: all former "logistics" -> "manufacturing"
   {
-    id: "g11",
+    n: 11,
     kind: "image",
-    src: "/images/gallery-images/11.webp",
     title: {
       en: "Production Line Excellence",
       es: "Excelencia en Línea de Producción",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    id: "g12",
+    n: 12,
     kind: "image",
-    src: "/images/gallery-images/12.webp",
     title: { en: "Precision Manufacturing", es: "Manufactura de Precisión" },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 1,
     rowSpan: 1,
   },
   {
-    id: "g13",
+    n: 13,
     kind: "image",
-    src: "/images/gallery-images/13.webp",
     title: {
       en: "State-of-the-Art Facility",
       es: "Instalaciones de Vanguardia",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    id: "g14",
+    n: 14,
     kind: "image",
-    src: "/images/gallery-images/14.webp",
     title: { en: "Cold Chain Solutions", es: "Soluciones de Cadena de Frío" },
     tagKey: "boxes",
-    tag: { en: "Boxes", es: "Cajas" },
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    id: "g15",
+    n: 15,
     kind: "image",
-    src: "/images/gallery-images/15.webp",
     title: {
       en: "Panna Restaurant Collection",
       es: "Colección Restaurante Panna",
     },
     tagKey: "food",
-    tag: { en: "Food", es: "Comida" },
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    id: "g16",
+    n: 16,
     kind: "image",
-    src: "/images/gallery-images/16.webp",
     title: {
       en: "Industrial Pallet Systems",
       es: "Sistemas de Palets Industriales",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g17",
+    n: 17,
     kind: "image",
-    src: "/images/gallery-images/17.webp",
     title: {
       en: "Retail-Optimized Packaging",
       es: "Empaque Optimizado para Retail",
     },
     tagKey: "retail",
-    tag: { en: "Retail", es: "Retail" },
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g18",
+    n: 18,
     kind: "image",
-    src: "/images/gallery-images/18.webp",
     title: {
       en: "Distribution Ready Systems",
       es: "Sistemas Listos para Distribución",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 2,
     rowSpan: 2,
   },
   {
-    id: "g19",
+    n: 19,
     kind: "image",
-    src: "/images/gallery-images/19.webp",
     title: {
       en: "Advanced Manufacturing Floor",
       es: "Planta de Manufactura Avanzada",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    id: "g20",
+    n: 20,
     kind: "image",
-    src: "/images/gallery-images/20.webp",
     title: {
-      en: "Best manufacturing Standards",
+      en: "Best Manufacturing Standards",
       es: "Los mejores estándares de Manufactura",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 2,
     rowSpan: 2,
   },
   {
-    id: "g21",
+    n: 21,
     kind: "image",
-    src: "/images/gallery-images/21.webp",
     title: {
       en: "High-Capacity Production",
       es: "Producción de Alta Capacidad",
     },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g22",
+    n: 22,
     kind: "image",
-    src: "/images/gallery-images/22.webp",
     title: { en: "Warehouse Efficiency", es: "Eficiencia en Almacén" },
-    tagKey: "logistics",
-    tag: { en: "Logistics", es: "Logística" },
+    tagKey: "manufacturing",
     colSpan: 1,
     rowSpan: 2,
   },
   {
-    id: "g23",
+    n: 23,
     kind: "video",
-    src: "/images/gallery-images/23.webm",
-    poster: "/images/gallery-images/23.webp",
     title: { en: "Smart Manufacturing", es: "Fabricación Inteligente" },
     tagKey: "video",
-    tag: { en: "Video", es: "Video" },
     colSpan: 1,
     rowSpan: 1,
   },
   {
-    id: "g24",
+    n: 24,
     kind: "video",
-    src: "/images/gallery-images/24.webm",
-    poster: "/images/gallery-images/24.webp",
-    title: {
-      en: "Automation in Action",
-      es: "Automatización en Acción",
-    },
+    title: { en: "Automation in Action", es: "Automatización en Acción" },
     tagKey: "video",
-    tag: { en: "Video", es: "Video" },
     colSpan: 1,
     rowSpan: 2,
   },
+  {
+    n: 25,
+    kind: "image",
+    title: { en: "Pico E Gallo Collection", es: "Collecion " },
+    tagKey: "video",
+    colSpan: 2,
+    rowSpan: 1,
+  },
 ];
+
+export const galleryItems: GalleryItem[] = GALLERY_SEEDS.map((s) => {
+  const id = `g${s.n}`;
+  const base = `/images/gallery-images/${s.n}`;
+
+  return {
+    id,
+    kind: s.kind,
+    src: s.kind === "video" ? `${base}.webm` : `${base}.webp`,
+    ...(s.kind === "video" ? { poster: `${base}.webp` } : {}),
+    title: s.title,
+    tagKey: s.tagKey,
+    tag: TAG_LABELS[s.tagKey],
+    colSpan: s.colSpan,
+    rowSpan: s.rowSpan,
+  };
+});
 
 /* CATALOG AREA */
 
