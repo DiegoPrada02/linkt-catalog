@@ -20,8 +20,7 @@ import { useLanguage } from "../i18n/LanguageProvider";
 
 // ── shared token ──────────────────────────────────────────────────────────────
 const TEXT = "var(--background-paper)"; // #e0e1dd — light parchment
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const TEXT_DIM = "rgba(224,225,221,0.55)";
+
 const TEXT_MID = "rgba(224,225,221,0.80)";
 const HOVER_BG = "rgba(255,255,255,0.08)";
 const ACTIVE_BG = "rgba(255,255,255,0.12)";
