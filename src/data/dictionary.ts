@@ -1171,7 +1171,12 @@ export const CATEGORIES: Category[] = [
           en: "Precision packaging for products that demand perfection.",
           es: "Empaque de precisión para productos que exigen perfección.",
         },
-        image: ["/images/catalog-images/folding-boxes/folding-box-s.webp"],
+        image: [
+          "/images/catalog-images/folding-boxes/folding-box-s.webp",
+          "/images/catalog-images/folding-boxes/folding-box-s-2.webp",
+          "/images/catalog-images/folding-boxes/folding-box-s-3.webp",
+          "/images/catalog-images/folding-boxes/folding-box-s-4.webp",
+        ],
         details: {
           longDescription: {
             en: "Engineered for the products where every millimeter matters. High-resolution printing brings your brand to life on packaging designed for cosmetics, tech accessories, and specialty retail items that deserve packaging as exceptional as what's inside.",
@@ -1192,7 +1197,12 @@ export const CATEGORIES: Category[] = [
           en: "The retail champion—built for everyday excellence.",
           es: "El campeón del retail—hecha para excelencia cotidiana.",
         },
-        image: ["/images/catalog-images/folding-boxes/folding-box-m.webp"],
+        image: [
+          "/images/catalog-images/folding-boxes/folding-box-m.webp",
+          "/images/catalog-images/folding-boxes/folding-box-m-2.webp",
+          "/images/catalog-images/folding-boxes/folding-box-m-3.webp",
+          "/images/catalog-images/folding-boxes/folding-box-m-4.webp",
+        ],
         details: {
           longDescription: {
             en: "Strike the perfect balance between protection and presentation. This format dominates shelves across consumer goods, combining structural integrity with premium finishes that make customers reach for your product first.",
@@ -1217,7 +1227,12 @@ export const CATEGORIES: Category[] = [
           en: "Powerful protection meets commanding shelf presence.",
           es: "Protección poderosa con presencia dominante en estantería.",
         },
-        image: ["/images/catalog-images/folding-boxes/folding-box-l.webp"],
+        image: [
+          "/images/catalog-images/folding-boxes/folding-box-l.webp",
+          "/images/catalog-images/folding-boxes/folding-box-l-2.webp",
+          "/images/catalog-images/folding-boxes/folding-box-l-3.webp",
+          "/images/catalog-images/folding-boxes/folding-box-l-4.webp",
+        ],
         details: {
           longDescription: {
             en: "When your product carries weight, your packaging should too. Reinforced construction handles heavier loads while premium printing ensures your brand dominates every inch of shelf space—because bigger products deserve bigger impact.",
@@ -1293,7 +1308,11 @@ export const CATEGORIES: Category[] = [
           en: "Designed for freshness and presentation, our sushi bags keep your culinary creations at their best while showcasing your brand with style.",
           es: "Diseñadas para la frescura y presentación, nuestras bolsas de sushi mantienen tus creaciones culinarias en su mejor estado mientras muestran tu marca con estilo.",
         },
-        image: ["/images/catalog-images/sushi-line/sushi-line-bags.webp"],
+        image: [
+          "/images/catalog-images/sushi-line/sushi-line-bags.webp",
+          "/images/catalog-images/sushi-line/sushi-line-bags-2.webp",
+          "/images/catalog-images/sushi-line/sushi-line-bags-3.webp",
+        ],
         details: {
           longDescription: {
             en: "Our sushi bags are crafted with food-grade materials that provide excellent moisture resistance and durability, ensuring your sushi stays fresh and intact during transport. With customizable printing options, you can create a unique brand experience that resonates with your customers and elevates your sushi offerings.",
@@ -1320,7 +1339,11 @@ export const CATEGORIES: Category[] = [
           en: "Our sushi boxes are designed to keep your culinary creations fresh and visually appealing, with customizable options to showcase your brand's unique style.",
           es: "Nuestras cajas de sushi están diseñadas para mantener tus creaciones culinarias frescas y visualmente atractivas, con opciones personalizables para mostrar el estilo único de tu marca.",
         },
-        image: ["/images/catalog-images/sushi-line/sushi-line-boxes.webp"],
+        image: [
+          "/images/catalog-images/sushi-line/sushi-line-boxes.webp",
+          "/images/catalog-images/sushi-line/sushi-line-boxes-2.webp",
+          "/images/catalog-images/sushi-line/sushi-line-boxes-3.webp",
+        ],
         details: {
           longDescription: {
             en: "Crafted with food-grade materials, our sushi boxes provide excellent moisture resistance and durability, ensuring your sushi stays fresh and intact during transport. With customizable printing options, you can create a unique brand experience that resonates with your customers and elevates your sushi offerings.",
@@ -1350,7 +1373,10 @@ export const CATEGORIES: Category[] = [
           en: "Tailored packaging solutions for sushi and Japanese cuisine, designed to meet your specific needs and elevate your brand's presentation.",
           es: "Soluciones de empaque personalizadas para sushi y cocina japonesa, diseñadas para satisfacer tus necesidades específicas y elevar la presentación de tu marca.",
         },
-        image: ["/images/catalog-images/sushi-line/sushi-custom.webp"],
+        image: [
+          "/images/catalog-images/sushi-line/sushi-line-c.webp",
+          "/images/catalog-images/sushi-line/sushi-line-c-2.webp",
+        ],
         details: {
           longDescription: {
             en: "Our custom sushi packaging solutions are designed to meet your specific needs, whether you're looking for unique shapes, sizes, or finishes. We work closely with you to create packaging that not only keeps your sushi fresh and secure but also enhances your brand's presentation and resonates with your customers.",
@@ -1387,19 +1413,22 @@ export const CATEGORIES: Category[] = [
     id: "paper-cups",
     title: { en: "Paper Cups", es: "Vasos de Papel" },
     description: {
-      en: "High-quality paper cup solutions for hot and cold beverages.",
-      es: "Soluciones de vasos de papel de alta calidad para bebidas frías y calientes.",
+      en: "Disposable paper cups designed for serving hot and cold beverages in cafes, restaurants, events, and takeout services.",
+      es: "Vasos de papel desechables diseñados para servir bebidas frías y calientes en cafeterías, restaurantes, eventos y servicios para llevar.",
     },
     image: "/images/catalog-images/paper-cups/paper-cups-cover.webp",
     subcategories: [
       {
-        id: "paper-cup-small",
-        title: { en: "Small Paper Cups", es: "Vasos de Papel Pequeños" },
+        id: "paper-cup-espresso",
+        title: { en: "Espresso Paper Cup", es: "Vasos de Papel para Espresso" },
         description: {
-          en: "Compact and practical small paper cups, ideal for espresso, samples, and small servings.",
-          es: "Vasos de papel pequeños, compactos y prácticos, ideales para espresso, muestras y porciones pequeñas.",
+          en: "Small paper cups designed for espresso shots, tastings, and small servings.",
+          es: "Vasos de papel pequeños diseñados para shots de espresso, degustaciones y porciones pequeñas.",
         },
-        image: ["/images/catalog-images/paper-cups/paper-cups-small.webp"],
+        image: [
+          "/images/catalog-images/paper-cups/espresso-cup.webp",
+          "/images/catalog-images/paper-cups/espresso-cup-2.webp",
+        ],
         details: {
           longDescription: {
             en: "Our small paper cups are crafted with food-grade materials, offering excellent insulation and leak resistance. Perfect for coffee shops, events, and sampling stations, they can be fully customized with your brand's artwork to create a memorable customer experience.",
@@ -1420,13 +1449,16 @@ export const CATEGORIES: Category[] = [
         },
       },
       {
-        id: "paper-cup-medium",
-        title: { en: "Medium Paper Cups", es: "Vasos de Papel Medianos" },
+        id: "paper-cup-coffee-cup",
+        title: { en: "Coffee Paper Cup", es: "Vasos Para Cafe" },
         description: {
-          en: "Versatile medium paper cups suitable for coffee, tea, soft drinks, and everyday beverages.",
-          es: "Vasos de papel medianos versátiles, adecuados para café, té, refrescos y bebidas del día a día.",
+          en: "Medium paper cups made for coffee and everyday hot beverages like tea and cacao.",
+          es: "Vasos de papel medianos hechos para café y bebidas calientes diarias como té y cacao.",
         },
-        image: ["/images/catalog-images/paper-cups/paper-cups-medium.webp"],
+        image: [
+          "/images/catalog-images/paper-cups/coffee-cup.webp",
+          "/images/catalog-images/paper-cups/coffee-cup-2.webp",
+        ],
         details: {
           longDescription: {
             en: "Designed for everyday use, our medium paper cups balance capacity and portability. Made with food-grade PE-coated paper, they maintain temperature effectively for both hot and cold drinks. Customizable printing ensures your brand stands out at every sip.",
@@ -1447,13 +1479,16 @@ export const CATEGORIES: Category[] = [
         },
       },
       {
-        id: "paper-cup-large",
-        title: { en: "Large Paper Cups", es: "Vasos de Papel Grandes" },
+        id: "paper-cup-22oz-soda",
+        title: { en: "Soda Paper Cups", es: "Vasos de Papel Para Soda" },
         description: {
-          en: "Generous large paper cups perfect for smoothies, large coffees, fountain drinks, and more.",
-          es: "Amplios vasos de papel grandes, perfectos para smoothies, cafés grandes, refrescos y más.",
+          en: "Large paper cups ideal for soda, fountain drinks, and other cold beverages.",
+          es: "Vasos de papel grandes ideales para soda, bebidas de fuente y otras bebidas frías.",
         },
-        image: ["/images/catalog-images/paper-cups/paper-cups-large.webp"],
+        image: [
+          "/images/catalog-images/paper-cups/soda-cup.webp",
+          "/images/catalog-images/paper-cups/soda-cup-2.webp",
+        ],
         details: {
           longDescription: {
             en: "Our large paper cups are built for high-volume beverage service, offering superior structural integrity and insulation. Ideal for restaurants, stadiums, and fast-food chains, they are available with double-wall options for extra heat retention and full custom branding.",
@@ -1474,13 +1509,17 @@ export const CATEGORIES: Category[] = [
         },
       },
       {
-        id: "paper-cup-custom",
-        title: { en: "Custom Paper Cups", es: "Vasos de Papel Personalizados" },
+        id: "ice-cream-cup",
+        title: { en: "Ice Cream Paper Cup", es: "Vasos de Papel para Helados" },
         description: {
-          en: "Fully tailored paper cup solutions designed to match your brand's exact specifications and vision.",
-          es: "Soluciones de vasos de papel completamente personalizadas, diseñadas para coincidir con las especificaciones exactas y la visión de tu marca.",
+          en: "Paper cups made for ice cream, frozen desserts, and cold food servings.",
+          es: "Vasos de papel hechos para helados, postres congelados y porciones de alimentos fríos.",
         },
-        image: ["/images/catalog-images/paper-cups/paper-cups-custom.webp"],
+        image: [
+          "/images/catalog-images/paper-cups/ice-cream-cup.webp",
+          "/images/catalog-images/paper-cups/ice-cream-cup-2.webp",
+          "/images/catalog-images/paper-cups/ice-cream-cup-3.webp",
+        ],
         details: {
           longDescription: {
             en: "Our custom paper cups are designed from the ground up to meet your unique requirements. From custom sizes and capacities to specialty coatings and finishes, we collaborate with you to produce cups that perfectly represent your brand while maintaining the highest food-safety standards.",
@@ -1513,7 +1552,6 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
-
   {
     id: "food-containers",
     title: { en: "Food Containers", es: "Contenedores de Comida" },
