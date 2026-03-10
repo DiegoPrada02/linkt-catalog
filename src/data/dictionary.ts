@@ -1800,8 +1800,41 @@ export const CATEGORIES: Category[] = [
       en: "Durable and customizable food containers for a wide variety of culinary offerings.",
       es: "Contenedores de comida duraderos y personalizables para una amplia variedad de ofertas culinarias.",
     },
-    image: "/images/catalog-images/food-containers/food-containers-cover.webp",
+    image: "/images/catalog-images/bakery-boxes/bakery-box-cover.webp",
     subcategories: [
+      {
+        id: "bakery-box",
+        title: {
+          en: "Bakery Box",
+          es: "Caja Para Panadería",
+        },
+        description: {
+          en: "Sturdy and grease-resistant burger containers that keep your burgers fresh, warm, and visually appealing.",
+          es: "Contenedores para hamburguesas resistentes y a prueba de grasa que mantienen tus hamburguesas frescas, calientes y visualmente atractivas.",
+        },
+        image: [
+          "/images/catalog-images/bakery-boxes/bakery-box-cover.webp",
+          "/images/catalog-images/bakery-boxes/bakery-box-2.webp",
+        ],
+        details: {
+          longDescription: {
+            en: "Our burger containers are engineered with grease-resistant, food-grade materials that lock in heat and freshness. Designed with a secure clamshell closure, they prevent spills and maintain the structural integrity of your burgers during delivery or takeout. Fully customizable with your brand's artwork for a premium presentation.",
+            es: "Nuestros contenedores para hamburguesas están fabricados con materiales aptos para alimentos y resistentes a la grasa que retienen el calor y la frescura. Diseñados con un cierre tipo almeja seguro, evitan derrames y mantienen la integridad estructural de tus hamburguesas durante la entrega o para llevar. Totalmente personalizables con el arte de tu marca para una presentación premium.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 300,
+          size: { widthMm: 130, heightMm: 80, depthMm: 130 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
       {
         id: "cake-box",
         title: {
@@ -1812,7 +1845,10 @@ export const CATEGORIES: Category[] = [
           en: "Sturdy and grease-resistant burger containers that keep your burgers fresh, warm, and visually appealing.",
           es: "Contenedores para hamburguesas resistentes y a prueba de grasa que mantienen tus hamburguesas frescas, calientes y visualmente atractivas.",
         },
-        image: ["/images/catalog-images/food-containers/burger-container.webp"],
+        image: [
+          "/images/catalog-images/bakery-boxes/cake-box-cover.webp",
+          "/images/catalog-images/bakery-boxes/cake-box-2.webp",
+        ],
         details: {
           longDescription: {
             en: "Our burger containers are engineered with grease-resistant, food-grade materials that lock in heat and freshness. Designed with a secure clamshell closure, they prevent spills and maintain the structural integrity of your burgers during delivery or takeout. Fully customizable with your brand's artwork for a premium presentation.",
@@ -1835,14 +1871,19 @@ export const CATEGORIES: Category[] = [
       {
         id: "pan-jamon-box",
         title: {
-          en: "Pan Jamon Box",
-          es: "Caja para Pan Jamon",
+          en: "Pan de Jamon Box",
+          es: "Caja para Pan de Jamon",
         },
         description: {
           en: "Elongated and practical hotdog containers designed to hold and present your hotdogs with style.",
           es: "Contenedores para perros calientes alargados y prácticos, diseñados para sostener y presentar tus perros calientes con estilo.",
         },
-        image: ["/images/catalog-images/food-containers/hotdog-container.webp"],
+        image: [
+          "/images/catalog-images/bakery-boxes/pan-jamon-box.webp",
+          "/images/catalog-images/bakery-boxes/pan-jamon-box-2.webp",
+          "/images/catalog-images/bakery-boxes/pan-jamon-box-3.webp",
+          "/images/catalog-images/bakery-boxes/pan-jamon-box-4.webp",
+        ],
         details: {
           longDescription: {
             en: "Specifically shaped for hotdogs and sausages, our hotdog containers provide a snug fit that keeps the food secure and warm. Made from food-grade grease-resistant materials, they are ideal for stadiums, food trucks, and fast-food outlets. Custom printing options allow you to reinforce your brand at every serving.",
@@ -1854,6 +1895,72 @@ export const CATEGORIES: Category[] = [
           },
           paperGsm: 280,
           size: { widthMm: 60, heightMm: 70, depthMm: 200 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "pastry-box",
+        title: {
+          en: "Pastry Box",
+          es: "Caja Para Pastelitos",
+        },
+        description: {
+          en: "Sturdy and grease-resistant burger containers that keep your burgers fresh, warm, and visually appealing.",
+          es: "Contenedores para hamburguesas resistentes y a prueba de grasa que mantienen tus hamburguesas frescas, calientes y visualmente atractivas.",
+        },
+        image: [
+          "/images/catalog-images/bakery-boxes/pastry-box.webp",
+          "/images/catalog-images/bakery-boxes/pastry-box-2.webp",
+        ],
+        details: {
+          longDescription: {
+            en: "Our burger containers are engineered with grease-resistant, food-grade materials that lock in heat and freshness. Designed with a secure clamshell closure, they prevent spills and maintain the structural integrity of your burgers during delivery or takeout. Fully customizable with your brand's artwork for a premium presentation.",
+            es: "Nuestros contenedores para hamburguesas están fabricados con materiales aptos para alimentos y resistentes a la grasa que retienen el calor y la frescura. Diseñados con un cierre tipo almeja seguro, evitan derrames y mantienen la integridad estructural de tus hamburguesas durante la entrega o para llevar. Totalmente personalizables con el arte de tu marca para una presentación premium.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 300,
+          size: { widthMm: 130, heightMm: 80, depthMm: 130 },
+          printing: {
+            en: "Full color CMYK with food-safe inks",
+            es: "Color completo CMYK con tintas seguras para alimentos",
+          },
+          minimumOrderQty: 1000,
+          productionTime: { minDays: 10, maxDays: 20 },
+        },
+      },
+      {
+        id: "small-pastry-box",
+        title: {
+          en: "Small Pastry Box",
+          es: "Caja Para Pastelitos pequeña",
+        },
+        description: {
+          en: "Sturdy and grease-resistant burger containers that keep your burgers fresh, warm, and visually appealing.",
+          es: "Contenedores para hamburguesas resistentes y a prueba de grasa que mantienen tus hamburguesas frescas, calientes y visualmente atractivas.",
+        },
+        image: [
+          "/images/catalog-images/bakery-boxes/small-pastry-box.webp",
+          "/images/catalog-images/bakery-boxes/small-pastry-box-2.webp",
+        ],
+        details: {
+          longDescription: {
+            en: "Our burger containers are engineered with grease-resistant, food-grade materials that lock in heat and freshness. Designed with a secure clamshell closure, they prevent spills and maintain the structural integrity of your burgers during delivery or takeout. Fully customizable with your brand's artwork for a premium presentation.",
+            es: "Nuestros contenedores para hamburguesas están fabricados con materiales aptos para alimentos y resistentes a la grasa que retienen el calor y la frescura. Diseñados con un cierre tipo almeja seguro, evitan derrames y mantienen la integridad estructural de tus hamburguesas durante la entrega o para llevar. Totalmente personalizables con el arte de tu marca para una presentación premium.",
+          },
+          paperType: {
+            en: "Food-grade grease-resistant paperboard",
+            es: "Cartulina resistente a la grasa apta para alimentos",
+          },
+          paperGsm: 300,
+          size: { widthMm: 130, heightMm: 80, depthMm: 130 },
           printing: {
             en: "Full color CMYK with food-safe inks",
             es: "Color completo CMYK con tintas seguras para alimentos",
